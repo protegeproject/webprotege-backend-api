@@ -4,7 +4,6 @@ import com.google.common.base.Objects;
 import edu.stanford.protege.webprotege.project.ProjectId;
 import edu.stanford.protege.webprotege.user.UserId;
 import org.semanticweb.owlapi.model.OWLEntity;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.annotation.Nonnull;
 
@@ -16,16 +15,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 20 Apr 2017
  */
-//@Entity(value = "Watches", noClassnameStored = true)
-//@Indexes({
-//                 @Index(fields = {
-//                         @Field(PROJECT_ID),
-//                         @Field(USER_ID),
-//                         @Field(value = WatchRecord.ENTITY)},
-//                        options = @IndexOptions(unique = true))
-//         }
-//)
-@Document("Watches")
 public class WatchRecord {
 
     public static final String PROJECT_ID = "projectId";

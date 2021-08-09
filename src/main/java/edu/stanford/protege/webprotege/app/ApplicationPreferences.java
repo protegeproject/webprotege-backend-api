@@ -1,8 +1,6 @@
 package edu.stanford.protege.webprotege.app;
 
 import com.google.common.base.Objects;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.annotation.Nonnull;
 
@@ -16,14 +14,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * An object that holds application preferences that are stored in the database.
  */
-//@Entity(cap = @CappedAt(count = 1L), noClassnameStored = true)
-@Document(collection = "ApplicationPreferences")
 public class ApplicationPreferences {
 
     public static final String ID = "Preferences";
 
     @SuppressWarnings("unused")
-    @Id
     private final String id = ID;
 
     private final String applicationName;

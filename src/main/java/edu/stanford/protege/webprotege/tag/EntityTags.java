@@ -2,9 +2,6 @@ package edu.stanford.protege.webprotege.tag;
 
 import edu.stanford.protege.webprotege.project.ProjectId;
 import org.semanticweb.owlapi.model.OWLEntity;
-import org.springframework.data.mongodb.core.index.CompoundIndex;
-import org.springframework.data.mongodb.core.index.CompoundIndexes;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -19,11 +16,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 15 Mar 2018
  */
-@Document(collection = "EntityTags")
-@CompoundIndexes({
-        @CompoundIndex(useGeneratedName = true, def = "{'tags':1}"),
-        @CompoundIndex(useGeneratedName = true, def = "{'projectId':1, 'entity': 1}", unique = true)
-})
 public class EntityTags {
 
     public static final String PROJECT_ID = "projectId";

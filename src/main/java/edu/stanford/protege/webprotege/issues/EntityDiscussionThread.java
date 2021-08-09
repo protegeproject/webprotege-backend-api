@@ -7,8 +7,6 @@ import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.project.ProjectId;
 import edu.stanford.protege.webprotege.user.UserId;
 import org.semanticweb.owlapi.model.OWLEntity;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -23,7 +21,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * A thread of comments that are attached to an entity
  */
-@Document(collection = "EntityDiscussionThreads")
 public class EntityDiscussionThread {
 
     public static final String PROJECT_ID = "projectId";
@@ -36,7 +33,6 @@ public class EntityDiscussionThread {
 
     public static final String ENTITY = "entity";
 
-    @Id
     private ThreadId id;
 
     private ProjectId projectId;

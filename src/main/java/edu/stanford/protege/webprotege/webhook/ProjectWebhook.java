@@ -3,7 +3,6 @@ package edu.stanford.protege.webprotege.webhook;
 import com.google.common.base.Objects;
 import edu.stanford.protege.webprotege.project.HasProjectId;
 import edu.stanford.protege.webprotege.project.ProjectId;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -17,7 +16,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 19 May 2017
  */
-@Document(collection = "ProjectWebhooks")
 public class ProjectWebhook implements Webhook, HasProjectId {
 
     public static final String PROJECT_ID = "projectId";

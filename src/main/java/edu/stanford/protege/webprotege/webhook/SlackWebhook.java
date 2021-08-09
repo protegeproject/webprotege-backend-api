@@ -2,7 +2,6 @@ package edu.stanford.protege.webprotege.webhook;
 
 import com.google.common.base.Objects;
 import edu.stanford.protege.webprotege.project.ProjectId;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.annotation.Nonnull;
 
@@ -14,7 +13,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 8 Jun 2017
  */
-@Document(collection = "SlackWebhooks")
 public class SlackWebhook implements Webhook {
 
 
