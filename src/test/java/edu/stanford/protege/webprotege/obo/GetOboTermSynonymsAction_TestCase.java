@@ -1,7 +1,7 @@
 
 package edu.stanford.protege.webprotege.obo;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,8 +17,7 @@ import static org.hamcrest.Matchers.*;
 public class GetOboTermSynonymsAction_TestCase {
 
     private GetOboTermSynonymsAction getOboTermSynonymsAction;
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
     @Mock
     private OWLEntity entity;
 
@@ -67,7 +66,7 @@ public class GetOboTermSynonymsAction_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(getOboTermSynonymsAction, is(not(GetOboTermSynonymsAction.create(Mockito.mock(ProjectId.class), entity))));
+        assertThat(getOboTermSynonymsAction, is(not(GetOboTermSynonymsAction.create(ProjectId.generate(), entity))));
     }
 
     @Test

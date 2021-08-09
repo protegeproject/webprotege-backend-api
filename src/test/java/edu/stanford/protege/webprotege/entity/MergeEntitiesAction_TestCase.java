@@ -2,7 +2,7 @@
 package edu.stanford.protege.webprotege.entity;
 
 import com.google.common.collect.ImmutableSet;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,8 +19,7 @@ public class MergeEntitiesAction_TestCase {
 
     private MergeEntitiesAction action;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     private final ImmutableSet<OWLEntity> sourceEntities = ImmutableSet.of(mock(OWLEntity.class));
 
@@ -98,7 +97,7 @@ public class MergeEntitiesAction_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(action, is(not(MergeEntitiesAction.create(mock(ProjectId.class), sourceEntities, targetEntity, treatment, commitMessage))));
+        assertThat(action, is(not(MergeEntitiesAction.create(ProjectId.generate(), sourceEntities, targetEntity, treatment, commitMessage))));
     }
 
     @Test

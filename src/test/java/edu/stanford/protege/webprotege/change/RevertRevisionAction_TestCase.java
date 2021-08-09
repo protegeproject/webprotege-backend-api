@@ -1,7 +1,7 @@
 
 package edu.stanford.protege.webprotege.change;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.revision.RevisionNumber;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -16,8 +16,7 @@ public class RevertRevisionAction_TestCase {
 
     private RevertRevisionAction revertRevisionAction;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     @Mock
     private RevisionNumber revisionNumber;
@@ -66,7 +65,7 @@ public class RevertRevisionAction_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        MatcherAssert.assertThat(revertRevisionAction, Matchers.is(Matchers.not(RevertRevisionAction.create(Mockito.mock(ProjectId.class), revisionNumber))));
+        MatcherAssert.assertThat(revertRevisionAction, Matchers.is(Matchers.not(RevertRevisionAction.create(ProjectId.generate(), revisionNumber))));
     }
 
     @Test

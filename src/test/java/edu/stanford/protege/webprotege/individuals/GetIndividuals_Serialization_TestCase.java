@@ -4,7 +4,7 @@ import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
 import edu.stanford.protege.webprotege.pagination.Page;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class GetIndividuals_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetIndividualsAction.create(ProjectId.getNil(), Optional.empty(),
+        var action = GetIndividualsAction.create(ProjectId.generate(), Optional.empty(),
                                                  "Hello",
                                                  InstanceRetrievalMode.ALL_INSTANCES,
                                                  Optional.empty());

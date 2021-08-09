@@ -1,7 +1,7 @@
 
 package edu.stanford.protege.webprotege.obo;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,8 +17,7 @@ import static org.hamcrest.Matchers.*;
 public class SetOboTermCrossProductAction_TestCase {
 
     private SetOboTermCrossProductAction setOboTermCrossProductAction;
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
     @Mock
     private OWLClass entity;
     @Mock
@@ -80,7 +79,7 @@ public class SetOboTermCrossProductAction_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(setOboTermCrossProductAction, is(not(SetOboTermCrossProductAction.create(Mockito.mock(ProjectId.class), entity, crossProduct))));
+        assertThat(setOboTermCrossProductAction, is(not(SetOboTermCrossProductAction.create(ProjectId.generate(), entity, crossProduct))));
     }
 
     @Test

@@ -6,7 +6,7 @@ import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.lang.LangTagFilter;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class GetEntityForms_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetEntityFormsAction.create(ProjectId.getNil(),
+        var action = GetEntityFormsAction.create(ProjectId.generate(),
                                                  mockOWLClass(),
                                                  ImmutableSet.of(),
                                                  LangTagFilter.get(ImmutableSet.of()),

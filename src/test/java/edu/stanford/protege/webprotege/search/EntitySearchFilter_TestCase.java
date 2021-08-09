@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.search;
 
 import edu.stanford.protege.webprotege.lang.LanguageMap;
 import edu.stanford.protege.webprotege.match.criteria.EntityMatchCriteria;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,8 +18,7 @@ public class EntitySearchFilter_TestCase {
     @Mock
     private EntitySearchFilterId id;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     @Mock
     private LanguageMap label;

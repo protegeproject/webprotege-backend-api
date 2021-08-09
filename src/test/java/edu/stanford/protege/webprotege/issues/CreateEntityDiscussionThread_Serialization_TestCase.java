@@ -5,7 +5,7 @@ import edu.stanford.protege.webprotege.MockingUtils;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class CreateEntityDiscussionThread_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = CreateEntityDiscussionThreadAction.create(ProjectId.getNil(), MockingUtils.mockOWLClass(),
+        var action = CreateEntityDiscussionThreadAction.create(ProjectId.generate(), MockingUtils.mockOWLClass(),
                                                                "The comment");
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }

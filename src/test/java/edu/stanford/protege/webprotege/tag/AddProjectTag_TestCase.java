@@ -4,7 +4,7 @@ import edu.stanford.protege.webprotege.color.Color;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class AddProjectTag_TestCase {
 
     @Test
     public void shouldSerializeAddProjectTagAction() throws IOException {
-        var action = AddProjectTagAction.create(ProjectId.getNil(),
+        var action = AddProjectTagAction.create(ProjectId.generate(),
                                                 "TheLabel",
                                                 "TheDescription",
                                                 Color.getWhite(),
@@ -31,7 +31,7 @@ public class AddProjectTag_TestCase {
     public void shouldSerializeAddProjectTagResult() throws IOException {
         var result = AddProjectTagResult.create(
                 Tag.get(TagId.createTagId(),
-                        ProjectId.getNil(),
+                        ProjectId.generate(),
                         "TheLabel",
                         "TheDescription",
                         Color.getWhite(),

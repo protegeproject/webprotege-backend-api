@@ -1,7 +1,7 @@
 
 package edu.stanford.protege.webprotege.obo;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,8 +16,7 @@ import static org.mockito.Mockito.mock;
 public class GetOboTermIdAction_TestCase {
 
     private GetOboTermIdAction getOboTermIdAction;
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
     @Mock
     private OWLEntity term;
 
@@ -66,7 +65,7 @@ public class GetOboTermIdAction_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(getOboTermIdAction, is(not(GetOboTermIdAction.create(mock(ProjectId.class), term))));
+        assertThat(getOboTermIdAction, is(not(GetOboTermIdAction.create(ProjectId.generate(), term))));
     }
 
     @Test

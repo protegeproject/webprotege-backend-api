@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.project;
 
 import com.google.common.collect.ImmutableList;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.csv.DocumentId;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
@@ -34,7 +35,7 @@ public class CreateNewProject_Serialization_TestCase {
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new CreateNewProjectResult(ProjectDetails.get(
-                ProjectId.getNil(),
+                ProjectId.generate(),
                 "The display name",
                 "The description",
                 UserId.getGuest(),

@@ -6,7 +6,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.event.EventList;
 import edu.stanford.protege.webprotege.event.EventTag;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.user.UserId;
 import org.junit.Test;
 
@@ -22,7 +22,7 @@ public class AddEntityComment_TestCase {
 
     private static final String THE_COMMENT = "The comment";
 
-    private final ProjectId projectId = ProjectId.getNil();
+    private final ProjectId projectId = ProjectId.generate();
 
     private final ThreadId threadId = ThreadId.create();
 

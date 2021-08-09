@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.issues;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.issues.events.IssueEvent;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.user.UserId;
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -30,8 +30,7 @@ public class Issue_TestCase {
 
     private Issue issue;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     private final int number = 1;
 
@@ -479,7 +478,7 @@ public class Issue_TestCase {
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
         assertThat(issue,
-                   is(not(new Issue(mock(ProjectId.class),
+                   is(not(new Issue(ProjectId.generate(),
                                     number,
                                     creator,
                                     createdAt,

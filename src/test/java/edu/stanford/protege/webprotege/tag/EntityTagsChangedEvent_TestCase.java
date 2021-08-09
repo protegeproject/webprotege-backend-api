@@ -1,7 +1,7 @@
 
 package edu.stanford.protege.webprotege.tag;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,8 +21,7 @@ public class EntityTagsChangedEvent_TestCase {
 
     private EntityTagsChangedEvent event;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     @Mock
     private OWLEntity entity;
@@ -87,7 +86,7 @@ public class EntityTagsChangedEvent_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(event, is(not(new EntityTagsChangedEvent(mock(ProjectId.class), entity, tags))));
+        assertThat(event, is(not(new EntityTagsChangedEvent(ProjectId.generate(), entity, tags))));
     }
 
     @Test

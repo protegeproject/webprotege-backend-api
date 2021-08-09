@@ -13,11 +13,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 @SpringBootTest(classes = WebprotegeBackendMonolithApplication.class)
+@DirtiesContext
 public class FormControlValueDeserializer_TestCase {
 
     @Autowired

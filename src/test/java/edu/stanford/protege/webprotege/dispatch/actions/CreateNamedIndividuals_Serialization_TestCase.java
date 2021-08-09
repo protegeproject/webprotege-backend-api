@@ -9,7 +9,7 @@ import edu.stanford.protege.webprotege.entity.CreateNamedIndividualsResult;
 import edu.stanford.protege.webprotege.event.EventList;
 import edu.stanford.protege.webprotege.event.EventTag;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class CreateNamedIndividuals_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = CreateNamedIndividualsAction.create(ProjectId.getNil(),
+        var action = CreateNamedIndividualsAction.create(ProjectId.generate(),
                                                          "i\nj",
                                                          "en", of());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -33,7 +33,7 @@ public class CreateNamedIndividuals_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = CreateNamedIndividualsResult.create(ProjectId.getNil(),
+        var result = CreateNamedIndividualsResult.create(ProjectId.generate(),
                                                          EventList.create(EventTag.get(2), ImmutableList.of(), EventTag.get(2)),
                                                          ImmutableSet.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);

@@ -2,6 +2,7 @@ package edu.stanford.protege.webprotege.project;
 
 import com.fasterxml.jackson.annotation.*;
 import com.google.auto.value.AutoValue;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
 import edu.stanford.protege.webprotege.shortform.DictionaryLanguage;
@@ -379,6 +380,6 @@ public abstract class ProjectDetails implements Serializable, Comparable<Project
         if (descriptionDiff != 0) {
             return descriptionDiff;
         }
-        return getProjectId().getId().compareTo(o.getProjectId().getId());
+        return getProjectId().id().compareTo(o.getProjectId().id());
     }
 }

@@ -1,7 +1,7 @@
 
 package edu.stanford.protege.webprotege.sharing;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,8 +21,7 @@ public class ProjectSharingSettings_TestCase {
 
     private ProjectSharingSettings projectSharingSettings;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     private final Optional<SharingPermission> linkSharingPermission = Optional.of(SharingPermission.EDIT);
 
@@ -80,7 +79,7 @@ public class ProjectSharingSettings_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(projectSharingSettings, is(not(new ProjectSharingSettings(mock(ProjectId.class), linkSharingPermission, sharingSettings))));
+        assertThat(projectSharingSettings, is(not(new ProjectSharingSettings(ProjectId.generate(), linkSharingPermission, sharingSettings))));
     }
 
     @Test

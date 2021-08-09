@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.project;
 
 import com.google.common.collect.ImmutableList;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
@@ -19,7 +20,7 @@ public class AvailableProject_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAvailableProject() throws IOException {
-        var projectDetails = ProjectDetails.get(ProjectId.get("12345678-1234-1234-1234-123456789abc"),
+        var projectDetails = ProjectDetails.get(ProjectId.valueOf("12345678-1234-1234-1234-123456789abc"),
                                                 "The display name",
                                                 "The description",
                                                 UserId.getUserId("The Owner"),
@@ -34,7 +35,7 @@ public class AvailableProject_Serialization_TestCase {
                                                 3L,
                                                 UserId.getUserId("The modifier"),
                                                 EntityDeprecationSettings.empty());
-        var availableProject = AvailableProject.get(ProjectId.get("12345678-1234-1234-1234-123456789abc"),
+        var availableProject = AvailableProject.get(ProjectId.valueOf("12345678-1234-1234-1234-123456789abc"),
                                                     "The display name",
                                                     "The description",
                                                     UserId.getUserId("The Owner"),

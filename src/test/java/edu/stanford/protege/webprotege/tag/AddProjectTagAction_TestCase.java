@@ -1,7 +1,7 @@
 
 package edu.stanford.protege.webprotege.tag;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.color.Color;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,8 +20,7 @@ public class AddProjectTagAction_TestCase {
 
     private AddProjectTagAction addProjectTagAction;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     private final String label = "The label";
 
@@ -111,7 +110,7 @@ public class AddProjectTagAction_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(addProjectTagAction, is(not(AddProjectTagAction.create(mock(ProjectId.class), label, description, color, backgroundColor))));
+        assertThat(addProjectTagAction, is(not(AddProjectTagAction.create(ProjectId.generate(), label, description, color, backgroundColor))));
     }
 
     @Test

@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.permissions;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.user.UserId;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,8 +27,7 @@ public class GetProjectPermissionsAction_TestCase {
 
     private GetProjectPermissionsAction otherAction;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     @Mock
     private UserId userId;

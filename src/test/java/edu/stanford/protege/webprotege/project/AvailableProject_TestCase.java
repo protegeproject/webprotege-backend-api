@@ -1,6 +1,7 @@
 
 package edu.stanford.protege.webprotege.project;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.user.UserId;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,8 +29,7 @@ public class AvailableProject_TestCase {
 
     private final boolean trashable = true;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     @Mock
     private UserId modifiedBy, owner, createdBy;

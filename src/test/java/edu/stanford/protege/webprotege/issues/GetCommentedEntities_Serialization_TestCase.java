@@ -5,7 +5,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
 import edu.stanford.protege.webprotege.pagination.Page;
 import edu.stanford.protege.webprotege.pagination.PageRequest;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -21,7 +21,7 @@ public class GetCommentedEntities_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetCommentedEntitiesAction.create(ProjectId.getNil(),
+        var action = GetCommentedEntitiesAction.create(ProjectId.generate(),
                                                        "TheUser", Collections.singleton(Status.OPEN),
                                                        SortingKey.SORT_BY_ENTITY,
                                                        PageRequest.requestFirstPage());
@@ -30,7 +30,7 @@ public class GetCommentedEntities_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetCommentedEntitiesResult.create(ProjectId.getNil(),
+        var result = GetCommentedEntitiesResult.create(ProjectId.generate(),
                                                        Page.emptyPage());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }

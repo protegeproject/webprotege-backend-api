@@ -5,7 +5,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
 import edu.stanford.protege.webprotege.pagination.Page;
 import edu.stanford.protege.webprotege.pagination.PageRequest;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 import org.semanticweb.owlapi.model.EntityType;
 
@@ -22,7 +22,7 @@ public class GetDeprecatedEntities_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetDeprecatedEntitiesAction.create(ProjectId.getNil(),
+        var action = GetDeprecatedEntitiesAction.create(ProjectId.generate(),
                                                         PageRequest.requestFirstPage(),
                                                         Collections.singleton(EntityType.CLASS));
         JsonSerializationTestUtil.testSerialization(action, Action.class);

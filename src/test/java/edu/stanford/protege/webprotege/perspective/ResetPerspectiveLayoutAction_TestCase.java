@@ -1,7 +1,7 @@
 
 package edu.stanford.protege.webprotege.perspective;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,8 +18,7 @@ import static org.mockito.Mockito.mock;
 public class ResetPerspectiveLayoutAction_TestCase {
 
     private ResetPerspectiveLayoutAction resetPerspectiveLayoutAction;
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
     @Mock
     private PerspectiveId perspectiveId;
 
@@ -70,7 +69,7 @@ public class ResetPerspectiveLayoutAction_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(resetPerspectiveLayoutAction, is(not(ResetPerspectiveLayoutAction.create(mock(ProjectId.class), perspectiveId))));
+        assertThat(resetPerspectiveLayoutAction, is(not(ResetPerspectiveLayoutAction.create(ProjectId.generate(), perspectiveId))));
     }
 
     @Test

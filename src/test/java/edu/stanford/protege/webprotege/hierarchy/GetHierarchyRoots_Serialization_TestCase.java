@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.hierarchy;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class GetHierarchyRoots_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetHierarchyRootsAction.create(ProjectId.getNil(),
+        var action = GetHierarchyRootsAction.create(ProjectId.generate(),
                                                     HierarchyId.CLASS_HIERARCHY);
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }

@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.change;
 
 import edu.stanford.protege.webprotege.pagination.PageRequest;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.user.UserId;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,8 +28,7 @@ public class GetWatchedEntityChangesAction_TestCase {
 
     private GetWatchedEntityChangesAction otherAction;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     @Mock
     private UserId userId;

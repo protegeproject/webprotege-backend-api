@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.project;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
@@ -20,15 +21,15 @@ public class LoadProjectAction_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new LoadProjectAction(ProjectId.getNil());
+        var action = new LoadProjectAction(ProjectId.generate());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = LoadProjectResult.get(ProjectId.getNil(), UserId.getGuest(),
+        var result = LoadProjectResult.get(ProjectId.generate(), UserId.getGuest(),
                                            ProjectDetails.get(
-                                                   ProjectId.getNil(),
+                                                   ProjectId.generate(),
                                                    "The display name",
                                                    "The description",
                                                    UserId.getGuest(),

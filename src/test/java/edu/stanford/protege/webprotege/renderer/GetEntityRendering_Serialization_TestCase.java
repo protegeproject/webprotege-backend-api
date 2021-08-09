@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.renderer;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -21,7 +21,7 @@ public class GetEntityRendering_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetEntityRenderingAction.create(ProjectId.getNil(),
+        var action = GetEntityRenderingAction.create(ProjectId.generate(),
                                                      mockOWLClass());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }

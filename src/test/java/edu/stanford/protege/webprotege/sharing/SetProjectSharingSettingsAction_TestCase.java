@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.sharing;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,8 +30,7 @@ public class SetProjectSharingSettingsAction_TestCase {
     @Mock
     private ProjectSharingSettings projectSharingSettings;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     @Before
     public void setUp() throws Exception {

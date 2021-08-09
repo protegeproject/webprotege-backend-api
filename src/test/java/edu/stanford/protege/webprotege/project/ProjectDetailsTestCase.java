@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.project;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
 import edu.stanford.protege.webprotege.shortform.DictionaryLanguage;
@@ -23,8 +24,7 @@ public class ProjectDetailsTestCase {
 
     public static final boolean IN_TRASH = true;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     @Mock
     private UserId owner;

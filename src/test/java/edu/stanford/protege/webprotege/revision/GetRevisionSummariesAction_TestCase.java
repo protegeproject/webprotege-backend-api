@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.revision;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,8 +26,7 @@ public class GetRevisionSummariesAction_TestCase {
 
     private GetRevisionSummariesAction otherAction;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
 
     @Before

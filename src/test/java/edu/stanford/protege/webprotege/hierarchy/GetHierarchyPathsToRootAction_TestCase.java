@@ -1,7 +1,7 @@
 
 package edu.stanford.protege.webprotege.hierarchy;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,8 +18,7 @@ public class GetHierarchyPathsToRootAction_TestCase {
 
     private GetHierarchyPathsToRootAction action;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     @Mock
     private OWLEntity entity;
@@ -83,7 +82,7 @@ public class GetHierarchyPathsToRootAction_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(action, is(not(GetHierarchyPathsToRootAction.create(mock(ProjectId.class), entity, hierarchyId))));
+        assertThat(action, is(not(GetHierarchyPathsToRootAction.create(ProjectId.generate(), entity, hierarchyId))));
     }
 
     @Test

@@ -1,6 +1,7 @@
 
 package edu.stanford.protege.webprotege.project;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +17,7 @@ public class GetProjectPrefixDeclarationsAction_TestCase {
 
     private GetProjectPrefixDeclarationsAction action;
 
-    private final ProjectId projectId = ProjectId.get("12345678-1234-1234-1234-123456789abc");
+    private final ProjectId projectId = ProjectId.valueOf("12345678-1234-1234-1234-123456789abc");
 
     @Before
     public void setUp() {
@@ -52,7 +53,7 @@ public class GetProjectPrefixDeclarationsAction_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        ProjectId otherProjectId = ProjectId.get("12345678-abcd-abcd-abcd-123456789abc");
+        ProjectId otherProjectId = ProjectId.valueOf("12345678-abcd-abcd-abcd-123456789abc");
         assertThat(action, is(Matchers.not(GetProjectPrefixDeclarationsAction.create(otherProjectId))));
     }
 

@@ -1,7 +1,7 @@
 
 package edu.stanford.protege.webprotege.obo;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,8 +18,7 @@ import static org.mockito.Mockito.mock;
 public class GetOboNamespacesAction_TestCase {
 
     private GetOboNamespacesAction getOboNamespacesAction;
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     @Before
     public void setUp() {
@@ -55,7 +54,7 @@ public class GetOboNamespacesAction_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(getOboNamespacesAction, is(not(GetOboNamespacesAction.create(mock(ProjectId.class)))));
+        assertThat(getOboNamespacesAction, is(not(GetOboNamespacesAction.create(ProjectId.generate()))));
     }
 
     @Test

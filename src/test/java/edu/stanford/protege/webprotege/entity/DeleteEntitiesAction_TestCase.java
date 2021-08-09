@@ -1,7 +1,7 @@
 
 package edu.stanford.protege.webprotege.entity;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,8 +20,7 @@ public class DeleteEntitiesAction_TestCase {
 
     private DeleteEntitiesAction deleteEntitiesAction;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     private final Set<OWLEntity> entities = new HashSet<>();
 
@@ -71,7 +70,7 @@ public class DeleteEntitiesAction_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(deleteEntitiesAction, is(not(new DeleteEntitiesAction(mock(ProjectId.class), entities))));
+        assertThat(deleteEntitiesAction, is(not(new DeleteEntitiesAction(ProjectId.generate(), entities))));
     }
 
     @Test

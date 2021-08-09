@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.project;
 
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
 import javax.annotation.Nonnull;
@@ -18,7 +19,7 @@ public class GetProjectPrefixDeclarationsAction implements ProjectAction<GetProj
     private String projectId;
 
     private GetProjectPrefixDeclarationsAction(@Nonnull ProjectId projectId) {
-        this.projectId = checkNotNull(projectId.getId());
+        this.projectId = checkNotNull(projectId).id();
     }
 
 
@@ -32,7 +33,7 @@ public class GetProjectPrefixDeclarationsAction implements ProjectAction<GetProj
     @Nonnull
     @Override
     public ProjectId getProjectId() {
-        return ProjectId.get(projectId);
+        return ProjectId.valueOf(projectId);
     }
 
     @Override

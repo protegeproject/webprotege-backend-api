@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.form;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class DeleteForm_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = DeleteFormAction.get(ProjectId.getNil(),
+        var action = DeleteFormAction.get(ProjectId.generate(),
                                           FormId.generate());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }

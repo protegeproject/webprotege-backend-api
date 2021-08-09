@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.issues;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.MockingUtils;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class EntityDiscussionThread_Serialization_TestCase {
     @Test
     public void shouldSerialize() throws IOException {
         var thread = new EntityDiscussionThread(ThreadId.create(),
-                                                ProjectId.getNil(), MockingUtils.mockOWLClass(),
+                                                ProjectId.generate(), MockingUtils.mockOWLClass(),
                                                 Status.CLOSED, ImmutableList.of());
         JsonSerializationTestUtil.testSerialization(thread, EntityDiscussionThread.class);
     }

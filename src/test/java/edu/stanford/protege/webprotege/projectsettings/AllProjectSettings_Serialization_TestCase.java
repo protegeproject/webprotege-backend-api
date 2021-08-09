@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
 import edu.stanford.protege.webprotege.match.criteria.EntityIsDeprecatedCriteria;
 import edu.stanford.protege.webprotege.project.PrefixDeclaration;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.search.ProjectSearchSettings;
 import edu.stanford.protege.webprotege.sharing.PersonId;
 import edu.stanford.protege.webprotege.sharing.ProjectSharingSettings;
@@ -33,7 +33,7 @@ public class AllProjectSettings_Serialization_TestCase {
 
     @Test
     public void shouldRoundTripSettings() throws IOException {
-        var projectId = ProjectId.getNil();
+        var projectId = ProjectId.generate();
         var projectSettings = ProjectSettings.get(projectId,
                                                   "My project",
                                                   "My project description",

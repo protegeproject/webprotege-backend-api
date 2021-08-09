@@ -9,7 +9,7 @@ import edu.stanford.protege.webprotege.entity.CreateAnnotationPropertiesResult;
 import edu.stanford.protege.webprotege.event.EventList;
 import edu.stanford.protege.webprotege.event.EventTag;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class CreateAnnotationProperties_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = CreateAnnotationPropertiesAction.create(ProjectId.getNil(),
+        var action = CreateAnnotationPropertiesAction.create(ProjectId.generate(),
                                                              "A\nB",
                                                              "en", of());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -33,7 +33,7 @@ public class CreateAnnotationProperties_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = CreateAnnotationPropertiesResult.create(ProjectId.getNil(),
+        var result = CreateAnnotationPropertiesResult.create(ProjectId.generate(),
                                                              ImmutableSet.of(),
                                                              EventList.create(EventTag.get(2), ImmutableList.of(), EventTag.get(2)));
         JsonSerializationTestUtil.testSerialization(result, Result.class);

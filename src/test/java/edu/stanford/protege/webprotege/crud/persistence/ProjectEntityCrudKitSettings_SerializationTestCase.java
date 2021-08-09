@@ -5,7 +5,7 @@ import edu.stanford.protege.webprotege.crud.EntityCrudKitSettings;
 import edu.stanford.protege.webprotege.crud.gen.GeneratedAnnotationsSettings;
 import edu.stanford.protege.webprotege.crud.uuid.UuidSuffixSettings;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,7 +19,7 @@ import java.io.IOException;
 public class ProjectEntityCrudKitSettings_SerializationTestCase {
 
 
-    private final ProjectId projectId = ProjectId.get("12345678-1234-1234-1234-123456789abc");
+    private final ProjectId projectId = ProjectId.valueOf("12345678-1234-1234-1234-123456789abc");
 
     private ProjectEntityCrudKitSettings settings;
 

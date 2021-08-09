@@ -1,7 +1,7 @@
 
 package edu.stanford.protege.webprotege.webhook;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,8 +20,7 @@ public class ProjectWebhook_TestCase {
 
     private ProjectWebhook projectWebhook;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     private final String payloadUrl = "The payloadUrl";
 
@@ -85,7 +84,7 @@ public class ProjectWebhook_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(projectWebhook, is(not(new ProjectWebhook(mock(ProjectId.class), payloadUrl, subscribedToEvents))));
+        assertThat(projectWebhook, is(not(new ProjectWebhook(ProjectId.generate(), payloadUrl, subscribedToEvents))));
     }
 
     @Test

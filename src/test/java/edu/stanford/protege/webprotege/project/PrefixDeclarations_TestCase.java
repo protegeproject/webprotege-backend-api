@@ -1,6 +1,7 @@
 
 package edu.stanford.protege.webprotege.project;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +26,7 @@ public class PrefixDeclarations_TestCase {
 
     private static final String PREFIX_B = "http://ont.org/b/";
 
-    private final ProjectId projectId = ProjectId.get("12345678-1234-1234-1234-123456789abc");
+    private final ProjectId projectId = ProjectId.valueOf("12345678-1234-1234-1234-123456789abc");
 
     private Map<String, String> prefixes;
 

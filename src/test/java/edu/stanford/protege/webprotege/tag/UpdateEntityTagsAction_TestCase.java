@@ -1,7 +1,7 @@
 
 package edu.stanford.protege.webprotege.tag;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,8 +22,7 @@ public class UpdateEntityTagsAction_TestCase {
 
     private UpdateEntityTagsAction action;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     @Mock
     private OWLEntity entity;
@@ -103,7 +102,7 @@ public class UpdateEntityTagsAction_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(action, is(Matchers.not(UpdateEntityTagsAction.create(mock(ProjectId.class), entity, fromTagIds, toTagIds))));
+        assertThat(action, is(Matchers.not(UpdateEntityTagsAction.create(ProjectId.generate(), entity, fromTagIds, toTagIds))));
     }
 
     @Test

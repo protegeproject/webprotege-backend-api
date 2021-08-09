@@ -7,7 +7,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
 import edu.stanford.protege.webprotege.match.criteria.CompositeRootCriteria;
 import edu.stanford.protege.webprotege.match.criteria.MultiMatchType;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class GetEntityDeprecationForms_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetEntityDeprecationFormsAction.create(ProjectId.getNil(), MockingUtils.mockOWLClass());
+        var action = GetEntityDeprecationFormsAction.create(ProjectId.generate(), MockingUtils.mockOWLClass());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 

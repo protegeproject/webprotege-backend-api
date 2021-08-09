@@ -2,6 +2,7 @@ package edu.stanford.protege.webprotege.project;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.jackson.ObjectMapperProvider;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
@@ -30,7 +31,7 @@ public class GetProjectDetails_Serialization_TestCase {
 
     @Before
     public void setUp() {
-        projectDetails = ProjectDetails.get(ProjectId.get("12345678-1234-1234-1234-123456789abc"),
+        projectDetails = ProjectDetails.get(ProjectId.valueOf("12345678-1234-1234-1234-123456789abc"),
                                             "The display name",
                                             "The description",
                                             UserId.getUserId("The Owner"),

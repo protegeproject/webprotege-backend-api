@@ -9,7 +9,7 @@ import edu.stanford.protege.webprotege.entity.CreateObjectPropertiesResult;
 import edu.stanford.protege.webprotege.event.EventList;
 import edu.stanford.protege.webprotege.event.EventTag;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -26,13 +26,13 @@ public class CreateObjectProperties_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = CreateObjectPropertiesAction.create(ProjectId.getNil(), "P\nQ", "en", of());
+        var action = CreateObjectPropertiesAction.create(ProjectId.generate(), "P\nQ", "en", of());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = CreateObjectPropertiesResult.create(ProjectId.getNil(),
+        var result = CreateObjectPropertiesResult.create(ProjectId.generate(),
                                                          ImmutableSet.of(),
                                                          EventList.create(EventTag.get(2),
                                                                           ImmutableList.of(),

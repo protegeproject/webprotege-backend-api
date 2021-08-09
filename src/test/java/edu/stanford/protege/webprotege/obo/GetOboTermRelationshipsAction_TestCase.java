@@ -1,7 +1,7 @@
 
 package edu.stanford.protege.webprotege.obo;
 
-import edu.stanford.protege.webprotege.project.ProjectId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,8 +17,7 @@ import static org.hamcrest.Matchers.*;
 public class GetOboTermRelationshipsAction_TestCase {
 
     private GetOboTermRelationshipsAction getOboTermRelationshipsAction;
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
     @Mock
     private OWLClass entity;
 
@@ -67,7 +66,7 @@ public class GetOboTermRelationshipsAction_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(getOboTermRelationshipsAction, is(not(GetOboTermRelationshipsAction.create(Mockito.mock(ProjectId.class), entity))));
+        assertThat(getOboTermRelationshipsAction, is(not(GetOboTermRelationshipsAction.create(ProjectId.generate(), entity))));
     }
 
     @Test

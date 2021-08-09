@@ -1,6 +1,7 @@
 
 package edu.stanford.protege.webprotege.project;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.user.UserId;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -15,8 +16,7 @@ public class LoadProjectResult_TestCase {
 
     private LoadProjectResult loadProjectResult;
 
-    @Mock
-    private ProjectId projectId;
+    private ProjectId projectId = ProjectId.generate();
 
     @Mock
     private UserId loadedBy;
@@ -74,7 +74,7 @@ public class LoadProjectResult_TestCase {
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
         MatcherAssert.assertThat(loadProjectResult,
-                                 Matchers.is(Matchers.not(LoadProjectResult.get(Mockito.mock(ProjectId.class),
+                                 Matchers.is(Matchers.not(LoadProjectResult.get(ProjectId.generate(),
                                                                                 loadedBy,
                                                                                 projectDetails))));
     }
