@@ -11,16 +11,9 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 17/02/16
  */
-@AutoValue
+
 
 @JsonTypeName("GetPerspectiveLayout")
-public abstract class GetPerspectiveLayoutResult implements Result {
+public record GetPerspectiveLayoutResult(PerspectiveLayout layout) implements Result {
 
-
-    @JsonCreator
-    public static GetPerspectiveLayoutResult create(@JsonProperty("layout") PerspectiveLayout perspective) {
-        return new AutoValue_GetPerspectiveLayoutResult(perspective);
-    }
-
-    public abstract PerspectiveLayout getLayout();
 }

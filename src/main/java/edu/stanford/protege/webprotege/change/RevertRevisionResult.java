@@ -19,28 +19,12 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 19/03/15
  */
-@AutoValue
+
 
 @JsonTypeName("RevertRevision")
-public abstract class RevertRevisionResult implements Result, HasProjectId, HasEventList<ProjectEvent> {
-
-    @JsonCreator
-    @Nonnull
-    public static RevertRevisionResult create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                              @JsonProperty("revisionNumber") @Nonnull RevisionNumber revisionNumber,
-                                              @JsonProperty("eventList") @Nonnull EventList<ProjectEvent> eventList) {
-        return new AutoValue_RevertRevisionResult(projectId, revisionNumber, eventList);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract RevisionNumber getRevisionNumber();
-
-    @Override
-    public abstract EventList<ProjectEvent> getEventList();
+public record RevertRevisionResult(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                   @JsonProperty("revisionNumber") @Nonnull RevisionNumber revisionNumber,
+                                   @JsonProperty("eventList") @Nonnull EventList eventList) implements Result, HasEventList {
 
 
 }

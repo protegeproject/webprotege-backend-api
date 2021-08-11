@@ -35,19 +35,19 @@ public class GetProjectPermissionsAction_TestCase {
 
     @Before
     public void setUp() throws Exception {
-        action = GetProjectPermissionsAction.create(projectId, userId);
-        otherAction = GetProjectPermissionsAction.create(projectId, userId);
+        action = new GetProjectPermissionsAction(projectId, userId);
+        otherAction = new GetProjectPermissionsAction(projectId, userId);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_ProjectId_IsNull() {
-        GetProjectPermissionsAction.create(null, userId);
+        new GetProjectPermissionsAction(null, userId);
     }
 
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_UserId_IsNull() {
-        GetProjectPermissionsAction.create(projectId, null);
+        new GetProjectPermissionsAction(projectId, null);
     }
 
     @Test
@@ -77,11 +77,11 @@ public class GetProjectPermissionsAction_TestCase {
 
     @Test
     public void shouldReturnSuppliedProjectId() {
-        assertThat(action.getProjectId(), is(projectId));
+        assertThat(action.projectId(), is(projectId));
     }
 
     @Test
     public void shouldReturnSuppliedUserId() {
-        assertThat(action.getUserId(), is(userId));
+        assertThat(action.userId(), is(userId));
     }
 }

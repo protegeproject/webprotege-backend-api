@@ -10,13 +10,9 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 2019-12-14
  */
-@AutoValue
+
 
 @JsonTypeName("SetEntityGraphActiveFilters")
-public abstract class SetEntityGraphActiveFiltersResult implements Result {
+public record SetEntityGraphActiveFiltersResult() implements Result {
 
-    @JsonCreator
-    public static SetEntityGraphActiveFiltersResult create() {
-        return new AutoValue_SetEntityGraphActiveFiltersResult();
-    }
 }

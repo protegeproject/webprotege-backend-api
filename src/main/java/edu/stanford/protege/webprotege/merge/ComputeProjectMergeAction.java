@@ -15,23 +15,11 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 26/01/15
  */
-@AutoValue
+
 
 @JsonTypeName("ComputeProjectMerge")
-public abstract class ComputeProjectMergeAction implements ProjectAction<ComputeProjectMergeResult> {
+public record ComputeProjectMergeAction(@JsonProperty("projectId") ProjectId projectId,
+                                        @JsonProperty("projectDocumentId") DocumentId projectDocumentId) implements ProjectAction<ComputeProjectMergeResult> {
 
-    
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract DocumentId getProjectDocumentId();
-
-    @JsonCreator
-    public static ComputeProjectMergeAction create(@JsonProperty("projectId") ProjectId projectId,
-                                                   @JsonProperty("projectDocumentId") DocumentId projectDocumentId) {
-        return new AutoValue_ComputeProjectMergeAction(projectId, projectDocumentId);
-    }
 }
 

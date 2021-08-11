@@ -20,7 +20,7 @@ public class NewOntologyMergeAdd_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = NewOntologyMergeAddAction.create(mockProjectId(),
+        var action = new NewOntologyMergeAddAction(mockProjectId(),
                                                       mockDocumentId(),
                                                       "Iri",
                                                       ImmutableList.of());
@@ -29,7 +29,7 @@ public class NewOntologyMergeAdd_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = NewOntologyMergeAddResult.create();
+        var result = new NewOntologyMergeAddResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

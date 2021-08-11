@@ -13,28 +13,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 2019-11-23
  */
-public class SetProjectFormDescriptorsAction implements ProjectAction<SetProjectFormDescriptorsResult> {
+public record SetProjectFormDescriptorsAction(ProjectId projectId,
+                                             ImmutableList<FormDescriptor> formDescriptors) implements ProjectAction<SetProjectFormDescriptorsResult> {
 
-    private ProjectId projectId;
-
-    private ImmutableList<FormDescriptor> formDescriptors;
-
-    public SetProjectFormDescriptorsAction(ProjectId projectId,
-                                           ImmutableList<FormDescriptor> formDescriptors) {
-        this.projectId = checkNotNull(projectId);
-        this.formDescriptors = checkNotNull(formDescriptors);
-    }
-
-    private SetProjectFormDescriptorsAction() {
-    }
-
-    @Nonnull
-    @Override
-    public ProjectId getProjectId() {
-        return projectId;
-    }
-
-    public ImmutableList<FormDescriptor> getFormDescriptors() {
-        return formDescriptors;
-    }
 }

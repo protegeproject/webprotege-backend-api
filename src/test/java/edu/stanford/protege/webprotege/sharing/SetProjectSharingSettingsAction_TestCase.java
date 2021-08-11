@@ -34,14 +34,14 @@ public class SetProjectSharingSettingsAction_TestCase {
 
     @Before
     public void setUp() throws Exception {
-        action = SetProjectSharingSettingsAction.create(projectSharingSettings);
-        otherAction = SetProjectSharingSettingsAction.create(projectSharingSettings);
+        action = new SetProjectSharingSettingsAction(projectId, projectSharingSettings);
+        otherAction = new SetProjectSharingSettingsAction(projectId, projectSharingSettings);
         when(projectSharingSettings.getProjectId()).thenReturn(projectId);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        SetProjectSharingSettingsAction.create(null);
+        new SetProjectSharingSettingsAction(projectId, null);
     }
 
     @Test
@@ -71,12 +71,12 @@ public class SetProjectSharingSettingsAction_TestCase {
 
     @Test
     public void shouldReturnSuppliedSharingSettings() {
-        assertThat(action.getProjectSharingSettings(), is(projectSharingSettings));
+        assertThat(action.settings(), is(projectSharingSettings));
     }
 
     @Test
     public void shouldReturnSuppliedProjectId() {
-        assertThat(action.getProjectId(), is(projectId));
+        assertThat(action.projectId(), is(projectId));
     }
 
 }

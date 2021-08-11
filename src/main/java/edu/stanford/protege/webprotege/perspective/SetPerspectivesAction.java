@@ -21,46 +21,18 @@ import java.util.Optional;
  * Stanford Center for Biomedical Informatics Research
  * 18/02/16
  */
-@AutoValue
+
 
 @JsonTypeName("SetPerspectives")
-public abstract class SetPerspectivesAction implements ProjectAction<SetPerspectivesResult>, HasProjectId {
-
-
-    public static SetPerspectivesAction create(@Nonnull ProjectId projectId,
-                                               @Nonnull ImmutableList<PerspectiveDescriptor> perspectiveIds) {
-        return new AutoValue_SetPerspectivesAction(projectId, null, perspectiveIds);
-    }
-
-
-
-    public static SetPerspectivesAction create(@Nonnull ProjectId projectId,
-                                               @Nonnull Optional<UserId> userId,
-                                               @Nonnull ImmutableList<PerspectiveDescriptor> perspectiveIds) {
-        return new AutoValue_SetPerspectivesAction(projectId, userId.orElse(null), perspectiveIds);
-    }
-
-    @JsonCreator
-    public static SetPerspectivesAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                               @JsonProperty("userId") @Nullable UserId userId,
-                                               @JsonProperty("perspectiveDescriptors") @Nonnull ImmutableList<PerspectiveDescriptor> perspectiveIds) {
-        return new AutoValue_SetPerspectivesAction(projectId, userId, perspectiveIds);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @JsonProperty("userId")
-    public abstract UserId getUserIdInternal();
+public record SetPerspectivesAction(@Nonnull ProjectId projectId,
+                                    @Nullable UserId userId,
+                                    @Nonnull ImmutableList<PerspectiveDescriptor> perspectiveIds) implements ProjectAction<SetPerspectivesResult> {
 
     @JsonIgnore
     public Optional<UserId> getUserId() {
-        return Optional.ofNullable(getUserIdInternal());
+        return Optional.ofNullable(userId);
     }
 
-    @Nonnull
-    public abstract ImmutableList<PerspectiveDescriptor> getPerspectiveDescriptors();
 
 }
 

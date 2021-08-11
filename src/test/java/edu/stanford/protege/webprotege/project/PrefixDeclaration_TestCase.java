@@ -52,12 +52,12 @@ public class PrefixDeclaration_TestCase {
 
     @Test
     public void should_getPrefixName() {
-        assertThat(prefixDeclaration.getPrefixName(), is(PREFIX_NAME));
+        assertThat(prefixDeclaration.prefixName(), is(PREFIX_NAME));
     }
 
     @Test
     public void should_getPrefix() {
-        assertThat(prefixDeclaration.getPrefix(), is(PREFIX));
+        assertThat(prefixDeclaration.prefix(), is(PREFIX));
     }
 
     @Test(expected = IllegalArgumentException.class)

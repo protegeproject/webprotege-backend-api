@@ -25,7 +25,7 @@ public class CreateDataProperties_Serialization_TestCase {
     
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = CreateDataPropertiesAction.create(ProjectId.generate(),
+        var action = new CreateDataPropertiesAction(ProjectId.generate(),
                                                        "P\nQ",
                                                        "en", of());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -33,9 +33,8 @@ public class CreateDataProperties_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = CreateDataPropertiesResult.create(ProjectId.generate(),
-                                                       ImmutableSet.of(),
-                                                       EventList.create(EventTag.get(2), ImmutableList.of(), EventTag.get(2)));
+        var result = new CreateDataPropertiesResult(ProjectId.generate(),
+                                                       ImmutableSet.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

@@ -26,17 +26,14 @@ public class CreateObjectProperties_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = CreateObjectPropertiesAction.create(ProjectId.generate(), "P\nQ", "en", of());
+        var action = new CreateObjectPropertiesAction(ProjectId.generate(), "P\nQ", "en", of());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = CreateObjectPropertiesResult.create(ProjectId.generate(),
-                                                         ImmutableSet.of(),
-                                                         EventList.create(EventTag.get(2),
-                                                                          ImmutableList.of(),
-                                                                          EventTag.get(2)));
+        var result = new CreateObjectPropertiesResult(ProjectId.generate(),
+                                                      ImmutableSet.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

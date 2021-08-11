@@ -30,7 +30,7 @@ public class CheckManchesterSyntaxFrame_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = CheckManchesterSyntaxFrameResult.create(ManchesterSyntaxFrameParseResult.CHANGED, null);
+        var result = new CheckManchesterSyntaxFrameResult(ManchesterSyntaxFrameParseResult.CHANGED, null);
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

@@ -15,20 +15,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 21/03/2013
  */
-public class RemoveWatchesResult  implements Result, HasEventList<ProjectEvent> {
+public record RemoveWatchesResult()  implements Result {
 
-    private EventList<ProjectEvent> eventList;
-
-    @JsonCreator
-    public RemoveWatchesResult(@JsonProperty("eventList") EventList<ProjectEvent> eventList) {
-        this.eventList = checkNotNull(eventList);
-    }
-
-    private RemoveWatchesResult() {
-    }
-
-    @Override
-    public EventList<ProjectEvent> getEventList() {
-        return eventList;
-    }
 }

@@ -15,25 +15,15 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 7 Oct 2016
  */
-@AutoValue
-
 @JsonTypeName("AddEntityComment")
-public abstract class AddEntityCommentAction implements ProjectAction<AddEntityCommentResult>, HasProjectId {
+public record AddEntityCommentAction(ProjectId projectId,
+                                     ThreadId threadId,
+                                     String comment) implements ProjectAction<AddEntityCommentResult>, HasProjectId {
 
     @JsonCreator
     public static AddEntityCommentAction addComment(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                                     @JsonProperty("threadId") @Nonnull ThreadId threadId,
                                                     @JsonProperty("comment") @Nonnull String comment) {
-        return new AutoValue_AddEntityCommentAction(projectId, threadId, comment);
+        return new AddEntityCommentAction(projectId, threadId, comment);
     }
-
-    @Nonnull
-    @JsonProperty("projectId")
-    public abstract ProjectId getProjectId();
-
-    @JsonProperty("threadId")
-    public abstract ThreadId getThreadId();
-
-    @JsonProperty("comment")
-    public abstract String getComment();
 }

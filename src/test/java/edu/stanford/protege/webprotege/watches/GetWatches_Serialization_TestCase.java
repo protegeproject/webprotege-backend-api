@@ -20,7 +20,7 @@ public class GetWatches_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetWatchesAction.create(mockProjectId(),
+        var action = new GetWatchesAction(mockProjectId(),
                                              mockUserId(),
                                              mockOWLClass());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -28,7 +28,7 @@ public class GetWatches_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetWatchesResult.create(ImmutableSet.of());
+        var result = new GetWatchesResult(ImmutableSet.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

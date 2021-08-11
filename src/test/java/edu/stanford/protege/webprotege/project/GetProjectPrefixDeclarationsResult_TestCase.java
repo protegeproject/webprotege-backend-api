@@ -1,6 +1,7 @@
 
 package edu.stanford.protege.webprotege.project;
 
+import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -25,35 +26,34 @@ public class GetProjectPrefixDeclarationsResult_TestCase {
 
     private ProjectId projectId = ProjectId.generate();
 
-    private List<PrefixDeclaration> prefixDeclarations;
+    private ImmutableList<PrefixDeclaration> prefixDeclarations;
 
     @Before
     public void setUp() {
-        prefixDeclarations = new ArrayList<>();
-        prefixDeclarations.add(mock(PrefixDeclaration.class));
-        result = GetProjectPrefixDeclarationsResult.create(projectId, prefixDeclarations);
+        prefixDeclarations = ImmutableList.of(mock(PrefixDeclaration.class));
+        result = new GetProjectPrefixDeclarationsResult(projectId, prefixDeclarations);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        GetProjectPrefixDeclarationsResult.create(null, prefixDeclarations);
+        new GetProjectPrefixDeclarationsResult(null, prefixDeclarations);
     }
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(result.getProjectId(), is(this.projectId));
+        assertThat(result.projectId(), is(this.projectId));
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_prefixDeclarations_IsNull() {
-        GetProjectPrefixDeclarationsResult.create(projectId, null);
+        new GetProjectPrefixDeclarationsResult(projectId, null);
     }
 
     @Test
     public void shouldReturnSupplied_prefixDeclarations() {
-        assertThat(result.getPrefixDeclarations(), is(this.prefixDeclarations));
+        assertThat(result.prefixDeclarations(), is(this.prefixDeclarations));
     }
 
     @Test
@@ -69,22 +69,22 @@ public class GetProjectPrefixDeclarationsResult_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(result, is(GetProjectPrefixDeclarationsResult.create(projectId, prefixDeclarations)));
+        assertThat(result, is(new GetProjectPrefixDeclarationsResult(projectId, prefixDeclarations)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(result, is(not(GetProjectPrefixDeclarationsResult.create(ProjectId.generate(), prefixDeclarations))));
+        assertThat(result, is(not(new GetProjectPrefixDeclarationsResult(ProjectId.generate(), prefixDeclarations))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_prefixDeclarations() {
-        assertThat(result, is(not(GetProjectPrefixDeclarationsResult.create(projectId, Collections.emptyList()))));
+        assertThat(result, is(not(new GetProjectPrefixDeclarationsResult(projectId, ImmutableList.of()))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(result.hashCode(), is(GetProjectPrefixDeclarationsResult.create(projectId, prefixDeclarations).hashCode()));
+        assertThat(result.hashCode(), is(new GetProjectPrefixDeclarationsResult(projectId, prefixDeclarations).hashCode()));
     }
 
     @Test

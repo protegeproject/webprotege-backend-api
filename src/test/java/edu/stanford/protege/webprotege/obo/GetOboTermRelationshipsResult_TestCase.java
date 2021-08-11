@@ -20,18 +20,18 @@ public class GetOboTermRelationshipsResult_TestCase {
 
     @Before
     public void setUp() {
-        getOboTermRelationshipsResult = GetOboTermRelationshipsResult.create(relationships);
+        getOboTermRelationshipsResult = new GetOboTermRelationshipsResult(relationships);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_relationships_IsNull() {
-        GetOboTermRelationshipsResult.create(null);
+        new GetOboTermRelationshipsResult(null);
     }
 
     @Test
     public void shouldReturnSupplied_relationships() {
-        assertThat(getOboTermRelationshipsResult.getRelationships(), is(this.relationships));
+        assertThat(getOboTermRelationshipsResult.relationships(), is(this.relationships));
     }
 
     @Test
@@ -47,17 +47,17 @@ public class GetOboTermRelationshipsResult_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(getOboTermRelationshipsResult, is(GetOboTermRelationshipsResult.create(relationships)));
+        assertThat(getOboTermRelationshipsResult, is(new GetOboTermRelationshipsResult(relationships)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_relationships() {
-        assertThat(getOboTermRelationshipsResult, is(not(GetOboTermRelationshipsResult.create(Mockito.mock(OBOTermRelationships.class)))));
+        assertThat(getOboTermRelationshipsResult, is(not(new GetOboTermRelationshipsResult(Mockito.mock(OBOTermRelationships.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(getOboTermRelationshipsResult.hashCode(), is(GetOboTermRelationshipsResult.create(relationships).hashCode()));
+        assertThat(getOboTermRelationshipsResult.hashCode(), is(new GetOboTermRelationshipsResult(relationships).hashCode()));
     }
 
     @Test

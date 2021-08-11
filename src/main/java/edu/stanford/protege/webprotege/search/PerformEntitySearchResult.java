@@ -14,21 +14,10 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 21 Apr 2017
  */
-@AutoValue
+
 
 @JsonTypeName("PerformEntitySearch")
-public abstract class PerformEntitySearchResult implements Result {
+public record PerformEntitySearchResult(@JsonProperty("searchString") String searchString,
+                                        @JsonProperty("results") Page<EntitySearchResult> results) implements Result {
 
-    @JsonCreator
-    @Nonnull
-    public static PerformEntitySearchResult create(@JsonProperty("searchString") String searchString,
-                                                   @JsonProperty("results") Page<EntitySearchResult> results) {
-        return new AutoValue_PerformEntitySearchResult(searchString, results);
-    }
-
-    @Nonnull
-    public abstract String getSearchString();
-
-    @Nonnull
-    public abstract Page<EntitySearchResult> getResults();
 }

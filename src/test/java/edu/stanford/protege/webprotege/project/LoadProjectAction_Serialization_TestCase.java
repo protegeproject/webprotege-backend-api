@@ -27,7 +27,7 @@ public class LoadProjectAction_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = LoadProjectResult.get(ProjectId.generate(), UserId.getGuest(),
+        var result = new LoadProjectResult(ProjectId.generate(), UserId.getGuest(),
                                            ProjectDetails.get(
                                                    ProjectId.generate(),
                                                    "The display name",

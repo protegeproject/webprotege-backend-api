@@ -24,7 +24,7 @@ public class OWLDeclarationAxiomMatcher extends TypeSafeMatcher<OWLDeclarationAx
 
     @Override
     public void describeTo(Description description) {
-        description.appendText("declaration with entity");
+        description.appendText("declaration with term");
     }
 
     public static OWLDeclarationAxiomMatcher declarationFor(OWLEntity entity) {

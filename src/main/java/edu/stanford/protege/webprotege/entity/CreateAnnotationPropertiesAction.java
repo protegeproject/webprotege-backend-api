@@ -16,16 +16,9 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 25/03/2013
  */
-@AutoValue
-
 @JsonTypeName("CreateAnnotationProperties")
-public abstract class CreateAnnotationPropertiesAction implements CreateEntitiesInHierarchyAction<CreateAnnotationPropertiesResult, OWLAnnotationProperty> {
-
-    @JsonCreator
-    public static CreateAnnotationPropertiesAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                            @JsonProperty("sourceText") @Nonnull String sourceText,
-                                            @JsonProperty("langTag") @Nonnull String langTag,
-                                            @JsonProperty("parents") @Nonnull ImmutableSet<OWLAnnotationProperty> parents) {
-        return new AutoValue_CreateAnnotationPropertiesAction(projectId, sourceText, langTag, parents);
-    }
+public record CreateAnnotationPropertiesAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                               @JsonProperty("sourceText") @Nonnull String sourceText,
+                                               @JsonProperty("langTag") @Nonnull String langTag,
+                                               @JsonProperty("parents") @Nonnull ImmutableSet<OWLAnnotationProperty> parents) implements CreateEntitiesInHierarchyAction<CreateAnnotationPropertiesResult, OWLAnnotationProperty> {
 }

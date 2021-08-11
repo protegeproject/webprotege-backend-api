@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableSet;
+import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.event.EventList;
 import edu.stanford.protege.webprotege.event.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
@@ -18,15 +19,7 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 12/09/2013
  */
-@AutoValue
-
 @JsonTypeName("CreateNamedIndividuals")
-public abstract class CreateNamedIndividualsResult implements AbstractCreateEntityResult<OWLNamedIndividual> {
-
-    @JsonCreator
-    public static CreateNamedIndividualsResult create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                                      @JsonProperty("eventList") @Nonnull EventList<ProjectEvent> eventList,
-                                                      @JsonProperty("entities") ImmutableSet<EntityNode> entities) {
-        return new AutoValue_CreateNamedIndividualsResult(projectId, eventList, entities);
-    }
+public record CreateNamedIndividualsResult(@Nonnull ProjectId projectId,
+                                                   ImmutableSet<EntityNode> entities) implements Result {
 }

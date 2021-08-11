@@ -18,19 +18,9 @@ import java.util.Set;
  * Bio-Medical Informatics Research Group<br>
  * Date: 01/08/2013
  */
-@AutoValue
+
 
 @JsonTypeName("SetOntologyAnnotations")
-public abstract class SetOntologyAnnotationsResult implements Result, HasEventList<ProjectEvent> {
+public record SetOntologyAnnotationsResult(@JsonProperty("ontologyAnnotations") Set<OWLAnnotation> ontologyAnnotations) implements Result {
 
-    @JsonCreator
-    public static SetOntologyAnnotationsResult create(@JsonProperty("ontologyAnnotations") Set<OWLAnnotation> ontologyAnnotations,
-                                                      @JsonProperty("eventList") EventList<ProjectEvent> eventList) {
-        return new AutoValue_SetOntologyAnnotationsResult(ontologyAnnotations, eventList);
-    }
-
-    public abstract Set<OWLAnnotation> getOntologyAnnotations();
-
-    @Override
-    public abstract EventList<ProjectEvent> getEventList();
 }

@@ -15,20 +15,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-10-21
  */
-@AutoValue
+
 
 @JsonTypeName("GetEntityDeprecationForms")
-public abstract class GetEntityDeprecationFormsAction implements ProjectAction<GetEntityDeprecationFormsResult> {
-
-    @JsonCreator
-    public static GetEntityDeprecationFormsAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                                         @JsonProperty("entity") @Nonnull OWLEntity entity) {
-        return new AutoValue_GetEntityDeprecationFormsAction(projectId, entity);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    public abstract OWLEntity getEntity();
+public record GetEntityDeprecationFormsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                              @JsonProperty("term") @Nonnull OWLEntity entity) implements ProjectAction<GetEntityDeprecationFormsResult> {
 }

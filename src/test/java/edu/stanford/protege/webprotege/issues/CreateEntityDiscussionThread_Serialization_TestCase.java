@@ -19,15 +19,14 @@ public class CreateEntityDiscussionThread_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = CreateEntityDiscussionThreadAction.create(ProjectId.generate(), MockingUtils.mockOWLClass(),
+        var action = new CreateEntityDiscussionThreadAction(ProjectId.generate(), MockingUtils.mockOWLClass(),
                                                                "The comment");
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = CreateEntityDiscussionThreadResult.create(ImmutableList.of(),
-                                                               MockingUtils.mockEventList());
+        var result = new CreateEntityDiscussionThreadResult(ImmutableList.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

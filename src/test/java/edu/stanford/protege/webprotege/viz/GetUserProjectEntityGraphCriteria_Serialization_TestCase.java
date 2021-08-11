@@ -20,13 +20,13 @@ public class GetUserProjectEntityGraphCriteria_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetUserProjectEntityGraphCriteriaAction.create(mockProjectId());
+        var action = new GetUserProjectEntityGraphCriteriaAction(mockProjectId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetUserProjectEntityGraphCriteriaResult.create(mockProjectId(),
+        var result = new GetUserProjectEntityGraphCriteriaResult(mockProjectId(),
                                                                     mockUserId(),
                                                                     EntityGraphSettings.get(ImmutableList.of(), 22));
         JsonSerializationTestUtil.testSerialization(result, Result.class);

@@ -17,20 +17,9 @@ import java.util.Optional;
  * Bio-Medical Informatics Research Group<br>
  * Date: 21/02/2013
  */
-@AutoValue
+
 
 @JsonTypeName("GetOntologyAnnotations")
-public abstract class GetOntologyAnnotationsAction implements ProjectAction<GetOntologyAnnotationsResult> {
-
-    @JsonCreator
-    public static GetOntologyAnnotationsAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                                      @JsonProperty("ontologyId") @Nonnull Optional<OWLOntologyID> ontologyId) {
-        return new AutoValue_GetOntologyAnnotationsAction(projectId, ontologyId);
-    }
-
-    @Nonnull
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract Optional<OWLOntologyID> getOntologyId();
+public record GetOntologyAnnotationsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                           @JsonProperty("ontologyId") @Nonnull Optional<OWLOntologyID> ontologyId) implements ProjectAction<GetOntologyAnnotationsResult> {
 }

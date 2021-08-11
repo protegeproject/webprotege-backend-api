@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.sharing;
 
 import com.google.common.collect.ImmutableList;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
@@ -21,7 +22,7 @@ public class SetProjectSharingSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetProjectSharingSettingsAction.create(new ProjectSharingSettings(
+        var action = new SetProjectSharingSettingsAction(ProjectId.generate(), new ProjectSharingSettings(
                 mockProjectId(),
                 Optional.of(SharingPermission.EDIT), ImmutableList.of(
                         new SharingSetting(PersonId.get("User"), SharingPermission.EDIT)
@@ -32,7 +33,7 @@ public class SetProjectSharingSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetProjectSharingSettingsResult.create();
+        var result = new SetProjectSharingSettingsResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

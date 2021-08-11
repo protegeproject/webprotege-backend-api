@@ -6,7 +6,6 @@ import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -33,7 +32,7 @@ public class GetIssuesAction_TestCase {
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(getIssuesAction.getProjectId(), is(this.projectId));
+        assertThat(getIssuesAction.projectId(), is(this.projectId));
     }
 
     @Test

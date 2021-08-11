@@ -16,65 +16,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 1 Mar 2018
  */
-public class SetProjectPrefixDeclarationsAction implements ProjectAction<SetProjectPrefixDeclarationsResult> {
+public record SetProjectPrefixDeclarationsAction(@Nonnull ProjectId projectId,
+                                                 @Nonnull List<PrefixDeclaration> prefixDeclarations) implements ProjectAction<SetProjectPrefixDeclarationsResult> {
 
-    private ProjectId projectId;
-
-    private List<PrefixDeclaration> prefixDeclarations;
-
-    private SetProjectPrefixDeclarationsAction(@Nonnull ProjectId projectId,
-                                               @Nonnull List<PrefixDeclaration> prefixDeclarations) {
-        this.projectId = checkNotNull(projectId);
-        this.prefixDeclarations = new ArrayList<>(checkNotNull(prefixDeclarations));
-    }
-
-
-    private SetProjectPrefixDeclarationsAction() {
-    }
-
-    public static SetProjectPrefixDeclarationsAction create(@Nonnull ProjectId projectId,
-                                                            @Nonnull List<PrefixDeclaration> prefixDeclarations) {
-        return new SetProjectPrefixDeclarationsAction(projectId, prefixDeclarations);
-    }
-
-    @Nonnull
-    @Override
-    public ProjectId getProjectId() {
-        return projectId;
-    }
-
-    /**
-     * Gets the prefix declarations to set
-     */
-    @Nonnull
-    public List<PrefixDeclaration> getPrefixDeclarations() {
-        return new ArrayList<>(prefixDeclarations);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(projectId, prefixDeclarations);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof SetProjectPrefixDeclarationsAction)) {
-            return false;
-        }
-        SetProjectPrefixDeclarationsAction other = (SetProjectPrefixDeclarationsAction) obj;
-        return this.projectId.equals(other.projectId)
-                && this.prefixDeclarations.equals(other.prefixDeclarations);
-    }
-
-
-    @Override
-    public String toString() {
-        return toStringHelper("SetProjectPrefixDeclarationsAction")
-                .addValue(projectId)
-                .addValue(prefixDeclarations)
-                .toString();
-    }
 }

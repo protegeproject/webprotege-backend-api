@@ -11,15 +11,9 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 28 Jul 16
  */
-@AutoValue
+
 
 @JsonTypeName("GetDataPropertyFrame")
-public abstract class GetDataPropertyFrameResult implements Result {
+public record GetDataPropertyFrameResult(DataPropertyFrame frame) implements Result {
 
-    @JsonCreator
-    public static GetDataPropertyFrameResult create(@JsonProperty("frame") DataPropertyFrame frame) {
-        return new AutoValue_GetDataPropertyFrameResult(frame);
-    }
-
-    public abstract DataPropertyFrame getFrame();
 }

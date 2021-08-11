@@ -19,7 +19,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 5 Oct 2016
  *
- * A thread of comments that are attached to an entity
+ * A thread of comments that are attached to an term
  */
 public class EntityDiscussionThread {
 
@@ -31,7 +31,7 @@ public class EntityDiscussionThread {
 
     public static final String COMMENTS_ID = "comments._id";
 
-    public static final String ENTITY = "entity";
+    public static final String ENTITY = "term";
 
     private ThreadId id;
 
@@ -118,7 +118,7 @@ public class EntityDiscussionThread {
     public String toString() {
         return toStringHelper("EntityCommentsThread")
                 .addValue(id)
-                .add("entity", entity)
+                .add("term", entity)
                 .add("status", status)
                 .add("comments", comments)
                 .toString();

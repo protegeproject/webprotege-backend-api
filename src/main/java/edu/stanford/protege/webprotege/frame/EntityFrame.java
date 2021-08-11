@@ -11,7 +11,7 @@ import edu.stanford.protege.webprotege.entity.OWLEntityData;
  * Bio-Medical Informatics Research Group<br>
  * Date: 14/01/2013
  * <p>
- *     A marker interface for entity frames.
+ *     A marker interface for term frames.
  * </p>
  */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property="type")

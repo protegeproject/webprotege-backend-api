@@ -18,15 +18,10 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 25/03/2013
  */
-@AutoValue
+
 
 @JsonTypeName("CreateAnnotationProperties")
-public abstract class CreateAnnotationPropertiesResult implements CreateEntitiesInHierarchyResult<OWLAnnotationProperty> {
+public record CreateAnnotationPropertiesResult(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                               @JsonProperty("entities") @Nonnull ImmutableSet<EntityNode> entities) implements CreateEntitiesInHierarchyResult<OWLAnnotationProperty> {
 
-    @JsonCreator
-    public static CreateAnnotationPropertiesResult create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                            @JsonProperty("entities") @Nonnull ImmutableSet<EntityNode> entities,
-                                            @JsonProperty("eventList") @Nonnull EventList<ProjectEvent> eventList) {
-        return new AutoValue_CreateAnnotationPropertiesResult(projectId, eventList, entities);
-    }
 }

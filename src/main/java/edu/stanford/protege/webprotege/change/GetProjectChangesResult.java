@@ -14,17 +14,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 24/02/15
  */
-@AutoValue
+
 
 @JsonTypeName("GetProjectChanges")
-public abstract class GetProjectChangesResult implements Result {
+public record GetProjectChangesResult(@JsonProperty("projectChanges") Page<ProjectChange> changes) implements Result {
 
-    @Nonnull
-    @JsonCreator
-    public static GetProjectChangesResult create(@JsonProperty("projectChanges") Page<ProjectChange> changes) {
-        return new AutoValue_GetProjectChangesResult(changes);
-    }
-
-    @Nonnull
-    public abstract Page<ProjectChange> getProjectChanges();
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.event.EventList;
 import edu.stanford.protege.webprotege.event.HasEventList;
@@ -23,57 +24,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 9 May 2017
  */
 @JsonTypeName("DeleteEntities")
-public class DeleteEntitiesResult implements Result, HasEventList<ProjectEvent> {
-
-    private Set<OWLEntity> deletedEntities;
-
-    private EventList<ProjectEvent> events;
-
-
-    private DeleteEntitiesResult() {
-    }
-
-
-    @JsonCreator
-    public DeleteEntitiesResult(@JsonProperty("eventList") @Nonnull EventList<ProjectEvent> events,
-                                @JsonProperty("deletedEntities") @Nonnull Set<OWLEntity> deletedEntities) {
-        this.events = checkNotNull(events);
-        this.deletedEntities = new HashSet<>(deletedEntities);
-    }
-
-    @Nonnull
-    @Override
-    public EventList<ProjectEvent> getEventList() {
-        return events;
-    }
-
-    public Set<OWLEntity> getDeletedEntities() {
-        return new HashSet<>(deletedEntities);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(events, deletedEntities);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof DeleteEntitiesResult)) {
-            return false;
-        }
-        DeleteEntitiesResult other = (DeleteEntitiesResult) obj;
-        return this.deletedEntities.equals(other.deletedEntities)
-                && this.events.equals(other.events);
-    }
-
-
-    @Override
-    public String toString() {
-        return toStringHelper("DeleteEntitiesResult")
-                .addValue(deletedEntities)
-                .toString();
-    }
+public record DeleteEntitiesResult(ImmutableSet<OWLEntity> deletedEntities,
+                                   EventList eventList) implements Result, HasEventList {
 }

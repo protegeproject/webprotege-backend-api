@@ -14,59 +14,6 @@ import static com.google.common.base.MoreObjects.toStringHelper;
  * Stanford Center for Biomedical Informatics Research
  * 22 Jun 2017
  */
-public class GetOboTermXRefsAction implements ProjectAction<GetOboTermXRefsResult> {
+public record GetOboTermXRefsAction(@Nonnull ProjectId projectId, @Nonnull OWLEntity entity) implements ProjectAction<GetOboTermXRefsResult> {
 
-    private ProjectId projectId;
-
-    private OWLEntity entity;
-
-    private GetOboTermXRefsAction(@Nonnull ProjectId projectId, @Nonnull OWLEntity entity) {
-        this.projectId = projectId;
-        this.entity = entity;
-    }
-
-
-    private GetOboTermXRefsAction() {
-    }
-
-    public static GetOboTermXRefsAction create(@Nonnull ProjectId projectId, @Nonnull OWLEntity entity) {
-        return new GetOboTermXRefsAction(projectId, entity);
-    }
-
-    @Override
-    @Nonnull
-    public ProjectId getProjectId() {
-        return projectId;
-    }
-
-    @Nonnull
-    public OWLEntity getEntity() {
-        return entity;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(projectId, entity);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof GetOboTermXRefsAction)) {
-            return false;
-        }
-        GetOboTermXRefsAction other = (GetOboTermXRefsAction) obj;
-        return this.projectId.equals(other.projectId);
-    }
-
-
-    @Override
-    public String toString() {
-        return toStringHelper("GetOboTermXRefsAction")
-                .addValue(projectId)
-                .addValue(entity)
-                .toString();
-    }
 }

@@ -19,13 +19,13 @@ public class ResetPerspectives_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = ResetPerspectivesAction.create(mockProjectId());
+        var action = new ResetPerspectivesAction(mockProjectId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = ResetPerspectivesResult.create();
+        var result = new ResetPerspectivesResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

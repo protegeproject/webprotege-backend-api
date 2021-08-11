@@ -21,14 +21,14 @@ public class GetEntityRendering_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetEntityRenderingAction.create(ProjectId.generate(),
+        var action = new GetEntityRenderingAction(ProjectId.generate(),
                                                      mockOWLClass());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetEntityRenderingResult.create(mockOWLClassData());
+        var result = new GetEntityRenderingResult(mockOWLClassData());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

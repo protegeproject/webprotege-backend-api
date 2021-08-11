@@ -22,7 +22,6 @@ import static com.google.common.collect.ImmutableList.toImmutableList;
  * Date: 13/09/2013
  */
 @AutoValue
-
 @JsonTypeName("Page")
 public abstract class Page<T> implements Serializable, Iterable<T> {
 

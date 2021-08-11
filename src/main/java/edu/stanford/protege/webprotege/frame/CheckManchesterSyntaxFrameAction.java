@@ -17,9 +17,11 @@ import javax.annotation.Nonnull;
  * @author Matthew Horridge, Stanford University, Bio-Medical Informatics Research Group, Date: 18/03/2014
  */
 @JsonTypeName("CheckManchesterSyntax")
-@AutoValue
-
-public abstract class CheckManchesterSyntaxFrameAction implements ProjectAction<CheckManchesterSyntaxFrameResult>, HasSubject<OWLEntity> {
+public record CheckManchesterSyntaxFrameAction(ProjectId projectId,
+                                               OWLEntity subject,
+                                               String from,
+                                               String to,
+                                               ImmutableSet<OWLEntityData> freshEntities)implements ProjectAction<CheckManchesterSyntaxFrameResult>, HasSubject<OWLEntity> {
 
 
     @JsonCreator
@@ -28,19 +30,11 @@ public abstract class CheckManchesterSyntaxFrameAction implements ProjectAction<
                                                    @JsonProperty("from") String from,
                                                    @JsonProperty("to") String to,
                                                    @JsonProperty("freshEntities") ImmutableSet<OWLEntityData> freshEntities) {
-        return new AutoValue_CheckManchesterSyntaxFrameAction(projectId, subject, from, to, freshEntities);
+        return new CheckManchesterSyntaxFrameAction(projectId, subject, from, to, freshEntities);
     }
 
-    @Nonnull
     @Override
-    public abstract ProjectId getProjectId();
-
-    @Override
-    public abstract OWLEntity getSubject();
-
-    public abstract String getFrom();
-
-    public abstract String getTo();
-
-    public abstract ImmutableSet<OWLEntityData> getFreshEntities();
+    public OWLEntity subject() {
+        return subject;
+    }
 }

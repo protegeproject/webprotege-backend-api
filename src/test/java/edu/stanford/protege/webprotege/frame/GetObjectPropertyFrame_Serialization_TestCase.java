@@ -22,14 +22,14 @@ public class GetObjectPropertyFrame_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetObjectPropertyFrameAction.create(mockProjectId(),
+        var action = new GetObjectPropertyFrameAction(mockProjectId(),
                                                          mockOWLObjectProperty());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetObjectPropertyFrameResult.create(ObjectPropertyFrame.get(
+        var result = new GetObjectPropertyFrameResult(ObjectPropertyFrame.get(
                 OWLObjectPropertyData.get(mockOWLObjectProperty(), ImmutableMap.of(), false),
                 ImmutableSet.of(),
                 ImmutableSet.of(),

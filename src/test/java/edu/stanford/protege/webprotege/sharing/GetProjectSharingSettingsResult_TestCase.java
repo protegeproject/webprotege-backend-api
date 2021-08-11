@@ -30,13 +30,13 @@ public class GetProjectSharingSettingsResult_TestCase {
 
     @Before
     public void setUp() throws Exception {
-        result = GetProjectSharingSettingsResult.create(projectSharingSettings);
-        otherResult = GetProjectSharingSettingsResult.create(projectSharingSettings);
+        result = new GetProjectSharingSettingsResult(projectSharingSettings);
+        otherResult = new GetProjectSharingSettingsResult(projectSharingSettings);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        GetProjectSharingSettingsResult.create(null);
+        new GetProjectSharingSettingsResult(null);
     }
 
     @Test
@@ -66,6 +66,6 @@ public class GetProjectSharingSettingsResult_TestCase {
 
     @Test
     public void shouldReturnSuppliedSharingSettings() {
-        assertThat(result.getProjectSharingSettings(), is(projectSharingSettings));
+        assertThat(result.settings(), is(projectSharingSettings));
     }
 }

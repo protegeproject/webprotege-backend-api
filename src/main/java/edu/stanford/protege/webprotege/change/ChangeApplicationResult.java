@@ -46,7 +46,7 @@ public class ChangeApplicationResult<S> implements HasSubject<S> {
 
     @Nonnull
     @Override
-    public S getSubject() {
+    public S subject() {
         return subject;
     }
 }

@@ -21,7 +21,7 @@ public class WatchRecord {
 
     public static final String USER_ID = "userId";
 
-    public static final String ENTITY = "entity";
+    public static final String ENTITY = "term";
 
     public static final String TYPE = "type";
 

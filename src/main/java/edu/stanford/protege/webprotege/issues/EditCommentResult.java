@@ -17,20 +17,9 @@ import java.util.Optional;
  * Stanford Center for Biomedical Informatics Research
  * 8 Oct 2016
  */
-@AutoValue
+
 
 @JsonTypeName("EditComment")
-public abstract class EditCommentResult implements Result, HasEventList<ProjectEvent> {
-
-    @JsonCreator
-    public static EditCommentResult create(@JsonProperty("editedComment") @Nonnull Optional<Comment> editedComment,
-                             @JsonProperty("eventList") @Nonnull EventList<ProjectEvent> projectEventList) {
-        return new AutoValue_EditCommentResult(editedComment, projectEventList);
-    }
-
-    @Nonnull
-    public abstract Optional<Comment> getEditedComment();
-
-    @Override
-    public abstract EventList<ProjectEvent> getEventList();
+public record EditCommentResult(@JsonProperty("editedComment") @Nonnull Optional<Comment> editedComment,
+                                @JsonProperty("eventList") @Nonnull EventList eventList) implements Result, HasEventList {
 }

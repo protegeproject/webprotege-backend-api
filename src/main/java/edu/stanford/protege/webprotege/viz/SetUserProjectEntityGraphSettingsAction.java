@@ -17,30 +17,16 @@ import java.util.Optional;
  * Stanford Center for Biomedical Informatics Research
  * 2019-12-10
  */
-@AutoValue
+
 
 @JsonTypeName("SetUserProjectEntityGraphSettings")
-public abstract class SetUserProjectEntityGraphSettingsAction implements ProjectAction<SetUserProjectEntityGraphSettingsResult> {
-
-    @JsonCreator
-    public static SetUserProjectEntityGraphSettingsAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                                                 @JsonProperty("userId") @Nullable UserId userId,
-                                                                 @JsonProperty("settings") @Nonnull EntityGraphSettings settings) {
-        return new AutoValue_SetUserProjectEntityGraphSettingsAction(projectId, settings, userId);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract EntityGraphSettings getSettings();
+public record SetUserProjectEntityGraphSettingsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                                      @JsonProperty("userId") @Nullable UserId userId,
+                                                      @JsonProperty("settings") @Nonnull EntityGraphSettings settings) implements ProjectAction<SetUserProjectEntityGraphSettingsResult> {
 
     @Nonnull
     public Optional<UserId> getUserId() {
-        return Optional.ofNullable(getUserIdInternal());
+        return Optional.ofNullable(userId);
     }
 
-    @Nullable
-    public abstract UserId getUserIdInternal();
 }

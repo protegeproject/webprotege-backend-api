@@ -17,20 +17,10 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 23/04/2013
  */
-@AutoValue
+
 
 @JsonTypeName("GetDataPropertyFrame")
-public abstract class GetDataPropertyFrameAction implements ProjectAction<GetDataPropertyFrameResult>, HasSubject<OWLDataProperty> {
+public record GetDataPropertyFrameAction(@JsonProperty("projectId") ProjectId projectId,
+                                         @JsonProperty("subject") OWLDataProperty subject) implements ProjectAction<GetDataPropertyFrameResult>, HasSubject<OWLDataProperty> {
 
-    @JsonCreator
-    public static GetDataPropertyFrameAction create(@JsonProperty("projectId") ProjectId projectId,
-                                                    @JsonProperty("subject") OWLDataProperty subject) {
-        return new AutoValue_GetDataPropertyFrameAction(subject, projectId);
-    }
-
-    public abstract OWLDataProperty getSubject();
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
 }

@@ -20,13 +20,13 @@ public class GetSearchSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetSearchSettingsAction.create(mockProjectId());
+        var action = new GetSearchSettingsAction(mockProjectId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetSearchSettingsResult.create(ImmutableList.of());
+        var result = new GetSearchSettingsResult(ImmutableList.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

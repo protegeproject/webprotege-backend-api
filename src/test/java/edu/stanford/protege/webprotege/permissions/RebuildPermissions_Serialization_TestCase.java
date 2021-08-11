@@ -16,13 +16,13 @@ public class RebuildPermissions_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        JsonSerializationTestUtil.testSerialization(RebuildPermissionsAction.get(),
+        JsonSerializationTestUtil.testSerialization(new RebuildPermissionsAction(),
                                                     Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        JsonSerializationTestUtil.testSerialization(RebuildPermissionsResult.get(),
+        JsonSerializationTestUtil.testSerialization(new RebuildPermissionsResult(),
                                                     Result.class);
     }
 }

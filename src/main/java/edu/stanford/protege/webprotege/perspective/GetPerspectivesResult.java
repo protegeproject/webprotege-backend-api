@@ -15,21 +15,10 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 18/02/16
  */
-@AutoValue
+
 
 @JsonTypeName("GetPerspectivesResult")
-public abstract class GetPerspectivesResult implements Result {
+public record GetPerspectivesResult(@JsonProperty("perspectives") @Nonnull ImmutableList<PerspectiveDescriptor> perspectives,
+                                    @JsonProperty("resettablePerspectives") @Nonnull ImmutableSet<PerspectiveId> resettablePerspectives) implements Result {
 
-    @JsonCreator
-    @Nonnull
-    public static GetPerspectivesResult create(@JsonProperty("perspectives") @Nonnull ImmutableList<PerspectiveDescriptor> perspectives,
-                                               @JsonProperty("resettablePerspectives") @Nonnull ImmutableSet<PerspectiveId> resettablePerspectives) {
-        return new AutoValue_GetPerspectivesResult(perspectives, resettablePerspectives);
-    }
-
-    @Nonnull
-    public abstract ImmutableList<PerspectiveDescriptor> getPerspectives();
-
-    @Nonnull
-    public abstract ImmutableSet<PerspectiveId> getResettablePerspectives();
 }

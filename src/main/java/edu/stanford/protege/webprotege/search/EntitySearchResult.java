@@ -16,7 +16,7 @@ import javax.annotation.Nonnull;
 @AutoValue
 public abstract class EntitySearchResult {
 
-    public static final String ENTITY = "entity";
+    public static final String ENTITY = "term";
 
     public static final String MATCHES = "matches";
 
@@ -32,7 +32,7 @@ public abstract class EntitySearchResult {
     public abstract EntityNode getEntity();
 
     /**
-     * Get the matches for this particular entity
+     * Get the matches for this particular term
      * @return The list of matches
      */
     @JsonProperty(MATCHES)

@@ -20,14 +20,14 @@ public class GetProjectPermissions_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetProjectPermissionsAction.create(mockProjectId(),
+        var action = new GetProjectPermissionsAction(mockProjectId(),
                                                         mockUserId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetProjectPermissionsResult.create(ImmutableSet.of());
+        var result = new GetProjectPermissionsResult(ImmutableSet.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

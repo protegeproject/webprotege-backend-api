@@ -2,6 +2,7 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.pagination.PageRequest;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,40 +29,40 @@ public class GetHierarchyChildrenAction_TestCase {
 
     @Before
     public void setUp() {
-        action = GetHierarchyChildrenAction.create(projectId, entity, hierarchyId);
+        action = new GetHierarchyChildrenAction(projectId, entity, hierarchyId, PageRequest.requestFirstPage());
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        GetHierarchyChildrenAction.create(null, entity, hierarchyId);
+        new GetHierarchyChildrenAction(null, entity, hierarchyId, PageRequest.requestFirstPage());
     }
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(action.getProjectId(), is(this.projectId));
+        assertThat(action.projectId(), is(this.projectId));
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        GetHierarchyChildrenAction.create(projectId, null, hierarchyId);
+        new GetHierarchyChildrenAction(projectId, null, hierarchyId, PageRequest.requestFirstPage());
     }
 
     @Test
     public void shouldReturnSupplied_entity() {
-        assertThat(action.getEntity(), is(this.entity));
+        assertThat(action.entity(), is(this.entity));
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_hierarchyId_IsNull() {
-        GetHierarchyChildrenAction.create(projectId, entity, null);
+        new GetHierarchyChildrenAction(projectId, entity, null, PageRequest.requestFirstPage());
     }
 
     @Test
     public void shouldReturnSupplied_hierarchyId() {
-        assertThat(action.getHierarchyId(), is(this.hierarchyId));
+        assertThat(action.hierarchyId(), is(this.hierarchyId));
     }
 
     @Test
@@ -77,27 +78,27 @@ public class GetHierarchyChildrenAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(action, is(GetHierarchyChildrenAction.create(projectId, entity, hierarchyId)));
+        assertThat(action, is(new GetHierarchyChildrenAction(projectId, entity, hierarchyId, PageRequest.requestFirstPage())));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(action, is(not(GetHierarchyChildrenAction.create(ProjectId.generate(), entity, hierarchyId))));
+        assertThat(action, is(not(new GetHierarchyChildrenAction(ProjectId.generate(), entity, hierarchyId, PageRequest.requestFirstPage()))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entity() {
-        assertThat(action, is(not(GetHierarchyChildrenAction.create(projectId, mock(OWLEntity.class), hierarchyId))));
+        assertThat(action, is(not(new GetHierarchyChildrenAction(projectId, mock(OWLEntity.class), hierarchyId, PageRequest.requestFirstPage()))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_hierarchyId() {
-        assertThat(action, is(not(GetHierarchyChildrenAction.create(projectId, entity, mock(HierarchyId.class)))));
+        assertThat(action, is(not(new GetHierarchyChildrenAction(projectId, entity, mock(HierarchyId.class), PageRequest.requestFirstPage()))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(action.hashCode(), is(GetHierarchyChildrenAction.create(projectId, entity, hierarchyId).hashCode()));
+        assertThat(action.hashCode(), is(new GetHierarchyChildrenAction(projectId, entity, hierarchyId, PageRequest.requestFirstPage()).hashCode()));
     }
 
     @Test

@@ -20,7 +20,7 @@ public class MoveEntitiesToParent_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = MoveEntitiesToParentAction.create(mockProjectId(), ImmutableSet.of(),
+        var action = new MoveEntitiesToParentAction(mockProjectId(), ImmutableSet.of(),
                                                        mockOWLClass(),
                                                        "Test");
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -28,7 +28,7 @@ public class MoveEntitiesToParent_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = MoveEntitiesToParentResult.create(mockEventList());
+        var result = new MoveEntitiesToParentResult(mockEventList());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

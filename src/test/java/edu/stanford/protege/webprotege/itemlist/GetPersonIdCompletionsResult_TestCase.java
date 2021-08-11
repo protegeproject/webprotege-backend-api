@@ -1,6 +1,7 @@
 
 package edu.stanford.protege.webprotege.itemlist;
 
+import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.sharing.PersonId;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -24,20 +25,19 @@ public class GetPersonIdCompletionsResult_TestCase {
     @Mock
     private PersonId personId;
 
-    private List<PersonId> possibleItemCompletions;
+    private ImmutableList<PersonId> possibleItemCompletions;
 
     @Before
     public void setUp()
         throws Exception
     {
-        possibleItemCompletions = new ArrayList<>();
-        possibleItemCompletions.add(personId);
-        result = GetPersonIdCompletionsResult.create(possibleItemCompletions);
+        possibleItemCompletions = ImmutableList.of(personId);
+        result = new GetPersonIdCompletionsResult(possibleItemCompletions);
     }
 
     @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_possibleItemCompletions_IsNull() {
-        GetPersonIdCompletionsResult.create(null);
+        new GetPersonIdCompletionsResult(null);
     }
 
     @Test
@@ -52,18 +52,18 @@ public class GetPersonIdCompletionsResult_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        MatcherAssert.assertThat(result, Matchers.is(GetPersonIdCompletionsResult.create(possibleItemCompletions)));
+        MatcherAssert.assertThat(result, Matchers.is(new GetPersonIdCompletionsResult(possibleItemCompletions)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_possibleItemCompletions() {
-        MatcherAssert.assertThat(result, Matchers.is(Matchers.not(GetPersonIdCompletionsResult.create(Collections.singletonList(
+        MatcherAssert.assertThat(result, Matchers.is(Matchers.not(new GetPersonIdCompletionsResult(ImmutableList.of(
                 mock(PersonId.class))))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        MatcherAssert.assertThat(result.hashCode(), Matchers.is(GetPersonIdCompletionsResult.create(possibleItemCompletions)
+        MatcherAssert.assertThat(result.hashCode(), Matchers.is(new GetPersonIdCompletionsResult(possibleItemCompletions)
                                                                                             .hashCode()));
     }
 

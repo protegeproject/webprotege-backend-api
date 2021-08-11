@@ -14,21 +14,10 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-08-22
  */
-@AutoValue
+
 
 @JsonTypeName("UpdateFormDescriptor")
-public abstract class UpdateFormDescriptorAction implements ProjectAction<UpdateFormDescriptorResult> {
+public record UpdateFormDescriptorAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                         @JsonProperty("formDescriptor") @Nonnull FormDescriptor descriptor) implements ProjectAction<UpdateFormDescriptorResult> {
 
-    @JsonCreator
-    public static UpdateFormDescriptorAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                                    @JsonProperty("formDescriptor") @Nonnull FormDescriptor descriptor) {
-        return new AutoValue_UpdateFormDescriptorAction(projectId, descriptor);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract FormDescriptor getFormDescriptor();
 }

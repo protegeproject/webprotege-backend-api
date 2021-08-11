@@ -21,14 +21,14 @@ public class GetEntityFormDescriptor_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetEntityFormDescriptorAction.create(ProjectId.generate(),
+        var action = new GetEntityFormDescriptorAction(ProjectId.generate(),
                                                           FormId.generate());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetEntityFormDescriptorResult.get(ProjectId.generate(),
+        var result = new GetEntityFormDescriptorResult(ProjectId.generate(),
                                                        FormId.generate(),
                                                        FormDescriptor.empty(FormId.generate()),
                                                        FormPurpose.ENTITY_DEPRECATION,

@@ -14,21 +14,10 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-04-15
  */
-@AutoValue
+
 
 @JsonTypeName("DeleteForm")
-public abstract class DeleteFormAction implements ProjectAction<DeleteFormResult> {
+public record DeleteFormAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                               @JsonProperty("formId") @Nonnull FormId formId) implements ProjectAction<DeleteFormResult> {
 
-    @JsonCreator
-    public static DeleteFormAction get(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                            @JsonProperty("formId") @Nonnull FormId formId) {
-        return new AutoValue_DeleteFormAction(projectId, formId);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract FormId getFormId();
 }

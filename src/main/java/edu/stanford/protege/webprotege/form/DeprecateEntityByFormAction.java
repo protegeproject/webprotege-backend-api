@@ -45,19 +45,19 @@ public class DeprecateEntityByFormAction implements ProjectAction<DeprecateEntit
                              .getEntityType()
                              .equals(entity.getEntityType());
             if(!entityTypesAreTheSame) {
-                throw new IllegalArgumentException("Entity types for the entity being deprecated and the replacement entity must be the same");
+                throw new IllegalArgumentException("Entity types for the term being deprecated and the replacement term must be the same");
             }
         }
     }
 
     @Nonnull
     @Override
-    public ProjectId getProjectId() {
+    public ProjectId projectId() {
         return projectId;
     }
 
     /**
-     * Gets the entity to be deprecated
+     * Gets the term to be deprecated
      */
     @Nonnull
     public OWLEntity getEntity() {
@@ -65,14 +65,14 @@ public class DeprecateEntityByFormAction implements ProjectAction<DeprecateEntit
     }
 
     /**
-     * Gets the form data for the deprecated entity
+     * Gets the form data for the deprecated term
      */
     public Optional<FormData> getDeprecationFormData() {
         return Optional.ofNullable(deprecationFormData);
     }
 
     /**
-     * Gets the optional replacement entity
+     * Gets the optional replacement term
      */
     public Optional<OWLEntity> getReplacementEntity() {
         return Optional.ofNullable(replacementEntity);

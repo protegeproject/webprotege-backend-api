@@ -10,13 +10,9 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 2020-08-17
  */
-@AutoValue
+
 
 @JsonTypeName("SetSearchSettings")
-public class SetSearchSettingsResult implements Result {
+public record SetSearchSettingsResult() implements Result {
 
-    @JsonCreator
-    public static SetSearchSettingsResult create() {
-        return new AutoValue_SetSearchSettingsResult();
-    }
 }

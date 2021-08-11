@@ -6,7 +6,6 @@ import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -22,18 +21,18 @@ public class GetOboNamespacesAction_TestCase {
 
     @Before
     public void setUp() {
-        getOboNamespacesAction = GetOboNamespacesAction.create(projectId);
+        getOboNamespacesAction = new GetOboNamespacesAction(projectId);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        GetOboNamespacesAction.create(null);
+        new GetOboNamespacesAction(null);
     }
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(getOboNamespacesAction.getProjectId(), is(this.projectId));
+        assertThat(getOboNamespacesAction.projectId(), is(this.projectId));
     }
 
     @Test
@@ -49,17 +48,17 @@ public class GetOboNamespacesAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(getOboNamespacesAction, is(GetOboNamespacesAction.create(projectId)));
+        assertThat(getOboNamespacesAction, is(new GetOboNamespacesAction(projectId)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(getOboNamespacesAction, is(not(GetOboNamespacesAction.create(ProjectId.generate()))));
+        assertThat(getOboNamespacesAction, is(not(new GetOboNamespacesAction(ProjectId.generate()))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(getOboNamespacesAction.hashCode(), is(GetOboNamespacesAction.create(projectId).hashCode()));
+        assertThat(getOboNamespacesAction.hashCode(), is(new GetOboNamespacesAction(projectId).hashCode()));
     }
 
     @Test

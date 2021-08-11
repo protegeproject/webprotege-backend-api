@@ -17,37 +17,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 20/03/2013
  */
-public class AddWatchResult implements Result, HasEventList<ProjectEvent> {
+public record AddWatchResult() implements Result {
 
-    private EventList<ProjectEvent> eventList;
-
-    private AddWatchResult() {
-    }
-
-    @JsonCreator
-    public AddWatchResult(@JsonProperty("eventList") EventList<ProjectEvent> eventList) {
-        this.eventList = checkNotNull(eventList);
-    }
-
-    @Override
-    public EventList<ProjectEvent> getEventList() {
-        return eventList;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof AddWatchResult)) {
-            return false;
-        }
-        AddWatchResult that = (AddWatchResult) o;
-        return Objects.equals(eventList, that.eventList);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(eventList);
-    }
 }

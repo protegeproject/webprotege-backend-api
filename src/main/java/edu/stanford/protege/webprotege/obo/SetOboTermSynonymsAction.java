@@ -16,73 +16,9 @@ import static com.google.common.base.MoreObjects.toStringHelper;
  * Stanford Center for Biomedical Informatics Research
  * 22 Jun 2017
  */
-public class SetOboTermSynonymsAction implements ProjectAction<SetOboTermSynonymsResult> {
-
-    private ProjectId projectId;
-
-    private OWLEntity entity;
-
-    private ImmutableList<OBOTermSynonym> synonyms;
-
-    private SetOboTermSynonymsAction(@Nonnull ProjectId projectId,
-                                     @Nonnull OWLEntity entity,
-                                     @Nonnull List<OBOTermSynonym> synonyms) {
-        this.projectId = projectId;
-        this.entity = entity;
-        this.synonyms = ImmutableList.copyOf(synonyms);
-    }
+public record SetOboTermSynonymsAction(@Nonnull ProjectId projectId,
+                                      @Nonnull OWLEntity entity,
+                                      @Nonnull List<OBOTermSynonym> synonyms) implements ProjectAction<SetOboTermSynonymsResult> {
 
 
-    private SetOboTermSynonymsAction() {
-    }
-
-    public static SetOboTermSynonymsAction create(@Nonnull ProjectId projectId,
-                                                  @Nonnull OWLEntity entity,
-                                                  @Nonnull List<OBOTermSynonym> synonyms) {
-        return new SetOboTermSynonymsAction(projectId, entity, synonyms);
-    }
-
-    @Nonnull
-    public ProjectId getProjectId() {
-        return projectId;
-    }
-
-    @Nonnull
-    public OWLEntity getEntity() {
-        return entity;
-    }
-
-    @Nonnull
-    public List<OBOTermSynonym> getSynonyms() {
-        return synonyms;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(projectId, entity, synonyms);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof SetOboTermSynonymsAction)) {
-            return false;
-        }
-        SetOboTermSynonymsAction other = (SetOboTermSynonymsAction) obj;
-        return this.projectId.equals(other.projectId)
-                && this.synonyms.equals(other.synonyms)
-                && this.entity.equals(other.entity);
-    }
-
-
-    @Override
-    public String toString() {
-        return toStringHelper("SetOboTermSynonymsAction")
-                .addValue(projectId)
-                .addValue(entity)
-                .addValue(synonyms)
-                .toString();
-    }
 }

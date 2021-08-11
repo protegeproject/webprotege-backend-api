@@ -19,7 +19,7 @@ public class SetOboTermCrossProduct_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetOboTermCrossProductAction.create(mockProjectId(),
+        var action = new SetOboTermCrossProductAction(mockProjectId(),
                                                          mockOWLClass(),
                                                          OBOTermCrossProduct.emptyOBOTermCrossProduct());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -27,7 +27,7 @@ public class SetOboTermCrossProduct_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetOboTermCrossProductResult.create();
+        var result = new SetOboTermCrossProductResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

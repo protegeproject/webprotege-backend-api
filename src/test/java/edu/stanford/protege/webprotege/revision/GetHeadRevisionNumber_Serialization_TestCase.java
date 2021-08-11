@@ -17,13 +17,13 @@ public class GetHeadRevisionNumber_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetHeadRevisionNumberAction.create(ProjectId.generate());
+        var action = new GetHeadRevisionNumberAction(ProjectId.generate());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetHeadRevisionNumberResult.create(RevisionNumber.getHeadRevisionNumber());
+        var result = new GetHeadRevisionNumberResult(ProjectId.generate(), RevisionNumber.getHeadRevisionNumber());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

@@ -13,19 +13,9 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 21/05/2012
  */
-@AutoValue
 
-public abstract class EntityLookupResult {
 
-    @JsonCreator
-    public static EntityLookupResult get(@JsonProperty("matchResult") @Nonnull SearchResultMatch matchResult,
-                                         @JsonProperty("directLink") @Nonnull String directLink) {
-        return new AutoValue_EntityLookupResult(matchResult, directLink);
-    }
+public record EntityLookupResult(@JsonProperty("matchResult") @Nonnull SearchResultMatch matchResult,
+                                 @JsonProperty("directLink") @Nonnull String directLink) {
 
-    @Nonnull
-    public abstract SearchResultMatch getMatchResult();
-
-    @Nonnull
-    public abstract String getDirectLink();
 }

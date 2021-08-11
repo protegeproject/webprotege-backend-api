@@ -19,13 +19,13 @@ public class GetOboTermId_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetOboTermIdAction.create(mockProjectId(), mockOWLClass());
+        var action = new GetOboTermIdAction(mockProjectId(), mockOWLClass());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetOboTermIdResult.create(mockOWLClass(), new OBOTermId("id", "name", "ns"));
+        var result = new GetOboTermIdResult(mockOWLClass(), new OBOTermId("id", "name", "ns"));
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

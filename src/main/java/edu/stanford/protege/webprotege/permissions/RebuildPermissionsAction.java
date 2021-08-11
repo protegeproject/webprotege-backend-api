@@ -10,17 +10,7 @@ import edu.stanford.protege.webprotege.dispatch.Action;
  * Stanford Center for Biomedical Informatics Research
  * 11 Apr 2017
  */
-@AutoValue
-
 @JsonTypeName("RebuildPermissions")
-public abstract class RebuildPermissionsAction implements Action<RebuildPermissionsResult> {
+public record RebuildPermissionsAction() implements Action<RebuildPermissionsResult> {
 
-    @JsonCreator
-    public static RebuildPermissionsAction get() {
-        return new AutoValue_RebuildPermissionsAction();
-    }
-
-    public static RebuildPermissionsAction create() {
-        return get();
-    }
 }

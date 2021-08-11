@@ -17,24 +17,11 @@ import java.util.Set;
  * Stanford Center for Biomedical Informatics Research
  * 16 Jun 2017
  */
-@AutoValue
+
 
 @JsonTypeName("GetDeprecatedEntities")
-public abstract class GetDeprecatedEntitiesAction implements ProjectAction<GetDeprecatedEntitiesResult> {
+public record GetDeprecatedEntitiesAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                          @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest,
+                                          @JsonProperty("entityTypes") @Nonnull Set<EntityType<?>> entityTypes) implements ProjectAction<GetDeprecatedEntitiesResult> {
 
-    @JsonCreator
-    public static GetDeprecatedEntitiesAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                       @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest,
-                                       @JsonProperty("entityTypes") @Nonnull Set<EntityType<?>> entityTypes) {
-        return new AutoValue_GetDeprecatedEntitiesAction(projectId, pageRequest, entityTypes);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract PageRequest getPageRequest();
-
-    public abstract Set<EntityType<?>> getEntityTypes();
 }

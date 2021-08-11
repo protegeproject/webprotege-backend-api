@@ -15,13 +15,9 @@ import edu.stanford.protege.webprotege.event.WebProtegeEvent;
  * Bio-Medical Informatics Research Group<br>
  * Date: 19/04/2013
  */
-@AutoValue
+
 
 @JsonTypeName("MoveProjectsToTrash")
-public abstract class MoveProjectsToTrashResult implements Result, HasEventList<WebProtegeEvent> {
+public record MoveProjectsToTrashResult(EventList eventList) implements Result, HasEventList {
 
-    @JsonCreator
-    public static MoveProjectsToTrashResult create(@JsonProperty("eventList") EventList<WebProtegeEvent> eventList) {
-        return new AutoValue_MoveProjectsToTrashResult(eventList);
-    }
 }

@@ -20,25 +20,11 @@ import java.util.Optional;
  *     The result from a {@link GetEmailAddressAction}.
  * </p>
  */
-@AutoValue
+
 
 @JsonTypeName("GetEmailAddress")
-public abstract class GetEmailAddressResult implements Result {
-
-    @JsonCreator
-    public static GetEmailAddressResult create(@JsonProperty("userId") UserId userId,
-                                               @JsonProperty("emailAddress") @Nullable EmailAddress emailAddress) {
-        return new AutoValue_GetEmailAddressResult(userId, emailAddress);
-    }
-
-    /**
-     * Gets the {@link UserId}.
-     * @return The {@link UserId}. Not {@code null}.
-     */
-    public abstract UserId getUserId();
-
-    @Nullable
-    protected abstract EmailAddress getEmailAddressInternal();
+public record GetEmailAddressResult(@JsonProperty("userId") UserId userId,
+                                    @JsonProperty("emailAddress") @Nullable EmailAddress emailAddress) implements Result {
 
     /**
      * Gets the {@link EmailAddress}.
@@ -46,7 +32,7 @@ public abstract class GetEmailAddressResult implements Result {
      * does not exist.  Not {@code null}.
      */
     public Optional<EmailAddress> getEmailAddress() {
-        return Optional.ofNullable(getEmailAddressInternal());
+        return Optional.ofNullable(emailAddress);
     }
 
 

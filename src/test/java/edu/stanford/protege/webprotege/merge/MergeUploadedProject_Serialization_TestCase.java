@@ -19,7 +19,7 @@ public class MergeUploadedProject_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = MergeUploadedProjectAction.create(mockProjectId(),
+        var action = new MergeUploadedProjectAction(mockProjectId(),
                                                        mockDocumentId(),
                                                        "Test");
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -27,7 +27,7 @@ public class MergeUploadedProject_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = MergeUploadedProjectResult.create();
+        var result = new MergeUploadedProjectResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

@@ -12,21 +12,9 @@ import edu.stanford.protege.webprotege.event.ProjectEvent;
 /**
  * Matthew Horridge Stanford Center for Biomedical Informatics Research 8 Dec 2017
  */
-@AutoValue
+
 
 @JsonTypeName("MoveHierarchyNode")
-public abstract class MoveHierarchyNodeResult implements Result, HasEventList<ProjectEvent> {
-
-
-    @JsonCreator
-    public static MoveHierarchyNodeResult create(@JsonProperty("moved") boolean moved,
-                                                 @JsonProperty("eventList") EventList<ProjectEvent> eventList) {
-        return new AutoValue_MoveHierarchyNodeResult(moved, eventList);
-    }
-
-    public abstract boolean isMoved();
-
-    @Override
-    public abstract EventList<ProjectEvent> getEventList();
+public record MoveHierarchyNodeResult(@JsonProperty("moved") boolean moved) implements Result {
 
 }

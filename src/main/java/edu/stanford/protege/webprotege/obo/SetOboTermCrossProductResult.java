@@ -10,13 +10,8 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 22 Jun 2017
  */
-@AutoValue
+
 
 @JsonTypeName("SetOboTermCrossProduct")
-public abstract class SetOboTermCrossProductResult implements Result {
-
-    @JsonCreator
-    public static SetOboTermCrossProductResult create() {
-        return new AutoValue_SetOboTermCrossProductResult();
-    }
+public record SetOboTermCrossProductResult() implements Result {
 }

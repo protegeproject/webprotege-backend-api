@@ -14,9 +14,9 @@ import java.util.Set;
 public interface WatchTriggeredHandler {
 
     /**
-     * Handles a watch that was trigger on the specified entity
+     * Handles a watch that was trigger on the specified term
      * @param usersToNotify The users to notify that the watch has been triggered.
-     * @param modifiedEntity The entity that was "changed" that triggered the watch.
+     * @param modifiedEntity The term that was "changed" that triggered the watch.
      * @param byUser The user that made the change that triggered the watch
      */
     void handleWatchTriggered(@Nonnull Set<UserId> usersToNotify,

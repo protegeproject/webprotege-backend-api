@@ -12,17 +12,9 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 2020-04-14
  */
-@AutoValue
+
 
 @JsonTypeName("CopyFormDescriptorsFromProject")
-public abstract class CopyFormDescriptorsFromProjectResult implements Result {
-
-    public abstract ImmutableList<FormDescriptor> getCopiedFormDescriptors();
-
-    @JsonCreator
-    public static CopyFormDescriptorsFromProjectResult create(@JsonProperty("copiedFormDescriptors") ImmutableList<FormDescriptor> copiedFormDescriptors) {
-        return new AutoValue_CopyFormDescriptorsFromProjectResult(copiedFormDescriptors);
-    }
-
+public record CopyFormDescriptorsFromProjectResult(ImmutableList<FormDescriptor> copiedFormDescriptors) implements Result {
 
 }

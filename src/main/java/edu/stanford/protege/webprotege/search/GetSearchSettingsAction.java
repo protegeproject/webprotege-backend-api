@@ -14,17 +14,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-08-17
  */
-@AutoValue
+
 
 @JsonTypeName("GetSearchSettings")
-public abstract class GetSearchSettingsAction implements ProjectAction<GetSearchSettingsResult> {
+public record GetSearchSettingsAction(ProjectId projectId) implements ProjectAction<GetSearchSettingsResult> {
 
-    @JsonCreator
-    public static GetSearchSettingsAction create(@JsonProperty("projectId") ProjectId projectId) {
-        return new AutoValue_GetSearchSettingsAction(projectId);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
 }

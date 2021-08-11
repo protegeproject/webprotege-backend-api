@@ -23,29 +23,29 @@ public class GetOboTermIdResult_TestCase {
     public void setUp()
         throws Exception
     {
-        getOboTermIdResult = GetOboTermIdResult.create(entity, termId);
+        getOboTermIdResult = new GetOboTermIdResult(entity, termId);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        GetOboTermIdResult.create(null, termId);
+        new GetOboTermIdResult(null, termId);
     }
 
     @Test
     public void shouldReturnSupplied_entity() {
-        MatcherAssert.assertThat(getOboTermIdResult.getEntity(), Matchers.is(this.entity));
+        MatcherAssert.assertThat(getOboTermIdResult.term(), Matchers.is(this.entity));
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_termId_IsNull() {
-        GetOboTermIdResult.create(entity, null);
+        new GetOboTermIdResult(entity, null);
     }
 
     @Test
     public void shouldReturnSupplied_termId() {
-        MatcherAssert.assertThat(getOboTermIdResult.getTermId(), Matchers.is(this.termId));
+        MatcherAssert.assertThat(getOboTermIdResult.termId(), Matchers.is(this.termId));
     }
 
     @Test
@@ -61,23 +61,23 @@ public class GetOboTermIdResult_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        MatcherAssert.assertThat(getOboTermIdResult, Matchers.is(GetOboTermIdResult.create(entity, termId)));
+        MatcherAssert.assertThat(getOboTermIdResult, Matchers.is(new GetOboTermIdResult(entity, termId)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entity() {
-        MatcherAssert.assertThat(getOboTermIdResult, Matchers.is(Matchers.not(GetOboTermIdResult.create(Mockito.mock(OWLEntity.class), termId))));
+        MatcherAssert.assertThat(getOboTermIdResult, Matchers.is(Matchers.not(new GetOboTermIdResult(Mockito.mock(OWLEntity.class), termId))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_termId() {
-        MatcherAssert.assertThat(getOboTermIdResult, Matchers.is(Matchers.not(GetOboTermIdResult.create(entity, Mockito.mock(
+        MatcherAssert.assertThat(getOboTermIdResult, Matchers.is(Matchers.not(new GetOboTermIdResult(entity, Mockito.mock(
                 OBOTermId.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        MatcherAssert.assertThat(getOboTermIdResult.hashCode(), Matchers.is(GetOboTermIdResult.create(entity, termId).hashCode()));
+        MatcherAssert.assertThat(getOboTermIdResult.hashCode(), Matchers.is(new GetOboTermIdResult(entity, termId).hashCode()));
     }
 
     @Test

@@ -16,8 +16,8 @@ import java.io.Serializable;
  * Date: 08/08/2013
  * <p>
  *     The settings for an {@link edu.stanford.protege.webprotege.crud.EntityCrudKitHandler}. All subclasses of this class
- *     provide an IRI prefix for entity creation.  Settings specific to each concrete subclass are used to generate an
- *     IRI suffix for an entity.  This suffix may or may not depend upon a supplied short form for the entity.
+ *     provide an IRI prefix for term creation.  Settings specific to each concrete subclass are used to generate an
+ *     IRI suffix for an term.  This suffix may or may not depend upon a supplied short form for the term.
  * </p>
  */
 @JsonSubTypes(

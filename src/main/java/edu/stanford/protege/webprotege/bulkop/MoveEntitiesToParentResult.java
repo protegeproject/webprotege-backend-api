@@ -16,14 +16,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 25 Sep 2018
  */
-@AutoValue
+
 
 @JsonTypeName("MoveEntitiesToParent")
-public abstract class MoveEntitiesToParentResult implements Result, HasEventList<ProjectEvent> {
-
-    @JsonCreator
-    public static MoveEntitiesToParentResult create(@JsonProperty("eventList") @Nonnull EventList<ProjectEvent> eventList) {
-        return new AutoValue_MoveEntitiesToParentResult(eventList);
-    }
+public record MoveEntitiesToParentResult(@Nonnull EventList eventList) implements Result, HasEventList {
 
 }

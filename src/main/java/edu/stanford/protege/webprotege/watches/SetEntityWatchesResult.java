@@ -14,16 +14,9 @@ import edu.stanford.protege.webprotege.event.ProjectEvent;
  * Stanford Center for Biomedical Informatics Research
  * 29/02/16
  */
-@AutoValue
+
 
 @JsonTypeName("SetEntityWatches")
-public abstract class SetEntityWatchesResult implements Result, HasEventList<ProjectEvent> {
+public record SetEntityWatchesResult() implements Result {
 
-    @JsonCreator
-    public static SetEntityWatchesResult create(@JsonProperty("eventList") EventList<ProjectEvent> eventList) {
-        return new AutoValue_SetEntityWatchesResult(eventList);
-    }
-
-    @Override
-    public abstract EventList<ProjectEvent> getEventList();
 }

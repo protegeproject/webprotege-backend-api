@@ -10,13 +10,8 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 2020-04-15
  */
-@AutoValue
+
 
 @JsonTypeName("DeleteForm")
-public abstract class DeleteFormResult implements Result {
-
-    @JsonCreator
-    public static DeleteFormResult create() {
-        return new AutoValue_DeleteFormResult();
-    }
+public record DeleteFormResult() implements Result {
 }

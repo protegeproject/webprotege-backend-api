@@ -14,21 +14,7 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-01-16
  */
-@AutoValue
-
 @JsonTypeName("GetEntityFormDescriptor")
-public abstract class GetEntityFormDescriptorAction implements ProjectAction<GetEntityFormDescriptorResult> {
-
-    @JsonCreator
-    public static GetEntityFormDescriptorAction create(@JsonProperty("projectId") ProjectId projectId,
-                                                       @JsonProperty("formId") FormId formId) {
-        return new AutoValue_GetEntityFormDescriptorAction(projectId, formId);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract FormId getFormId();
+public record GetEntityFormDescriptorAction(@JsonProperty("projectId") ProjectId projectId,
+                                            @JsonProperty("formId") FormId formId) implements ProjectAction<GetEntityFormDescriptorResult> {
 }

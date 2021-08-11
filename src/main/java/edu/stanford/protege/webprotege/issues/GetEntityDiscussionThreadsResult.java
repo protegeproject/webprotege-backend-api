@@ -15,20 +15,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 5 Oct 2016
  */
-@AutoValue
+
 
 @JsonTypeName("GetEntityDiscussionThreads")
-public abstract class GetEntityDiscussionThreadsResult implements Result {
-
-    @JsonCreator
-    public static GetEntityDiscussionThreadsResult create(@JsonProperty("entity") @Nonnull OWLEntityData entityData,
-                                                          @JsonProperty("threads") @Nonnull ImmutableList<EntityDiscussionThread> threads) {
-        return new AutoValue_GetEntityDiscussionThreadsResult(entityData, threads);
-    }
-
-    @Nonnull
-    public abstract OWLEntityData getEntity();
-
-    @Nonnull
-    public abstract ImmutableList<EntityDiscussionThread> getThreads();
+public record GetEntityDiscussionThreadsResult(OWLEntityData entity,
+                                               ImmutableList<EntityDiscussionThread> threads) implements Result {
 }

@@ -14,47 +14,6 @@ import static com.google.common.base.MoreObjects.toStringHelper;
  * Stanford Center for Biomedical Informatics Research
  * 23/02/15
  */
-public class GetProjectPermissionsResult implements Result {
+public record GetProjectPermissionsResult(ImmutableSet<ActionId> allowedActions) implements Result {
 
-    private Set<ActionId> allowedActions;
-
-    private GetProjectPermissionsResult() {
-    }
-
-    private GetProjectPermissionsResult(Set<ActionId> allowedActions) {
-        this.allowedActions = ImmutableSet.copyOf(allowedActions);
-    }
-
-    public static GetProjectPermissionsResult create(Set<ActionId> allowedActions) {
-        return new GetProjectPermissionsResult(allowedActions);
-    }
-
-    public Set<ActionId> getAllowedActions() {
-        return allowedActions;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(allowedActions);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof GetProjectPermissionsResult)) {
-            return false;
-        }
-        GetProjectPermissionsResult other = (GetProjectPermissionsResult) obj;
-        return this.allowedActions.equals(other.allowedActions);
-    }
-
-
-    @Override
-    public String toString() {
-        return toStringHelper("GetPermissionsResult")
-                .addValue(allowedActions)
-                .toString();
-    }
 }

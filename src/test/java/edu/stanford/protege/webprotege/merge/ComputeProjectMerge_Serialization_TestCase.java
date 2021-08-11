@@ -20,14 +20,14 @@ public class ComputeProjectMerge_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = ComputeProjectMergeAction.create(ProjectId.generate(),
+        var action = new ComputeProjectMergeAction(ProjectId.generate(),
                                                       new DocumentId(UUID.randomUUID().toString()));
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = ComputeProjectMergeResult.create(Collections.emptyList());
+        var result = new ComputeProjectMergeResult(Collections.emptyList());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

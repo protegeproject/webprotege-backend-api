@@ -22,18 +22,18 @@ public class MergeEntitiesResult_TestCase {
 
     @Before
     public void setUp() {
-        mergeEntitiesResult = MergeEntitiesResult.create(eventList);
+        mergeEntitiesResult = new MergeEntitiesResult(eventList);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_eventList_IsNull() {
-        MergeEntitiesResult.create(null);
+        new MergeEntitiesResult(null);
     }
 
     @Test
     public void shouldReturnSupplied_eventList() {
-        assertThat(mergeEntitiesResult.getEventList(), is(this.eventList));
+        assertThat(mergeEntitiesResult.eventList(), is(this.eventList));
     }
 
     @Test
@@ -49,17 +49,17 @@ public class MergeEntitiesResult_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(mergeEntitiesResult, is(MergeEntitiesResult.create(eventList)));
+        assertThat(mergeEntitiesResult, is(new MergeEntitiesResult(eventList)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_eventList() {
-        assertThat(mergeEntitiesResult, is(not(MergeEntitiesResult.create(Mockito.mock(EventList.class)))));
+        assertThat(mergeEntitiesResult, is(not(new MergeEntitiesResult(Mockito.mock(EventList.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(mergeEntitiesResult.hashCode(), is(MergeEntitiesResult.create(eventList).hashCode()));
+        assertThat(mergeEntitiesResult.hashCode(), is(new MergeEntitiesResult(eventList).hashCode()));
     }
 
     @Test

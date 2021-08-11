@@ -19,14 +19,14 @@ public class GetManchesterSyntaxFrame_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetManchesterSyntaxFrameAction.create(mockProjectId(),
+        var action = new GetManchesterSyntaxFrameAction(mockProjectId(),
                                                            mockOWLClass());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetManchesterSyntaxFrameResult.create(mockOWLClassData(),
+        var result = new GetManchesterSyntaxFrameResult(mockOWLClassData(),
                                                            "The Rendering");
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }

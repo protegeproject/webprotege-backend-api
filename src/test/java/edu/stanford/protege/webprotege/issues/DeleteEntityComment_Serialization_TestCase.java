@@ -25,7 +25,7 @@ public class DeleteEntityComment_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = DeleteEntityCommentResult.create(CommentId.create(),
+        var result = new DeleteEntityCommentResult(CommentId.create(),
                                                       true);
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }

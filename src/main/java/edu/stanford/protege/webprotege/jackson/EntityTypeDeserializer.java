@@ -42,7 +42,7 @@ public class EntityTypeDeserializer extends StdDeserializer<EntityType<?>> {
         else if(isEntityType(typeName, EntityType.DATATYPE)) {
             return EntityType.DATATYPE;
         }
-        throw new IOException("Unrecognized entity type name: " + typeName);
+        throw new IOException("Unrecognized term type name: " + typeName);
     }
 
     private static boolean isEntityType(String typeName, EntityType<?> entityType) {

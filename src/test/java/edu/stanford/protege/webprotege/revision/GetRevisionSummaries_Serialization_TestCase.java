@@ -20,13 +20,13 @@ public class GetRevisionSummaries_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetRevisionSummariesAction.create(mockProjectId());
+        var action = new GetRevisionSummariesAction(mockProjectId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetRevisionSummariesResult.create(ImmutableList.of());
+        var result = new GetRevisionSummariesResult(ImmutableList.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

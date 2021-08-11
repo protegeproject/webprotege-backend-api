@@ -13,9 +13,4 @@ import javax.annotation.Nonnull;
  */
 public interface AbstractCreateEntitiesAction<R extends AbstractCreateEntityResult<E>, E extends OWLEntity> extends ProjectAction<R> {
 
-    @Nonnull
-    String getSourceText();
-
-    @Nonnull
-    String getLangTag();
 }

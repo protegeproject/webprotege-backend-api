@@ -23,29 +23,29 @@ public class GetOboTermSynonymsAction_TestCase {
 
     @Before
     public void setUp() {
-        getOboTermSynonymsAction = GetOboTermSynonymsAction.create(projectId, entity);
+        getOboTermSynonymsAction = new GetOboTermSynonymsAction(projectId, entity);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        GetOboTermSynonymsAction.create(null, entity);
+        new GetOboTermSynonymsAction(null, entity);
     }
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(getOboTermSynonymsAction.getProjectId(), is(this.projectId));
+        assertThat(getOboTermSynonymsAction.projectId(), is(this.projectId));
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        GetOboTermSynonymsAction.create(projectId, null);
+        new GetOboTermSynonymsAction(projectId, null);
     }
 
     @Test
     public void shouldReturnSupplied_entity() {
-        assertThat(getOboTermSynonymsAction.getEntity(), is(this.entity));
+        assertThat(getOboTermSynonymsAction.term(), is(this.entity));
     }
 
     @Test
@@ -61,22 +61,22 @@ public class GetOboTermSynonymsAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(getOboTermSynonymsAction, is(GetOboTermSynonymsAction.create(projectId, entity)));
+        assertThat(getOboTermSynonymsAction, is(new GetOboTermSynonymsAction(projectId, entity)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(getOboTermSynonymsAction, is(not(GetOboTermSynonymsAction.create(ProjectId.generate(), entity))));
+        assertThat(getOboTermSynonymsAction, is(not(new GetOboTermSynonymsAction(ProjectId.generate(), entity))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entity() {
-        assertThat(getOboTermSynonymsAction, is(not(GetOboTermSynonymsAction.create(projectId, Mockito.mock(OWLEntity.class)))));
+        assertThat(getOboTermSynonymsAction, is(not(new GetOboTermSynonymsAction(projectId, Mockito.mock(OWLEntity.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(getOboTermSynonymsAction.hashCode(), is(GetOboTermSynonymsAction.create(projectId, entity).hashCode()));
+        assertThat(getOboTermSynonymsAction.hashCode(), is(new GetOboTermSynonymsAction(projectId, entity).hashCode()));
     }
 
     @Test

@@ -4,7 +4,6 @@ import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -24,18 +23,18 @@ public class GetProjectSettingsAction_TestCase {
 
     @Before
     public void setUp() throws Exception {
-        action = GetProjectSettingsAction.create(projectId);
+        action = new GetProjectSettingsAction(projectId);
     }
 
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_ProjectSettings_IsNull() {
-        GetProjectSettingsResult.create(null);
+        new GetProjectSettingsResult(null);
     }
 
     @Test
     public void shouldReturnSupplied_ProjectId() {
-        assertThat(action.getProjectId(), is(projectId));
+        assertThat(action.projectId(), is(projectId));
     }
 
     @Test
@@ -50,13 +49,13 @@ public class GetProjectSettingsAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        GetProjectSettingsAction other = GetProjectSettingsAction.create(projectId);
+        GetProjectSettingsAction other = new GetProjectSettingsAction(projectId);
         assertThat(action, is(equalTo(other)));
     }
 
     @Test
     public void shouldHaveSameHashCode() {
-        GetProjectSettingsAction other = GetProjectSettingsAction.create(projectId);
+        GetProjectSettingsAction other = new GetProjectSettingsAction(projectId);
         assertThat(action.hashCode(), is(other.hashCode()));
     }
 }

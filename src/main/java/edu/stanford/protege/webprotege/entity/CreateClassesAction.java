@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import org.semanticweb.owlapi.model.OWLClass;
 
 import javax.annotation.Nonnull;
@@ -16,17 +17,9 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 22/02/2013
  */
-@AutoValue
-
 @JsonTypeName("CreateClasses")
-public abstract class CreateClassesAction implements CreateEntitiesInHierarchyAction<CreateClassesResult, OWLClass> {
-
-
-    @JsonCreator
-    public static CreateClassesAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                               @JsonProperty("sourceText") @Nonnull String sourceText,
-                               @JsonProperty("langTag") @Nonnull String langTag,
-                               @JsonProperty("parents") @Nonnull ImmutableSet<OWLClass> parents) {
-        return new AutoValue_CreateClassesAction(projectId, sourceText, langTag, parents);
-    }
+public record CreateClassesAction(ProjectId projectId,
+                                  String sourceText,
+                                  String langTag,
+                                  ImmutableSet<OWLClass> parents) implements ProjectAction<CreateClassesResult> {
 }

@@ -14,17 +14,8 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-09-03
  */
-@AutoValue
+
 
 @JsonTypeName("GetPerspectiveDetails")
-public abstract class GetPerspectiveDetailsResult implements Result {
-
-    @JsonCreator
-    @Nonnull
-    public static GetPerspectiveDetailsResult create(@JsonProperty("perspectiveDetails") @Nonnull ImmutableList<PerspectiveDetails> perspectiveDetails) {
-        return new AutoValue_GetPerspectiveDetailsResult(perspectiveDetails);
-    }
-
-    @Nonnull
-    public abstract ImmutableList<PerspectiveDetails> getPerspectiveDetails();
+public record GetPerspectiveDetailsResult(@JsonProperty("perspectiveDetails") @Nonnull ImmutableList<PerspectiveDetails> perspectiveDetails) implements Result {
 }

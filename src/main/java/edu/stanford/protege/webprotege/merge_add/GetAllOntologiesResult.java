@@ -9,15 +9,9 @@ import org.semanticweb.owlapi.model.OWLOntologyID;
 
 import java.util.List;
 
-@AutoValue
+
 
 @JsonTypeName("GetAllOntologies")
-public abstract class GetAllOntologiesResult implements Result {
+public record GetAllOntologiesResult(@JsonProperty("ontologies") List<OWLOntologyID> ontologies) implements Result {
 
-    @JsonCreator
-    public static GetAllOntologiesResult create(@JsonProperty("ontologies") List<OWLOntologyID> ontologies) {
-        return new AutoValue_GetAllOntologiesResult(ontologies);
-    }
-
-    public abstract List<OWLOntologyID> getOntologies();
 }

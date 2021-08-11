@@ -15,38 +15,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 12 Oct 2016
  */
-public class SetDiscussionThreadStatusResult implements Result, HasEventList<ProjectEvent> {
+public record SetDiscussionThreadStatusResult(@Nonnull ThreadId threadId,
+                                             @Nonnull Status result) implements Result {
 
-    private ThreadId threadId;
-
-    private Status result;
-
-    private EventList<ProjectEvent> eventList;
-
-    public SetDiscussionThreadStatusResult(@Nonnull ThreadId threadId,
-                                           @Nonnull Status result,
-                                           @Nonnull EventList<ProjectEvent> eventList) {
-        this.threadId = checkNotNull(threadId);
-        this.result = checkNotNull(result);
-        this.eventList = checkNotNull(eventList);
-    }
-
-
-    private SetDiscussionThreadStatusResult() {
-    }
-
-    @Nonnull
-    public ThreadId getThreadId() {
-        return threadId;
-    }
-
-    @Nonnull
-    public Status getResult() {
-        return result;
-    }
-
-    @Override
-    public EventList<ProjectEvent> getEventList() {
-        return eventList;
-    }
 }

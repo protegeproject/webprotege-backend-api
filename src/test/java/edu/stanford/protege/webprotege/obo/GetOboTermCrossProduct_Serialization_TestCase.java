@@ -21,14 +21,14 @@ public class GetOboTermCrossProduct_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetOboTermCrossProductAction.create(mockProjectId(),
+        var action = new GetOboTermCrossProductAction(mockProjectId(),
                                                          mockOWLClass());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetOboTermCrossProductResult.create(new OBOTermCrossProduct(Optional.empty(),
+        var result = new GetOboTermCrossProductResult(new OBOTermCrossProduct(Optional.empty(),
                                                                                  new OBOTermRelationships(Collections.emptySet())
         ));
         JsonSerializationTestUtil.testSerialization(result, Result.class);

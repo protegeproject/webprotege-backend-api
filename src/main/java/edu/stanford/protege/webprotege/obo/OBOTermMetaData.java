@@ -10,7 +10,7 @@ import java.util.List;
  * Bio-Medical Informatics Research Group<br>
  * Date: 17/05/2012
  */
-public abstract class OBOTermMetaData implements Serializable {
+public class OBOTermMetaData implements Serializable {
 
     private List<OBOXRef> xrefs = new ArrayList<OBOXRef>();
 

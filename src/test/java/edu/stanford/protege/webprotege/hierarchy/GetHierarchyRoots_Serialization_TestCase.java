@@ -18,14 +18,14 @@ public class GetHierarchyRoots_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetHierarchyRootsAction.create(ProjectId.generate(),
+        var action = new GetHierarchyRootsAction(ProjectId.generate(),
                                                     HierarchyId.CLASS_HIERARCHY);
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetHierarchyRootsResult.create(Collections.emptyList());
+        var result = new GetHierarchyRootsResult(Collections.emptyList());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

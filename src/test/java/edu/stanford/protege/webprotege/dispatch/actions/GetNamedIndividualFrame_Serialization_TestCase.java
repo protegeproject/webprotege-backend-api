@@ -25,14 +25,14 @@ public class GetNamedIndividualFrame_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetNamedIndividualFrameAction.create(mockProjectId(),
+        var action = new GetNamedIndividualFrameAction(mockProjectId(),
                                                           mockOWLNamedIndividual());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetNamedIndividualFrameResult.create(NamedIndividualFrame.get(
+        var result = new GetNamedIndividualFrameResult(NamedIndividualFrame.get(
                 OWLNamedIndividualData.get(mockOWLNamedIndividual(),
                                            ImmutableMap.of(), false), ImmutableSet.of(),
                 ImmutableSet.of(),

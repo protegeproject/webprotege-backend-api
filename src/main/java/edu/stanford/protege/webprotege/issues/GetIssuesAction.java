@@ -27,7 +27,7 @@ public class GetIssuesAction implements ProjectAction<GetIssuesResult> {
 
     @Nonnull
     @Override
-    public ProjectId getProjectId() {
+    public ProjectId projectId() {
         return projectId;
     }
 

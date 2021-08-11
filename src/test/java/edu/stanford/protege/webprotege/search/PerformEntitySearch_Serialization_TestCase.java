@@ -25,7 +25,7 @@ public class PerformEntitySearch_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = PerformEntitySearchAction.create(mockProjectId(),
+        var action = new PerformEntitySearchAction(mockProjectId(),
                                                       "Test", Collections.emptySet(),
                                                       LangTagFilter.get(ImmutableSet.of()), ImmutableList.of(),
                                                       PageRequest.requestFirstPage());
@@ -34,7 +34,7 @@ public class PerformEntitySearch_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = PerformEntitySearchResult.create("Test", Page.emptyPage());
+        var result = new PerformEntitySearchResult("Test", Page.emptyPage());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

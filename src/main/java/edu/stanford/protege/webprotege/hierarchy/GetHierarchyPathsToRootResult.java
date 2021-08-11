@@ -12,15 +12,9 @@ import java.util.Collection;
 /**
  * Matthew Horridge Stanford Center for Biomedical Informatics Research 28 Nov 2017
  */
-@AutoValue
+
 
 @JsonTypeName("GetHierarchyPathsToRoot")
-public abstract class GetHierarchyPathsToRootResult implements Result {
+public record GetHierarchyPathsToRootResult(Collection<Path<GraphNode<EntityNode>>> paths) implements Result {
 
-    @JsonCreator
-    public static GetHierarchyPathsToRootResult create(@JsonProperty("paths") Collection<Path<GraphNode<EntityNode>>> paths) {
-        return new AutoValue_GetHierarchyPathsToRootResult(paths);
-    }
-
-    public abstract Collection<Path<GraphNode<EntityNode>>> getPaths();
 }

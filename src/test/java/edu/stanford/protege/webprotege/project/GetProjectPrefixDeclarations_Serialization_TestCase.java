@@ -20,13 +20,13 @@ public class GetProjectPrefixDeclarations_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetProjectPrefixDeclarationsAction.create(mockProjectId());
+        var action = new GetProjectPrefixDeclarationsAction(mockProjectId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetProjectPrefixDeclarationsResult.create(mockProjectId(), ImmutableList.of());
+        var result = new GetProjectPrefixDeclarationsResult(mockProjectId(), ImmutableList.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

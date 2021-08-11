@@ -10,13 +10,9 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 22 Jun 2017
  */
-@AutoValue
+
 
 @JsonTypeName("SetOboTermRelationships")
-public abstract class SetOboTermRelationshipsResult implements Result {
+public record SetOboTermRelationshipsResult() implements Result {
 
-    @JsonCreator
-    public static SetOboTermRelationshipsResult create() {
-        return new AutoValue_SetOboTermRelationshipsResult();
-    }
 }

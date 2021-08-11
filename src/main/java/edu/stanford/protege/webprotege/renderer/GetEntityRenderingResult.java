@@ -12,16 +12,9 @@ import javax.annotation.Nonnull;
 /**
  * @author Matthew Horridge, Stanford University, Bio-Medical Informatics Research Group, Date: 25/02/2014
  */
-@AutoValue
+
 
 @JsonTypeName("GetEntityRendering")
-public abstract class GetEntityRenderingResult implements Result {
+public record GetEntityRenderingResult(@Nonnull OWLEntityData entityData) implements Result {
 
-    @JsonCreator
-    public static GetEntityRenderingResult create(@JsonProperty("entityData") @Nonnull OWLEntityData entityData) {
-        return new AutoValue_GetEntityRenderingResult(entityData);
-    }
-
-    @Nonnull
-    public abstract OWLEntityData getEntityData();
 }

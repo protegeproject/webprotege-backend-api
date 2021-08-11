@@ -23,15 +23,15 @@ public class LookupEntities_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = LookupEntitiesAction.create(mockProjectId(),
+        var action = new LookupEntitiesAction(mockProjectId(),
                                                  new EntityLookupRequest("Search"));
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = LookupEntitiesResult.create(ImmutableList.of(
-                EntityLookupResult.get(SearchResultMatch.get(mockOWLClassNode(),
+        var result = new LookupEntitiesResult(ImmutableList.of(
+                new EntityLookupResult(SearchResultMatch.get(mockOWLClassNode(),
                                                              DictionaryLanguage.localName(),
                                                              "Search",
                                                              ImmutableList.of(SearchResultMatchPosition.get(2, 4))),

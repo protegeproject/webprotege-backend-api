@@ -20,7 +20,7 @@ import javax.annotation.Nonnull;
 public abstract class EntityIsCriteria implements EntityMatchCriteria {
 
     @JsonCreator
-    public static EntityIsCriteria get(@Nonnull @JsonProperty("entity") OWLEntity entity) {
+    public static EntityIsCriteria get(@Nonnull @JsonProperty("term") OWLEntity entity) {
         return new AutoValue_EntityIsCriteria(entity);
     }
 

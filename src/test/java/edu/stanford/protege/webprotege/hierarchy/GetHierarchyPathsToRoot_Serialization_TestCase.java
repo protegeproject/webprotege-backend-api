@@ -21,7 +21,7 @@ public abstract class GetHierarchyPathsToRoot_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetHierarchyPathsToRootAction.create(ProjectId.generate(),
+        var action = new GetHierarchyPathsToRootAction(ProjectId.generate(),
                                                           mockOWLClass(),
                                                           HierarchyId.CLASS_HIERARCHY);
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -29,7 +29,7 @@ public abstract class GetHierarchyPathsToRoot_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetHierarchyPathsToRootResult.create(Collections.emptySet());
+        var result = new GetHierarchyPathsToRootResult(Collections.emptySet());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

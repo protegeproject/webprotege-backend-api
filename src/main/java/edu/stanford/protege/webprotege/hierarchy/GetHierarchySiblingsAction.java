@@ -16,29 +16,12 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 13 Sep 2018
  */
-@AutoValue
+
 
 @JsonTypeName("GetHierarchySiblings")
-public abstract class GetHierarchySiblingsAction implements ProjectAction<GetHierarchySiblingsResult> {
+public record GetHierarchySiblingsAction(@JsonProperty("projectId") ProjectId projectId,
+                                         @JsonProperty("term") OWLEntity entity,
+                                         @JsonProperty("hierarchyId") HierarchyId hierarchyId,
+                                         @JsonProperty("pageRequest") PageRequest pageRequest) implements ProjectAction<GetHierarchySiblingsResult> {
 
-    @JsonCreator
-    public static GetHierarchySiblingsAction create(@JsonProperty("projectId") ProjectId projectId,
-                                                    @JsonProperty("entity") OWLEntity entity,
-                                                    @JsonProperty("hierarchyId") HierarchyId hierarchyId,
-                                                    @JsonProperty("pageRequest") PageRequest pageRequest) {
-        return new AutoValue_GetHierarchySiblingsAction(projectId, entity, hierarchyId, pageRequest);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract OWLEntity getEntity();
-
-    @Nonnull
-    public abstract HierarchyId getHierarchyId();
-
-    @Nonnull
-    public abstract PageRequest getPageRequest();
 }

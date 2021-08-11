@@ -10,13 +10,9 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 2020-09-03
  */
-@AutoValue
+
 
 @JsonTypeName("ResetPerspectives")
-public abstract class ResetPerspectivesResult implements Result {
+public record ResetPerspectivesResult() implements Result {
 
-    @JsonCreator
-    public static ResetPerspectivesResult create() {
-        return new AutoValue_ResetPerspectivesResult();
-    }
 }

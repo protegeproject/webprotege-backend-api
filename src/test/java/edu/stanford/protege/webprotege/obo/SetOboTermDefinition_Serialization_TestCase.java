@@ -19,7 +19,7 @@ public abstract class SetOboTermDefinition_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetOboTermDefinitionAction.create(mockProjectId(),
+        var action = new SetOboTermDefinitionAction(mockProjectId(),
                                                        mockOWLClass(),
                                                        OBOTermDefinition.empty());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -27,7 +27,7 @@ public abstract class SetOboTermDefinition_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetOboTermDefinitionResult.create();
+        var result = new SetOboTermDefinitionResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

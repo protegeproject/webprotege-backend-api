@@ -13,15 +13,9 @@ import edu.stanford.protege.webprotege.dispatch.Action;
  * Bio-Medical Informatics Research Group<br>
  * Date: 19/04/2013
  */
-@AutoValue
+
 
 @JsonTypeName("MoveProjectsToTrash")
-public abstract class MoveProjectsToTrashAction implements Action<MoveProjectsToTrashResult> {
+public record MoveProjectsToTrashAction(ProjectId projectId) implements Action<MoveProjectsToTrashResult> {
 
-    @JsonCreator
-    public static MoveProjectsToTrashAction create(@JsonProperty("projectId") ProjectId projectId) {
-        return new AutoValue_MoveProjectsToTrashAction(projectId);
-    }
-
-    public abstract ProjectId getProjectId();
 }

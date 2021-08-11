@@ -8,6 +8,7 @@ import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.project.HasProjectId;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
@@ -16,25 +17,16 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2019-11-20
  */
-@AutoValue
+
 
 @JsonTypeName("GetProjectFormDescriptors")
-public abstract class GetProjectFormDescriptorsResult implements Result, HasProjectId {
+public record GetProjectFormDescriptorsResult(@Nonnull ProjectId projectId,
+                                              @Nonnull ImmutableList<FormDescriptor> formDescriptors,
+                                              @Nonnull ImmutableList<EntityFormSelector> formSelectors) implements Result, HasProjectId {
 
-    @JsonCreator
-    @Nonnull
-    public static GetProjectFormDescriptorsResult create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                                         @JsonProperty("formDescriptors") @Nonnull ImmutableList<FormDescriptor> formDescriptors,
-                                                         @JsonProperty("formSelectors") @Nonnull ImmutableList<EntityFormSelector> selectionCriteria) {
-        return new AutoValue_GetProjectFormDescriptorsResult(projectId, formDescriptors, selectionCriteria);
-    }
-
-    @Nonnull
+    @NotNull
     @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract ImmutableList<FormDescriptor> getFormDescriptors();
-
-    public abstract ImmutableList<EntityFormSelector> getFormSelectors();
+    public ProjectId getProjectId() {
+        return projectId;
+    }
 }

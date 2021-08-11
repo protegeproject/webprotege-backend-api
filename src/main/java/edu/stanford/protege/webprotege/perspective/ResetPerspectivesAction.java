@@ -14,18 +14,8 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-09-03
  */
-@AutoValue
+
 
 @JsonTypeName("ResetPerspectives")
-public abstract class ResetPerspectivesAction implements ProjectAction<ResetPerspectivesResult> {
-
-
-    @JsonCreator
-    public static ResetPerspectivesAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId) {
-        return new AutoValue_ResetPerspectivesAction(projectId);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
+public record ResetPerspectivesAction(ProjectId projectId) implements ProjectAction<ResetPerspectivesResult> {
 }

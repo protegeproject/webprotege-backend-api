@@ -25,7 +25,7 @@ public class CreateNamedIndividuals_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = CreateNamedIndividualsAction.create(ProjectId.generate(),
+        var action = new CreateNamedIndividualsAction(ProjectId.generate(),
                                                          "i\nj",
                                                          "en", of());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -33,8 +33,7 @@ public class CreateNamedIndividuals_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = CreateNamedIndividualsResult.create(ProjectId.generate(),
-                                                         EventList.create(EventTag.get(2), ImmutableList.of(), EventTag.get(2)),
+        var result = new CreateNamedIndividualsResult(ProjectId.generate(),
                                                          ImmutableSet.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }

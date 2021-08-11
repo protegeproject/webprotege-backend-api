@@ -27,11 +27,11 @@ public class EntityIriPrefixCriteriaRewriter {
 
     /**
      * Rewrites the specified criteria that is specified in terms of the position of
-     * a fresh entity into criteria that will match the specified parents of a fresh
-     * entity.  The reason for doing this is that since fresh entity axioms aren't contained
-     * in the ontology, criteria for matching of the fresh entity will never match to true.
-     * @param criteria Criteria in terms of a fresh entity match
-     * @return Criteria that match the fresh entity parents.
+     * a fresh term into criteria that will match the specified parents of a fresh
+     * term.  The reason for doing this is that since fresh term axioms aren't contained
+     * in the ontology, criteria for matching of the fresh term will never match to true.
+     * @param criteria Criteria in terms of a fresh term match
+     * @return Criteria that match the fresh term parents.
      */
     @Nonnull
     public RootCriteria rewriteCriteria(@Nonnull HierarchyPositionCriteria criteria) {

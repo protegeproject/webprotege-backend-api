@@ -13,20 +13,10 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 25/11/14
  */
-@AutoValue
+
 
 @JsonTypeName("GetProjectSettings")
-public abstract class GetProjectSettingsResult implements Result {
+public record GetProjectSettingsResult(ProjectSettings settings) implements Result {
 
-    @JsonCreator
-    public static GetProjectSettingsResult create(@JsonProperty("settings") @Nonnull ProjectSettings settings) {
-        return new AutoValue_GetProjectSettingsResult(settings);
-    }
-
-    /**
-     * Gets the {@link ProjectSettings}.
-     * @return The project settings.  Not {@code null}.
-     */
-    public abstract ProjectSettings getSettings();
 }
 

@@ -14,15 +14,9 @@ import java.util.List;
  * Stanford Center for Biomedical Informatics Research
  * 26/01/15
  */
-@AutoValue
+
 
 @JsonTypeName("ComputeProjectMerge")
-public abstract class ComputeProjectMergeResult implements Result {
+public record ComputeProjectMergeResult(List<DiffElement<String, String>> diff) implements Result {
 
-    public abstract List<DiffElement<String, String>> getDiff();
-
-    @JsonCreator
-    public static ComputeProjectMergeResult create(@JsonProperty("diff") List<DiffElement<String, String>> diff) {
-        return new AutoValue_ComputeProjectMergeResult(diff);
-    }
 }

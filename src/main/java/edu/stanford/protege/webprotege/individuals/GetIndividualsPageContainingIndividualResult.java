@@ -17,36 +17,13 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 19 Sep 2018
  */
-@AutoValue
+
 
 @JsonTypeName("GetIndividualsPageContainingIndividual")
-public abstract class GetIndividualsPageContainingIndividualResult implements Result {
+public record GetIndividualsPageContainingIndividualResult(@JsonProperty("individual") @Nonnull OWLNamedIndividual individual,
+                                                           @JsonProperty("page") @Nonnull Page<EntityNode> page,
+                                                           @JsonProperty("actualType") @Nonnull EntityNode actualType,
+                                                           @JsonProperty("actualMode") @Nonnull InstanceRetrievalMode actualMode,
+                                                           @JsonProperty("types") @Nonnull ImmutableSet<EntityNode> types) implements Result {
 
-    @JsonCreator
-    public static GetIndividualsPageContainingIndividualResult create(@JsonProperty("individual") @Nonnull OWLNamedIndividual individual,
-                                                                      @JsonProperty("page") @Nonnull Page<EntityNode> page,
-                                                                      @JsonProperty("actualType") @Nonnull EntityNode actualType,
-                                                                      @JsonProperty("actualMode") @Nonnull InstanceRetrievalMode actualMode,
-                                                                      @JsonProperty("types") @Nonnull ImmutableSet<EntityNode> types) {
-        return new AutoValue_GetIndividualsPageContainingIndividualResult(individual,
-                                                                          actualType,
-                                                                          actualMode,
-                                                                          page,
-                                                                          types);
-    }
-
-    @Nonnull
-    public abstract OWLNamedIndividual getIndividual();
-
-    @Nonnull
-    public abstract EntityNode getActualType();
-
-    @Nonnull
-    public abstract InstanceRetrievalMode getActualMode();
-
-    @Nonnull
-    public abstract Page<EntityNode> getPage();
-
-    @Nonnull
-    public abstract ImmutableSet<EntityNode> getTypes();
 }

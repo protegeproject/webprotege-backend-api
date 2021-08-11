@@ -58,7 +58,7 @@ public class FormControlValueDeserializer extends StdDeserializer<PrimitiveFormC
                         case "owl:NamedIndividual" :
                             return PrimitiveFormControlData.get(new OWLNamedIndividualImpl(iri));
                     }
-                    throw new JsonParseException(p, "Unrecognised entity type: " + type);
+                    throw new JsonParseException(p, "Unrecognised term type: " + type);
                 }
                 else {
                     return PrimitiveFormControlData.get(IRI.create(node.get("iri").asText()));

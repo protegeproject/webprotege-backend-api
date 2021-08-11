@@ -51,7 +51,7 @@ public abstract class EntityGraphSettings {
 
     /**
      * Gets the criteria that are used for filtering edges in an
-     * entity graph
+     * term graph
      *
      * @return The criteria.
      */

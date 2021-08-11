@@ -17,52 +17,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 9 Oct 2016
  */
 @JsonTypeName("DeleteEntityComment")
-public class DeleteEntityCommentAction implements ProjectAction<DeleteEntityCommentResult> {
-
-    private ProjectId projectId;
-
-    private CommentId commentId;
-
-    @JsonCreator
-    public static DeleteEntityCommentAction deleteComment(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                                          @JsonProperty("commentId") @Nonnull CommentId commentId) {
-        return new DeleteEntityCommentAction(projectId, commentId);
-    }
-
-    public DeleteEntityCommentAction(@Nonnull ProjectId projectId,
-                                     @Nonnull CommentId commentId) {
-        this.commentId = checkNotNull(commentId);
-        this.projectId = checkNotNull(projectId);
-    }
-
-
-    private DeleteEntityCommentAction() {
-    }
-
-    @Nonnull
-    @Override
-    public ProjectId getProjectId() {
-        return projectId;
-    }
-
-    public CommentId getCommentId() {
-        return commentId;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(commentId);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof DeleteEntityCommentAction)) {
-            return false;
-        }
-        DeleteEntityCommentAction other = (DeleteEntityCommentAction) obj;
-        return this.commentId.equals(other.commentId);
-    }
+public record DeleteEntityCommentAction(ProjectId projectId,
+                                        CommentId commentId) implements ProjectAction<DeleteEntityCommentResult> {
 }

@@ -24,18 +24,18 @@ public class SetProjectSettingsResult_TestCase {
 
     @Before
     public void setUp() throws Exception {
-        result = SetProjectSettingsResult.create(settings);
+        result = new SetProjectSettingsResult(settings);
     }
 
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_ProjectSettings_IsNull() {
-        SetProjectSettingsResult.create(null);
+        new SetProjectSettingsResult(null);
     }
 
     @Test
     public void shouldReturnSupplied_ProjectSettings() {
-        assertThat(result.getProjectSettings(), is(settings));
+        assertThat(result.settings(), is(settings));
     }
 
     @Test
@@ -50,13 +50,13 @@ public class SetProjectSettingsResult_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        SetProjectSettingsResult other = SetProjectSettingsResult.create(settings);
+        SetProjectSettingsResult other = new SetProjectSettingsResult(settings);
         assertThat(result, is(equalTo(other)));
     }
 
     @Test
     public void shouldHaveSameHashCode() {
-        SetProjectSettingsResult other = SetProjectSettingsResult.create(settings);
+        SetProjectSettingsResult other = new SetProjectSettingsResult(settings);
         assertThat(result.hashCode(), is(other.hashCode()));
     }
 }

@@ -77,10 +77,10 @@ public abstract class EntityNode implements  Serializable, Comparable<EntityNode
     /**
      * Gets a basic {@link EntityNode} for the specified {@link OWLEntityData}.  The
      * node will be rendered without any indications of deprecation status,
-     * watches, open comments count, and entity tags
+     * watches, open comments count, and term tags
      *
-     * @param entityData The entity data
-     * @return A basic rendering of the specified entity data
+     * @param entityData The term data
+     * @return A basic rendering of the specified term data
      */
     @Nonnull
     public static EntityNode getFromEntityData(@Nonnull OWLEntityData entityData) {

@@ -17,21 +17,9 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 23/04/2013
  */
-@AutoValue
+
 
 @JsonTypeName("GetObjectPropertyFrame")
-public abstract class GetObjectPropertyFrameAction implements ProjectAction<GetObjectPropertyFrameResult>, HasSubject<OWLObjectProperty> {
-
-    @JsonCreator
-    public static GetObjectPropertyFrameAction create(@JsonProperty("projectId") ProjectId projectId,
-                                                      @JsonProperty("subject") OWLObjectProperty subject) {
-        return new AutoValue_GetObjectPropertyFrameAction(projectId, subject);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Override
-    public abstract OWLObjectProperty getSubject();
+public record GetObjectPropertyFrameAction(@JsonProperty("projectId") ProjectId projectId,
+                                           @JsonProperty("subject") OWLObjectProperty subject) implements ProjectAction<GetObjectPropertyFrameResult>, HasSubject<OWLObjectProperty> {
 }

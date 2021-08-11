@@ -18,32 +18,10 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 20/03/2013
  */
-@AutoValue
+
 
 @JsonTypeName("GetWatches")
-public abstract class GetWatchesAction implements ProjectAction<GetWatchesResult>, HasUserId {
-
-    @JsonCreator
-    public static GetWatchesAction create(@JsonProperty("projectId") ProjectId projectId,
-                                          @JsonProperty("userId") UserId userId,
-                                          @JsonProperty("entity") OWLEntity entity) {
-        return new AutoValue_GetWatchesAction(projectId, userId, entity);
-    }
-
-    /**
-     * Gets the {@link ProjectId}.
-     * @return The {@link ProjectId}.  Not {@code null}.
-     */
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    /**
-     * Gets the {@link UserId}.
-     * @return The {@link UserId}.  Not {@code null}.
-     */
-    @Override
-    public abstract UserId getUserId();
-
-    public abstract OWLEntity getEntity();
+public record GetWatchesAction(@JsonProperty("projectId") ProjectId projectId,
+                               @JsonProperty("userId") UserId userId,
+                               @JsonProperty("term") OWLEntity entity) implements ProjectAction<GetWatchesResult> {
 }

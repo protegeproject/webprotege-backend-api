@@ -19,7 +19,7 @@ public class UpdateDataPropertyFrame_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = UpdateDataPropertyFrameAction.create(mockProjectId(),
+        var action = new UpdateDataPropertyFrameAction(mockProjectId(),
                                                           PlainDataPropertyFrame.get(
                                                                   mockOWLDataProperty(), ImmutableSet.of(),
                                                                   ImmutableSet.of(),

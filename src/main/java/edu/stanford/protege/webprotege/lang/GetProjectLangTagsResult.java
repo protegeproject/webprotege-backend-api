@@ -17,59 +17,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 2020-04-26
  */
 @JsonTypeName("GetProjectLangTags")
-public class GetProjectLangTagsResult implements Result {
+public record GetProjectLangTagsResult(@Nonnull ProjectId projectId, @Nonnull ImmutableSet<LangTag> langTags) implements Result {
 
-    private ProjectId projectId;
-
-    private ImmutableSet<LangTag> langTags;
-
-    private GetProjectLangTagsResult(@Nonnull ProjectId projectId, @Nonnull ImmutableSet<LangTag> langTags) {
-        this.projectId = checkNotNull(projectId);
-        this.langTags = checkNotNull(langTags);
-    }
-
-
-    private GetProjectLangTagsResult() {
-    }
-
-    public static GetProjectLangTagsResult create(@Nonnull ProjectId projectId,
-                                                  @Nonnull ImmutableSet<LangTag> langTags) {
-        return new GetProjectLangTagsResult(projectId, langTags);
-    }
-
-    @Nonnull
-    public ProjectId getProjectId() {
-        return projectId;
-    }
-
-    @Nonnull
-    public ImmutableSet<LangTag> getLangTags() {
-        return langTags;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(projectId, langTags);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if(obj == this) {
-            return true;
-        }
-        if(!(obj instanceof GetProjectLangTagsResult)) {
-            return false;
-        }
-        GetProjectLangTagsResult other = (GetProjectLangTagsResult) obj;
-        return this.projectId.equals(other.projectId) && this.langTags.equals(other.langTags);
-    }
-
-
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper("GetProjectLangTagsResult")
-                .addValue(projectId)
-                .add("langTags", langTags)
-                .toString();
-    }
 }

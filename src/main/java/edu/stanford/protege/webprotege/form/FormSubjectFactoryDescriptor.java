@@ -38,7 +38,7 @@ public abstract class FormSubjectFactoryDescriptor {
     public abstract EntityType<?> getEntityType();
 
     /**
-     * Gets a list of parents that can be used to position the fresh entity in
+     * Gets a list of parents that can be used to position the fresh term in
      * a hierarchy
      */
     @JsonIgnore

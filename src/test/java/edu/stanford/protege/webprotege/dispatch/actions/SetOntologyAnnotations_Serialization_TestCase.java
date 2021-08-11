@@ -22,7 +22,7 @@ public class SetOntologyAnnotations_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetOntologyAnnotationsAction.create(mockProjectId(),
+        var action = new SetOntologyAnnotationsAction(mockProjectId(),
                                                          mockOWLOntologyID(),
                                                          Collections.emptySet(),
                                                          Collections.emptySet());
@@ -31,8 +31,7 @@ public class SetOntologyAnnotations_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetOntologyAnnotationsResult.create(Collections.emptySet(),
-                                                         mockEventList());
+        var result = new SetOntologyAnnotationsResult(Collections.emptySet());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

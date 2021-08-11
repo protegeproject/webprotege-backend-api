@@ -15,20 +15,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 22 Jun 2017
  */
-@AutoValue
+
 
 @JsonTypeName("GetOboTermId")
-public abstract class GetOboTermIdAction implements ProjectAction<GetOboTermIdResult> {
-
-    @JsonCreator
-    public static GetOboTermIdAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                            @JsonProperty("term") @Nonnull OWLEntity term) {
-        return new AutoValue_GetOboTermIdAction(projectId, term);
-    }
-
-    @Nonnull
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract OWLEntity getTerm();
+public record GetOboTermIdAction(ProjectId projectId,
+                                 OWLEntity term) implements ProjectAction<GetOboTermIdResult> {
 }

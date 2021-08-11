@@ -17,26 +17,10 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 05/04/2013
  */
-@AutoValue
+
 
 @JsonTypeName("LoadProject")
-public abstract class LoadProjectResult implements Result, HasUserId, HasProjectId {
-
-    @JsonCreator
-    public static LoadProjectResult get(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                        @JsonProperty("userId") @Nonnull UserId loadedBy,
-                                        @JsonProperty("projectDetails") @Nonnull ProjectDetails projectDetails) {
-        return new AutoValue_LoadProjectResult(projectId,
-                                               loadedBy,
-                                               projectDetails);
-    }
-
-    @Nonnull
-    public abstract ProjectId getProjectId();
-
-    @Override
-    public abstract UserId getUserId();
-
-    @Nonnull
-    public abstract ProjectDetails getProjectDetails();
+public record LoadProjectResult(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                @JsonProperty("userId") @Nonnull UserId loadedBy,
+                                @JsonProperty("projectDetails") @Nonnull ProjectDetails projectDetails) implements Result {
 }

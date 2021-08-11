@@ -42,7 +42,7 @@ public abstract class EntityNameControlData implements FormControlData {
     public abstract EntityNameControlDescriptor getDescriptor();
 
     @Nullable
-    @JsonProperty("entity")
+    @JsonProperty("term")
     protected abstract OWLEntity getEntityInternal();
 
     @JsonIgnore

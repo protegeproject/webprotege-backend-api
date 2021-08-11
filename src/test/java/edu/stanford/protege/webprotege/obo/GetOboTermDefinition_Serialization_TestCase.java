@@ -20,14 +20,14 @@ public class GetOboTermDefinition_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetOboTermDefinitionAction.create(mockProjectId(),
+        var action = new GetOboTermDefinitionAction(mockProjectId(),
                                                        mockOWLClass());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetOboTermDefinitionResult.create(new OBOTermDefinition(Collections.emptyList(), "Def"));
+        var result = new GetOboTermDefinitionResult(new OBOTermDefinition(Collections.emptyList(), "Def"));
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

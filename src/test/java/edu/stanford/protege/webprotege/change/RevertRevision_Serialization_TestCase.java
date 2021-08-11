@@ -20,14 +20,14 @@ public class RevertRevision_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = RevertRevisionAction.create(mockProjectId(),
+        var action = new RevertRevisionAction(mockProjectId(),
                                                  RevisionNumber.getHeadRevisionNumber());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = RevertRevisionResult.create(mockProjectId(),
+        var result = new RevertRevisionResult(mockProjectId(),
                                                  RevisionNumber.getHeadRevisionNumber(),
                                                  mockEventList());
         JsonSerializationTestUtil.testSerialization(result, Result.class);

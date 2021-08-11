@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.obo;
 
+import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
@@ -20,14 +21,14 @@ public class GetOboTermXRefs_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetOboTermXRefsAction.create(mockProjectId(),
+        var action = new GetOboTermXRefsAction(mockProjectId(),
                                                   mockOWLClass());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetOboTermXRefsResult.create(Collections.emptyList());
+        var result = new GetOboTermXRefsResult(ImmutableList.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

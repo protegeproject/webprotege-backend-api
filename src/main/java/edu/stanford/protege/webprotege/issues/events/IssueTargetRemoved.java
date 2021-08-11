@@ -57,7 +57,7 @@ public class IssueTargetRemoved extends AbstractIssueEvent {
         return toStringHelper("IssueEntityTargetRemoved" )
                 .add("userId", getUserId())
                 .add("timestamp", getTimestamp())
-                .add("entity", getEntity())
+                .add("term", getEntity())
                 .toString();
     }
 }

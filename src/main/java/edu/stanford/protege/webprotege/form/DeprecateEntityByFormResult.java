@@ -13,15 +13,8 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-10-22
  */
-@AutoValue
 
-public abstract class DeprecateEntityByFormResult implements Result, HasEventList<ProjectEvent> {
 
-    public static DeprecateEntityByFormResult get(EventList<ProjectEvent> eventList) {
-        return new AutoValue_DeprecateEntityByFormResult(eventList);
-    }
+public record DeprecateEntityByFormResult() implements Result {
 
-    @Override
-    @Nonnull
-    public abstract EventList<ProjectEvent> getEventList();
 }

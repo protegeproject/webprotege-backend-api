@@ -22,7 +22,7 @@ public class SetProjectSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetProjectSettingsAction.create(ProjectSettings.get(
+        var action = new SetProjectSettingsAction(mockProjectId(), ProjectSettings.get(
                 mockProjectId(),
                 "The display name",
                 "The description",
@@ -37,7 +37,7 @@ public class SetProjectSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetProjectSettingsResult.create(ProjectSettings.get(
+        var result = new SetProjectSettingsResult(ProjectSettings.get(
                 mockProjectId(),
                 "The display name",
                 "The description",

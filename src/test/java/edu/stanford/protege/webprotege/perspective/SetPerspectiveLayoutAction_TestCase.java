@@ -28,37 +28,37 @@ public class SetPerspectiveLayoutAction_TestCase {
     public void setUp()
         throws Exception
     {
-        setPerspectiveLayoutAction = SetPerspectiveLayoutAction.create(projectId, userId, layout);
+        setPerspectiveLayoutAction = new SetPerspectiveLayoutAction(projectId, userId, layout);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        SetPerspectiveLayoutAction.create(null, userId, layout);
+        new SetPerspectiveLayoutAction(null, userId, layout);
     }
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(setPerspectiveLayoutAction.getProjectId(), is(this.projectId));
+        assertThat(setPerspectiveLayoutAction.projectId(), is(this.projectId));
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        SetPerspectiveLayoutAction.create(projectId, null, layout);
+        new SetPerspectiveLayoutAction(projectId, null, layout);
     }
 
     @Test
     public void shouldReturnSupplied_userId() {
-        assertThat(setPerspectiveLayoutAction.getUserId(), is(this.userId));
+        assertThat(setPerspectiveLayoutAction.userId(), is(this.userId));
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_layout_IsNull() {
-        SetPerspectiveLayoutAction.create(projectId, userId, null);
+        new SetPerspectiveLayoutAction(projectId, userId, null);
     }
 
     @Test
     public void shouldReturnSupplied_layout() {
-        assertThat(setPerspectiveLayoutAction.getLayout(), is(this.layout));
+        assertThat(setPerspectiveLayoutAction.layout(), is(this.layout));
     }
 
     @Test
@@ -73,27 +73,27 @@ public class SetPerspectiveLayoutAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(setPerspectiveLayoutAction, is(SetPerspectiveLayoutAction.create(projectId, userId, layout)));
+        assertThat(setPerspectiveLayoutAction, is(new SetPerspectiveLayoutAction(projectId, userId, layout)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(setPerspectiveLayoutAction, is(Matchers.not(SetPerspectiveLayoutAction.create(ProjectId.generate(), userId, layout))));
+        assertThat(setPerspectiveLayoutAction, is(Matchers.not(new SetPerspectiveLayoutAction(ProjectId.generate(), userId, layout))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        assertThat(setPerspectiveLayoutAction, is(Matchers.not(SetPerspectiveLayoutAction.create(projectId, mock(UserId.class), layout))));
+        assertThat(setPerspectiveLayoutAction, is(Matchers.not(new SetPerspectiveLayoutAction(projectId, mock(UserId.class), layout))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_layout() {
-        assertThat(setPerspectiveLayoutAction, is(Matchers.not(SetPerspectiveLayoutAction.create(projectId, userId, mock(PerspectiveLayout.class)))));
+        assertThat(setPerspectiveLayoutAction, is(Matchers.not(new SetPerspectiveLayoutAction(projectId, userId, mock(PerspectiveLayout.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(setPerspectiveLayoutAction.hashCode(), is(SetPerspectiveLayoutAction.create(projectId, userId, layout)
+        assertThat(setPerspectiveLayoutAction.hashCode(), is(new SetPerspectiveLayoutAction(projectId, userId, layout)
                                                                                        .hashCode()));
     }
 

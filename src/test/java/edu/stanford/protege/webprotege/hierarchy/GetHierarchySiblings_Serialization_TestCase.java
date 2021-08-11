@@ -22,7 +22,7 @@ public abstract class GetHierarchySiblings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetHierarchySiblingsAction.create(ProjectId.generate(),
+        var action = new GetHierarchySiblingsAction(ProjectId.generate(),
                                                        mockOWLClass(),
                                                        HierarchyId.CLASS_HIERARCHY,
                                                        PageRequest.requestFirstPage());
@@ -31,7 +31,7 @@ public abstract class GetHierarchySiblings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetHierarchySiblingsResult.create(Page.emptyPage());
+        var result = new GetHierarchySiblingsResult(Page.emptyPage());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

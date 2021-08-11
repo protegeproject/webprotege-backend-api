@@ -15,21 +15,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 11 Oct 2018
  */
-@AutoValue
+
 
 @JsonTypeName("GetEntityGraph")
-public abstract class GetEntityGraphAction implements ProjectAction<GetEntityGraphResult> {
-
-    @JsonCreator
-    public static GetEntityGraphAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                              @JsonProperty("entity") @Nonnull OWLEntity entity) {
-        return new AutoValue_GetEntityGraphAction(projectId, entity);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract OWLEntity getEntity();
+public record GetEntityGraphAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                   @JsonProperty("term") @Nonnull OWLEntity entity) implements ProjectAction<GetEntityGraphResult> {
 }

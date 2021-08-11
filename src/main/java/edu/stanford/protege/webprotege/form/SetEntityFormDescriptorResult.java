@@ -8,11 +8,8 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 2020-01-16
  */
-@AutoValue
 
-public abstract class SetEntityFormDescriptorResult implements Result {
 
-    public static SetEntityFormDescriptorResult get() {
-        return new AutoValue_SetEntityFormDescriptorResult();
-    }
+public record SetEntityFormDescriptorResult() implements Result {
+
 }

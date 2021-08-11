@@ -15,19 +15,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 18/02/16
  */
-@AutoValue
+
 
 @JsonTypeName("GetPerspectives")
-public abstract class GetPerspectivesAction implements Action<GetPerspectivesResult> {
-
-    @JsonCreator
-    public static GetPerspectivesAction create(@JsonProperty("projectId") ProjectId projectId,
-                                               @JsonProperty("userId") UserId userId) {
-        return new AutoValue_GetPerspectivesAction(projectId, userId);
-    }
-
-    @Nonnull
-    public abstract ProjectId getProjectId();
-
-    public abstract UserId getUserId();
+public record GetPerspectivesAction(@JsonProperty("projectId") ProjectId projectId,
+                                    @JsonProperty("userId") UserId userId) implements Action<GetPerspectivesResult> {
 }

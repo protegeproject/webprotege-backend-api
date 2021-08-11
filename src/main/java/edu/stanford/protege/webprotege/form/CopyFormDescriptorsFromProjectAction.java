@@ -15,29 +15,12 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-04-14
  */
-@AutoValue
+
 
 @JsonTypeName("CopyFormDescriptorsFromProject")
-public abstract class CopyFormDescriptorsFromProjectAction implements ProjectAction<CopyFormDescriptorsFromProjectResult> {
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract ProjectId getProjectIdToCopyFrom();
-
-    @Nonnull
-    public abstract ImmutableList<FormId> getFormIdsToCopy();
-
-    @JsonCreator
-    public static CopyFormDescriptorsFromProjectAction create(@JsonProperty("projectId") ProjectId newProjectId,
-                                                              @JsonProperty("projectIdToCopyFrom") ProjectId newProjectIdToCopyFrom,
-                                                              @JsonProperty("formIdsToCopy") ImmutableList<FormId> newFormIdsToCopy) {
-        return new AutoValue_CopyFormDescriptorsFromProjectAction(newProjectId,
-                                                                  newProjectIdToCopyFrom,
-                                                                  newFormIdsToCopy);
-    }
+public record CopyFormDescriptorsFromProjectAction(@JsonProperty("projectId") ProjectId projectId,
+                                                   @JsonProperty("projectIdToCopyFrom") ProjectId newProjectIdToCopyFrom,
+                                                   @JsonProperty("formIdsToCopy") ImmutableList<FormId> newFormIdsToCopy) implements ProjectAction<CopyFormDescriptorsFromProjectResult> {
 
 
 }

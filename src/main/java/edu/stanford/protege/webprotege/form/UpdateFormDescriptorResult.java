@@ -10,13 +10,8 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 2020-08-22
  */
-@AutoValue
+
 
 @JsonTypeName("UpdateFormDescriptor")
-public abstract class UpdateFormDescriptorResult implements Result {
-
-    @JsonCreator
-    public static UpdateFormDescriptorResult create() {
-        return new AutoValue_UpdateFormDescriptorResult();
-    }
+public record UpdateFormDescriptorResult() implements Result {
 }

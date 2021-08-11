@@ -38,7 +38,7 @@ public class AddAxiomsAction implements ProjectAction<AddAxiomsResult> {
 
     @Nonnull
     @Override
-    public ProjectId getProjectId() {
+    public ProjectId projectId() {
         return projectId;
     }
 

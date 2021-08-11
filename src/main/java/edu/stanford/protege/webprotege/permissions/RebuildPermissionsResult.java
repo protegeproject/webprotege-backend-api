@@ -10,13 +10,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 11 Apr 2017
  */
-@AutoValue
-
 @JsonTypeName("RebuildPermissions")
-public class RebuildPermissionsResult implements Result {
-
-    @JsonCreator
-    public static RebuildPermissionsResult get() {
-        return new AutoValue_RebuildPermissionsResult();
-    }
+public record RebuildPermissionsResult() implements Result {
 }

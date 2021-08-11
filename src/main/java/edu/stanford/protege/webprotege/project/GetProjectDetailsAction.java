@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.base.Objects;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.Action;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
@@ -16,49 +17,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 10/03/16
  */
 @JsonTypeName("GetProjectDetails")
-public class GetProjectDetailsAction implements Action<GetProjectDetailsResult>, HasProjectId {
+public record GetProjectDetailsAction(ProjectId projectId) implements Action<GetProjectDetailsResult>, HasProjectId {
 
-    private ProjectId projectId;
-
-    private GetProjectDetailsAction() {
-    }
-
-    public GetProjectDetailsAction(ProjectId projectId) {
-        this.projectId = checkNotNull(projectId);
-    }
-
-    public static GetProjectDetailsAction create(ProjectId projectId) {
-        return new GetProjectDetailsAction(projectId);
-    }
-
-    @Nonnull
+    @NotNull
     @Override
     public ProjectId getProjectId() {
         return projectId;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(projectId);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof GetProjectDetailsAction)) {
-            return false;
-        }
-        GetProjectDetailsAction other = (GetProjectDetailsAction) obj;
-        return this.projectId.equals(other.projectId);
-    }
-
-
-    @Override
-    public String toString() {
-        return toStringHelper("GetProjectDetailsAction")
-                .addValue(projectId)
-                .toString();
     }
 }

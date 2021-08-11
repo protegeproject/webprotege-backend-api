@@ -1,6 +1,8 @@
 package edu.stanford.protege.webprotege.dispatch;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.project.HasProjectId;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Matthew Horridge
@@ -9,4 +11,10 @@ import edu.stanford.protege.webprotege.project.HasProjectId;
  */
 public interface ProjectAction<R extends Result> extends Action<R>, HasProjectId {
 
+    ProjectId projectId();
+
+    @NotNull
+    default ProjectId getProjectId() {
+        return projectId();
+    }
 }

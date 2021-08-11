@@ -58,7 +58,7 @@ public class IssueTargetAdded extends AbstractIssueEvent {
         return toStringHelper("IssueEntityTargetAdded" )
                 .add("userId", getUserId())
                 .add("timestamp", getTimestamp())
-                .add("entity", getTargetEntity())
+                .add("term", getTargetEntity())
                 .toString();
     }
 }

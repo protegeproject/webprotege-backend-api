@@ -1,6 +1,7 @@
 
 package edu.stanford.protege.webprotege.itemlist;
 
+import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.user.UserId;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -23,19 +24,19 @@ public class GetUserIdCompletionsResult_TestCase {
     @Mock
     private UserId userId;
 
-    private List<UserId> possibleItemCompletions;
+    private ImmutableList<UserId> possibleItemCompletions;
 
     @Before
     public void setUp()
         throws Exception
     {
-        possibleItemCompletions = Collections.singletonList(userId);
-        result = GetUserIdCompletionsResult.create(possibleItemCompletions);
+        possibleItemCompletions = ImmutableList.of(userId);
+        result = new GetUserIdCompletionsResult(possibleItemCompletions);
     }
 
     @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_possibleItemCompletions_IsNull() {
-        GetUserIdCompletionsResult.create(null);
+        new GetUserIdCompletionsResult(null);
     }
 
     @Test
@@ -50,18 +51,18 @@ public class GetUserIdCompletionsResult_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        MatcherAssert.assertThat(result, Matchers.is(GetUserIdCompletionsResult.create(possibleItemCompletions)));
+        MatcherAssert.assertThat(result, Matchers.is(new GetUserIdCompletionsResult(possibleItemCompletions)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_possibleItemCompletions() {
-        MatcherAssert.assertThat(result, Matchers.is(Matchers.not(GetUserIdCompletionsResult.create(Collections.singletonList(
+        MatcherAssert.assertThat(result, Matchers.is(Matchers.not(new GetUserIdCompletionsResult(ImmutableList.of(
                 mock(UserId.class))))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        MatcherAssert.assertThat(result.hashCode(), Matchers.is(GetUserIdCompletionsResult.create(possibleItemCompletions)
+        MatcherAssert.assertThat(result.hashCode(), Matchers.is(new GetUserIdCompletionsResult(possibleItemCompletions)
                                                                                           .hashCode()));
     }
 

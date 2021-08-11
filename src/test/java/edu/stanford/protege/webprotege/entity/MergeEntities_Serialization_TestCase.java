@@ -20,7 +20,7 @@ public class MergeEntities_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = MergeEntitiesAction.create(mockProjectId(), ImmutableSet.of(),
+        var action = new MergeEntitiesAction(mockProjectId(), ImmutableSet.of(),
                                                 mockOWLClass(),
                                                 MergedEntityTreatment.DELETE_MERGED_ENTITY,
                                                 "Test");
@@ -29,7 +29,7 @@ public class MergeEntities_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = MergeEntitiesResult.create(mockEventList());
+        var result = new MergeEntitiesResult(mockEventList());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

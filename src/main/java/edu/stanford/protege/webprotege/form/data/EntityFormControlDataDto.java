@@ -17,7 +17,7 @@ import java.util.Optional;
 public abstract class EntityFormControlDataDto extends PrimitiveFormControlDataDto {
 
     @JsonCreator
-    public static EntityFormControlDataDto get(@JsonProperty("entity") @Nonnull OWLEntityData entityData) {
+    public static EntityFormControlDataDto get(@JsonProperty("term") @Nonnull OWLEntityData entityData) {
         return new AutoValue_EntityFormControlDataDto(entityData);
     }
 

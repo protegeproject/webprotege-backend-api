@@ -20,14 +20,14 @@ public class GetEntityTags_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetEntityTagsAction.create(ProjectId.generate(),
+        var action = new GetEntityTagsAction(ProjectId.generate(),
                                                 mockOWLClass());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetEntityTagsResult.create(Collections.emptySet(),
+        var result = new GetEntityTagsResult(Collections.emptySet(),
                                                 Collections.emptySet());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }

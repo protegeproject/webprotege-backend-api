@@ -22,17 +22,17 @@ public class GetOntologyFramesResult_TestCase {
     public void setUp()
         throws Exception
     {
-        result = GetOntologyFramesResult.create(ontologyFrames);
+        result = new GetOntologyFramesResult(ontologyFrames);
     }
 
     @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_ontologyFrames_IsNull() {
-        GetOntologyFramesResult.create(null);
+        new GetOntologyFramesResult(null);
     }
 
     @Test
     public void shouldReturnSupplied_ontologyFrames() {
-        MatcherAssert.assertThat(result.getOntologyFrames(), Matchers.is(this.ontologyFrames));
+        MatcherAssert.assertThat(result.frames(), Matchers.is(this.ontologyFrames));
     }
 
     @Test
@@ -47,17 +47,17 @@ public class GetOntologyFramesResult_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        MatcherAssert.assertThat(result, Matchers.is(GetOntologyFramesResult.create(ontologyFrames)));
+        MatcherAssert.assertThat(result, Matchers.is(new GetOntologyFramesResult(ontologyFrames)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_ontologyFrames() {
-        MatcherAssert.assertThat(result, Matchers.is(Matchers.not(GetOntologyFramesResult.create(Mockito.mock(ImmutableList.class)))));
+        MatcherAssert.assertThat(result, Matchers.is(Matchers.not(new GetOntologyFramesResult(Mockito.mock(ImmutableList.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        MatcherAssert.assertThat(result.hashCode(), Matchers.is(GetOntologyFramesResult.create(ontologyFrames).hashCode()));
+        MatcherAssert.assertThat(result.hashCode(), Matchers.is(new GetOntologyFramesResult(ontologyFrames).hashCode()));
     }
 
     @Test

@@ -42,7 +42,7 @@ public class GetRevisionsAction implements ProjectAction<GetRevisionsResult> {
 
     @Nonnull
     @Override
-    public ProjectId getProjectId() {
+    public ProjectId projectId() {
         return projectId;
     }
 

@@ -14,17 +14,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-08-17
  */
-@AutoValue
+
 
 @JsonTypeName("GetSearchSettings")
-public abstract class GetSearchSettingsResult implements Result {
+public record GetSearchSettingsResult(@JsonProperty("filters") @Nonnull ImmutableList<EntitySearchFilter> filters) implements Result {
 
-    @JsonCreator
-    @Nonnull
-    public static GetSearchSettingsResult create(@JsonProperty("filters") @Nonnull ImmutableList<EntitySearchFilter> filters) {
-        return new AutoValue_GetSearchSettingsResult(filters);
-    }
-
-    @Nonnull
-    public abstract ImmutableList<EntitySearchFilter> getFilters();
 }

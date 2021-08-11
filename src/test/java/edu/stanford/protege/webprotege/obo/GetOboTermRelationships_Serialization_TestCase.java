@@ -20,14 +20,14 @@ public class GetOboTermRelationships_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetOboTermRelationshipsAction.create(mockProjectId(),
+        var action = new GetOboTermRelationshipsAction(mockProjectId(),
                                                           mockOWLClass());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetOboTermRelationshipsResult.create(new OBOTermRelationships(Collections.emptySet()));
+        var result = new GetOboTermRelationshipsResult(new OBOTermRelationships(Collections.emptySet()));
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

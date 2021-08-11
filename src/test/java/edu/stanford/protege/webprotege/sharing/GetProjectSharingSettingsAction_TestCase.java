@@ -4,7 +4,6 @@ import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -30,13 +29,13 @@ public class GetProjectSharingSettingsAction_TestCase {
 
     @Before
     public void setUp() throws Exception {
-        action = GetProjectSharingSettingsAction.create(projectId);
-        otherAction = GetProjectSharingSettingsAction.create(projectId);
+        action = new GetProjectSharingSettingsAction(projectId);
+        otherAction = new GetProjectSharingSettingsAction(projectId);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        GetProjectSharingSettingsAction.create(null);
+        new GetProjectSharingSettingsAction(null);
     }
 
     @Test
@@ -66,6 +65,6 @@ public class GetProjectSharingSettingsAction_TestCase {
 
     @Test
     public void shouldReturnSuppliedProjectId() {
-        assertThat(action.getProjectId(), is(projectId));
+        assertThat(action.projectId(), is(projectId));
     }
 }

@@ -18,13 +18,13 @@ public class GetAvailableProjects_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetAvailableProjectsAction.create();
+        var action = new GetAvailableProjectsAction();
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetAvailableProjectsResult.create(Collections.emptyList());
+        var result = new GetAvailableProjectsResult(Collections.emptyList());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 

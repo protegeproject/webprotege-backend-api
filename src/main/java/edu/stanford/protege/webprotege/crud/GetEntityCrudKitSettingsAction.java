@@ -24,7 +24,7 @@ public class GetEntityCrudKitSettingsAction implements ProjectAction<GetEntityCr
 
     @Nonnull
     @Override
-    public ProjectId getProjectId() {
+    public ProjectId projectId() {
         return projectId;
     }
 }

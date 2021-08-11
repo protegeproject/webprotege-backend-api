@@ -18,35 +18,13 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 24 Sep 2018
  */
-@AutoValue
+
 
 @JsonTypeName("SetAnnotationValue")
-public abstract class SetAnnotationValueAction implements ProjectAction<SetAnnotationValueResult>, HasCommitMessage {
+public record SetAnnotationValueAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                       @JsonProperty("entities") @Nonnull ImmutableSet<OWLEntity> entities,
+                                       @JsonProperty("property") @Nonnull OWLAnnotationProperty property,
+                                       @JsonProperty("value") @Nonnull OWLAnnotationValue value,
+                                       @JsonProperty("commitMessage") @Nonnull String commitMessage) implements ProjectAction<SetAnnotationValueResult>, HasCommitMessage {
 
-
-    @JsonCreator
-    public static SetAnnotationValueAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                                  @JsonProperty("entities") @Nonnull ImmutableSet<OWLEntity> entities,
-                                                  @JsonProperty("property") @Nonnull OWLAnnotationProperty property,
-                                                  @JsonProperty("value") @Nonnull OWLAnnotationValue value,
-                                                  @JsonProperty("commitMessage") @Nonnull String commitMessage) {
-        return new AutoValue_SetAnnotationValueAction(projectId, entities, property, value, commitMessage);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract ImmutableSet<OWLEntity> getEntities();
-
-    @Nonnull
-    public abstract OWLAnnotationProperty getProperty();
-
-    @Nonnull
-    public abstract OWLAnnotationValue getValue();
-
-    @Nonnull
-    @Override
-    public abstract String getCommitMessage();
 }

@@ -7,6 +7,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 2019-11-23
  */
-public class SetProjectFormDescriptorsResult implements Result {
+public record SetProjectFormDescriptorsResult() implements Result {
 
 }

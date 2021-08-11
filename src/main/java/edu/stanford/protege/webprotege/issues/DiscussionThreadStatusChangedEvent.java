@@ -65,8 +65,8 @@ public class DiscussionThreadStatusChangedEvent extends ProjectEvent {
     }
 
     /**
-     * Gets the open threads for the entity that this thread pertains to.
-     * @return The number of open threads.  Undefined if the entity for this thread is not set.
+     * Gets the open threads for the term that this thread pertains to.
+     * @return The number of open threads.  Undefined if the term for this thread is not set.
      */
     public int getOpenCommentsCountForEntity() {
         return openCommentsCountForEntity;

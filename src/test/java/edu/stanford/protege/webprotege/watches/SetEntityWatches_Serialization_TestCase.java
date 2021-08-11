@@ -20,7 +20,7 @@ public class SetEntityWatches_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetEntityWatchesAction.create(mockProjectId(),
+        var action = new SetEntityWatchesAction(mockProjectId(),
                                                    mockUserId(),
                                                    mockOWLClass(), ImmutableSet.of(
                         Watch.create(mockUserId(),
@@ -32,7 +32,7 @@ public class SetEntityWatches_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetEntityWatchesResult.create(mockEventList());
+        var result = new SetEntityWatchesResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

@@ -21,7 +21,7 @@ public class SetProjectTags_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetProjectTagsAction.create(mockProjectId(), ImmutableList.of(
+        var action = new SetProjectTagsAction(mockProjectId(), ImmutableList.of(
                 TagData.get(TagId.createTagId(),
                             "Label",
                             "Description",
@@ -35,7 +35,7 @@ public class SetProjectTags_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetProjectTagsResult.create(mockEventList());
+        var result = new SetProjectTagsResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

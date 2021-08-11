@@ -23,13 +23,13 @@ public class GetEntityGraph_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetEntityGraphAction.create(ProjectId.generate(),
+        var action = new GetEntityGraphAction(ProjectId.generate(),
                                                  mockOWLClass()); JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetEntityGraphResult.get(EntityGraph.create(mockOWLClassData(),
+        var result = new GetEntityGraphResult(EntityGraph.create(mockOWLClassData(),
                                                                  ImmutableSet.of(),
                                                                  true),
                                               EntityGraphSettings.get(ImmutableList.of(), 2.5));

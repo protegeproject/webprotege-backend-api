@@ -20,7 +20,7 @@ public class UpdateEntityTags_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = UpdateEntityTagsAction.create(mockProjectId(),
+        var action = new UpdateEntityTagsAction(mockProjectId(),
                                                    mockOWLClass(),
                                                    ImmutableSet.of(TagId.createTagId()),
                                                    ImmutableSet.of());
@@ -29,7 +29,7 @@ public class UpdateEntityTags_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = UpdateEntityTagsResult.create(mockEventList());
+        var result = new UpdateEntityTagsResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

@@ -10,13 +10,9 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 18 Mar 2017
  */
-@AutoValue
+
 
 @JsonTypeName("SetApplicationSettings")
-public abstract class SetApplicationSettingsResult implements Result {
+public record SetApplicationSettingsResult() implements Result {
 
-    @JsonCreator
-    public static SetApplicationSettingsResult create() {
-        return new AutoValue_SetApplicationSettingsResult();
-    }
 }

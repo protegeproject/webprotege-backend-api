@@ -43,45 +43,45 @@ public class SetManchesterSyntaxFrameAction_TestCase {
 
     private Set<OWLEntityData> freshEntities;
 
-    private final Optional<String> commitMessage = Optional.of("SomeString");
+    private final String commitMessage = "Some String";
 
     @Before
     public void setUp() throws Exception {
         freshEntities = Sets.newHashSet();
         fromRendering = "FROM";
         toRendering = "TO";
-        setManchesterSyntaxFrameAction = SetManchesterSyntaxFrameAction.create(projectId, subject, fromRendering, toRendering, freshEntities, commitMessage);
-        otherSetManchesterSyntaxFrameAction = SetManchesterSyntaxFrameAction.create(projectId, subject, fromRendering, toRendering, freshEntities, commitMessage);
+        setManchesterSyntaxFrameAction = new SetManchesterSyntaxFrameAction(projectId, subject, fromRendering, toRendering, freshEntities, commitMessage);
+        otherSetManchesterSyntaxFrameAction = new SetManchesterSyntaxFrameAction(projectId, subject, fromRendering, toRendering, freshEntities, commitMessage);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_ProjectId_IsNull() {
-        SetManchesterSyntaxFrameAction.create(null, subject, fromRendering, toRendering, freshEntities, commitMessage);
+        new SetManchesterSyntaxFrameAction(null, subject, fromRendering, toRendering, freshEntities, commitMessage);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_Subject_IsNull() {
-        SetManchesterSyntaxFrameAction.create(projectId, null, fromRendering, toRendering, freshEntities, commitMessage);
+        new SetManchesterSyntaxFrameAction(projectId, null, fromRendering, toRendering, freshEntities, commitMessage);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_FromRendering_IsNull() {
-        SetManchesterSyntaxFrameAction.create(projectId, subject, null, toRendering, freshEntities, commitMessage);
+        new SetManchesterSyntaxFrameAction(projectId, subject, null, toRendering, freshEntities, commitMessage);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_ToRendering_IsNull() {
-        SetManchesterSyntaxFrameAction.create(projectId, subject, fromRendering, null, freshEntities, commitMessage);
+        new SetManchesterSyntaxFrameAction(projectId, subject, fromRendering, null, freshEntities, commitMessage);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_FreshEntities_IsNull() {
-        SetManchesterSyntaxFrameAction.create(projectId, subject, fromRendering, toRendering, null, commitMessage);
+        new SetManchesterSyntaxFrameAction(projectId, subject, fromRendering, toRendering, null, commitMessage);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_CommitMessage_IsNull() {
-        SetManchesterSyntaxFrameAction.create(projectId, subject, fromRendering, toRendering, freshEntities, null);
+        new SetManchesterSyntaxFrameAction(projectId, subject, fromRendering, toRendering, freshEntities, null);
     }
 
     @Test
@@ -111,22 +111,22 @@ public class SetManchesterSyntaxFrameAction_TestCase {
 
     @Test
     public void shouldReturnSuppliedProjectId() {
-        assertThat(setManchesterSyntaxFrameAction.getProjectId(), is(projectId));
+        assertThat(setManchesterSyntaxFrameAction.projectId(), is(projectId));
     }
 
     @Test
     public void shouldReturnSuppliedObject() {
-        assertThat(setManchesterSyntaxFrameAction.getSubject(), is(subject));
+        assertThat(setManchesterSyntaxFrameAction.subject(), is(subject));
     }
 
     @Test
     public void shouldReturnSuppliedFromRendering() {
-        assertThat(setManchesterSyntaxFrameAction.getFromRendering(), is(fromRendering));
+        assertThat(setManchesterSyntaxFrameAction.fromRendering(), is(fromRendering));
     }
 
     @Test
     public void shouldReturnSuppliedToRendering() {
-        assertThat(setManchesterSyntaxFrameAction.getToRendering(), is(toRendering));
+        assertThat(setManchesterSyntaxFrameAction.toRendering(), is(toRendering));
     }
 
 

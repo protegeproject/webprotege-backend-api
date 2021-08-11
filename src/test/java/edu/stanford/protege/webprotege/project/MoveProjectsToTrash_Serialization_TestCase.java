@@ -19,13 +19,13 @@ public class MoveProjectsToTrash_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = MoveProjectsToTrashAction.create(mockProjectId());
+        var action = new MoveProjectsToTrashAction(mockProjectId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = MoveProjectsToTrashResult.create(mockEventList());
+        var result = new MoveProjectsToTrashResult(mockEventList());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

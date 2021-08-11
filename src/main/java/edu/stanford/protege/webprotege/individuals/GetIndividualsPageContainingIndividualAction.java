@@ -18,30 +18,11 @@ import java.util.Optional;
  * Stanford Center for Biomedical Informatics Research
  * 19 Sep 2018
  */
-@AutoValue
+
 
 @JsonTypeName("GetIndividualsPageContainingIndividual")
-public abstract class GetIndividualsPageContainingIndividualAction implements ProjectAction<GetIndividualsPageContainingIndividualResult> {
-
-
-    @JsonCreator
-    public static GetIndividualsPageContainingIndividualAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                                                      @JsonProperty("individual") @Nonnull OWLNamedIndividual individual,
-                                                                      @JsonProperty("preferredType") @Nonnull Optional<OWLClass> preferredType,
-                                                                      @JsonProperty("preferredMode") @Nullable InstanceRetrievalMode preferredMode) {
-        return new AutoValue_GetIndividualsPageContainingIndividualAction(projectId, individual, preferredType, preferredMode);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract OWLNamedIndividual getIndividual();
-
-    @Nonnull
-    public abstract Optional<OWLClass> getPreferredType();
-
-    @Nonnull
-    public abstract InstanceRetrievalMode getPreferredMode();
+public record GetIndividualsPageContainingIndividualAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                                           @JsonProperty("individual") @Nonnull OWLNamedIndividual individual,
+                                                           @JsonProperty("preferredType") @Nonnull Optional<OWLClass> preferredType,
+                                                           @JsonProperty("preferredMode") @Nullable InstanceRetrievalMode preferredMode) implements ProjectAction<GetIndividualsPageContainingIndividualResult> {
 }

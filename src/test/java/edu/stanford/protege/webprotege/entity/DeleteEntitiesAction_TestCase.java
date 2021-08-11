@@ -1,11 +1,11 @@
 
 package edu.stanford.protege.webprotege.entity;
 
+import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.semanticweb.owlapi.model.OWLEntity;
 
 import java.util.HashSet;
@@ -22,11 +22,10 @@ public class DeleteEntitiesAction_TestCase {
 
     private ProjectId projectId = ProjectId.generate();
 
-    private final Set<OWLEntity> entities = new HashSet<>();
+    private final ImmutableSet<OWLEntity> entities = ImmutableSet.of(mock(OWLEntity.class));
 
     @Before
     public void setUp() {
-        entities.add(mock(OWLEntity.class));
         deleteEntitiesAction = new DeleteEntitiesAction(projectId, entities);
     }
 
@@ -38,7 +37,7 @@ public class DeleteEntitiesAction_TestCase {
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(deleteEntitiesAction.getProjectId(), is(this.projectId));
+        assertThat(deleteEntitiesAction.projectId(), is(this.projectId));
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -49,7 +48,7 @@ public class DeleteEntitiesAction_TestCase {
 
     @Test
     public void shouldReturnSupplied_entities() {
-        assertThat(deleteEntitiesAction.getEntities(), is(this.entities));
+        assertThat(deleteEntitiesAction.entities(), is(this.entities));
     }
 
     @Test
@@ -75,7 +74,7 @@ public class DeleteEntitiesAction_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entities() {
-        assertThat(deleteEntitiesAction, is(not(new DeleteEntitiesAction(projectId, new HashSet<>()))));
+        assertThat(deleteEntitiesAction, is(not(new DeleteEntitiesAction(projectId, ImmutableSet.of()))));
     }
 
     @Test

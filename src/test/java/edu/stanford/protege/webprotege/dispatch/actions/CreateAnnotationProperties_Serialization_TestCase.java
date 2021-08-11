@@ -25,17 +25,16 @@ public class CreateAnnotationProperties_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = CreateAnnotationPropertiesAction.create(ProjectId.generate(),
-                                                             "A\nB",
-                                                             "en", of());
+        var action = new CreateAnnotationPropertiesAction(ProjectId.generate(),
+                                                          "A\nB",
+                                                          "en", of());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = CreateAnnotationPropertiesResult.create(ProjectId.generate(),
-                                                             ImmutableSet.of(),
-                                                             EventList.create(EventTag.get(2), ImmutableList.of(), EventTag.get(2)));
+        var result = new CreateAnnotationPropertiesResult(ProjectId.generate(),
+                                                          ImmutableSet.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

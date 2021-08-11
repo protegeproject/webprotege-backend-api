@@ -291,7 +291,7 @@ public class Issue {
     }
 
     /**
-     * Gets a list of {@link Mention}s for this issue.  A {@link Mention} identifies the mention of a user, entity,
+     * Gets a list of {@link Mention}s for this issue.  A {@link Mention} identifies the mention of a user, term,
      * revision or other issue in the body of this issue or in a comment on this issue.
      * @return A list of {@link Mention}s.  Possibly empty.
      */

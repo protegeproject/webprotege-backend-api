@@ -19,7 +19,7 @@ public abstract class SetOboTermId_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetOboTermIdAction.create(mockProjectId(),
+        var action = new SetOboTermIdAction(mockProjectId(),
                                                mockOWLClass(),
                                                new OBOTermId("123", "Hello", "Blah"));
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -27,7 +27,7 @@ public abstract class SetOboTermId_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetOboTermIdResult.create();
+        var result = new SetOboTermIdResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

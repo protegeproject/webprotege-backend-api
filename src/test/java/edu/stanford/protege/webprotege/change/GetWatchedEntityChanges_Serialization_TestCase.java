@@ -20,14 +20,14 @@ public class GetWatchedEntityChanges_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetWatchedEntityChangesAction.create(mockProjectId(),
+        var action = new GetWatchedEntityChangesAction(mockProjectId(),
                                                           mockUserId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetWatchedEntityChangesResult.create(Page.emptyPage());
+        var result = new GetWatchedEntityChangesResult(Page.emptyPage());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

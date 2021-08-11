@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.tag;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
 import javax.annotation.Nonnull;
@@ -14,59 +15,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 18 Mar 2018
  */
-public class GetProjectTagsResult implements Result {
+public record GetProjectTagsResult(Set<Tag> tags,
+                                   Map<TagId, Integer> tagUsage) implements Result {
 
-    private List<Tag> tags;
-
-    private Map<TagId, Integer> tagUsage;
-
-    private GetProjectTagsResult(@Nonnull Collection<Tag> tags, @Nonnull Map<TagId, Integer> tagUsage) {
-        this.tags = new ArrayList<>(checkNotNull(tags));
-        this.tagUsage = new HashMap<>(tagUsage);
-    }
-
-
-    private GetProjectTagsResult() {
-    }
-
-    public static GetProjectTagsResult create(@Nonnull Collection<Tag> tags, @Nonnull Map<TagId, Integer> tagUsage) {
-        return new GetProjectTagsResult(tags, tagUsage);
-    }
-
-    @Nonnull
-    public List<Tag> getTags() {
-        return new ArrayList<>(tags);
-    }
-
-    @Nonnull
-    public Map<TagId, Integer> getTagUsage() {
-        return new HashMap<>(tagUsage);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tags, tagUsage);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof GetProjectTagsResult)) {
-            return false;
-        }
-        GetProjectTagsResult other = (GetProjectTagsResult) obj;
-        return this.tags.equals(other.tags)
-                && this.tagUsage.equals(other.tagUsage);
-    }
-
-
-    @Override
-    public String toString() {
-        return toStringHelper("GetProjectTagsResult")
-                .addValue(tags)
-                .add("usage", tagUsage)
-                .toString();
-    }
 }

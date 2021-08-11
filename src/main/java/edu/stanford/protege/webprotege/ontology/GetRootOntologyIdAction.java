@@ -16,18 +16,9 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 20/02/2013
  */
-@AutoValue
+
 
 @JsonTypeName("GetRootOntologyId")
-public abstract class GetRootOntologyIdAction implements ProjectAction<GetRootOntologyIdResult> {
-
-    @JsonCreator
-    public static GetRootOntologyIdAction create(@JsonProperty("projectId") ProjectId projectId) {
-        return new AutoValue_GetRootOntologyIdAction(projectId);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
+public record GetRootOntologyIdAction(ProjectId projectId) implements ProjectAction<GetRootOntologyIdResult> {
 }
 

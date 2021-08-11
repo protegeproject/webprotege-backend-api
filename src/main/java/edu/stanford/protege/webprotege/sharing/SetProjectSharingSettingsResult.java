@@ -10,13 +10,9 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 07/02/15
  */
-@AutoValue
+
 
 @JsonTypeName("SetProjectSharingSettings")
-public abstract class SetProjectSharingSettingsResult implements Result {
+public record SetProjectSharingSettingsResult() implements Result {
 
-    @JsonCreator
-    public static SetProjectSharingSettingsResult create() {
-        return new AutoValue_SetProjectSharingSettingsResult();
-    }
 }

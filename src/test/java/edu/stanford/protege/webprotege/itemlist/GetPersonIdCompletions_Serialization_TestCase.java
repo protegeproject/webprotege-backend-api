@@ -18,13 +18,13 @@ public class GetPersonIdCompletions_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetPersonIdCompletionsAction.create("Blah");
+        var action = new GetPersonIdCompletionsAction("Blah");
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetPersonIdCompletionsResult.create(ImmutableList.of(PersonId.get("Person")));
+        var result = new GetPersonIdCompletionsResult(ImmutableList.of(PersonId.get("Person")));
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

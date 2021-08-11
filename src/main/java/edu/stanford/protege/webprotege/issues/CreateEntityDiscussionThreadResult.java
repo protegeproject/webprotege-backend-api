@@ -17,19 +17,6 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 6 Oct 2016
  */
-@AutoValue
-
 @JsonTypeName("CreateEntityDiscussionThread")
-public abstract class CreateEntityDiscussionThreadResult implements Result, HasEventList<ProjectEvent> {
-
-    @JsonCreator
-    public static CreateEntityDiscussionThreadResult create(@JsonProperty("threads") @Nonnull ImmutableList<EntityDiscussionThread> threads,
-                                              @JsonProperty("eventList") @Nonnull EventList<ProjectEvent> eventList) {
-        return new AutoValue_CreateEntityDiscussionThreadResult(threads, eventList);
-    }
-
-    public abstract ImmutableList<EntityDiscussionThread> getThreads();
-
-    @Override
-    public abstract EventList<ProjectEvent> getEventList();
+public record CreateEntityDiscussionThreadResult(@Nonnull ImmutableList<EntityDiscussionThread> threads) implements Result {
 }

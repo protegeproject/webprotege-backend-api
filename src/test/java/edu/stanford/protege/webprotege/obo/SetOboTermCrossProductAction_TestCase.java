@@ -25,40 +25,40 @@ public class SetOboTermCrossProductAction_TestCase {
 
     @Before
     public void setUp() {
-        setOboTermCrossProductAction = SetOboTermCrossProductAction.create(projectId, entity, crossProduct);
+        setOboTermCrossProductAction = new SetOboTermCrossProductAction(projectId, entity, crossProduct);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        SetOboTermCrossProductAction.create(null, entity, crossProduct);
+        new SetOboTermCrossProductAction(null, entity, crossProduct);
     }
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(setOboTermCrossProductAction.getProjectId(), is(this.projectId));
+        assertThat(setOboTermCrossProductAction.projectId(), is(this.projectId));
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        SetOboTermCrossProductAction.create(projectId, null, crossProduct);
+        new SetOboTermCrossProductAction(projectId, null, crossProduct);
     }
 
     @Test
     public void shouldReturnSupplied_entity() {
-        assertThat(setOboTermCrossProductAction.getEntity(), is(this.entity));
+        assertThat(setOboTermCrossProductAction.term(), is(this.entity));
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_crossProduct_IsNull() {
-        SetOboTermCrossProductAction.create(projectId, entity, null);
+        new SetOboTermCrossProductAction(projectId, entity, null);
     }
 
     @Test
     public void shouldReturnSupplied_crossProduct() {
-        assertThat(setOboTermCrossProductAction.getCrossProduct(), is(this.crossProduct));
+        assertThat(setOboTermCrossProductAction.crossProduct(), is(this.crossProduct));
     }
 
     @Test
@@ -74,27 +74,27 @@ public class SetOboTermCrossProductAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(setOboTermCrossProductAction, is(SetOboTermCrossProductAction.create(projectId, entity, crossProduct)));
+        assertThat(setOboTermCrossProductAction, is(new SetOboTermCrossProductAction(projectId, entity, crossProduct)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(setOboTermCrossProductAction, is(not(SetOboTermCrossProductAction.create(ProjectId.generate(), entity, crossProduct))));
+        assertThat(setOboTermCrossProductAction, is(not(new SetOboTermCrossProductAction(ProjectId.generate(), entity, crossProduct))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entity() {
-        assertThat(setOboTermCrossProductAction, is(not(SetOboTermCrossProductAction.create(projectId, Mockito.mock(OWLClass.class), crossProduct))));
+        assertThat(setOboTermCrossProductAction, is(not(new SetOboTermCrossProductAction(projectId, Mockito.mock(OWLClass.class), crossProduct))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_crossProduct() {
-        assertThat(setOboTermCrossProductAction, is(not(SetOboTermCrossProductAction.create(projectId, entity, Mockito.mock(OBOTermCrossProduct.class)))));
+        assertThat(setOboTermCrossProductAction, is(not(new SetOboTermCrossProductAction(projectId, entity, Mockito.mock(OBOTermCrossProduct.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(setOboTermCrossProductAction.hashCode(), is(SetOboTermCrossProductAction.create(projectId, entity, crossProduct)
+        assertThat(setOboTermCrossProductAction.hashCode(), is(new SetOboTermCrossProductAction(projectId, entity, crossProduct)
                                                                                            .hashCode()));
     }
 

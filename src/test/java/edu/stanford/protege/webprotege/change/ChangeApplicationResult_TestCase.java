@@ -44,7 +44,7 @@ public class ChangeApplicationResult_TestCase<S> {
 
     @Test
     public void shouldGetSuppliedSubject() {
-        assertThat(result.getSubject(), is(subject));
+        assertThat(result.subject(), is(subject));
     }
 
     @Test

@@ -13,15 +13,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 18 Mar 2017
  */
-@AutoValue
+
 
 @JsonTypeName("SetApplicationSettings")
-public abstract class SetApplicationSettingsAction implements Action<SetApplicationSettingsResult> {
+public record SetApplicationSettingsAction(@Nonnull ApplicationSettings applicationSettings) implements Action<SetApplicationSettingsResult> {
 
-    @JsonCreator
-    public static SetApplicationSettingsAction create(@JsonProperty("applicationSettings") @Nonnull ApplicationSettings applicationSettings) {
-        return new AutoValue_SetApplicationSettingsAction(applicationSettings);
-    }
-
-    public abstract ApplicationSettings getApplicationSettings();
 }

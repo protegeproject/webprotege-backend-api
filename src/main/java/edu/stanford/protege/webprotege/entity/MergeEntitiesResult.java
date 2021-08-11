@@ -16,48 +16,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 9 Mar 2018
  */
-public class MergeEntitiesResult implements Result, HasEventList<ProjectEvent> {
+public record MergeEntitiesResult(EventList eventList) implements Result, HasEventList {
 
-    private EventList<ProjectEvent> eventList;
-
-    private MergeEntitiesResult(@Nonnull EventList<ProjectEvent> eventList) {
-        this.eventList = checkNotNull(eventList);
-    }
-
-
-    private MergeEntitiesResult() {
-    }
-
-    public static MergeEntitiesResult create(@Nonnull EventList<ProjectEvent> eventList) {
-        return new MergeEntitiesResult(eventList);
-    }
-
-    @Override
-    public EventList<ProjectEvent> getEventList() {
-        return eventList;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(eventList);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof MergeEntitiesResult)) {
-            return false;
-        }
-        MergeEntitiesResult other = (MergeEntitiesResult) obj;
-        return this.eventList.equals(other.eventList);
-    }
-
-
-    @Override
-    public String toString() {
-        return toStringHelper("MergeEntitiesResult")
-                .toString();
-    }
 }

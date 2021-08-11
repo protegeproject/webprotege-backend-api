@@ -15,22 +15,10 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2019-12-14
  */
-@AutoValue
+
 
 @JsonTypeName("SetEntityGraphActiveFilters")
-public abstract class SetEntityGraphActiveFiltersAction implements ProjectAction<SetEntityGraphActiveFiltersResult> {
+public record SetEntityGraphActiveFiltersAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                                @JsonProperty("activeFilters") @Nonnull ImmutableList<FilterName> activeFilters) implements ProjectAction<SetEntityGraphActiveFiltersResult> {
 
-
-    @JsonCreator
-    public static SetEntityGraphActiveFiltersAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                                           @JsonProperty("activeFilters") @Nonnull ImmutableList<FilterName> activeFilters) {
-        return new AutoValue_SetEntityGraphActiveFiltersAction(projectId, activeFilters);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract ImmutableList<FilterName> getActiveFilters();
 }

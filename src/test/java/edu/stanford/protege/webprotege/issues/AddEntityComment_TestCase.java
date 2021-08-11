@@ -34,16 +34,13 @@ public class AddEntityComment_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = AddEntityCommentResult.create(projectId,
+        var result = new AddEntityCommentResult(projectId,
                                                    threadId,
                                                    new Comment(CommentId.create(), UserId.getUserId("TheUser"),
                                                                1000, Optional.empty(),
                                                                THE_COMMENT,
                                                                THE_COMMENT),
-                                                   THE_COMMENT,
-                                                   EventList.create(EventTag.get(3),
-                                                       ImmutableList.of(),
-                                                       EventTag.get(3)));
+                                                   THE_COMMENT);
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

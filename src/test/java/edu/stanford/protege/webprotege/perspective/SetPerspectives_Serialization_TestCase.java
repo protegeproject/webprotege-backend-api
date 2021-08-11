@@ -22,7 +22,7 @@ public class SetPerspectives_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetPerspectivesAction.create(mockProjectId(),
+        var action = new SetPerspectivesAction(mockProjectId(),
                                                   mockUserId(), ImmutableList.of(
                         PerspectiveDescriptor.get(PerspectiveId.generate(),
                                                   LanguageMap.of("en", "Hello"),
@@ -33,7 +33,7 @@ public class SetPerspectives_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetPerspectivesResult.create(ImmutableList.of(), ImmutableSet.of());
+        var result = new SetPerspectivesResult(ImmutableList.of(), ImmutableSet.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

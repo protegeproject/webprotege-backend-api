@@ -11,15 +11,9 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 28 Jul 16
  */
-@AutoValue
+
 
 @JsonTypeName("GetNamedIndividualFrame")
-public abstract class GetNamedIndividualFrameResult implements Result {
+public record GetNamedIndividualFrameResult(NamedIndividualFrame frame) implements Result {
 
-    @JsonCreator
-    public static GetNamedIndividualFrameResult create(@JsonProperty("frame") NamedIndividualFrame frame) {
-        return new AutoValue_GetNamedIndividualFrameResult(frame);
-    }
-
-    public abstract NamedIndividualFrame getFrame();
 }

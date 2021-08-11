@@ -32,13 +32,13 @@ public class GetProjectChangesResult_TestCase {
 
     @Before
     public void setUp() throws Exception {
-        result = GetProjectChangesResult.create(projectChanges);
-        otherResult = GetProjectChangesResult.create(projectChanges);
+        result = new GetProjectChangesResult(projectChanges);
+        otherResult = new GetProjectChangesResult(projectChanges);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        GetProjectChangesResult.create(null);
+        new GetProjectChangesResult(null);
     }
 
     @Test
@@ -68,6 +68,6 @@ public class GetProjectChangesResult_TestCase {
 
     @Test
     public void shouldReturnSuppliedList() {
-        assertThat(result.getProjectChanges(), is(projectChanges));
+        assertThat(result.changes().getPageCount(), is(projectChanges));
     }
 }

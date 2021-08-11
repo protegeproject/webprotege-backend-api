@@ -21,7 +21,7 @@ import static org.hamcrest.Matchers.is;
 public class Watch_JsonDocument_Regression_TestCase {
 
     
-    private final static String document = "{\"_id\" : \"ObjectId(\\\"60a54871daeba784da91904d\\\")\",\"entity\" : {\"type\" : \"Class\",\"iri\" : \"http://the.ontology/ClsA\"},\"projectId\" : \"b6fc02d5-392f-415a-898d-2062010ecf04\",\"userId\" : \"The User\",\"type\" : \"ENTITY\"}\n";
+    private final static String document = "{\"_id\" : \"ObjectId(\\\"60a54871daeba784da91904d\\\")\",\"term\" : {\"type\" : \"Class\",\"iri\" : \"http://the.ontology/ClsA\"},\"projectId\" : \"b6fc02d5-392f-415a-898d-2062010ecf04\",\"userId\" : \"The User\",\"type\" : \"ENTITY\"}\n";
 
     @Test
     public void shouldDeserializeDocument() throws IOException {

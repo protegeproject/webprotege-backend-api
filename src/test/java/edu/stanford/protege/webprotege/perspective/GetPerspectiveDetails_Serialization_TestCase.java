@@ -20,13 +20,13 @@ public class GetPerspectiveDetails_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetPerspectiveDetailsAction.create(mockProjectId());
+        var action = new GetPerspectiveDetailsAction(mockProjectId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetPerspectiveDetailsResult.create(ImmutableList.of());
+        var result = new GetPerspectiveDetailsResult(ImmutableList.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

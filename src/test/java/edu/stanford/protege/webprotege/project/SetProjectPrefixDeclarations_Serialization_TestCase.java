@@ -20,7 +20,7 @@ public class SetProjectPrefixDeclarations_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetProjectPrefixDeclarationsAction.create(mockProjectId(), ImmutableList.of(
+        var action = new SetProjectPrefixDeclarationsAction(mockProjectId(), ImmutableList.of(
                 PrefixDeclaration.get("hello:", "http://example.org/")
         ));
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -28,7 +28,7 @@ public class SetProjectPrefixDeclarations_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetProjectPrefixDeclarationsResult.create(mockProjectId(),
+        var result = new SetProjectPrefixDeclarationsResult(mockProjectId(),
                                                                ImmutableList.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }

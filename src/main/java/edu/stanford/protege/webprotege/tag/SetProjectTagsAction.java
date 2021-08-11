@@ -15,21 +15,10 @@ import java.util.List;
  * Stanford Center for Biomedical Informatics Research
  * 24 Mar 2018
  */
-@AutoValue
+
 
 @JsonTypeName("SetProjectTags")
-public abstract class SetProjectTagsAction implements ProjectAction<SetProjectTagsResult> {
+public record SetProjectTagsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                   @JsonProperty("tagData") @Nonnull List<TagData> tagData) implements ProjectAction<SetProjectTagsResult> {
 
-    @JsonCreator
-    public static SetProjectTagsAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                              @JsonProperty("tagData") @Nonnull List<TagData> tagData) {
-        return new AutoValue_SetProjectTagsAction(projectId, tagData);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract List<TagData> getTagData();
 }

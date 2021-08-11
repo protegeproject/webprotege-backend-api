@@ -20,14 +20,14 @@ public class SetOboTermXRefs_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetOboTermXRefsAction.create(mockProjectId(),
+        var action = new SetOboTermXRefsAction(mockProjectId(),
                                                   mockOWLClass(), Collections.emptyList());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetOboTermXRefsResult.create();
+        var result = new SetOboTermXRefsResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

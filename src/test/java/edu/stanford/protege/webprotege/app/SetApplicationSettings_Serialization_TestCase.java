@@ -18,7 +18,7 @@ public class SetApplicationSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetApplicationSettingsAction.create(new ApplicationSettings(
+        var action = new SetApplicationSettingsAction(new ApplicationSettings(
                 "Name",
                 new EmailAddress("Email"),
                 new ApplicationLocation("scheme", "host", "path", 20),
@@ -36,7 +36,7 @@ public class SetApplicationSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetApplicationSettingsResult.create();
+        var result = new SetApplicationSettingsResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

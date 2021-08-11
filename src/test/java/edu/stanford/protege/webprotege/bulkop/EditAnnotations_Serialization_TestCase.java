@@ -21,7 +21,7 @@ public class EditAnnotations_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = EditAnnotationsAction.create(
+        var action = new EditAnnotationsAction(
                 ProjectId.generate(),
                 ImmutableSet.of(),
                 Operation.DELETE, Optional.empty(),
@@ -38,7 +38,7 @@ public class EditAnnotations_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = EditAnnotationsResult.get(MockingUtils.mockEventList());
+        var result = new EditAnnotationsResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

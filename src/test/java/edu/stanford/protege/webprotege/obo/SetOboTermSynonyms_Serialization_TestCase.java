@@ -20,14 +20,14 @@ public abstract class SetOboTermSynonyms_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetOboTermSynonymsAction.create(mockProjectId(),
+        var action = new SetOboTermSynonymsAction(mockProjectId(),
                                                      mockOWLClass(), Collections.emptyList());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetOboTermSynonymsResult.create();
+        var result = new SetOboTermSynonymsResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

@@ -20,13 +20,13 @@ public abstract class GetProjectLangTags_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetProjectLangTagsAction.create(mockProjectId());
+        var action = new GetProjectLangTagsAction(mockProjectId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetProjectLangTagsResult.create(mockProjectId(), ImmutableSet.of());
+        var result = new GetProjectLangTagsResult(mockProjectId(), ImmutableSet.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

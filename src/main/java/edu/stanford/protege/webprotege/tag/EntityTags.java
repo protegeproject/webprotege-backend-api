@@ -20,7 +20,7 @@ public class EntityTags {
 
     public static final String PROJECT_ID = "projectId";
 
-    public static final String ENTITY = "entity";
+    public static final String ENTITY = "term";
 
     public static final String TAGS = "tags";
 

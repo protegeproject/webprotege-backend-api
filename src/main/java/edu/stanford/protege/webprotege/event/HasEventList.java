@@ -8,6 +8,6 @@ package edu.stanford.protege.webprotege.event;
  */
 public interface HasEventList<T extends WebProtegeEvent> {
 
-    EventList<T> getEventList();
+    EventList eventList();
 
 }

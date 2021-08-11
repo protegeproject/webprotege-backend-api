@@ -14,10 +14,6 @@ import org.semanticweb.owlapi.model.OWLEntity;
  * Bio-Medical Informatics Research Group<br>
  * Date: 25/03/2013
  */
-public interface AbstractCreateEntityResult<E extends OWLEntity> extends Result, HasProjectId, HasEventList<ProjectEvent> {
+public interface AbstractCreateEntityResult<E extends OWLEntity> extends Result {
 
-    @Override
-    EventList<ProjectEvent> getEventList();
-
-    ImmutableCollection<EntityNode> getEntities();
 }

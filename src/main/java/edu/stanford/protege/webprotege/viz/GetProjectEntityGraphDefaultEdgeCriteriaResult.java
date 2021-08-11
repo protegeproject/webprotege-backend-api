@@ -12,10 +12,8 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2019-12-07
  */
-@AutoValue
 
-public abstract class GetProjectEntityGraphDefaultEdgeCriteriaResult implements Result, HasProjectId {
 
-    @Nonnull
-    public abstract ImmutableList<EdgeCriteria> getEdgeCriteria();
+public record GetProjectEntityGraphDefaultEdgeCriteriaResult(ImmutableList<EdgeCriteria> edgeCriteria) implements Result {
+
 }

@@ -19,7 +19,7 @@ public class MoveHierarchyNode_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = MoveHierarchyNodeAction.create(mockProjectId(),
+        var action = new MoveHierarchyNodeAction(mockProjectId(),
                                                     HierarchyId.CLASS_HIERARCHY, Path.asPath(mockOWLClassNode()),
                                                     Path.emptyPath(),
                                                     DropType.ADD);
@@ -28,8 +28,7 @@ public class MoveHierarchyNode_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = MoveHierarchyNodeResult.create(true,
-                                                    mockEventList());
+        var result = new MoveHierarchyNodeResult(true);
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

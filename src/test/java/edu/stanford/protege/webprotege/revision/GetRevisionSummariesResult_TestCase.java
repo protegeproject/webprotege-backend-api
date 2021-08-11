@@ -32,13 +32,13 @@ public class GetRevisionSummariesResult_TestCase {
 
     @Before
     public void setUp() throws Exception {
-        result = GetRevisionSummariesResult.create(summaries);
-        otherResult = GetRevisionSummariesResult.create(summaries);
+        result = new GetRevisionSummariesResult(summaries);
+        otherResult = new GetRevisionSummariesResult(summaries);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        GetRevisionSummariesResult.create(null);
+        new GetRevisionSummariesResult(null);
     }
 
     @Test
@@ -68,6 +68,6 @@ public class GetRevisionSummariesResult_TestCase {
 
     @Test
     public void shouldReturnSuppliedSummaries() {
-        assertThat(result.getRevisionSummaries(), is(summaries));
+        assertThat(result.revisionSummaries(), is(summaries));
     }
 }

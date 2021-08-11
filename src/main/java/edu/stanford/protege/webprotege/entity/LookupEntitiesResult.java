@@ -14,24 +14,9 @@ import java.util.List;
  * Bio-Medical Informatics Research Group<br>
  * Date: 12/11/2013
  */
-@AutoValue
+
 
 @JsonTypeName("LookupEntities")
-public abstract class LookupEntitiesResult implements Result {
+public record LookupEntitiesResult(List<EntityLookupResult> results) implements Result {
 
-    /**
-     * Creates a LookupEntitiesResult.
-     * @param entityLookupResult The match result.  Not {@code null}.
-     * @throws NullPointerException if {@code entityLookupResult} is {@code null}.
-     */
-    @JsonCreator
-    public static LookupEntitiesResult create(@JsonProperty("entityLookupResults") List<EntityLookupResult> entityLookupResult) {
-        return new AutoValue_LookupEntitiesResult(entityLookupResult);
-    }
-
-    /**
-     * Gets the entity matches.
-     * @return The EntityLookupResult that describes the matched entities.  Not {@code null}.
-     */
-    public abstract List<EntityLookupResult> getEntityLookupResults();
 }

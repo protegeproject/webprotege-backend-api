@@ -22,7 +22,7 @@ public class GetHierarchyChildren_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetHierarchyChildrenAction.create(ProjectId.generate(),
+        var action = new GetHierarchyChildrenAction(ProjectId.generate(),
                                                        mockOWLClass(),
                                                        HierarchyId.CLASS_HIERARCHY,
                                                        PageRequest.requestFirstPage());
@@ -31,7 +31,7 @@ public class GetHierarchyChildren_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetHierarchyChildrenResult.create(GraphNode.get(mockOWLClassNode(), true),
+        var result = new GetHierarchyChildrenResult(GraphNode.get(mockOWLClassNode(), true),
                                                        Page.emptyPage());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }

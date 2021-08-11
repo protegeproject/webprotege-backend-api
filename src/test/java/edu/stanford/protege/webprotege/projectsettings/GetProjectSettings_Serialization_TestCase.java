@@ -22,13 +22,13 @@ public class GetProjectSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetProjectSettingsAction.create(mockProjectId());
+        var action = new GetProjectSettingsAction(mockProjectId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetProjectSettingsResult.create(ProjectSettings.get(
+        var result = new GetProjectSettingsResult(ProjectSettings.get(
                 mockProjectId(),
                 "The display name",
                 "The description",

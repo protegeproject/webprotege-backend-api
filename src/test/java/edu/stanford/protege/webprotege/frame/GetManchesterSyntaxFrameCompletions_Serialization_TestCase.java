@@ -22,7 +22,7 @@ public class GetManchesterSyntaxFrameCompletions_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetManchesterSyntaxFrameCompletionsAction.create(mockProjectId(),
+        var action = new GetManchesterSyntaxFrameCompletionsAction(mockProjectId(),
                                                                       mockOWLClass(),
                                                                       "Blah",
                                                                       new EditorPosition(1, 2),
@@ -33,7 +33,7 @@ public class GetManchesterSyntaxFrameCompletions_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetManchesterSyntaxFrameCompletionsResult.create(new AutoCompletionResult(
+        var result = new GetManchesterSyntaxFrameCompletionsResult(new AutoCompletionResult(
                 Collections.emptyList(),
                 new EditorPosition(1, 2)
         ));

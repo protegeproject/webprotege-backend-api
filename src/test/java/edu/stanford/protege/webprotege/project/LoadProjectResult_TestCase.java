@@ -27,32 +27,32 @@ public class LoadProjectResult_TestCase {
     @Before
     public void setUp()
             throws Exception {
-        loadProjectResult = LoadProjectResult.get(projectId, loadedBy, projectDetails);
+        loadProjectResult = new LoadProjectResult(projectId, loadedBy, projectDetails);
     }
 
     @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        LoadProjectResult.get(null, loadedBy, projectDetails);
+        new LoadProjectResult(null, loadedBy, projectDetails);
     }
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        MatcherAssert.assertThat(loadProjectResult.getProjectId(), Matchers.is(this.projectId));
+        MatcherAssert.assertThat(loadProjectResult.projectId(), Matchers.is(this.projectId));
     }
 
     @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_loadedBy_IsNull() {
-        LoadProjectResult.get(projectId, null, projectDetails);
+        new LoadProjectResult(projectId, null, projectDetails);
     }
 
     @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectDetails_IsNull() {
-        LoadProjectResult.get(projectId, loadedBy, null);
+        new LoadProjectResult(projectId, loadedBy, null);
     }
 
     @Test
     public void shouldReturnSupplied_projectDetails() {
-        MatcherAssert.assertThat(loadProjectResult.getProjectDetails(), Matchers.is(this.projectDetails));
+        MatcherAssert.assertThat(loadProjectResult.projectDetails(), Matchers.is(this.projectDetails));
     }
 
     @Test
@@ -68,13 +68,13 @@ public class LoadProjectResult_TestCase {
     @Test
     public void shouldBeEqualToOther() {
         MatcherAssert.assertThat(loadProjectResult,
-                                 Matchers.is(LoadProjectResult.get(projectId, loadedBy, projectDetails)));
+                                 Matchers.is(new LoadProjectResult(projectId, loadedBy, projectDetails)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
         MatcherAssert.assertThat(loadProjectResult,
-                                 Matchers.is(Matchers.not(LoadProjectResult.get(ProjectId.generate(),
+                                 Matchers.is(Matchers.not(new LoadProjectResult(ProjectId.generate(),
                                                                                 loadedBy,
                                                                                 projectDetails))));
     }
@@ -82,7 +82,7 @@ public class LoadProjectResult_TestCase {
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_loadedBy() {
         MatcherAssert.assertThat(loadProjectResult,
-                                 Matchers.is(Matchers.not(LoadProjectResult.get(projectId,
+                                 Matchers.is(Matchers.not(new LoadProjectResult(projectId,
                                                                                 Mockito.mock(UserId.class),
                                                                                 projectDetails))));
     }
@@ -90,7 +90,7 @@ public class LoadProjectResult_TestCase {
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectDetails() {
         MatcherAssert.assertThat(loadProjectResult,
-                                 Matchers.is(Matchers.not(LoadProjectResult.get(projectId,
+                                 Matchers.is(Matchers.not(new LoadProjectResult(projectId,
                                                                                 loadedBy,
                                                                                 Mockito.mock(ProjectDetails.class)))));
     }
@@ -98,7 +98,7 @@ public class LoadProjectResult_TestCase {
     @Test
     public void shouldBeEqualToOtherHashCode() {
         MatcherAssert.assertThat(loadProjectResult.hashCode(),
-                                 Matchers.is(LoadProjectResult.get(projectId, loadedBy, projectDetails).hashCode()));
+                                 Matchers.is(new LoadProjectResult(projectId, loadedBy, projectDetails).hashCode()));
     }
 
     @Test
@@ -108,6 +108,6 @@ public class LoadProjectResult_TestCase {
 
     @Test
     public void should_getUserId() {
-        MatcherAssert.assertThat(loadProjectResult.getUserId(), Matchers.is(loadedBy));
+        MatcherAssert.assertThat(loadProjectResult.loadedBy(), Matchers.is(loadedBy));
     }
 }

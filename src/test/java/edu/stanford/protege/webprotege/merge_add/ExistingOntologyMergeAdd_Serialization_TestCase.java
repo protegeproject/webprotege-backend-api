@@ -21,7 +21,7 @@ public class ExistingOntologyMergeAdd_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = ExistingOntologyMergeAddAction.create(ProjectId.generate(),
+        var action = new ExistingOntologyMergeAddAction(ProjectId.generate(),
                                                            new DocumentId("abc"),
                                                            Collections.emptyList(),
                                                            MockingUtils.mockOWLOntologyID());
@@ -30,7 +30,7 @@ public class ExistingOntologyMergeAdd_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = ExistingOntologyMergeAddResult.create();
+        var result = new ExistingOntologyMergeAddResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

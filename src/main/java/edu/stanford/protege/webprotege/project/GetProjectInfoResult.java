@@ -16,21 +16,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 21 Aug 2018
  */
-@AutoValue
+
 
 @JsonTypeName("GetProjectInfo")
-public abstract class GetProjectInfoResult implements Result {
-
-    @JsonCreator
-    public static GetProjectInfoResult create(@JsonProperty("projectSettings") @Nonnull ProjectSettings projectSettings,
-                                              @JsonProperty("projectLanguages") @Nonnull ImmutableList<DictionaryLanguageUsage> languageUsage) {
-        return new AutoValue_GetProjectInfoResult(projectSettings,
-                                                  languageUsage);
-    }
-
-    @Nonnull
-    public abstract ProjectSettings getProjectSettings();
-
-    @Nonnull
-    public abstract ImmutableList<DictionaryLanguageUsage> getProjectLanguages();
+public record GetProjectInfoResult(@JsonProperty("projectSettings") @Nonnull ProjectSettings projectSettings,
+                                   @JsonProperty("projectLanguages") @Nonnull ImmutableList<DictionaryLanguageUsage> projectLanguages) implements Result {
 }

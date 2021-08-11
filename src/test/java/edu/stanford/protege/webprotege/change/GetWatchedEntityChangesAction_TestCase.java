@@ -38,18 +38,18 @@ public class GetWatchedEntityChangesAction_TestCase {
 
     @Before
     public void setUp() throws Exception {
-        action = GetWatchedEntityChangesAction.create(projectId, userId);
-        otherAction = GetWatchedEntityChangesAction.create(projectId, userId);
+        action = new GetWatchedEntityChangesAction(projectId, userId);
+        otherAction = new GetWatchedEntityChangesAction(projectId, userId);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_ProjectId_IsNull() {
-        GetWatchedEntityChangesAction.create(null, userId);
+        new GetWatchedEntityChangesAction(null, userId);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_UserId_IsNull() {
-        GetWatchedEntityChangesAction.create(projectId, null);
+        new GetWatchedEntityChangesAction(projectId, null);
     }
 
     @Test
@@ -79,11 +79,11 @@ public class GetWatchedEntityChangesAction_TestCase {
 
     @Test
     public void shouldReturnSupplied_ProjectId() {
-        assertThat(action.getProjectId(), is(projectId));
+        assertThat(action.projectId(), is(projectId));
     }
 
     @Test
     public void shouldReturnSupplied_UserId() {
-        assertThat(action.getUserId(), is(userId));
+        assertThat(action.userId(), is(userId));
     }
 }

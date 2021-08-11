@@ -20,7 +20,7 @@ public class SetEntityGraphActiveFilters_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetEntityGraphActiveFiltersAction.create(mockProjectId(), ImmutableList.of(
+        var action = new SetEntityGraphActiveFiltersAction(mockProjectId(), ImmutableList.of(
                 FilterName.get("Hello")
         ));
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -28,7 +28,7 @@ public class SetEntityGraphActiveFilters_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetEntityGraphActiveFiltersResult.create();
+        var result = new SetEntityGraphActiveFiltersResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

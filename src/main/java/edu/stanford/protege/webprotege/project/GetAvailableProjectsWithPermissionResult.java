@@ -14,16 +14,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-04-14
  */
-@AutoValue
+
 
 @JsonTypeName(value = "GetAvailableProjectsWithPermission")
-public abstract class GetAvailableProjectsWithPermissionResult implements Result {
+public record GetAvailableProjectsWithPermissionResult(ImmutableList<ProjectDetails> projectDetails) implements Result {
 
-    @JsonCreator
-    public static GetAvailableProjectsWithPermissionResult create(@JsonProperty("projects") @Nonnull ImmutableList<ProjectDetails> projects) {
-        return new AutoValue_GetAvailableProjectsWithPermissionResult(projects);
-    }
-
-    @Nonnull
-    public abstract ImmutableList<ProjectDetails> getProjects();
 }

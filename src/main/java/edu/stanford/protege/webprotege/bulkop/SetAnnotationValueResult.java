@@ -16,13 +16,8 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 24 Sep 2018
  */
-@AutoValue
+
 
 @JsonTypeName("SetAnnotationValue")
-public abstract class SetAnnotationValueResult implements Result, HasEventList<ProjectEvent> {
-
-    @JsonCreator
-    public static SetAnnotationValueResult create(@JsonProperty("eventList") @Nonnull EventList<ProjectEvent> eventList) {
-        return new AutoValue_SetAnnotationValueResult(eventList);
-    }
+public record SetAnnotationValueResult() implements Result {
 }

@@ -11,13 +11,9 @@ import edu.stanford.protege.webprotege.dispatch.Action;
  * Bio-Medical Informatics Research Group<br>
  * Date: 01/04/2013
  */
-@AutoValue
+
 
 @JsonTypeName("GetAvailableProjects")
-public abstract class GetAvailableProjectsAction implements Action<GetAvailableProjectsResult> {
+public record GetAvailableProjectsAction() implements Action<GetAvailableProjectsResult> {
 
-    @JsonCreator
-    public static GetAvailableProjectsAction create() {
-        return new AutoValue_GetAvailableProjectsAction();
-    }
 }

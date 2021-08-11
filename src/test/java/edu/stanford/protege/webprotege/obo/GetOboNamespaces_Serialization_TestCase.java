@@ -20,13 +20,13 @@ public class GetOboNamespaces_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetOboNamespacesAction.create(mockProjectId());
+        var action = new GetOboNamespacesAction(mockProjectId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetOboNamespacesResult.create(Collections.emptySet());
+        var result = new GetOboNamespacesResult(Collections.emptySet());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

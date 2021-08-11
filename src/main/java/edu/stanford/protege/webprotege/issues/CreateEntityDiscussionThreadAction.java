@@ -15,25 +15,8 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 6 Oct 2016
  */
-@AutoValue
-
 @JsonTypeName("CreateEntityDiscussionThread")
-public abstract class CreateEntityDiscussionThreadAction implements ProjectAction<CreateEntityDiscussionThreadResult> {
-
-    @Nonnull
-    public abstract ProjectId getProjectId();
-
-    public abstract OWLEntity getEntity();
-
-    @Nonnull
-    public abstract String getComment();
-
-    @JsonCreator
-    public static CreateEntityDiscussionThreadAction create(@JsonProperty("projectId") ProjectId projectId,
-                                                            @JsonProperty("entity") OWLEntity entity,
-                                                            @JsonProperty("comment") String comment) {
-        return new AutoValue_CreateEntityDiscussionThreadAction(projectId, entity, comment);
-    }
-
-
+public record CreateEntityDiscussionThreadAction(ProjectId projectId,
+                                                         OWLEntity entity,
+                                                         String comment) implements ProjectAction<CreateEntityDiscussionThreadResult> {
 }

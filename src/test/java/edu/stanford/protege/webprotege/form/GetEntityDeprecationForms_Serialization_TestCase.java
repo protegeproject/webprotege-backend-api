@@ -22,13 +22,13 @@ public class GetEntityDeprecationForms_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetEntityDeprecationFormsAction.create(ProjectId.generate(), MockingUtils.mockOWLClass());
+        var action = new GetEntityDeprecationFormsAction(ProjectId.generate(), MockingUtils.mockOWLClass());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetEntityDeprecationFormsResult.create(ImmutableList.of(), 4, CompositeRootCriteria.get(ImmutableList.of(), MultiMatchType.ALL));
+        var result = new GetEntityDeprecationFormsResult(ImmutableList.of(), 4, CompositeRootCriteria.get(ImmutableList.of(), MultiMatchType.ALL));
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

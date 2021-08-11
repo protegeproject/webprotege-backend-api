@@ -15,7 +15,7 @@ import org.semanticweb.owlapi.model.OWLAnnotationProperty;
 public class AnnotationPropertyFrameChangedEvent extends EntityFrameChangedEvent<OWLAnnotationProperty> {
 
     @JsonCreator
-    public AnnotationPropertyFrameChangedEvent(@JsonProperty("entity") OWLAnnotationProperty entity,
+    public AnnotationPropertyFrameChangedEvent(@JsonProperty("term") OWLAnnotationProperty entity,
                                                @JsonProperty("projectId") ProjectId projectId,
                                                @JsonProperty("userId") UserId userId) {
         super(entity, projectId, userId);

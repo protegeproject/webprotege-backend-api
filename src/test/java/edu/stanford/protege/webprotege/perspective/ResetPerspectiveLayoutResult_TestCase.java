@@ -25,18 +25,18 @@ public class ResetPerspectiveLayoutResult_TestCase {
     public void setUp()
         throws Exception
     {
-        resetPerspectiveLayoutResult = ResetPerspectiveLayoutResult.create(resetLayout);
+        resetPerspectiveLayoutResult = new ResetPerspectiveLayoutResult(resetLayout);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_resetLayout_IsNull() {
-        ResetPerspectiveLayoutResult.create(null);
+        new ResetPerspectiveLayoutResult(null);
     }
 
     @Test
     public void shouldReturnSupplied_resetLayout() {
-        assertThat(resetPerspectiveLayoutResult.getResetLayout(), is(this.resetLayout));
+        assertThat(resetPerspectiveLayoutResult.resetLayout(), is(this.resetLayout));
     }
 
     @Test
@@ -52,17 +52,17 @@ public class ResetPerspectiveLayoutResult_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(resetPerspectiveLayoutResult, is(ResetPerspectiveLayoutResult.create(resetLayout)));
+        assertThat(resetPerspectiveLayoutResult, is(new ResetPerspectiveLayoutResult(resetLayout)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_resetLayout() {
-        assertThat(resetPerspectiveLayoutResult, is(not(ResetPerspectiveLayoutResult.create(mock(PerspectiveLayout.class)))));
+        assertThat(resetPerspectiveLayoutResult, is(not(new ResetPerspectiveLayoutResult(mock(PerspectiveLayout.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(resetPerspectiveLayoutResult.hashCode(), is(ResetPerspectiveLayoutResult.create(resetLayout).hashCode()));
+        assertThat(resetPerspectiveLayoutResult.hashCode(), is(new ResetPerspectiveLayoutResult(resetLayout).hashCode()));
     }
 
     @Test

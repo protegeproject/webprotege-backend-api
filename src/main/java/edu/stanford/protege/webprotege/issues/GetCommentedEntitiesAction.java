@@ -17,33 +17,13 @@ import java.util.Set;
  * Stanford Center for Biomedical Informatics Research
  * 7 Mar 2017
  */
-@AutoValue
+
 
 @JsonTypeName("GetCommentedEntities")
-public abstract class GetCommentedEntitiesAction implements ProjectAction<GetCommentedEntitiesResult> {
+public record GetCommentedEntitiesAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                         @JsonProperty("userIdFilter") @Nonnull String userIdFilter,
+                                         @JsonProperty("statusFilter") @Nonnull Set<Status> statusFilter,
+                                         @JsonProperty("sortingKey") @Nonnull SortingKey sortingKey,
+                                         @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest) implements ProjectAction<GetCommentedEntitiesResult> {
 
-    @JsonCreator
-    public static GetCommentedEntitiesAction create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                      @JsonProperty("userIdFilter") @Nonnull String userIdFilter,
-                                      @JsonProperty("statusFilter") @Nonnull Set<Status> statusFilter,
-                                      @JsonProperty("sortingKey") @Nonnull SortingKey sortingKey,
-                                      @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest) {
-        return new AutoValue_GetCommentedEntitiesAction(projectId, sortingKey, pageRequest, userIdFilter, statusFilter);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract SortingKey getSortingKey();
-
-    @Nonnull
-    public abstract PageRequest getPageRequest();
-
-    @Nonnull
-    public abstract String getUserIdFilter();
-
-    @Nonnull
-    public abstract Set<Status> getStatusFilter();
 }

@@ -16,14 +16,12 @@ import java.util.Optional;
  * Stanford Center for Biomedical Informatics Research
  * 18 Mar 2018
  */
-@AutoValue
-
 @JsonTypeName("AddProjectTag")
-public abstract class AddProjectTagResult implements Result {
+public record AddProjectTagResult(Tag addedTag) implements Result {
 
     @JsonCreator
     public static AddProjectTagResult create(@JsonProperty("addedTag") @Nullable Tag addedTag) {
-        return new AutoValue_AddProjectTagResult(addedTag);
+        return new AddProjectTagResult(addedTag);
     }
 
     /**
@@ -33,10 +31,5 @@ public abstract class AddProjectTagResult implements Result {
      */
     @Nonnull
     public Optional<Tag> getAddedTag() {
-        return Optional.ofNullable(getTagInternal());
-    }
-
-    @JsonIgnore
-    @Nullable
-    protected abstract Tag getTagInternal();
-}
+        return Optional.ofNullable(addedTag);
+    }}

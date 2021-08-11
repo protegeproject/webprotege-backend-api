@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
 @AutoValue
 public abstract class SearchResultMatch {
 
-    public static final String ENTITY = "entity";
+    public static final String ENTITY = "term";
 
     public static final String LANGUAGE = "language";
 

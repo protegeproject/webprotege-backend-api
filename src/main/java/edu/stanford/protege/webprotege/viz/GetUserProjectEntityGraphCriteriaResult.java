@@ -15,27 +15,12 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2019-12-10
  */
-@AutoValue
+
 
 @JsonTypeName("GetUserProjectEntityGraphCriteria")
-public abstract class GetUserProjectEntityGraphCriteriaResult implements Result {
+public record GetUserProjectEntityGraphCriteriaResult(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                                      @JsonProperty("userId") @Nonnull UserId userId,
+                                                      @JsonProperty("settings") @Nonnull EntityGraphSettings settings) implements Result {
 
-    @JsonCreator
-    public static GetUserProjectEntityGraphCriteriaResult create(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                                                 @JsonProperty("userId") @Nonnull UserId userId,
-                                                                 @JsonProperty("settings") @Nonnull EntityGraphSettings settings) {
-        return new AutoValue_GetUserProjectEntityGraphCriteriaResult(projectId,
-                                                                     userId,
-                                                                     settings);
-    }
-
-    @Nonnull
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract UserId getUserId();
-
-    @Nonnull
-    public abstract EntityGraphSettings getSettings();
 
 }

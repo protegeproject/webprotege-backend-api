@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.auto.value.AutoValue;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
 import javax.annotation.Nonnull;
 
@@ -14,25 +15,10 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 23/04/2013
  */
-@AutoValue
+
 
 @JsonTypeName("UpdateAnnotationPropertyFrame")
-public abstract class UpdateAnnotationPropertyFrameAction extends UpdateFrameAction {
-
-    @JsonCreator
-    public static UpdateAnnotationPropertyFrameAction create(@JsonProperty("projectId") ProjectId projectId,
-                                                             @JsonProperty("from") PlainAnnotationPropertyFrame from,
-                                                             @JsonProperty("to") PlainAnnotationPropertyFrame to) {
-        return new AutoValue_UpdateAnnotationPropertyFrameAction(projectId, from, to);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Override
-    public abstract PlainAnnotationPropertyFrame getFrom();
-
-    @Override
-    public abstract PlainAnnotationPropertyFrame getTo();
+public record UpdateAnnotationPropertyFrameAction(@JsonProperty("projectId") ProjectId projectId,
+                                                  @JsonProperty("from") PlainAnnotationPropertyFrame from,
+                                                  @JsonProperty("to") PlainAnnotationPropertyFrame to) implements ProjectAction<UpdateAnnotationPropertyFrameResult> {
 }

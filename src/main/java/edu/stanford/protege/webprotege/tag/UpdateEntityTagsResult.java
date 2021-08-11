@@ -14,16 +14,9 @@ import edu.stanford.protege.webprotege.event.ProjectEvent;
  * Stanford Center for Biomedical Informatics Research
  * 21 Mar 2018
  */
-@AutoValue
+
 
 @JsonTypeName("UpdateEntityTags")
-public abstract class UpdateEntityTagsResult implements Result, HasEventList<ProjectEvent> {
+public record UpdateEntityTagsResult() implements Result{
 
-    @JsonCreator
-    public static UpdateEntityTagsResult create(@JsonProperty("eventList") EventList<ProjectEvent> eventList) {
-        return new AutoValue_UpdateEntityTagsResult(eventList);
-    }
-
-    @Override
-    public abstract EventList<ProjectEvent> getEventList();
 }

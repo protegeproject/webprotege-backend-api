@@ -5,19 +5,15 @@ import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import edu.stanford.protege.webprotege.app.GetApplicationSettingsResult;
 import edu.stanford.protege.webprotege.app.SetApplicationSettingsResult;
-import edu.stanford.protege.webprotege.auth.ChangePasswordResult;
-import edu.stanford.protege.webprotege.auth.PerformLoginResult;
 import edu.stanford.protege.webprotege.bulkop.EditAnnotationsResult;
 import edu.stanford.protege.webprotege.bulkop.MoveEntitiesToParentResult;
 import edu.stanford.protege.webprotege.bulkop.SetAnnotationValueResult;
 import edu.stanford.protege.webprotege.change.GetProjectChangesResult;
 import edu.stanford.protege.webprotege.change.GetWatchedEntityChangesResult;
 import edu.stanford.protege.webprotege.change.RevertRevisionResult;
-import edu.stanford.protege.webprotege.chgpwd.ResetPasswordResult;
 import edu.stanford.protege.webprotege.crud.GetEntityCrudKitsResult;
 import edu.stanford.protege.webprotege.crud.SetEntityCrudKitSettingsResult;
 import edu.stanford.protege.webprotege.entity.*;
-import edu.stanford.protege.webprotege.event.GetProjectEventsResult;
 import edu.stanford.protege.webprotege.form.*;
 import edu.stanford.protege.webprotege.frame.*;
 import edu.stanford.protege.webprotege.hierarchy.*;
@@ -25,7 +21,6 @@ import edu.stanford.protege.webprotege.individuals.GetIndividualsPageContainingI
 import edu.stanford.protege.webprotege.individuals.GetIndividualsResult;
 import edu.stanford.protege.webprotege.issues.*;
 import edu.stanford.protege.webprotege.itemlist.GetPersonIdCompletionsResult;
-import edu.stanford.protege.webprotege.itemlist.GetPossibleItemCompletionsResult;
 import edu.stanford.protege.webprotege.itemlist.GetUserIdCompletionsResult;
 import edu.stanford.protege.webprotege.lang.GetProjectLangTagsResult;
 import edu.stanford.protege.webprotege.mail.GetEmailAddressResult;
@@ -57,9 +52,6 @@ import edu.stanford.protege.webprotege.sharing.GetProjectSharingSettingsResult;
 import edu.stanford.protege.webprotege.sharing.SetProjectSharingSettingsResult;
 import edu.stanford.protege.webprotege.tag.*;
 import edu.stanford.protege.webprotege.usage.GetUsageResult;
-import edu.stanford.protege.webprotege.user.CreateUserAccountResult;
-import edu.stanford.protege.webprotege.user.GetCurrentUserInSessionResult;
-import edu.stanford.protege.webprotege.user.LogOutUserResult;
 import edu.stanford.protege.webprotege.viz.GetEntityGraphResult;
 import edu.stanford.protege.webprotege.viz.GetUserProjectEntityGraphCriteriaResult;
 import edu.stanford.protege.webprotege.viz.SetEntityGraphActiveFiltersResult;
@@ -82,7 +74,6 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesResult;
         @Type(AddEntityCommentResult.class),
         @Type(AddProjectTagResult.class),
         @Type(BatchResult.class),
-        @Type(ChangePasswordResult.class),
         @Type(CheckManchesterSyntaxFrameResult.class),
         @Type(ComputeProjectMergeResult.class),
         @Type(CopyFormDescriptorsFromProjectResult.class),
@@ -95,9 +86,7 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesResult;
         @Type(CreateEntityFromFormDataResult.class),
         @Type(CreateNewProjectResult.class),
         @Type(LoadProjectResult.class),
-        @Type(LogOutUserResult.class),
         @Type(RebuildPermissionsResult.class),
-        @Type(CreateUserAccountResult.class),
         @Type(DeleteEntitiesResult.class),
         @Type(DeleteEntityCommentResult.class),
         @Type(DeleteFormResult.class),
@@ -113,7 +102,6 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesResult;
         @Type(GetDataPropertyFrameResult.class),
         @Type(GetAnnotationPropertyFrameResult.class),
         @Type(GetDataPropertyFrameResult.class),
-        @Type(GetCurrentUserInSessionResult.class),
         @Type(GetDeprecatedEntitiesResult.class),
         @Type(GetEmailAddressResult.class),
         @Type(GetEntityCreationFormsResult.class),
@@ -151,10 +139,8 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesResult;
         @Type(GetPerspectiveDetailsResult.class),
         @Type(GetPerspectiveLayoutResult.class),
         @Type(GetPerspectivesResult.class),
-        @Type(GetPossibleItemCompletionsResult.class),
         @Type(GetProjectChangesResult.class),
         @Type(GetProjectDetailsResult.class),
-        @Type(GetProjectEventsResult.class),
         @Type(GetProjectFormDescriptorsResult.class),
         @Type(GetProjectInfoResult.class),
         @Type(GetPerspectiveLayoutResult.class),
@@ -173,7 +159,6 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesResult;
         @Type(GetWatchesResult.class),
         @Type(GetWatchedEntityChangesResult.class),
         @Type(LoadProjectResult.class),
-        @Type(LogOutUserResult.class),
         @Type(LookupEntitiesResult.class),
         @Type(MergeEntitiesResult.class),
         @Type(MergeUploadedProjectResult.class),
@@ -182,10 +167,8 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesResult;
         @Type(MoveProjectsToTrashResult.class),
         @Type(NewOntologyMergeAddResult.class),
         @Type(PerformEntitySearchResult.class),
-        @Type(PerformLoginResult.class),
         @Type(RebuildPermissionsResult.class),
         @Type(RemoveProjectFromTrashResult.class),
-        @Type(ResetPasswordResult.class),
         @Type(ResetPerspectivesResult.class),
         @Type(ResetPerspectiveLayoutResult.class),
         @Type(ResetPerspectivesResult.class),

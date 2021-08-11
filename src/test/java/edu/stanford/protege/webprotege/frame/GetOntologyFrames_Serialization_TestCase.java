@@ -20,13 +20,13 @@ public class GetOntologyFrames_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetOntologyFramesAction.create(mockProjectId());
+        var action = new GetOntologyFramesAction(mockProjectId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetOntologyFramesResult.create(ImmutableList.of());
+        var result = new GetOntologyFramesResult(ImmutableList.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

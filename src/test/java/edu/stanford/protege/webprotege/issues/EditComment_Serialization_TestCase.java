@@ -20,7 +20,7 @@ public class EditComment_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = EditCommentAction.editComment(ProjectId.generate(),
+        var action = new EditCommentAction(ProjectId.generate(),
                                                    ThreadId.create(),
                                                    CommentId.create(),
                                                    "Body"); JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -28,7 +28,7 @@ public class EditComment_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = EditCommentResult.create(Optional.empty(),
+        var result = new EditCommentResult(Optional.empty(),
                                               MockingUtils.mockEventList());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }

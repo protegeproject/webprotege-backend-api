@@ -6,13 +6,9 @@ import com.google.auto.value.AutoValue;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
 
-@AutoValue
+
 
 @JsonTypeName("NewOntologyMergeAdd")
-public abstract class NewOntologyMergeAddResult implements Result {
+public record NewOntologyMergeAddResult() implements Result {
 
-    @JsonCreator
-    public static NewOntologyMergeAddResult create() {
-        return new AutoValue_NewOntologyMergeAddResult();
-    }
 }

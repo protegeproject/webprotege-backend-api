@@ -24,7 +24,7 @@ public class GetEntityForms_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetEntityFormsAction.create(ProjectId.generate(),
+        var action = new GetEntityFormsAction(ProjectId.generate(),
                                                  mockOWLClass(),
                                                  ImmutableSet.of(),
                                                  LangTagFilter.get(ImmutableSet.of()),
@@ -36,7 +36,7 @@ public class GetEntityForms_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetEntityFormsResult.create(mockOWLClassData(),
+        var result = new GetEntityFormsResult(mockOWLClassData(),
                                                  ImmutableList.of(),
                                                  ImmutableList.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);

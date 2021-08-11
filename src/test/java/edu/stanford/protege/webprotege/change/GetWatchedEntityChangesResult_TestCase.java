@@ -32,13 +32,13 @@ public class GetWatchedEntityChangesResult_TestCase {
 
     @Before
     public void setUp() throws Exception {
-        result = GetWatchedEntityChangesResult.create(changes);
-        otherResult = GetWatchedEntityChangesResult.create(changes);
+        result = new GetWatchedEntityChangesResult(changes);
+        otherResult = new GetWatchedEntityChangesResult(changes);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        GetWatchedEntityChangesResult.create(null);
+        new GetWatchedEntityChangesResult(null);
     }
 
     @Test
@@ -68,6 +68,6 @@ public class GetWatchedEntityChangesResult_TestCase {
 
     @Test
     public void shouldReturnSuppliedChanges() {
-        assertThat(result.getProjectChanges(), is(changes));
+        assertThat(result.changes(), is(changes));
     }
 }

@@ -32,47 +32,47 @@ public class SetEntityWatchesAction_TestCase {
     @Before
     public void setUp()
     {
-        setEntityWatchesAction = SetEntityWatchesAction.create(projectId, userId, entity, watches);
+        setEntityWatchesAction = new SetEntityWatchesAction(projectId, userId, entity, watches);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        SetEntityWatchesAction.create(null, userId, entity, watches);
+        new SetEntityWatchesAction(null, userId, entity, watches);
     }
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(setEntityWatchesAction.getProjectId(), is(this.projectId));
+        assertThat(setEntityWatchesAction.projectId(), is(this.projectId));
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        SetEntityWatchesAction.create(projectId, null, entity, watches);
+        new SetEntityWatchesAction(projectId, null, entity, watches);
     }
 
     @Test
     public void shouldReturnSupplied_userId() {
-        assertThat(setEntityWatchesAction.getUserId(), is(this.userId));
+        assertThat(setEntityWatchesAction.userId(), is(this.userId));
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        SetEntityWatchesAction.create(projectId, userId, null, watches);
+        new SetEntityWatchesAction(projectId, userId, null, watches);
     }
 
     @Test
     public void shouldReturnSupplied_entity() {
-        assertThat(setEntityWatchesAction.getEntity(), is(this.entity));
+        assertThat(setEntityWatchesAction.entity(), is(this.entity));
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_watches_IsNull() {
-        SetEntityWatchesAction.create(projectId, userId, entity, null);
+        new SetEntityWatchesAction(projectId, userId, entity, null);
     }
 
     @Test
     public void shouldReturnSupplied_watches() {
-        assertThat(setEntityWatchesAction.getWatches(), is(this.watches));
+        assertThat(setEntityWatchesAction.watches(), is(this.watches));
     }
 
     @Test
@@ -87,32 +87,32 @@ public class SetEntityWatchesAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(setEntityWatchesAction, is(SetEntityWatchesAction.create(projectId, userId, entity, watches)));
+        assertThat(setEntityWatchesAction, is(new SetEntityWatchesAction(projectId, userId, entity, watches)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(setEntityWatchesAction, is(not(SetEntityWatchesAction.create(ProjectId.generate(), userId, entity, watches))));
+        assertThat(setEntityWatchesAction, is(not(new SetEntityWatchesAction(ProjectId.generate(), userId, entity, watches))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        assertThat(setEntityWatchesAction, is(not(SetEntityWatchesAction.create(projectId, mock(UserId.class), entity, watches))));
+        assertThat(setEntityWatchesAction, is(not(new SetEntityWatchesAction(projectId, mock(UserId.class), entity, watches))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entity() {
-        assertThat(setEntityWatchesAction, is(not(SetEntityWatchesAction.create(projectId, userId, mock(OWLEntity.class), watches))));
+        assertThat(setEntityWatchesAction, is(not(new SetEntityWatchesAction(projectId, userId, mock(OWLEntity.class), watches))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_watches() {
-        assertThat(setEntityWatchesAction, is(not(SetEntityWatchesAction.create(projectId, userId, entity, mock(ImmutableSet.class)))));
+        assertThat(setEntityWatchesAction, is(not(new SetEntityWatchesAction(projectId, userId, entity, mock(ImmutableSet.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(setEntityWatchesAction.hashCode(), is(SetEntityWatchesAction.create(projectId, userId, entity, watches)
+        assertThat(setEntityWatchesAction.hashCode(), is(new SetEntityWatchesAction(projectId, userId, entity, watches)
                                                                                .hashCode()));
     }
 

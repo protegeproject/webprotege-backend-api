@@ -16,25 +16,10 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2019-11-01
  */
-@AutoValue
+
 
 @JsonTypeName("GetEntityForms")
-public abstract class GetEntityFormsResult implements Result {
-
-    @JsonCreator
-    public static GetEntityFormsResult create(@JsonProperty("entity") @Nonnull OWLEntityData entityData,
-                                              @JsonProperty("filteredFormIds") @Nonnull ImmutableList<FormId> filteredFormIds,
-                                              @JsonProperty("formData") @Nonnull ImmutableList<FormDataDto> formData) {
-        return new AutoValue_GetEntityFormsResult(entityData, filteredFormIds, formData);
-    }
-
-    @JsonProperty("entity")
-    @Nonnull
-    public abstract OWLEntityData getEntityData();
-
-    @Nonnull
-    public abstract ImmutableList<FormId> getFilteredFormIds();
-
-    @Nonnull
-    public abstract ImmutableList<FormDataDto> getFormData();
+public record GetEntityFormsResult(OWLEntityData entityData,
+                                   ImmutableList<FormId> filteredFormIds,
+                                   ImmutableList<FormDataDto> formData) implements Result {
 }

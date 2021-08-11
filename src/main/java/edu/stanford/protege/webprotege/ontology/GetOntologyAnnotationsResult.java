@@ -16,21 +16,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 28 Jul 16
  */
-@AutoValue
+
 
 @JsonTypeName("GetOntologyAnnotations")
-public abstract class GetOntologyAnnotationsResult implements Result {
-
-
-    @JsonCreator
-    public static GetOntologyAnnotationsResult create(@JsonProperty("ontologyId") OWLOntologyID ontologyID,
-                                                      @JsonProperty("annotations") ImmutableList<PropertyAnnotationValue> annotations) {
-        return new AutoValue_GetOntologyAnnotationsResult(ontologyID, annotations);
-    }
-
-    @Nonnull
-    public abstract OWLOntologyID getOntologyId();
-
-    @Nonnull
-    public abstract ImmutableList<PropertyAnnotationValue> getAnnotations();
+public record GetOntologyAnnotationsResult(@JsonProperty("ontologyId") OWLOntologyID ontologyID,
+                                           @JsonProperty("annotations") ImmutableList<PropertyAnnotationValue> annotations) implements Result {
 }

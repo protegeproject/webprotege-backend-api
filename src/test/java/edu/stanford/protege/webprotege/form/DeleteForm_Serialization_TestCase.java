@@ -18,14 +18,14 @@ public class DeleteForm_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = DeleteFormAction.get(ProjectId.generate(),
+        var action = new DeleteFormAction(ProjectId.generate(),
                                           FormId.generate());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = DeleteFormResult.create();
+        var result = new DeleteFormResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

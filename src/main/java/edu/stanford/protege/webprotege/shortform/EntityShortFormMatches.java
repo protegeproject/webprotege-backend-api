@@ -24,7 +24,7 @@ public abstract class EntityShortFormMatches {
                                                    @Nonnull ImmutableList<ShortFormMatch> shortFormMatches) {
         for(var shortFormMatch : shortFormMatches) {
             if(!shortFormMatch.getEntity().equals(entity)) {
-                throw new IllegalArgumentException(String.format("Short form entity (%s) does not match main entity (%s)",
+                throw new IllegalArgumentException(String.format("Short form term (%s) does not match main term (%s)",
                                                                  shortFormMatch.getEntity(),
                                                                  entity));
             }
@@ -32,13 +32,13 @@ public abstract class EntityShortFormMatches {
     }
 
     /**
-     * Get the entity whose short forms was matched
+     * Get the term whose short forms was matched
      */
     @Nonnull
     public abstract OWLEntity getEntity();
 
     /**
-     * Gets the short form matches for the entity
+     * Gets the short form matches for the term
      */
     @Nonnull
     public abstract ImmutableList<ShortFormMatch> getShortFormMatches();

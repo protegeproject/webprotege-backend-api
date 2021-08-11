@@ -18,49 +18,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 27/02/15
  */
 @JsonTypeName("GetWatchedEntityChanges")
-public class GetWatchedEntityChangesResult implements Result {
+public record GetWatchedEntityChangesResult(Page<ProjectChange> changes) implements Result {
 
-    private Page<ProjectChange> changes;
-
-    private GetWatchedEntityChangesResult() {
-    }
-
-    private GetWatchedEntityChangesResult(Page<ProjectChange> changes) {
-        this.changes = checkNotNull(changes);
-    }
-
-    @JsonCreator
-    public static GetWatchedEntityChangesResult create(@JsonProperty("projectChanges") Page<ProjectChange> changes) {
-        return new GetWatchedEntityChangesResult(changes);
-    }
-
-    @Nonnull
-    public Page<ProjectChange> getProjectChanges() {
-        return changes;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(changes);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof GetWatchedEntityChangesResult)) {
-            return false;
-        }
-        GetWatchedEntityChangesResult other = (GetWatchedEntityChangesResult) obj;
-        return this.changes.equals(other.changes);
-    }
-
-
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper("GetWatchedEntityChangesResult")
-                          .addValue(changes)
-                          .toString();
-    }
 }

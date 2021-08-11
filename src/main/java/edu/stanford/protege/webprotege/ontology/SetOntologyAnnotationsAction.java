@@ -18,27 +18,12 @@ import java.util.Set;
  * Bio-Medical Informatics Research Group<br>
  * Date: 01/08/2013
  */
-@AutoValue
+
 
 @JsonTypeName("SetOntologyAnnotations")
-public abstract class SetOntologyAnnotationsAction implements ProjectAction<SetOntologyAnnotationsResult> {
+public record SetOntologyAnnotationsAction(@JsonProperty("projectId") ProjectId projectId,
+                                           @JsonProperty("ontologyId") OWLOntologyID ontologyID,
+                                           @JsonProperty("fromAnnotations") Set<PropertyAnnotationValue> fromAnnotations,
+                                           @JsonProperty("toAnnotations") Set<PropertyAnnotationValue> toAnnotations) implements ProjectAction<SetOntologyAnnotationsResult> {
 
-
-    @JsonCreator
-    public static SetOntologyAnnotationsAction create(@JsonProperty("projectId") ProjectId projectId,
-                                                      @JsonProperty("ontologyId") OWLOntologyID ontologyID,
-                                                      @JsonProperty("fromAnnotations") Set<PropertyAnnotationValue> fromAnnotations,
-                                                      @JsonProperty("toAnnotations") Set<PropertyAnnotationValue> toAnnotations) {
-        return new AutoValue_SetOntologyAnnotationsAction(projectId, ontologyID, fromAnnotations, toAnnotations);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    public abstract OWLOntologyID getOntologyId();
-
-    public abstract Set<PropertyAnnotationValue> getFromAnnotations();
-
-    public abstract Set<PropertyAnnotationValue> getToAnnotations();
 }

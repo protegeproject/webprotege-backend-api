@@ -18,7 +18,7 @@ public class CopyFormDescriptorsFromProject_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = CopyFormDescriptorsFromProjectAction.create(ProjectId.generate(),
+        var action = new CopyFormDescriptorsFromProjectAction(ProjectId.generate(),
                                                                  ProjectId.generate(),
                                                                  ImmutableList.of());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -26,7 +26,7 @@ public class CopyFormDescriptorsFromProject_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = CopyFormDescriptorsFromProjectResult.create(ImmutableList.of());
+        var result = new CopyFormDescriptorsFromProjectResult(ImmutableList.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

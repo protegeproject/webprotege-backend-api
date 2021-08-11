@@ -45,7 +45,7 @@ public class AddProjectTagAction_TestCase {
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(addProjectTagAction.getProjectId(), is(this.projectId));
+        assertThat(addProjectTagAction.projectId(), is(this.projectId));
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -56,7 +56,7 @@ public class AddProjectTagAction_TestCase {
 
     @Test
     public void shouldReturnSupplied_label() {
-        assertThat(addProjectTagAction.getLabel(), is(this.label));
+        assertThat(addProjectTagAction.label(), is(this.label));
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -67,7 +67,7 @@ public class AddProjectTagAction_TestCase {
 
     @Test
     public void shouldReturnSupplied_description() {
-        assertThat(addProjectTagAction.getDescription(), is(this.description));
+        assertThat(addProjectTagAction.description(), is(this.description));
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -78,7 +78,7 @@ public class AddProjectTagAction_TestCase {
 
     @Test
     public void shouldReturnSupplied_color() {
-        assertThat(addProjectTagAction.getColor(), is(this.color));
+        assertThat(addProjectTagAction.color(), is(this.color));
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -89,7 +89,7 @@ public class AddProjectTagAction_TestCase {
 
     @Test
     public void shouldReturnSupplied_backgroundColor() {
-        assertThat(addProjectTagAction.getBackgroundColor(), is(this.backgroundColor));
+        assertThat(addProjectTagAction.backgroundColor(), is(this.backgroundColor));
     }
 
     @Test

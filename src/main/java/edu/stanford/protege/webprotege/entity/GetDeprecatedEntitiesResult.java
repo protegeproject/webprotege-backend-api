@@ -14,16 +14,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 16 Jun 2017
  */
-@AutoValue
+
 
 @JsonTypeName("GetDeprecatedEntities")
-public abstract class GetDeprecatedEntitiesResult implements Result {
+public record GetDeprecatedEntitiesResult(Page<OWLEntityData> entities) implements Result {
 
-    @JsonCreator
-    public static GetDeprecatedEntitiesResult create(@JsonProperty("entities") @Nonnull Page<OWLEntityData> entities) {
-        return new AutoValue_GetDeprecatedEntitiesResult(entities);
-    }
-
-    @Nonnull
-    public abstract Page<OWLEntityData> getEntities();
 }

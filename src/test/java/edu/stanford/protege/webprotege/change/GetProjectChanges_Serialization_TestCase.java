@@ -22,7 +22,7 @@ public class GetProjectChanges_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetProjectChangesAction.create(mockProjectId(),
+        var action = new GetProjectChangesAction(mockProjectId(),
                                                     Optional.empty(),
                                                     PageRequest.requestFirstPage());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -30,7 +30,7 @@ public class GetProjectChanges_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetProjectChangesResult.create(Page.emptyPage());
+        var result = new GetProjectChangesResult(Page.emptyPage());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

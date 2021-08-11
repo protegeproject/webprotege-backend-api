@@ -15,5 +15,5 @@ public interface HasSubject<T> {
      * Gets the subject of this object.
      * @return The subject.  Not {@code null}.
      */
-    T getSubject();
+    T subject();
 }

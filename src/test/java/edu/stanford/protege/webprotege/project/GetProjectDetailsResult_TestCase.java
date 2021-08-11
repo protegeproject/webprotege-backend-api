@@ -14,54 +14,54 @@ import static org.hamcrest.Matchers.*;
 @RunWith(MockitoJUnitRunner.class)
 public class GetProjectDetailsResult_TestCase {
 
-    private GetProjectDetailsResult getProjectDetailsResult;
+    private GetProjectDetailsResult result;
     @Mock
     private ProjectDetails projectDetails;
 
     @Before
     public void setUp()
     {
-        getProjectDetailsResult = GetProjectDetailsResult.get(projectDetails);
+        result = new GetProjectDetailsResult(projectDetails);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectDetails_IsNull() {
-        GetProjectDetailsResult.get(null);
+        new GetProjectDetailsResult(null);
     }
 
     @Test
     public void shouldReturnSupplied_projectDetails() {
-        assertThat(getProjectDetailsResult.getProjectDetails(), is(this.projectDetails));
+        assertThat(result.projectDetails(), is(this.projectDetails));
     }
 
     @Test
     public void shouldBeEqualToSelf() {
-        assertThat(getProjectDetailsResult, is(getProjectDetailsResult));
+        assertThat(result, is(result));
     }
 
     @Test
     public void shouldNotBeEqualToNull() {
-        assertThat(getProjectDetailsResult.equals(null), is(false));
+        assertThat(result.equals(null), is(false));
     }
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(getProjectDetailsResult, is(GetProjectDetailsResult.get(projectDetails)));
+        assertThat(result, is(new GetProjectDetailsResult(projectDetails)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectDetails() {
-        assertThat(getProjectDetailsResult, is(not(GetProjectDetailsResult.get(Mockito.mock(ProjectDetails.class)))));
+        assertThat(result, is(not(new GetProjectDetailsResult(Mockito.mock(ProjectDetails.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(getProjectDetailsResult.hashCode(), is(GetProjectDetailsResult.get(projectDetails).hashCode()));
+        assertThat(result.hashCode(), is(new GetProjectDetailsResult(projectDetails).hashCode()));
     }
 
     @Test
     public void shouldImplementToString() {
-        assertThat(getProjectDetailsResult.toString(), startsWith("GetProjectDetailsResult"));
+        assertThat(result.toString(), startsWith("GetProjectDetailsResult"));
     }
 
 }

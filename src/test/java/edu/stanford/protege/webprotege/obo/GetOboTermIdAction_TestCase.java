@@ -22,29 +22,29 @@ public class GetOboTermIdAction_TestCase {
 
     @Before
     public void setUp() {
-        getOboTermIdAction = GetOboTermIdAction.create(projectId, term);
+        getOboTermIdAction = new GetOboTermIdAction(projectId, term);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        GetOboTermIdAction.create(null, term);
+        new GetOboTermIdAction(null, term);
     }
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(getOboTermIdAction.getProjectId(), is(this.projectId));
+        assertThat(getOboTermIdAction.projectId(), is(this.projectId));
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_term_IsNull() {
-        GetOboTermIdAction.create(projectId, null);
+        new GetOboTermIdAction(projectId, null);
     }
 
     @Test
     public void shouldReturnSupplied_term() {
-        assertThat(getOboTermIdAction.getTerm(), is(this.term));
+        assertThat(getOboTermIdAction.term(), is(this.term));
     }
 
     @Test
@@ -60,22 +60,22 @@ public class GetOboTermIdAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(getOboTermIdAction, is(GetOboTermIdAction.create(projectId, term)));
+        assertThat(getOboTermIdAction, is(new GetOboTermIdAction(projectId, term)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(getOboTermIdAction, is(not(GetOboTermIdAction.create(ProjectId.generate(), term))));
+        assertThat(getOboTermIdAction, is(not(new GetOboTermIdAction(ProjectId.generate(), term))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_term() {
-        assertThat(getOboTermIdAction, is(not(GetOboTermIdAction.create(projectId, mock(OWLEntity.class)))));
+        assertThat(getOboTermIdAction, is(not(new GetOboTermIdAction(projectId, mock(OWLEntity.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(getOboTermIdAction.hashCode(), is(GetOboTermIdAction.create(projectId, term).hashCode()));
+        assertThat(getOboTermIdAction.hashCode(), is(new GetOboTermIdAction(projectId, term).hashCode()));
     }
 
     @Test

@@ -19,7 +19,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * <p>
  *     An {@code EntityCrudKit} is used by the system when creating and updating entities.  Each kit provides a human
  *     readable name, an editor for viewing and altering settings for the kit and a back end implementation that actually
- *     generates the ontology changes required to enact high level changes such as "creating" a fresh entity, or updating
+ *     generates the ontology changes required to enact high level changes such as "creating" a fresh term, or updating
  *     the display name.
  * </p>
  */

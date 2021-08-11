@@ -13,20 +13,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 9 Oct 2016
  */
-@AutoValue
+
 
 @JsonTypeName("DeleteEntityComment")
-public abstract class DeleteEntityCommentResult implements Result {
-
-    @JsonCreator
-    public static DeleteEntityCommentResult create(@JsonProperty("commentId") @Nonnull CommentId commentId,
-                                                   @JsonProperty("deleted") boolean deleted) {
-        return new AutoValue_DeleteEntityCommentResult(commentId, deleted);
-    }
-
-    @Nonnull
-    public abstract CommentId getCommentId();
-
-    @JsonProperty("deleted")
-    public abstract boolean wasDeleted();
+public record DeleteEntityCommentResult(@JsonProperty("commentId") @Nonnull CommentId commentId,
+                                        @JsonProperty("deleted") boolean deleted) implements Result {
 }

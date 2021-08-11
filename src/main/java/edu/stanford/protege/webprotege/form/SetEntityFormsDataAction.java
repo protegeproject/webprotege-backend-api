@@ -16,47 +16,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 2019-11-01
  */
-public class SetEntityFormsDataAction implements ProjectAction<SetEntityFormDataResult> {
-
-    private ProjectId projectId;
-
-    private OWLEntity entity;
-
-    private ImmutableMap<FormId, FormData> pristineFormsData;
-
-    private FormDataByFormId editedFormsData;
-
-    public SetEntityFormsDataAction(@Nonnull ProjectId projectId,
-                                    @Nonnull OWLEntity entity,
-                                    @Nonnull ImmutableMap<FormId, FormData> pristineFormsData,
-                                    @Nonnull FormDataByFormId editedFormsData) {
-        this.projectId = checkNotNull(projectId);
-        this.entity = checkNotNull(entity);
-        this.pristineFormsData = checkNotNull(pristineFormsData);
-        this.editedFormsData = checkNotNull(editedFormsData);
-        checkArgument(editedFormsData.getFormIds().stream().allMatch(pristineFormsData::containsKey),
-                      "Missing pristine forms data");
-    }
-
-    private SetEntityFormsDataAction() {
-    }
-
-    @Nonnull
-    @Override
-    public ProjectId getProjectId() {
-        return projectId;
-    }
-
-    public OWLEntity getEntity() {
-        return entity;
-    }
-
-    @Nonnull
-    public ImmutableMap<FormId, FormData> getPristineFormsData() {
-        return pristineFormsData;
-    }
-
-    @Nonnull
-    public FormDataByFormId getEditedFormsData() {
-        return editedFormsData;
-    }}
+public record SetEntityFormsDataAction(@Nonnull ProjectId projectId,
+                                      @Nonnull OWLEntity entity,
+                                      @Nonnull ImmutableMap<FormId, FormData> pristineFormsData,
+                                      @Nonnull FormDataByFormId editedFormsData) implements ProjectAction<SetEntityFormDataResult> {
+}

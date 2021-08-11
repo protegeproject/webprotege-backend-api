@@ -29,7 +29,7 @@ public abstract class EntityDictionaryLanguageValues {
     public abstract ImmutableSetMultimap<DictionaryLanguage, String> getValues();
 
     /**
-     * Reduces this map of dictionary language values to a map of entity short forms.  Recalling that an entity shortform
+     * Reduces this map of dictionary language values to a map of term short forms.  Recalling that an term shortform
      * map only has one value per dictionary language, only the first
      * value for each dictionary language in this map will be kept in the result.
      * @return The {@link EntityShortForms} for this {@link EntityDictionaryLanguageValues} object.

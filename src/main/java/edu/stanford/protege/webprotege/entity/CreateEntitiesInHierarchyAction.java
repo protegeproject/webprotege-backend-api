@@ -13,6 +13,4 @@ import javax.annotation.Nonnull;
  */
 public interface CreateEntitiesInHierarchyAction<R extends CreateEntitiesInHierarchyResult<E>, E extends OWLEntity> extends AbstractCreateEntitiesAction<R, E> {
 
-    @Nonnull
-    ImmutableSet<E> getParents();
 }

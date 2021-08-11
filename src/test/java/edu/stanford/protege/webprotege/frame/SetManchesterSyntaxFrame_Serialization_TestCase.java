@@ -21,17 +21,17 @@ public class SetManchesterSyntaxFrame_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetManchesterSyntaxFrameAction.create(mockProjectId(),
+        var action = new SetManchesterSyntaxFrameAction(mockProjectId(),
                                                            mockOWLClass(),
                                                            "From",
                                                            "To", Collections.emptySet(),
-                                                           Optional.empty());
+                                                           "");
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetManchesterSyntaxFrameResult.create(mockEventList(), "Frame");
+        var result = new SetManchesterSyntaxFrameResult("Frame");
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

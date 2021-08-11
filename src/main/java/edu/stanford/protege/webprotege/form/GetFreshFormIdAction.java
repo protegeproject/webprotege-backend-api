@@ -27,7 +27,7 @@ public class GetFreshFormIdAction implements ProjectAction<GetFreshFormIdResult>
 
     @Nonnull
     @Override
-    public ProjectId getProjectId() {
+    public ProjectId projectId() {
         return projectId;
     }
 }

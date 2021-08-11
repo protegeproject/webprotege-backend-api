@@ -13,20 +13,10 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 11 Oct 2018
  */
-@AutoValue
+
 
 @JsonTypeName("GetEntityGraph")
-public abstract class GetEntityGraphResult implements Result {
+public record GetEntityGraphResult(@JsonProperty("graph") @Nonnull EntityGraph entityGraph,
+                                   @JsonProperty("settings") @Nonnull EntityGraphSettings settings) implements Result {
 
-    @JsonCreator
-    public static GetEntityGraphResult get(@JsonProperty("graph") @Nonnull EntityGraph entityGraph,
-                                           @JsonProperty("settings") @Nonnull EntityGraphSettings settings) {
-        return new AutoValue_GetEntityGraphResult(entityGraph, settings);
-    }
-
-    @Nonnull
-    public abstract EntityGraph getGraph();
-
-    @Nonnull
-    public abstract EntityGraphSettings getSettings();
 }

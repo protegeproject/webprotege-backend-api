@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.revision;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,16 +29,18 @@ public class GetHeadRevisionNumberResult_TestCase {
     @Mock
     private RevisionNumber revisionNumber;
 
+    private ProjectId projectId = ProjectId.generate();
+
 
     @Before
     public void setUp() throws Exception {
-        result = GetHeadRevisionNumberResult.create(revisionNumber);
-        otherResult = GetHeadRevisionNumberResult.create(revisionNumber);
+        result = new GetHeadRevisionNumberResult(projectId, revisionNumber);
+        otherResult = new GetHeadRevisionNumberResult(projectId, revisionNumber);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        GetHeadRevisionNumberResult.create(null);
+        new GetHeadRevisionNumberResult(projectId, null);
     }
 
     @Test
@@ -67,6 +70,6 @@ public class GetHeadRevisionNumberResult_TestCase {
 
     @Test
     public void shouldReturnSupplied_RevisionNumber() {
-        assertThat(result.getRevisionNumber(), is(revisionNumber));
+        assertThat(result.revisionNumber(), is(revisionNumber));
     }
 }

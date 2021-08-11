@@ -14,16 +14,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-04-14
  */
-@AutoValue
+
 
 @JsonTypeName("GetAvailableProjectsWithPermission")
-public abstract class GetAvailableProjectsWithPermissionAction implements Action<GetAvailableProjectsWithPermissionResult> {
+public record GetAvailableProjectsWithPermissionAction(@JsonProperty("permission") @Nonnull ActionId permission) implements Action<GetAvailableProjectsWithPermissionResult> {
 
-    @JsonCreator
-    public static GetAvailableProjectsWithPermissionAction create(@JsonProperty("permission") @Nonnull ActionId permission) {
-        return new AutoValue_GetAvailableProjectsWithPermissionAction(permission);
-    }
-
-    @Nonnull
-    public abstract ActionId getPermission();
 }

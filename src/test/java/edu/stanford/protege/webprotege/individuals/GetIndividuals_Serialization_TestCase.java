@@ -5,6 +5,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
 import edu.stanford.protege.webprotege.pagination.Page;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.pagination.PageRequest;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -19,16 +20,17 @@ public class GetIndividuals_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetIndividualsAction.create(ProjectId.generate(), Optional.empty(),
-                                                 "Hello",
-                                                 InstanceRetrievalMode.ALL_INSTANCES,
-                                                 Optional.empty());
+        var action = new GetIndividualsAction(ProjectId.generate(),
+                                              null,
+                                              PageRequest.requestFirstPage(),
+                                              "Hello",
+                                              InstanceRetrievalMode.ALL_INSTANCES);
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetIndividualsResult.create(Optional.empty(),
+        var result = new GetIndividualsResult(Optional.empty(),
                                                  Page.emptyPage());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }

@@ -10,13 +10,9 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 2019-12-10
  */
-@AutoValue
+
 
 @JsonTypeName("SetUserProjectEntityGraphSettings")
-public abstract class SetUserProjectEntityGraphSettingsResult implements Result {
+public record SetUserProjectEntityGraphSettingsResult() implements Result {
 
-    @JsonCreator
-    public static SetUserProjectEntityGraphSettingsResult create() {
-        return new AutoValue_SetUserProjectEntityGraphSettingsResult();
-    }
 }

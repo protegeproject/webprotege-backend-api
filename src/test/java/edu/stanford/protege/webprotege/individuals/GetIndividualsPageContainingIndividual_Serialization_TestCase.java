@@ -24,7 +24,7 @@ public class GetIndividualsPageContainingIndividual_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetIndividualsPageContainingIndividualAction.create(ProjectId.generate(),
+        var action = new GetIndividualsPageContainingIndividualAction(ProjectId.generate(),
                                                                          mockOWLNamedIndividual(), Optional.empty(),
                                                                          InstanceRetrievalMode.ALL_INSTANCES);
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -32,7 +32,7 @@ public class GetIndividualsPageContainingIndividual_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetIndividualsPageContainingIndividualResult.create(mockOWLNamedIndividual(),
+        var result = new GetIndividualsPageContainingIndividualResult(mockOWLNamedIndividual(),
                                                                          Page.emptyPage(), EntityNode.getFromEntityData(mockOWLClassData()),
                                                                          InstanceRetrievalMode.ALL_INSTANCES,
                                                                          ImmutableSet.of());

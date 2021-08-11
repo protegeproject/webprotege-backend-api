@@ -22,7 +22,7 @@ public class GetDeprecatedEntities_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetDeprecatedEntitiesAction.create(ProjectId.generate(),
+        var action = new GetDeprecatedEntitiesAction(ProjectId.generate(),
                                                         PageRequest.requestFirstPage(),
                                                         Collections.singleton(EntityType.CLASS));
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -30,7 +30,7 @@ public class GetDeprecatedEntities_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetDeprecatedEntitiesResult.create(Page.emptyPage());
+        var result = new GetDeprecatedEntitiesResult(Page.emptyPage());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

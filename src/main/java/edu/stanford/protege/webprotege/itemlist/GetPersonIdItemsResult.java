@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.itemlist;
 
 import com.google.common.base.Objects;
+import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.sharing.PersonId;
 
 import java.util.List;
@@ -12,40 +13,6 @@ import static com.google.common.base.MoreObjects.toStringHelper;
  * Stanford Center for Biomedical Informatics Research
  * 13/05/15
  */
-public class GetPersonIdItemsResult extends GetItemsResult<PersonId> {
+public record GetPersonIdItemsResult(List<PersonId> items) implements Result {
 
-    /**
-     * For serialization only
-     */
-    protected GetPersonIdItemsResult() {
-    }
-
-    public GetPersonIdItemsResult(List<PersonId> items) {
-        super(items);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(getItems());
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof GetPersonIdItemsResult)) {
-            return false;
-        }
-        GetPersonIdItemsResult other = (GetPersonIdItemsResult) obj;
-        return this.getItems().equals(other.getItems());
-    }
-
-
-    @Override
-    public String toString() {
-        return toStringHelper("GetPersonIdItemsResult")
-                .addValue(getItems())
-                .toString();
-    }
 }

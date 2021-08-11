@@ -15,17 +15,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 14 Jun 2018
  */
-@AutoValue
+
 
 @JsonTypeName("GetMatchingEntitiesResult")
-public abstract class GetMatchingEntitiesResult implements Result {
+public record GetMatchingEntitiesResult(@Nonnull Page<EntityNode> entities) implements Result {
 
-    @Nonnull
-    public abstract Page<EntityNode> getEntities();
-
-    @JsonCreator
-    @Nonnull
-    public static GetMatchingEntitiesResult create(@JsonProperty("entities") @Nonnull Page<EntityNode> entities) {
-        return new AutoValue_GetMatchingEntitiesResult(entities);
-    }
 }

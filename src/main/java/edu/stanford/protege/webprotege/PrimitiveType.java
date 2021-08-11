@@ -67,7 +67,7 @@ public enum PrimitiveType {
             return DATA_TYPE;
         }
         else {
-            throw new RuntimeException("Unrecognized entity type " + entityType);
+            throw new RuntimeException("Unrecognized term type " + entityType);
         }
     }
 

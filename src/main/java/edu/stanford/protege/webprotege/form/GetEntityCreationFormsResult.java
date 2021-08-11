@@ -14,19 +14,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-09-28
  */
-@AutoValue
+
 
 @JsonTypeName("GetEntityCreationForms")
-public abstract class GetEntityCreationFormsResult implements Result {
-
-    @JsonCreator
-    @Nonnull
-    public static GetEntityCreationFormsResult get(@JsonProperty("formDescriptors") @Nonnull ImmutableList<FormDescriptorDto> formDtos) {
-        return new AutoValue_GetEntityCreationFormsResult(formDtos);
-    }
-
-    @Nonnull
-    public abstract ImmutableList<FormDescriptorDto> getFormDescriptors();
-
+public record GetEntityCreationFormsResult(ImmutableList<FormDescriptorDto> formDescriptors) implements Result {
 
 }

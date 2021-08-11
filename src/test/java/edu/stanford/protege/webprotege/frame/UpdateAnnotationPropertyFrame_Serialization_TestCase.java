@@ -19,7 +19,7 @@ public class UpdateAnnotationPropertyFrame_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = UpdateAnnotationPropertyFrameAction.create(
+        var action = new UpdateAnnotationPropertyFrameAction(
                 mockProjectId(),
                 PlainAnnotationPropertyFrame.get(
                         mockOWLAnnotationProperty(),

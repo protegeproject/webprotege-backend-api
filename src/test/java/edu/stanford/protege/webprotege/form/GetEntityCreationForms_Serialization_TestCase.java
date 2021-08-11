@@ -20,7 +20,7 @@ public class GetEntityCreationForms_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetEntityCreationFormsAction.create(ProjectId.generate(),
+        var action = new GetEntityCreationFormsAction(ProjectId.generate(),
                                                          MockingUtils.mockOWLClass(),
                                                          EntityType.CLASS);
         JsonSerializationTestUtil.testSerialization(action, Action.class);
@@ -28,7 +28,7 @@ public class GetEntityCreationForms_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetEntityCreationFormsResult.get(ImmutableList.of());
+        var result = new GetEntityCreationFormsResult(ImmutableList.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 

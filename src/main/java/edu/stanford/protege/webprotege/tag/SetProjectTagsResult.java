@@ -16,14 +16,9 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 24 Mar 2018
  */
-@AutoValue
+
 
 @JsonTypeName("SetProjectTags")
-public abstract class SetProjectTagsResult implements Result, HasEventList<ProjectEvent> {
+public record SetProjectTagsResult() implements Result {
 
-
-    @JsonCreator
-    public static SetProjectTagsResult create(@JsonProperty("eventList") @Nonnull EventList<ProjectEvent> eventList) {
-        return new AutoValue_SetProjectTagsResult(eventList);
-    }
 }

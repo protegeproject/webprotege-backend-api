@@ -17,13 +17,13 @@ public class RemoveProjectsFromTrash_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = RemoveProjectFromTrashAction.create(MockingUtils.mockProjectId());
+        var action = new RemoveProjectFromTrashAction(MockingUtils.mockProjectId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = RemoveProjectFromTrashResult.create(MockingUtils.mockEventList());
+        var result = new RemoveProjectFromTrashResult(MockingUtils.mockEventList());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

@@ -10,13 +10,9 @@ import edu.stanford.protege.webprotege.dispatch.Action;
  * Stanford Center for Biomedical Informatics Research
  * 16 Mar 2017
  */
-@AutoValue
+
 
 @JsonTypeName("GetApplicationSettings")
-public abstract class GetApplicationSettingsAction implements Action<GetApplicationSettingsResult> {
+public record GetApplicationSettingsAction() implements Action<GetApplicationSettingsResult> {
 
-    @JsonCreator
-    public static GetApplicationSettingsAction create() {
-        return new AutoValue_GetApplicationSettingsAction();
-    }
 }

@@ -46,11 +46,11 @@ public abstract class FreshEntityIri {
 
     public static final String PARENT_IRI_PARAM_NAME = "parentIri";
 
-    public static final String SCHEME = "entity";
+    public static final String SCHEME = "term";
 
     /**
      * Creates a {@link FreshEntityIri}.  This isn't a well formed IRI, necessarily.  It is just used
-     * to collect together information for the later creation of an entity.
+     * to collect together information for the later creation of an term.
      * @param suppliedName The supplied (human readable) name.  This may be the empty string.
      * @param langTag The language tag of a supplied name.  This may be empty.  Even if the supplied name
      *                is empty then a non-empty language tag will be accepted.  The language tag is not
@@ -62,7 +62,7 @@ public abstract class FreshEntityIri {
      *                   parent IRIs are class IRIs. For object properties, parent IRIs are object property IRIs.
      *                   For data properties, parent IRIs are data property IRIs.  For annotation properties, parent
      *                   IRIs are annotation property IRIs.  For datatypes, parent IRIs are datatype IRIs.
-     * @return A fresh entity IRI containing the supplied information.
+     * @return A fresh term IRI containing the supplied information.
      */
     @JsonCreator
     @Nonnull
@@ -130,9 +130,9 @@ public abstract class FreshEntityIri {
     }
 
     /**
-     * Determines if the specified IRI is a fresh entity IRI.
+     * Determines if the specified IRI is a fresh term IRI.
      * @param iri The IRI
-     * @return true if the IRI represents a fresh entity IRI, otherwise false
+     * @return true if the IRI represents a fresh term IRI, otherwise false
      */
     public static boolean isFreshEntityIri(@Nonnull IRI iri) {
         checkNotNull(iri);

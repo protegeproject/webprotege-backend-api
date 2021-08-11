@@ -10,8 +10,8 @@ import edu.stanford.protege.webprotege.event.ProjectEvent;
  * Stanford Center for Biomedical Informatics Research
  * 26 Sep 2018
  */
-@AutoValue
 
-public abstract class DeleteAnnotationsResult implements Result, HasEventList<ProjectEvent> {
+
+public record DeleteAnnotationsResult() implements Result {
 
 }

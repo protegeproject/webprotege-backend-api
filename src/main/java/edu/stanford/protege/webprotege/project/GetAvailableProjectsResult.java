@@ -14,16 +14,9 @@ import java.util.List;
  * Bio-Medical Informatics Research Group<br>
  * Date: 01/04/2013
  */
-@AutoValue
+
 
 @JsonTypeName("GetAvailableProjects")
-public abstract class GetAvailableProjectsResult implements Result {
+public record GetAvailableProjectsResult(@JsonProperty("availableProjects") List<AvailableProject> availableProjects) implements Result {
 
-    @JsonCreator
-    public static GetAvailableProjectsResult create(@JsonProperty("availableProjects") List<AvailableProject> availableProjects) {
-        return new AutoValue_GetAvailableProjectsResult(availableProjects);
-    }
-
-
-    public abstract List<AvailableProject> getAvailableProjects();
 }

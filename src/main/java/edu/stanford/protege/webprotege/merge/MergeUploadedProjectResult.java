@@ -10,13 +10,9 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 26/01/15
  */
-@AutoValue
+
 
 @JsonTypeName("MergeUploadedProject")
-public abstract class MergeUploadedProjectResult implements Result {
+public record MergeUploadedProjectResult() implements Result {
 
-    @JsonCreator
-    public static MergeUploadedProjectResult create() {
-        return new AutoValue_MergeUploadedProjectResult();
-    }
 }

@@ -27,29 +27,29 @@ public class GetEntityTagsResult_TestCase {
     public void setUp() {
         entityTags = Collections.singletonList(mock(Tag.class));
         projectTags = Collections.singletonList(mock(Tag.class));
-        result = GetEntityTagsResult.create(entityTags, projectTags);
+        result = new GetEntityTagsResult(entityTags, projectTags);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entityTags_IsNull() {
-        GetEntityTagsResult.create(null, projectTags);
+        new GetEntityTagsResult(null, projectTags);
     }
 
     @Test
     public void shouldReturnSupplied_entityTags() {
-        assertThat(result.getEntityTags(), is(this.entityTags));
+        assertThat(result.entityTags(), is(this.entityTags));
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectTags_IsNull() {
-        GetEntityTagsResult.create(entityTags, null);
+        new GetEntityTagsResult(entityTags, null);
     }
 
     @Test
     public void shouldReturnSupplied_projectTags() {
-        assertThat(result.getProjectTags(), is(this.projectTags));
+        assertThat(result.projectTags(), is(this.projectTags));
     }
 
     @Test
@@ -65,22 +65,22 @@ public class GetEntityTagsResult_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(result, is(GetEntityTagsResult.create(entityTags, projectTags)));
+        assertThat(result, is(new GetEntityTagsResult(entityTags, projectTags)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entityTags() {
-        assertThat(result, is(Matchers.not(GetEntityTagsResult.create(Collections.singletonList(mock(Tag.class)), projectTags))));
+        assertThat(result, is(Matchers.not(new GetEntityTagsResult(Collections.singletonList(mock(Tag.class)), projectTags))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectTags() {
-        assertThat(result, is(Matchers.not(GetEntityTagsResult.create(entityTags, Collections.singletonList(mock(Tag.class))))));
+        assertThat(result, is(Matchers.not(new GetEntityTagsResult(entityTags, Collections.singletonList(mock(Tag.class))))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(result.hashCode(), is(GetEntityTagsResult.create(entityTags, projectTags).hashCode()));
+        assertThat(result.hashCode(), is(new GetEntityTagsResult(entityTags, projectTags).hashCode()));
     }
 
     @Test

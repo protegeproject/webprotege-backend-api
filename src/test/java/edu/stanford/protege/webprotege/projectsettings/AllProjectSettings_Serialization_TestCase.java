@@ -44,7 +44,7 @@ public class AllProjectSettings_Serialization_TestCase {
                                                   EntityDeprecationSettings.empty());
         var creationSettings = EntityCrudKitSettings.get(EntityCrudKitPrefixSettings.get(), UuidSuffixSettings.get(),
                                                          GeneratedAnnotationsSettings.empty());
-        var prefixDeclarations = ImmutableList.of(PrefixDeclaration.get("ex:", "http://example.org/hello/"));
+        var prefixDeclarations = ImmutableList.of(new PrefixDeclaration("ex:", "http://example.org/hello/"));
         var tags = ImmutableList.of(Tag.get(TagId.createTagId(),
                                             projectId,
                                             "My Tag",

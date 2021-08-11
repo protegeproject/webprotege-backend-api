@@ -15,25 +15,11 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 14 Jun 2018
  */
-@AutoValue
+
 
 @JsonTypeName("GetMatchingEntities")
-public abstract class GetMatchingEntitiesAction implements ProjectAction<GetMatchingEntitiesResult> {
+public record GetMatchingEntitiesAction(@JsonProperty("projectId") ProjectId projectId,
+                                        @JsonProperty("criteria") Criteria criteria,
+                                        @JsonProperty("pageRequest") PageRequest pageRequest) implements ProjectAction<GetMatchingEntitiesResult> {
 
-    @JsonCreator
-    public static GetMatchingEntitiesAction create(@JsonProperty("projectId") ProjectId projectId,
-                                                   @JsonProperty("criteria") Criteria criteria,
-                                                   @JsonProperty("pageRequest") PageRequest pageRequest) {
-        return new AutoValue_GetMatchingEntitiesAction(projectId, criteria, pageRequest);
-    }
-
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    @Nonnull
-    public abstract Criteria getCriteria();
-
-    @Nonnull
-    public abstract PageRequest getPageRequest();
 }

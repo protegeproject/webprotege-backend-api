@@ -19,7 +19,7 @@ public class UpdateNamedIndividualFrame_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = UpdateNamedIndividualFrameAction.create(mockProjectId(),
+        var action = new UpdateNamedIndividualFrameAction(mockProjectId(),
                                                              PlainNamedIndividualFrame.get(
                                                                      mockOWLNamedIndividual(), ImmutableSet.of(),
                                                                      ImmutableSet.of(),

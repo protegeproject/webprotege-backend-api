@@ -10,13 +10,8 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 28/02/16
  */
-@AutoValue
+
 
 @JsonTypeName("SetPerspectiveLayout")
-public abstract class SetPerspectiveLayoutResult implements Result {
-
-    @JsonCreator
-    public static SetPerspectiveLayoutResult create() {
-        return new AutoValue_SetPerspectiveLayoutResult();
-    }
+public record SetPerspectiveLayoutResult() implements Result {
 }

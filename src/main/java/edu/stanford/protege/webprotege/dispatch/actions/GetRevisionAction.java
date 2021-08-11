@@ -15,26 +15,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * Serverside action only
  */
-public class GetRevisionAction implements ProjectAction<GetRevisionResult> {
-
-    private final ProjectId projectId;
-
-    private final RevisionNumber revisionNumber;
-
-    public GetRevisionAction(@Nonnull ProjectId projectId,
-                             @Nonnull RevisionNumber revisionNumber) {
-        this.projectId = checkNotNull(projectId);
-        this.revisionNumber = checkNotNull(revisionNumber);
-    }
-
-    @Nonnull
-    @Override
-    public ProjectId getProjectId() {
-        return projectId;
-    }
-
-    @Nonnull
-    public RevisionNumber getRevisionNumber() {
-        return revisionNumber;
-    }
+public record GetRevisionAction(ProjectId projectId,
+                               RevisionNumber revisionNumber) implements ProjectAction<GetRevisionResult> {
 }

@@ -13,19 +13,10 @@ import javax.annotation.Nonnull;
 /**
  * @author Matthew Horridge, Stanford University, Bio-Medical Informatics Research Group, Date: 25/02/2014
  */
-@AutoValue
+
 
 @JsonTypeName("GetEntityRendering")
-public abstract class GetEntityRenderingAction implements ProjectAction<GetEntityRenderingResult> {
+public record GetEntityRenderingAction(@JsonProperty("projectId") ProjectId projectId,
+                                       @JsonProperty("term") OWLEntity entity) implements ProjectAction<GetEntityRenderingResult> {
 
-    @JsonCreator
-    public static GetEntityRenderingAction create(@JsonProperty("projectId") ProjectId projectId,
-                                                  @JsonProperty("entity") OWLEntity entity) {
-        return new AutoValue_GetEntityRenderingAction(projectId, entity);
-    }
-
-    @Nonnull
-    public abstract ProjectId getProjectId();
-
-    public abstract OWLEntity getEntity();
 }

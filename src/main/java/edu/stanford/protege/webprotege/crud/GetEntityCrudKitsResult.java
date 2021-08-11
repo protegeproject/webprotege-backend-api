@@ -14,19 +14,7 @@ import java.util.List;
  * Bio-Medical Informatics Research Group<br>
  * Date: 8/19/13
  */
-@AutoValue
-
 @JsonTypeName("GetEntityCrudKits")
-public abstract class GetEntityCrudKitsResult implements Result {
-
-
-    @JsonCreator
-    public static GetEntityCrudKitsResult create(@JsonProperty("kits") List<EntityCrudKit<?>> kits,
-                                                 @JsonProperty("currentSettings") EntityCrudKitSettings<?> currentSettings) {
-        return new AutoValue_GetEntityCrudKitsResult(kits, currentSettings);
-    }
-
-    public abstract List<EntityCrudKit<?>> getKits();
-
-    public abstract EntityCrudKitSettings<?> getCurrentSettings();
+public record GetEntityCrudKitsResult(List<EntityCrudKit> kits,
+                                      EntityCrudKitSettings currentSettings) implements Result {
 }

@@ -22,13 +22,13 @@ public class GetEntityDiscussionThreads_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetEntityDiscussionThreadsAction.create(ProjectId.generate(), MockingUtils.mockOWLClass());
+        var action = new GetEntityDiscussionThreadsAction(ProjectId.generate(), MockingUtils.mockOWLClass());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetEntityDiscussionThreadsResult.create(OWLClassData.get(
+        var result = new GetEntityDiscussionThreadsResult(OWLClassData.get(
                 MockingUtils.mockOWLClass(),
                 ImmutableMap.of(),
                 false

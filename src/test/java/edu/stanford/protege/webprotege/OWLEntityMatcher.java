@@ -34,7 +34,7 @@ public class OWLEntityMatcher extends TypeSafeMatcher<OWLEntity> {
 
     @Override
     public void describeTo(Description description) {
-        description.appendText("matched entity type and IRI");
+        description.appendText("matched term type and IRI");
     }
 
     private static OWLEntityMatcher create(EntityType entityType, OWLRDFVocabulary vocabulary) {

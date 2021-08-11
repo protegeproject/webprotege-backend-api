@@ -11,22 +11,11 @@ import org.semanticweb.owlapi.model.OWLOntologyID;
 
 import java.util.List;
 
-@AutoValue
+
 
 @JsonTypeName("ExistingOntologyMergeAdd")
-public abstract class ExistingOntologyMergeAddAction implements ProjectAction<ExistingOntologyMergeAddResult> {
-
-    @JsonCreator
-    public static ExistingOntologyMergeAddAction create(@JsonProperty("projectId") ProjectId projectId,
-                                                        @JsonProperty("documentId") DocumentId documentId,
-                                                        @JsonProperty("selectedOntologies") List<OWLOntologyID> selectedOntologies,
-                                                        @JsonProperty("targetOntology") OWLOntologyID targetOntology) {
-        return new AutoValue_ExistingOntologyMergeAddAction(projectId, documentId, selectedOntologies, targetOntology);
-    }
-
-    public abstract DocumentId getDocumentId();
-
-    public abstract List<OWLOntologyID> getSelectedOntologies();
-
-    public abstract OWLOntologyID getTargetOntology();
+public record ExistingOntologyMergeAddAction(@JsonProperty("projectId") ProjectId projectId,
+                                             @JsonProperty("documentId") DocumentId documentId,
+                                             @JsonProperty("selectedOntologies") List<OWLOntologyID> selectedOntologies,
+                                             @JsonProperty("targetOntology") OWLOntologyID targetOntology) implements ProjectAction<ExistingOntologyMergeAddResult> {
 }

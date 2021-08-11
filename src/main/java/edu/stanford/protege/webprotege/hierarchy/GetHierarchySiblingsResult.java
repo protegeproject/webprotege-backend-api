@@ -13,15 +13,9 @@ import edu.stanford.protege.webprotege.pagination.Page;
  * Stanford Center for Biomedical Informatics Research
  * 13 Sep 2018
  */
-@AutoValue
+
 
 @JsonTypeName("GetHierarchySiblings")
-public abstract class GetHierarchySiblingsResult implements Result {
+public record GetHierarchySiblingsResult(Page<GraphNode<EntityNode>> siblingsPage) implements Result {
 
-    @JsonCreator
-    public static GetHierarchySiblingsResult create(@JsonProperty("siblings") Page<GraphNode<EntityNode>> siblingsPage) {
-        return new AutoValue_GetHierarchySiblingsResult(siblingsPage);
-    }
-
-    public abstract Page<GraphNode<EntityNode>> getSiblings();
 }

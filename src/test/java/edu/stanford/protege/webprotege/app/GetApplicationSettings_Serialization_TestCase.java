@@ -19,13 +19,13 @@ public class GetApplicationSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetApplicationSettingsAction.create();
+        var action = new GetApplicationSettingsAction();
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetApplicationSettingsResult.create(new ApplicationSettings(
+        var result = new GetApplicationSettingsResult(new ApplicationSettings(
                 "Name",
                 new EmailAddress("Email"),
                 new ApplicationLocation("scheme", "host", "path", 20),

@@ -12,14 +12,7 @@ import java.util.Optional;
  * Stanford Center for Biomedical Informatics Research
  * 9 May 2018
  */
-public class GetRevisionResult implements Result {
-
-    @Nullable
-    private final RevisionDetails revisionDetails;
-
-    public GetRevisionResult(@Nonnull Optional<RevisionDetails> revisionDetails) {
-        this.revisionDetails = revisionDetails.orElse(null);
-    }
+public record GetRevisionResult(RevisionDetails revisionDetails) implements Result {
 
     @Nonnull
     public Optional<RevisionDetails> getRevisionDetails() {

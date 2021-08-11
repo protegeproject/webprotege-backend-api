@@ -5,7 +5,6 @@ import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -21,18 +20,18 @@ public class GetProjectTagsAction_TestCase {
 
     @Before
     public void setUp() {
-        action = GetProjectTagsAction.create(projectId);
+        action = new GetProjectTagsAction(projectId);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        GetProjectTagsAction.create(null);
+        new GetProjectTagsAction(null);
     }
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(action.getProjectId(), is(this.projectId));
+        assertThat(action.projectId(), is(this.projectId));
     }
 
     @Test
@@ -48,17 +47,17 @@ public class GetProjectTagsAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(action, is(GetProjectTagsAction.create(projectId)));
+        assertThat(action, is(new GetProjectTagsAction(projectId)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(action, is(not(GetProjectTagsAction.create(ProjectId.generate()))));
+        assertThat(action, is(not(new GetProjectTagsAction(ProjectId.generate()))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(action.hashCode(), is(GetProjectTagsAction.create(projectId).hashCode()));
+        assertThat(action.hashCode(), is(new GetProjectTagsAction(projectId).hashCode()));
     }
 
     @Test

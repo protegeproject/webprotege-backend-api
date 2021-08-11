@@ -21,13 +21,13 @@ public class GetRootOntologyId_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetRootOntologyIdAction.create(mockProjectId());
+        var action = new GetRootOntologyIdAction(mockProjectId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetRootOntologyIdResult.create(mockProjectId(), mockOWLOntologyID());
+        var result = new GetRootOntologyIdResult(mockProjectId(), mockOWLOntologyID());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

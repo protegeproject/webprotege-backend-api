@@ -21,7 +21,7 @@ public class GetCommentedEntities_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetCommentedEntitiesAction.create(ProjectId.generate(),
+        var action = new GetCommentedEntitiesAction(ProjectId.generate(),
                                                        "TheUser", Collections.singleton(Status.OPEN),
                                                        SortingKey.SORT_BY_ENTITY,
                                                        PageRequest.requestFirstPage());
@@ -30,7 +30,7 @@ public class GetCommentedEntities_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetCommentedEntitiesResult.create(ProjectId.generate(),
+        var result = new GetCommentedEntitiesResult(ProjectId.generate(),
                                                        Page.emptyPage());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }

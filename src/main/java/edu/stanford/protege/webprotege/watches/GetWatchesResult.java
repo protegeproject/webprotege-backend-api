@@ -14,15 +14,9 @@ import java.util.Set;
  * Bio-Medical Informatics Research Group<br>
  * Date: 20/03/2013
  */
-@AutoValue
+
 
 @JsonTypeName("GetWatches")
-public abstract class GetWatchesResult implements Result {
+public record GetWatchesResult(@JsonProperty("watches") Set<Watch> watches) implements Result {
 
-    @JsonCreator
-    public static GetWatchesResult create(@JsonProperty("watches") Set<Watch> watches) {
-        return new AutoValue_GetWatchesResult(watches);
-    }
-
-    public abstract Set<Watch> getWatches();
 }

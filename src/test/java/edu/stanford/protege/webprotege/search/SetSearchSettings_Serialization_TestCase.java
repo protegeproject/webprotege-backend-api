@@ -23,7 +23,7 @@ public class SetSearchSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetSearchSettingsAction.create(mockProjectId(), ImmutableList.of(
+        var action = new SetSearchSettingsAction(mockProjectId(), ImmutableList.of(
                 EntitySearchFilter.get(EntitySearchFilterId.createFilterId(),
                                        mockProjectId(),
                                        LanguageMap.of("en", "Test"), CompositeRootCriteria.get(ImmutableList.of(),
@@ -34,7 +34,7 @@ public class SetSearchSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetSearchSettingsResult.create();
+        var result = new SetSearchSettingsResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

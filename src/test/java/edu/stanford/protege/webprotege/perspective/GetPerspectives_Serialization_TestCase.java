@@ -21,14 +21,14 @@ public abstract class GetPerspectives_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = GetPerspectivesAction.create(mockProjectId(),
+        var action = new GetPerspectivesAction(mockProjectId(),
                                                   mockUserId());
         JsonSerializationTestUtil.testSerialization(action, Action.class);
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = GetPerspectivesResult.create(ImmutableList.of(), ImmutableSet.of());
+        var result = new GetPerspectivesResult(ImmutableList.of(), ImmutableSet.of());
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

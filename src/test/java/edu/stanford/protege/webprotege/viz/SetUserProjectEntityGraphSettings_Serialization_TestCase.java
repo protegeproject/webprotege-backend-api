@@ -20,7 +20,7 @@ public abstract class SetUserProjectEntityGraphSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = SetUserProjectEntityGraphSettingsAction.create(mockProjectId(),
+        var action = new SetUserProjectEntityGraphSettingsAction(mockProjectId(),
                                                                     mockUserId(),
                                                                     EntityGraphSettings.get(
                                                                             ImmutableList.of(),
@@ -31,7 +31,7 @@ public abstract class SetUserProjectEntityGraphSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = SetUserProjectEntityGraphSettingsResult.create();
+        var result = new SetUserProjectEntityGraphSettingsResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

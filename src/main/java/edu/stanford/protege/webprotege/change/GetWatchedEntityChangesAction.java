@@ -20,61 +20,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 27/02/15
  */
 @JsonTypeName("GetWatchedEntityChanges")
-public class GetWatchedEntityChangesAction implements ProjectAction<GetWatchedEntityChangesResult>, HasProjectId {
+public record GetWatchedEntityChangesAction(ProjectId projectId, UserId userId) implements ProjectAction<GetWatchedEntityChangesResult> {
 
-    private ProjectId projectId;
-
-    private UserId userId;
-
-    private GetWatchedEntityChangesAction() {
-    }
-
-    private GetWatchedEntityChangesAction(ProjectId projectId, UserId userId) {
-        this.projectId = checkNotNull(projectId);
-        this.userId = checkNotNull(userId);
-    }
-
-    @JsonCreator
-    public static GetWatchedEntityChangesAction create(@JsonProperty("projectId") ProjectId projectId,
-                                                       @JsonProperty("userId") UserId userId) {
-        return new GetWatchedEntityChangesAction(projectId, userId);
-    }
-
-    @Nonnull
-    @Override
-    public ProjectId getProjectId() {
-        return projectId;
-    }
-
-    @Nonnull
-    public UserId getUserId() {
-        return userId;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(projectId, userId);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof GetWatchedEntityChangesAction)) {
-            return false;
-        }
-        GetWatchedEntityChangesAction other = (GetWatchedEntityChangesAction) obj;
-        return this.projectId.equals(other.projectId)
-                && this.userId.equals(other.userId);
-    }
-
-
-    @Override
-    public String toString() {
-        return toStringHelper("GetWatchedEntityChangesAction")
-                .addValue(projectId)
-                .addValue(userId)
-                .toString();
-    }
 }

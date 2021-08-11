@@ -17,32 +17,9 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 20/02/2013
  */
-@AutoValue
+
 
 @JsonTypeName("GetNamedIndividualFrame")
-public abstract class GetNamedIndividualFrameAction implements ProjectAction<GetNamedIndividualFrameResult>, HasSubject<OWLNamedIndividual> {
-
-
-    @JsonCreator
-    public static GetNamedIndividualFrameAction create(@JsonProperty("projectId") ProjectId projectId,
-                                                       @JsonProperty("subject") OWLNamedIndividual subject) {
-        return new AutoValue_GetNamedIndividualFrameAction(projectId, subject);
-    }
-
-    /**
-     * Get the {@link ProjectId}.
-     *
-     * @return The {@link ProjectId}.  Not {@code null}.
-     */
-    @Nonnull
-    @Override
-    public abstract ProjectId getProjectId();
-
-    /**
-     * Gets the subject of this object.
-     *
-     * @return The subject.  Not {@code null}.
-     */
-    @Override
-    public abstract OWLNamedIndividual getSubject();
+public record GetNamedIndividualFrameAction(@JsonProperty("projectId") ProjectId projectId,
+                                            @JsonProperty("subject") OWLNamedIndividual subject) implements ProjectAction<GetNamedIndividualFrameResult>, HasSubject<OWLNamedIndividual> {
 }

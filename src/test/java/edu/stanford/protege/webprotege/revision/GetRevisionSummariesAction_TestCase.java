@@ -4,7 +4,6 @@ import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -31,13 +30,13 @@ public class GetRevisionSummariesAction_TestCase {
 
     @Before
     public void setUp() throws Exception {
-        action = GetRevisionSummariesAction.create(projectId);
-        otherAction = GetRevisionSummariesAction.create(projectId);
+        action = new GetRevisionSummariesAction(projectId);
+        otherAction = new GetRevisionSummariesAction(projectId);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        GetRevisionSummariesAction.create(null);
+        new GetRevisionSummariesAction(null);
     }
 
     @Test
@@ -66,6 +65,6 @@ public class GetRevisionSummariesAction_TestCase {
     }
 
     public void shouldReturnSuppliedProjectId() {
-        assertThat(action.getProjectId(), is(projectId));
+        assertThat(action.projectId(), is(projectId));
     }
 }

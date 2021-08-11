@@ -23,12 +23,12 @@ public class GetOntologyFramesAction_TestCase {
     public void setUp()
         throws Exception
     {
-        action = GetOntologyFramesAction.create(projectId);
+        action = new GetOntologyFramesAction(projectId);
     }
 
     @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        GetOntologyFramesAction.create(null);
+        new GetOntologyFramesAction(null);
     }
 
     @Test
@@ -43,17 +43,17 @@ public class GetOntologyFramesAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(action, is(GetOntologyFramesAction.create(projectId)));
+        assertThat(action, is(new GetOntologyFramesAction(projectId)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(action, is(not(GetOntologyFramesAction.create(ProjectId.generate()))));
+        assertThat(action, is(not(new GetOntologyFramesAction(ProjectId.generate()))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(action.hashCode(), is(GetOntologyFramesAction.create(projectId).hashCode()));
+        assertThat(action.hashCode(), is(new GetOntologyFramesAction(projectId).hashCode()));
     }
 
     @Test

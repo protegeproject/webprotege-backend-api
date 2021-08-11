@@ -10,5 +10,5 @@ import javax.annotation.Nonnull;
 public interface HasCommitMessage {
 
     @Nonnull
-    String getCommitMessage();
+    String commitMessage();
 }

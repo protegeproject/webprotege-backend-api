@@ -23,29 +23,29 @@ public class GetOboTermRelationshipsAction_TestCase {
 
     @Before
     public void setUp() {
-        getOboTermRelationshipsAction = GetOboTermRelationshipsAction.create(projectId, entity);
+        getOboTermRelationshipsAction = new GetOboTermRelationshipsAction(projectId, entity);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        GetOboTermRelationshipsAction.create(null, entity);
+        new GetOboTermRelationshipsAction(null, entity);
     }
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(getOboTermRelationshipsAction.getProjectId(), is(this.projectId));
+        assertThat(getOboTermRelationshipsAction.projectId(), is(this.projectId));
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        GetOboTermRelationshipsAction.create(projectId, null);
+        new GetOboTermRelationshipsAction(projectId, null);
     }
 
     @Test
     public void shouldReturnSupplied_entity() {
-        assertThat(getOboTermRelationshipsAction.getEntity(), is(this.entity));
+        assertThat(getOboTermRelationshipsAction.term(), is(this.entity));
     }
 
     @Test
@@ -61,22 +61,22 @@ public class GetOboTermRelationshipsAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(getOboTermRelationshipsAction, is(GetOboTermRelationshipsAction.create(projectId, entity)));
+        assertThat(getOboTermRelationshipsAction, is(new GetOboTermRelationshipsAction(projectId, entity)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(getOboTermRelationshipsAction, is(not(GetOboTermRelationshipsAction.create(ProjectId.generate(), entity))));
+        assertThat(getOboTermRelationshipsAction, is(not(new GetOboTermRelationshipsAction(ProjectId.generate(), entity))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entity() {
-        assertThat(getOboTermRelationshipsAction, is(not(GetOboTermRelationshipsAction.create(projectId, Mockito.mock(OWLClass.class)))));
+        assertThat(getOboTermRelationshipsAction, is(not(new GetOboTermRelationshipsAction(projectId, Mockito.mock(OWLClass.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(getOboTermRelationshipsAction.hashCode(), is(GetOboTermRelationshipsAction.create(projectId, entity).hashCode()));
+        assertThat(getOboTermRelationshipsAction.hashCode(), is(new GetOboTermRelationshipsAction(projectId, entity).hashCode()));
     }
 
     @Test
