@@ -28,7 +28,7 @@ public class SetProjectPrefixDeclarationsResult_TestCase {
     @Before
     public void setUp() {
         prefixDeclarations = new ArrayList<>();
-        prefixDeclarations.add(mock(PrefixDeclaration.class));
+        prefixDeclarations.add(PrefixDeclaration.get("x:", "y"));
         result = new SetProjectPrefixDeclarationsResult(projectId, prefixDeclarations);
     }
 
@@ -78,7 +78,7 @@ public class SetProjectPrefixDeclarationsResult_TestCase {
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_prefixDeclarations() {
         List<PrefixDeclaration> otherDecls = new ArrayList<>();
-        otherDecls.add(mock(PrefixDeclaration.class));
+        otherDecls.add(PrefixDeclaration.get("q:", "r"));
         assertThat(result, is(Matchers.not(new SetProjectPrefixDeclarationsResult(projectId, otherDecls))));
     }
 

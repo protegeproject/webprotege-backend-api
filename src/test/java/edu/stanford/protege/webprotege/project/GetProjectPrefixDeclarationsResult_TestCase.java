@@ -30,7 +30,7 @@ public class GetProjectPrefixDeclarationsResult_TestCase {
 
     @Before
     public void setUp() {
-        prefixDeclarations = ImmutableList.of(mock(PrefixDeclaration.class));
+        prefixDeclarations = ImmutableList.of(PrefixDeclaration.get("a:", "b"));
         result = new GetProjectPrefixDeclarationsResult(projectId, prefixDeclarations);
     }
 

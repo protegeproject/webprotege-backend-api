@@ -29,7 +29,7 @@ public class SetProjectPrefixDeclarationsAction_TestCase {
     public void setUp() {
         projectId = ProjectId.valueOf("12345678-1234-1234-1234-123456789abc");
         prefixDeclarations = new ArrayList<>();
-        prefixDeclarations.add(mock(PrefixDeclaration.class));
+        prefixDeclarations.add(PrefixDeclaration.get("a:", "b"));
         action = new SetProjectPrefixDeclarationsAction(projectId, prefixDeclarations);
     }
 
@@ -79,7 +79,7 @@ public class SetProjectPrefixDeclarationsAction_TestCase {
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_prefixDeclarations() {
         List<PrefixDeclaration> otherDecls = new ArrayList<>();
-        otherDecls.add(mock(PrefixDeclaration.class));
+        otherDecls.add(PrefixDeclaration.get("c:", "d"));
         assertThat(action, is(Matchers.not(new SetProjectPrefixDeclarationsAction(projectId, otherDecls))));
     }
 
