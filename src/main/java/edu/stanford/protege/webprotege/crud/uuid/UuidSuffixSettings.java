@@ -58,7 +58,6 @@ public abstract class UuidSuffixSettings extends EntityCrudKitSuffixSettings {
     }
 
     @JsonIgnore
-    @Override
     public EntityCrudKitId getKitId() {
         return UuidSuffixKit.getId();
     }

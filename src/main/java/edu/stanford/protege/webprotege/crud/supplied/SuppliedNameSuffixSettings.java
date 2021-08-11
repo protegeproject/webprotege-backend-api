@@ -43,7 +43,6 @@ public abstract class SuppliedNameSuffixSettings extends EntityCrudKitSuffixSett
     }
 
     @JsonIgnore
-    @Override
     public EntityCrudKitId getKitId() {
         return SuppliedNameSuffixKit.getId();
     }

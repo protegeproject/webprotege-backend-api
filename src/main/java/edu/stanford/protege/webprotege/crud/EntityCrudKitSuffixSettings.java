@@ -37,7 +37,7 @@ import java.io.Serializable;
         }
 )
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = EntityCrudKitSuffixSettings.TYPE_PROPERTY)
-public abstract class EntityCrudKitSuffixSettings implements HasKitId, Serializable {
+public abstract class EntityCrudKitSuffixSettings implements Serializable {
 
         /**
          * The type property.  This is _class for backwards compatibility

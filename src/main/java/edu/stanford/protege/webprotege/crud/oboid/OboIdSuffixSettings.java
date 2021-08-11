@@ -45,7 +45,6 @@ public abstract class OboIdSuffixSettings extends EntityCrudKitSuffixSettings {
     }
 
     @JsonIgnore
-    @Override
     public EntityCrudKitId getKitId() {
         return OboIdSuffixKit.getId();
     }
