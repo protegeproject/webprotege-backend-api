@@ -17,33 +17,27 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class ApplicationSettings {
 
-    private String applicationName;
+    private final String applicationName;
 
-    private EmailAddress systemNotificationEmailAddress;
+    private final EmailAddress systemNotificationEmailAddress;
 
+    private final ApplicationLocation applicationLocation;
 
-    private ApplicationLocation applicationLocation;
+    private final AccountCreationSetting accountCreationSetting;
 
+    private final List<UserId> accountCreators;
 
-    private AccountCreationSetting accountCreationSetting;
+    private final ProjectCreationSetting projectCreationSetting;
 
-    private List<UserId> accountCreators;
+    private final List<UserId> projectCreators;
 
-    private ProjectCreationSetting projectCreationSetting;
+    private final ProjectUploadSetting projectUploadSetting;
 
-    private List<UserId> projectCreators;
+    private final List<UserId> projectUploaders;
 
-    private ProjectUploadSetting projectUploadSetting;
+    private final NotificationEmailsSetting notificationEmailsSetting;
 
-    private List<UserId> projectUploaders;
-
-    private NotificationEmailsSetting notificationEmailsSetting;
-
-    private long maxUploadSize;
-
-
-    private ApplicationSettings() {
-    }
+    private final long maxUploadSize;
 
     public ApplicationSettings(@Nonnull String applicationName,
                                @Nonnull EmailAddress systemNotificationEmailAddress,
@@ -126,19 +120,17 @@ public class ApplicationSettings {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(
-                applicationName,
-                systemNotificationEmailAddress,
-                applicationLocation,
-                accountCreationSetting,
-                accountCreators,
-                projectCreationSetting,
-                projectCreators,
-                projectUploadSetting,
-                projectUploaders,
-                notificationEmailsSetting,
-                maxUploadSize
-        );
+        return Objects.hashCode(applicationName,
+                                systemNotificationEmailAddress,
+                                applicationLocation,
+                                accountCreationSetting,
+                                accountCreators,
+                                projectCreationSetting,
+                                projectCreators,
+                                projectUploadSetting,
+                                projectUploaders,
+                                notificationEmailsSetting,
+                                maxUploadSize);
     }
 
     @Override
@@ -146,37 +138,29 @@ public class ApplicationSettings {
         if (obj == this) {
             return true;
         }
-        if (!(obj instanceof ApplicationSettings)) {
+        if (!(obj instanceof ApplicationSettings other)) {
             return false;
         }
-        ApplicationSettings other = (ApplicationSettings) obj;
-        return this.applicationName.equals(other.applicationName)
-                && this.systemNotificationEmailAddress.equals(other.systemNotificationEmailAddress)
-                && this.applicationLocation.equals(other.applicationLocation)
-                && this.accountCreationSetting == other.accountCreationSetting
-                && this.accountCreators.equals(other.accountCreators)
-                && this.projectCreationSetting == other.projectCreationSetting
-                && this.projectCreators.equals(other.projectCreators)
-                && this.projectUploadSetting == other.projectUploadSetting
-                && this.projectUploaders.equals(other.projectUploaders)
-                && this.notificationEmailsSetting == other.notificationEmailsSetting
-                && this.maxUploadSize == other.maxUploadSize;
+        return this.applicationName.equals(other.applicationName) && this.systemNotificationEmailAddress.equals(other.systemNotificationEmailAddress) && this.applicationLocation
+                .equals(other.applicationLocation) && this.accountCreationSetting == other.accountCreationSetting && this.accountCreators
+                .equals(other.accountCreators) && this.projectCreationSetting == other.projectCreationSetting && this.projectCreators
+                .equals(other.projectCreators) && this.projectUploadSetting == other.projectUploadSetting && this.projectUploaders
+                .equals(other.projectUploaders) && this.notificationEmailsSetting == other.notificationEmailsSetting && this.maxUploadSize == other.maxUploadSize;
     }
 
 
     @Override
     public String toString() {
-        return toStringHelper("ApplicationSettings" )
-                .add("name", applicationName)
-                .add("systemNotificationEmail", systemNotificationEmailAddress)
-                .addValue(applicationLocation)
-                .addValue(accountCreationSetting)
-                .add("accountCreators", accountCreators)
-                .addValue(projectCreationSetting)
-                .add("projectCreators", projectCreators)
-                .addValue(projectUploaders)
-                .add("projectUploaders", projectUploaders)
-                .addValue(notificationEmailsSetting)
-                .toString();
+        return toStringHelper("ApplicationSettings").add("name", applicationName)
+                                                    .add("systemNotificationEmail", systemNotificationEmailAddress)
+                                                    .addValue(applicationLocation)
+                                                    .addValue(accountCreationSetting)
+                                                    .add("accountCreators", accountCreators)
+                                                    .addValue(projectCreationSetting)
+                                                    .add("projectCreators", projectCreators)
+                                                    .addValue(projectUploaders)
+                                                    .add("projectUploaders", projectUploaders)
+                                                    .addValue(notificationEmailsSetting)
+                                                    .toString();
     }
 }
