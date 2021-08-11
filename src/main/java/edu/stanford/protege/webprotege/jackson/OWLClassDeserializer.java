@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.springframework.boot.jackson.JsonComponent;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 

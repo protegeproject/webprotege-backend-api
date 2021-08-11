@@ -3,8 +3,8 @@ package edu.stanford.protege.webprotege.form;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.auto.value.AutoValue;
-import edu.stanford.protege.webprotege.match.criteria.RootCriteria;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.match.criteria.RootCriteria;
 
 import javax.annotation.Nonnull;
 

@@ -1,7 +1,6 @@
 package edu.stanford.protege.webprotege.change.description;
 
 import com.google.auto.value.AutoValue;
-
 import org.semanticweb.owlapi.model.OWLObject;
 import org.semanticweb.owlapi.model.OWLProperty;
 

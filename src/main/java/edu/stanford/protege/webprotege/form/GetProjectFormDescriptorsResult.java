@@ -1,13 +1,10 @@
 package edu.stanford.protege.webprotege.form;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.project.HasProjectId;
-import edu.stanford.protege.webprotege.common.ProjectId;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;

@@ -1,9 +1,7 @@
 package edu.stanford.protege.webprotege.form;
 
-import com.google.auto.value.AutoValue;
-import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.project.HasProjectId;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.dispatch.Result;
 
 import javax.annotation.Nonnull;
 

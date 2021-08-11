@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import org.semanticweb.owlapi.model.AxiomType;
 import org.springframework.boot.jackson.JsonComponent;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 

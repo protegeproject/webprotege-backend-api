@@ -1,15 +1,11 @@
 package edu.stanford.protege.webprotege.ontology;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.frame.PropertyAnnotationValue;
 import org.semanticweb.owlapi.model.OWLOntologyID;
-
-import javax.annotation.Nonnull;
 
 /**
  * Matthew Horridge

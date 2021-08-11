@@ -1,6 +1,5 @@
 package edu.stanford.protege.webprotege.form;
 
-import com.google.auto.value.AutoValue;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
 /**

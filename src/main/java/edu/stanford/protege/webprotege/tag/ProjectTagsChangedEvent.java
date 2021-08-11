@@ -2,8 +2,8 @@ package edu.stanford.protege.webprotege.tag;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.event.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.event.ProjectEvent;
 
 import javax.annotation.Nonnull;
 import javax.inject.Inject;

@@ -1,11 +1,6 @@
 package edu.stanford.protege.webprotege.itemlist;
 
-import com.google.common.base.Objects;
 import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.ProjectAction;
-import edu.stanford.protege.webprotege.sharing.PersonId;
-
-import static com.google.common.base.MoreObjects.toStringHelper;
 
 /**
  * Matthew Horridge

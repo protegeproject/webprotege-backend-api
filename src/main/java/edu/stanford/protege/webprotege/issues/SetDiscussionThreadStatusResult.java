@@ -3,12 +3,7 @@ package edu.stanford.protege.webprotege.issues;
 
 import edu.stanford.protege.webprotege.dispatch.Result;
 
-
-import edu.stanford.protege.webprotege.event.ProjectEvent;
-
 import javax.annotation.Nonnull;
-
-import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Matthew Horridge

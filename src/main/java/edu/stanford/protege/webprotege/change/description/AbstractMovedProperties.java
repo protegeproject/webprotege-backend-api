@@ -1,7 +1,6 @@
 package edu.stanford.protege.webprotege.change.description;
 
 import com.google.common.collect.ImmutableSet;
-
 import org.semanticweb.owlapi.model.OWLProperty;
 
 import javax.annotation.Nonnull;

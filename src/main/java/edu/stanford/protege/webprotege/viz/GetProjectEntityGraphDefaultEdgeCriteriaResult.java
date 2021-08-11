@@ -1,11 +1,7 @@
 package edu.stanford.protege.webprotege.viz;
 
-import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.project.HasProjectId;
-
-import javax.annotation.Nonnull;
 
 /**
  * Matthew Horridge

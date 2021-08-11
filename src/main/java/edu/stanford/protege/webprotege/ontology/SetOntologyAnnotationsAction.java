@@ -1,15 +1,12 @@
 package edu.stanford.protege.webprotege.ontology;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.google.auto.value.AutoValue;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import edu.stanford.protege.webprotege.frame.PropertyAnnotationValue;
-import edu.stanford.protege.webprotege.common.ProjectId;
 import org.semanticweb.owlapi.model.OWLOntologyID;
 
-import javax.annotation.Nonnull;
 import java.util.Set;
 
 /**

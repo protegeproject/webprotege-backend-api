@@ -1,10 +1,6 @@
 package edu.stanford.protege.webprotege.sharing;
 
-import com.google.common.base.Objects;
 import edu.stanford.protege.webprotege.dispatch.Result;
-
-import static com.google.common.base.MoreObjects.toStringHelper;
-import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Matthew Horridge

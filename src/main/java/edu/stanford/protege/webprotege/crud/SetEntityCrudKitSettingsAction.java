@@ -1,9 +1,7 @@
 package edu.stanford.protege.webprotege.crud;
 
-import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import edu.stanford.protege.webprotege.common.ProjectId;
-
-import javax.annotation.Nonnull;
+import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
 /**
  * Author: Matthew Horridge<br>

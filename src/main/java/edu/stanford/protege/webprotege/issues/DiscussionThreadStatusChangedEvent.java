@@ -1,9 +1,8 @@
 package edu.stanford.protege.webprotege.issues;
 
 
-
-import edu.stanford.protege.webprotege.event.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.event.ProjectEvent;
 import org.semanticweb.owlapi.model.OWLEntity;
 
 import javax.annotation.Nonnull;

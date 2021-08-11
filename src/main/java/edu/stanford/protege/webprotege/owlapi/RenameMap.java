@@ -3,7 +3,6 @@ package edu.stanford.protege.webprotege.owlapi;
 import org.semanticweb.owlapi.model.IRI;
 
 import javax.annotation.Nonnull;
-import java.util.HashMap;
 import java.util.Map;
 
 import static com.google.common.base.Preconditions.checkNotNull;

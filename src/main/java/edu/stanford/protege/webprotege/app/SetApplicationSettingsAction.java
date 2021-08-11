@@ -1,9 +1,6 @@
 package edu.stanford.protege.webprotege.app;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.google.auto.value.AutoValue;
 import edu.stanford.protege.webprotege.dispatch.Action;
 
 import javax.annotation.Nonnull;

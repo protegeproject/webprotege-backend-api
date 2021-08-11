@@ -1,4 +1,5 @@
 package edu.stanford.protege.webprotege.form;
+
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -8,7 +9,6 @@ import edu.stanford.protege.webprotege.form.data.PrimitiveFormControlData;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 import org.springframework.boot.jackson.JsonComponent;
-import org.springframework.stereotype.Component;
 import uk.ac.manchester.cs.owl.owlapi.*;
 
 import java.io.IOException;

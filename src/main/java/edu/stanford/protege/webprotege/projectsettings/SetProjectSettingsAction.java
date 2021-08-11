@@ -1,13 +1,7 @@
 package edu.stanford.protege.webprotege.projectsettings;
 
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
-import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import edu.stanford.protege.webprotege.common.ProjectId;
-
-import javax.annotation.Nonnull;
-
-import static com.google.common.base.Preconditions.checkNotNull;
+import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
 /**
  * Matthew Horridge

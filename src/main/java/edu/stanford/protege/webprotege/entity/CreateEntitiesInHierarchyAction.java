@@ -1,9 +1,6 @@
 package edu.stanford.protege.webprotege.entity;
 
-import com.google.common.collect.ImmutableSet;
 import org.semanticweb.owlapi.model.OWLEntity;
-
-import javax.annotation.Nonnull;
 
 /**
  * Author: Matthew Horridge<br>

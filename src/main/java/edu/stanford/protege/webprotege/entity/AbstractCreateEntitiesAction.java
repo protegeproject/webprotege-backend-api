@@ -3,8 +3,6 @@ package edu.stanford.protege.webprotege.entity;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import org.semanticweb.owlapi.model.OWLEntity;
 
-import javax.annotation.Nonnull;
-
 /**
  * Author: Matthew Horridge<br>
  * Stanford University<br>

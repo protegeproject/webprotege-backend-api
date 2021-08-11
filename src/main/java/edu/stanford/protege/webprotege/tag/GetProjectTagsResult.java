@@ -1,14 +1,9 @@
 package edu.stanford.protege.webprotege.tag;
 
-import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
-import javax.annotation.Nonnull;
-import java.util.*;
-
-import static com.google.common.base.MoreObjects.toStringHelper;
-import static com.google.common.base.Preconditions.checkNotNull;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Matthew Horridge
