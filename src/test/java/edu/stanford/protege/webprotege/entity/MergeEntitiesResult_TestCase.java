@@ -1,7 +1,6 @@
 
 package edu.stanford.protege.webprotege.entity;
 
-import edu.stanford.protege.webprotege.event.EventList;
 import edu.stanford.protege.webprotege.event.ProjectEvent;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,23 +16,16 @@ import static org.hamcrest.Matchers.*;
 public class MergeEntitiesResult_TestCase {
 
     private MergeEntitiesResult mergeEntitiesResult;
-    @Mock
-    private EventList<ProjectEvent> eventList;
 
     @Before
     public void setUp() {
-        mergeEntitiesResult = new MergeEntitiesResult(eventList);
+        mergeEntitiesResult = new MergeEntitiesResult();
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_eventList_IsNull() {
-        new MergeEntitiesResult(null);
-    }
-
-    @Test
-    public void shouldReturnSupplied_eventList() {
-        assertThat(mergeEntitiesResult.eventList(), is(this.eventList));
+        new MergeEntitiesResult();
     }
 
     @Test
@@ -49,17 +41,17 @@ public class MergeEntitiesResult_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(mergeEntitiesResult, is(new MergeEntitiesResult(eventList)));
+        assertThat(mergeEntitiesResult, is(new MergeEntitiesResult()));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_eventList() {
-        assertThat(mergeEntitiesResult, is(not(new MergeEntitiesResult(Mockito.mock(EventList.class)))));
+        assertThat(mergeEntitiesResult, is(not(new MergeEntitiesResult())));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(mergeEntitiesResult.hashCode(), is(new MergeEntitiesResult(eventList).hashCode()));
+        assertThat(mergeEntitiesResult.hashCode(), is(new MergeEntitiesResult().hashCode()));
     }
 
     @Test

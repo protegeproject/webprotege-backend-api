@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.auto.value.AutoValue;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.event.EventList;
-import edu.stanford.protege.webprotege.event.HasEventList;
+
+
 import edu.stanford.protege.webprotege.event.ProjectEvent;
 import edu.stanford.protege.webprotege.project.HasProjectId;
 import edu.stanford.protege.webprotege.common.ProjectId;
@@ -23,8 +23,7 @@ import javax.annotation.Nonnull;
 
 @JsonTypeName("RevertRevision")
 public record RevertRevisionResult(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                   @JsonProperty("revisionNumber") @Nonnull RevisionNumber revisionNumber,
-                                   @JsonProperty("eventList") @Nonnull EventList eventList) implements Result, HasEventList {
+                                   @JsonProperty("revisionNumber") @Nonnull RevisionNumber revisionNumber) implements Result {
 
 
 }

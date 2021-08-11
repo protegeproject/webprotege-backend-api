@@ -1,6 +1,5 @@
 package edu.stanford.protege.webprotege.frame;
 
-import edu.stanford.protege.webprotege.event.EventList;
 import edu.stanford.protege.webprotege.event.ProjectEvent;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,9 +25,6 @@ public class SetManchesterSyntaxFrameResult_TestCase {
     private SetManchesterSyntaxFrameResult setManchesterSyntaxFrameResult;
 
     private SetManchesterSyntaxFrameResult otherSetManchesterSyntaxFrameResult;
-
-    @Mock
-    private EventList<ProjectEvent> eventList;
 
     private String frameText;
 

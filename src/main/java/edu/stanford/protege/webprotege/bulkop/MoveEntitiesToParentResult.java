@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.auto.value.AutoValue;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.event.EventList;
-import edu.stanford.protege.webprotege.event.HasEventList;
+
+
 import edu.stanford.protege.webprotege.event.ProjectEvent;
 
 import javax.annotation.Nonnull;
@@ -19,6 +19,6 @@ import javax.annotation.Nonnull;
 
 
 @JsonTypeName("MoveEntitiesToParent")
-public record MoveEntitiesToParentResult(@Nonnull EventList eventList) implements Result, HasEventList {
+public record MoveEntitiesToParentResult() implements Result {
 
 }

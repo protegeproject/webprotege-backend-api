@@ -23,7 +23,7 @@ public class RemoveProjectsFromTrash_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = new RemoveProjectFromTrashResult(MockingUtils.mockEventList());
+        var result = new RemoveProjectFromTrashResult();
         JsonSerializationTestUtil.testSerialization(result, Result.class);
     }
 }

@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.entity;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.event.EventList;
+
 import edu.stanford.protege.webprotege.event.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
 

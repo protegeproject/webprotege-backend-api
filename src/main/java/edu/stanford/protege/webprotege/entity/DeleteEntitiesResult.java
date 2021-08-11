@@ -6,8 +6,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.event.EventList;
-import edu.stanford.protege.webprotege.event.HasEventList;
+
+
 import edu.stanford.protege.webprotege.event.ProjectEvent;
 import org.semanticweb.owlapi.model.OWLEntity;
 
@@ -24,6 +24,5 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 9 May 2017
  */
 @JsonTypeName("DeleteEntities")
-public record DeleteEntitiesResult(ImmutableSet<OWLEntity> deletedEntities,
-                                   EventList eventList) implements Result, HasEventList {
+public record DeleteEntitiesResult(ImmutableSet<OWLEntity> deletedEntities) implements Result {
 }
