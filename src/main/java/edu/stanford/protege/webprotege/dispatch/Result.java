@@ -73,7 +73,6 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesResult;
 @JsonSubTypes({
         @Type(AddEntityCommentResult.class),
         @Type(AddProjectTagResult.class),
-        @Type(BatchResult.class),
         @Type(CheckManchesterSyntaxFrameResult.class),
         @Type(ComputeProjectMergeResult.class),
         @Type(CopyFormDescriptorsFromProjectResult.class),
