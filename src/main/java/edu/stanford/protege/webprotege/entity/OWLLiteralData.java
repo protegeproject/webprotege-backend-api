@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.HasLexicalForm;
 import edu.stanford.protege.webprotege.PrimitiveType;
 import edu.stanford.protege.webprotege.shortform.ShortForm;
 import org.semanticweb.owlapi.model.OWLAnnotationValue;
@@ -26,7 +25,7 @@ import java.util.Optional;
 @AutoValue
 
 @JsonTypeName("OWLLiteralData")
-public abstract class OWLLiteralData extends OWLPrimitiveData implements HasLexicalForm {
+public abstract class OWLLiteralData extends OWLPrimitiveData {
 
     @JsonCreator
     public static OWLLiteralData get(@JsonProperty("literal") @Nonnull OWLLiteral literal) {
@@ -63,7 +62,6 @@ public abstract class OWLLiteralData extends OWLPrimitiveData implements HasLexi
     }
 
     @JsonIgnore
-    @Override
     public String getLexicalForm() {
         return getLiteral().getLiteral();
     }
