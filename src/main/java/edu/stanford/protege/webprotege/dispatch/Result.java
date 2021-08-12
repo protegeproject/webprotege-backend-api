@@ -14,7 +14,7 @@ import edu.stanford.protege.webprotege.change.RevertRevisionResult;
 import edu.stanford.protege.webprotege.crud.GetEntityCrudKitsResult;
 import edu.stanford.protege.webprotege.crud.SetEntityCrudKitSettingsResult;
 import edu.stanford.protege.webprotege.entity.*;
-import edu.stanford.protege.webprotege.form.*;
+import edu.stanford.protege.webprotege.forms.*;
 import edu.stanford.protege.webprotege.frame.*;
 import edu.stanford.protege.webprotege.hierarchy.*;
 import edu.stanford.protege.webprotege.individuals.GetIndividualsPageContainingIndividualResult;

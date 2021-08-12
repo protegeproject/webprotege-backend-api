@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.form.data.FormControlDataDto;
+import edu.stanford.protege.webprotege.forms.data.FormControlDataDto;
 
 import java.io.Serializable;
 import java.util.Iterator;

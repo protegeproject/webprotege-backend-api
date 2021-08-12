@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.entity;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
-import edu.stanford.protege.webprotege.form.data.FormData;
+import edu.stanford.protege.webprotege.forms.data.FormData;
 import org.semanticweb.owlapi.model.EntityType;
 
 import javax.annotation.Nonnull;
