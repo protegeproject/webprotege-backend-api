@@ -1,6 +1,5 @@
 package edu.stanford.protege.webprotege.event;
 
-import edu.stanford.protege.webprotege.HasChangedValue;
 import org.semanticweb.owlapi.model.OWLOntologyID;
 
 import java.io.Serializable;
@@ -15,7 +14,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 18/12/2012
  */
-public class OntologyBrowserTextChangedEvent extends WebProtegeEvent implements Serializable, HasChangedValue<String> {
+public class OntologyBrowserTextChangedEvent extends WebProtegeEvent implements Serializable {
 
     private OWLOntologyID ontologyID;
 
@@ -50,12 +49,10 @@ public class OntologyBrowserTextChangedEvent extends WebProtegeEvent implements 
         return ontologyID;
     }
 
-    @Override
     public Optional<String> getOldValue() {
         return Optional.of(oldValue);
     }
 
-    @Override
     public Optional<String> getNewValue() {
         return Optional.of(newValue);
     }
