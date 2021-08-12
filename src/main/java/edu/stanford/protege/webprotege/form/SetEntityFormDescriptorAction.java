@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.form;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
-import edu.stanford.protege.webprotege.match.criteria.CompositeRootCriteria;
+import edu.stanford.protege.webprotege.criteria.CompositeRootCriteria;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

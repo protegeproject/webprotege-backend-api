@@ -1,9 +1,9 @@
 package edu.stanford.protege.webprotege.match;
 
-import edu.stanford.protege.webprotege.match.criteria.AnyLangTagOrEmptyLangTagCriteria;
-import edu.stanford.protege.webprotege.match.criteria.LangTagCriteria;
-import edu.stanford.protege.webprotege.match.criteria.LangTagIsEmptyCriteria;
-import edu.stanford.protege.webprotege.match.criteria.LangTagMatchesCriteria;
+import edu.stanford.protege.webprotege.criteria.AnyLangTagOrEmptyLangTagCriteria;
+import edu.stanford.protege.webprotege.criteria.LangTagCriteria;
+import edu.stanford.protege.webprotege.criteria.LangTagIsEmptyCriteria;
+import edu.stanford.protege.webprotege.criteria.LangTagMatchesCriteria;
 import org.junit.Test;
 
 import java.io.IOException;

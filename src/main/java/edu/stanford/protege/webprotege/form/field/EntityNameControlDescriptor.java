@@ -8,9 +8,9 @@ import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.lang.LanguageMap;
-import edu.stanford.protege.webprotege.match.criteria.CompositeRootCriteria;
-import edu.stanford.protege.webprotege.match.criteria.EntityTypeIsOneOfCriteria;
-import edu.stanford.protege.webprotege.match.criteria.MultiMatchType;
+import edu.stanford.protege.webprotege.criteria.CompositeRootCriteria;
+import edu.stanford.protege.webprotege.criteria.EntityTypeIsOneOfCriteria;
+import edu.stanford.protege.webprotege.criteria.MultiMatchType;
 import org.semanticweb.owlapi.model.EntityType;
 
 import javax.annotation.Nonnull;

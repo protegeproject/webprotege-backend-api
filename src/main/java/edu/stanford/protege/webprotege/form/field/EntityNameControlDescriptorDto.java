@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.auto.value.AutoValue;
 import edu.stanford.protege.webprotege.lang.LanguageMap;
-import edu.stanford.protege.webprotege.match.criteria.CompositeRootCriteria;
+import edu.stanford.protege.webprotege.criteria.CompositeRootCriteria;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

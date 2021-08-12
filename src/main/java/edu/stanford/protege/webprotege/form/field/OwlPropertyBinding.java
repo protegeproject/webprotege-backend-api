@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.auto.value.AutoValue;
-import edu.stanford.protege.webprotege.match.criteria.CompositeRelationshipValueCriteria;
+import edu.stanford.protege.webprotege.criteria.CompositeRelationshipValueCriteria;
 import org.semanticweb.owlapi.model.OWLProperty;
 
 import javax.annotation.Nonnull;

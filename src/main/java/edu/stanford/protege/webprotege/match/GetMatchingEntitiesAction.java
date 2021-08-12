@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
-import edu.stanford.protege.webprotege.match.criteria.Criteria;
+import edu.stanford.protege.webprotege.criteria.Criteria;
 import edu.stanford.protege.webprotege.pagination.PageRequest;
 
 /**

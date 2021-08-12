@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.crud;
 
-import edu.stanford.protege.webprotege.match.criteria.CompositeHierarchyPositionCriteria;
+import edu.stanford.protege.webprotege.criteria.CompositeHierarchyPositionCriteria;
 
 /**
  * Matthew Horridge

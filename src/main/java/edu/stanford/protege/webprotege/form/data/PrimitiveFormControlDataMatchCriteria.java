@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.form.data;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
-import edu.stanford.protege.webprotege.match.criteria.Criteria;
+import edu.stanford.protege.webprotege.criteria.Criteria;
 
 import javax.annotation.Nonnull;
 

@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.tag;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.color.Color;
-import edu.stanford.protege.webprotege.match.criteria.RootCriteria;
+import edu.stanford.protege.webprotege.criteria.RootCriteria;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;

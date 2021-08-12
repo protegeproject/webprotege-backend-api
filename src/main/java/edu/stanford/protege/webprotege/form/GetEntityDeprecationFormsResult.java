@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.match.criteria.CompositeRootCriteria;
+import edu.stanford.protege.webprotege.criteria.CompositeRootCriteria;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

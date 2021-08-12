@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.match.criteria.CompositeRootCriteria;
-import edu.stanford.protege.webprotege.match.criteria.MultiMatchType;
-import edu.stanford.protege.webprotege.match.criteria.RootCriteria;
+import edu.stanford.protege.webprotege.criteria.CompositeRootCriteria;
+import edu.stanford.protege.webprotege.criteria.MultiMatchType;
+import edu.stanford.protege.webprotege.criteria.RootCriteria;
 
 import javax.annotation.Nonnull;
 
