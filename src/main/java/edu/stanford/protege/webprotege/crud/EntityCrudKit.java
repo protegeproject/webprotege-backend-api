@@ -1,7 +1,6 @@
 package edu.stanford.protege.webprotege.crud;
 
 
-import edu.stanford.protege.webprotege.HasDisplayName;
 import edu.stanford.protege.webprotege.crud.gen.GeneratedAnnotationsSettings;
 import org.semanticweb.owlapi.model.IRI;
 
@@ -23,7 +22,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *     the display name.
  * </p>
  */
-public abstract class EntityCrudKit<S extends EntityCrudKitSuffixSettings> implements HasDisplayName, Serializable {
+public abstract class EntityCrudKit<S extends EntityCrudKitSuffixSettings> implements Serializable {
 
     private EntityCrudKitId kitId;
 
@@ -58,7 +57,6 @@ public abstract class EntityCrudKit<S extends EntityCrudKitSuffixSettings> imple
      * Gets the human readable display name for this kit.
      * @return The name.  Not {@code null}.
      */
-    @Override
     public String getDisplayName() {
         return displayName;
     }
