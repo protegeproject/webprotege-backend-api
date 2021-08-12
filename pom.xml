@@ -88,6 +88,12 @@
 
         <dependency>
             <groupId>edu.stanford.protege</groupId>
+            <artifactId>webprotege-criteria-api</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>edu.stanford.protege</groupId>
             <artifactId>webprotege-authorization-service-api-java</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
