@@ -1,15 +1,16 @@
 package edu.stanford.protege.webprotege.watches;
 
-import edu.stanford.protege.webprotege.jackson.ObjectMapperProvider;
 import edu.stanford.protege.webprotege.user.UserId;
 import org.junit.Test;
 import org.semanticweb.owlapi.model.EntityType;
 import org.semanticweb.owlapi.model.IRI;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.json.JsonTest;
+import org.springframework.boot.test.json.JacksonTester;
 
 import java.io.IOException;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Matthew Horridge
@@ -18,18 +19,21 @@ import static org.hamcrest.Matchers.is;
  *
  * Test that the Watch documents stored by Morphia can be read by Jackson
  */
+@JsonTest
 public class Watch_JsonDocument_Regression_TestCase {
 
-    
     private final static String document = "{\"_id\" : \"ObjectId(\\\"60a54871daeba784da91904d\\\")\",\"entity\" : {\"type\" : \"Class\",\"iri\" : \"http://the.ontology/ClsA\"},\"projectId\" : \"b6fc02d5-392f-415a-898d-2062010ecf04\",\"userId\" : \"The User\",\"type\" : \"ENTITY\"}\n";
+
+    @Autowired
+    private JacksonTester<Watch> tester;
 
     @Test
     public void shouldDeserializeDocument() throws IOException {
-        var objectMapper = new ObjectMapperProvider().get();
-        var watch = objectMapper.readValue(document, Watch.class);
-        assertThat(watch.getUserId(), is(UserId.getUserId("The User")));
-        assertThat(watch.getEntity().getEntityType(), is(EntityType.CLASS));
-        assertThat(watch.getEntity().getIRI(), is(IRI.create("http://the.ontology/ClsA")));
-        assertThat(watch.getType(), is(WatchType.ENTITY));
+        var parsedWatch = tester.parse(document);
+        var watch = parsedWatch.getObject();
+        assertThat(watch.getUserId()).isEqualTo(UserId.getUserId("The User"));
+        assertThat(watch.getEntity().getEntityType()).isEqualTo(EntityType.CLASS);
+        assertThat(watch.getEntity().getIRI().toString()).isEqualTo("http://the.ontology/ClsA");
+        assertThat(watch.getType()).isEqualTo(WatchType.ENTITY);
     }
 }

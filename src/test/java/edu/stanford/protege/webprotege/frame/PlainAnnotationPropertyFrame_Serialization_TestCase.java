@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.frame;
 
 import com.google.common.collect.ImmutableSet;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,6 +28,6 @@ public class PlainAnnotationPropertyFrame_Serialization_TestCase {
 
     @Test
     public void shouldSerializePlainAnnotationPropertyFrame() throws IOException {
-        JsonSerializationTestUtil.testSerialization(plainAnnotationPropertyFrame, PlainEntityFrame.class);
+        
     }
 }

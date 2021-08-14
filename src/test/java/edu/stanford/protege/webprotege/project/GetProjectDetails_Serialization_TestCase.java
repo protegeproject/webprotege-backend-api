@@ -3,10 +3,9 @@ package edu.stanford.protege.webprotege.project;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.jackson.ObjectMapperProvider;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
-import edu.stanford.protege.webprotege.shortform.DictionaryLanguage;
+import edu.stanford.protege.webprotege.common.DictionaryLanguage;
 import edu.stanford.protege.webprotege.user.UserId;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,8 +45,6 @@ public class GetProjectDetails_Serialization_TestCase {
                                             3L,
                                             UserId.getUserId("The modifier"),
                                             EntityDeprecationSettings.empty());
-        ObjectMapperProvider objectMapperProvider = new ObjectMapperProvider();
-        objectMapper = objectMapperProvider.get();
     }
 
     @Test

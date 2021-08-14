@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.MockingUtils;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
@@ -21,12 +21,12 @@ public class CreateEntityDiscussionThread_Serialization_TestCase {
     public void shouldSerializeAction() throws IOException {
         var action = new CreateEntityDiscussionThreadAction(ProjectId.generate(), MockingUtils.mockOWLClass(),
                                                                "The comment");
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new CreateEntityDiscussionThreadResult(ImmutableList.of());
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+
     }
 }

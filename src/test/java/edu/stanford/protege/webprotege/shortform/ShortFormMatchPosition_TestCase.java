@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.shortform;
 
+import edu.stanford.protege.webprotege.common.ShortFormMatchPosition;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.equalTo;

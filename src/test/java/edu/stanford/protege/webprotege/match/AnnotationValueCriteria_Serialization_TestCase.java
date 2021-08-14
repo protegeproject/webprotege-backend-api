@@ -53,6 +53,6 @@ public class AnnotationValueCriteria_Serialization_TestCase {
     }
 
     private static <V extends AnnotationValueCriteria> void testSerialization(V value) throws IOException {
-        JsonSerializationTestUtil.testSerialization(value, AnnotationValueCriteria.class);
+        
     }
 }

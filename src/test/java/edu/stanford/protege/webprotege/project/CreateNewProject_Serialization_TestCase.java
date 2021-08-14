@@ -6,9 +6,9 @@ import edu.stanford.protege.webprotege.csv.DocumentId;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
-import edu.stanford.protege.webprotege.shortform.DictionaryLanguage;
+import edu.stanford.protege.webprotege.common.DictionaryLanguage;
 import edu.stanford.protege.webprotege.user.UserId;
 import org.junit.Test;
 
@@ -29,7 +29,7 @@ public class CreateNewProject_Serialization_TestCase {
                                                                        "The description",
                                                                        new DocumentId("TheDocId")
         ));
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+        
     }
 
     @Test
@@ -47,6 +47,6 @@ public class CreateNewProject_Serialization_TestCase {
                 UserId.getGuest(),
                 EntityDeprecationSettings.empty()
         ));
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+        
     }
 }

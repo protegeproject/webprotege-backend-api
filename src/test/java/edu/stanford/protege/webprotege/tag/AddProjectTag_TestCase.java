@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.tag;
 import edu.stanford.protege.webprotege.color.Color;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
@@ -24,7 +24,7 @@ public class AddProjectTag_TestCase {
                                                 "TheDescription",
                                                 Color.getWhite(),
                                                 Color.get(240, 230, 50));
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+
     }
 
     @Test
@@ -38,6 +38,6 @@ public class AddProjectTag_TestCase {
                         Color.getWhite(),
                         Collections.emptyList())
         );
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+
     }
 }

@@ -5,7 +5,7 @@ import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.entity.CreateNamedIndividualsAction;
 import edu.stanford.protege.webprotege.entity.CreateNamedIndividualsResult;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
@@ -25,13 +25,13 @@ public class CreateNamedIndividuals_Serialization_TestCase {
         var action = new CreateNamedIndividualsAction(ProjectId.generate(),
                                                          "i\nj",
                                                          "en", of());
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new CreateNamedIndividualsResult(ProjectId.generate(),
                                                          ImmutableSet.of());
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+
     }
 }

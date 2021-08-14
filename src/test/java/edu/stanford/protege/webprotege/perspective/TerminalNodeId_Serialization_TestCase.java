@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.perspective;
 
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,6 +22,6 @@ public class TerminalNodeId_Serialization_TestCase {
 
     @Test
     public void shouldSerializeTerminalNodeId() throws IOException {
-        JsonSerializationTestUtil.testSerialization(nodeId, TerminalNodeId.class);
+        
     }
 }

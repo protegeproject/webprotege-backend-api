@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.perspective;
 
-import edu.stanford.protege.webprotege.lang.LanguageMap;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+import edu.stanford.protege.webprotege.common.LanguageMap;
+
 import org.junit.Test;
 
 import java.io.IOException;
@@ -18,6 +18,6 @@ public class PerspectiveDescriptor_Serialization_TestCase {
         var descriptor = PerspectiveDescriptor.get(
                 PerspectiveId.generate(), LanguageMap.of("en", "Hello"), true
         );
-        JsonSerializationTestUtil.testSerialization(descriptor, PerspectiveDescriptor.class);
+        
     }
 }

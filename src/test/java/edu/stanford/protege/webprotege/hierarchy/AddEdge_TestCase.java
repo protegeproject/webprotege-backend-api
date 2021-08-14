@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
 import edu.stanford.protege.webprotege.MockingUtils;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -42,18 +42,5 @@ public class AddEdge_TestCase<T extends Serializable> {
     public void equalToNullShouldReturnFalse() {
         AddEdge<T> addEdge = new AddEdge<>(edge);
         assertThat(addEdge.equals(null), equalTo(false));
-    }
-
-    @Test
-    public void shouldSerializeAsJson() throws IOException {
-        JsonSerializationTestUtil.testSerialization(
-                new AddEdge<>(
-                        new GraphEdge<>(
-                                new GraphNode<>(MockingUtils.mockOWLClassNode()),
-                                new GraphNode<>(MockingUtils.mockOWLClassNode())
-                        )
-                ),
-                GraphModelChange.class
-        );
     }
 }

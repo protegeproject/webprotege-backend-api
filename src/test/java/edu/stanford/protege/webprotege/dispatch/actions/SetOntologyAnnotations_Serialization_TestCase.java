@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.dispatch.actions;
 
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import edu.stanford.protege.webprotege.ontology.SetOntologyAnnotationsAction;
 import edu.stanford.protege.webprotege.ontology.SetOntologyAnnotationsResult;
 import org.junit.Test;
@@ -26,12 +26,12 @@ public class SetOntologyAnnotations_Serialization_TestCase {
                                                          mockOWLOntologyID(),
                                                          Collections.emptySet(),
                                                          Collections.emptySet());
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+        
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new SetOntologyAnnotationsResult(Collections.emptySet());
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+        
     }
 }

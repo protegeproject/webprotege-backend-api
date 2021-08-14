@@ -7,8 +7,8 @@ import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import edu.stanford.protege.webprotege.entity.EntityNode;
-import edu.stanford.protege.webprotege.shortform.DictionaryLanguage;
-import edu.stanford.protege.webprotege.shortform.ShortForm;
+import edu.stanford.protege.webprotege.common.DictionaryLanguage;
+import edu.stanford.protege.webprotege.common.ShortForm;
 
 import javax.annotation.Nonnull;
 

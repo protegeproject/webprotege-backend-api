@@ -24,6 +24,6 @@ public class AnnotationCriteria_Serialization_TestCase {
     }
 
     private static <V extends AnnotationCriteria> void testSerialization(V value) throws IOException {
-        JsonSerializationTestUtil.testSerialization(value, AnnotationCriteria.class);
+        
     }
 }

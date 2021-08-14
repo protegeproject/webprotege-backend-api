@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.hierarchy;
 
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
@@ -24,12 +24,12 @@ public abstract class GetHierarchyPathsToRoot_Serialization_TestCase {
         var action = new GetHierarchyPathsToRootAction(ProjectId.generate(),
                                                           mockOWLClass(),
                                                           HierarchyId.CLASS_HIERARCHY);
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new GetHierarchyPathsToRootResult(Collections.emptySet());
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+
     }
 }

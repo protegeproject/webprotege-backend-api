@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.merge_add;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import org.junit.Test;
 
 import java.io.IOException;
@@ -24,12 +24,12 @@ public class NewOntologyMergeAdd_Serialization_TestCase {
                                                       mockDocumentId(),
                                                       "Iri",
                                                       ImmutableList.of());
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new NewOntologyMergeAddResult();
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+
     }
 }

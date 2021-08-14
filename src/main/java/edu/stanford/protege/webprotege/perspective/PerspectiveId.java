@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.perspective;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.auto.value.AutoValue;
-import edu.stanford.protege.webprotege.util.UUIDUtil;
+import edu.stanford.protege.webprotege.common.UUIDUtil;
 
 import javax.annotation.Nonnull;
 import java.io.Serializable;

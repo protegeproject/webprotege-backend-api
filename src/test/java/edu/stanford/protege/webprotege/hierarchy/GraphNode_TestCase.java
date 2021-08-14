@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.MockingUtils;
 import edu.stanford.protege.webprotege.entity.EntityNode;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -77,6 +77,6 @@ public class GraphNode_TestCase<T extends Serializable> {
                                                        true, ImmutableSet.of(),
                                                        3,
                                                        ImmutableSet.of()));
-        JsonSerializationTestUtil.testSerialization(graphNode, GraphNode.class);
+        
     }
 }

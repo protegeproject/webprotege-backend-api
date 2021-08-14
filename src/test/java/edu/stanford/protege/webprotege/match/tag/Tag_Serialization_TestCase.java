@@ -2,7 +2,6 @@ package edu.stanford.protege.webprotege.match.tag;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.jackson.ObjectMapperProvider;
 import edu.stanford.protege.webprotege.color.Color;
 import edu.stanford.protege.webprotege.criteria.EntityIsNotDeprecatedCriteria;
 import edu.stanford.protege.webprotege.common.ProjectId;
@@ -11,6 +10,8 @@ import edu.stanford.protege.webprotege.tag.TagId;
 import org.hamcrest.MatcherAssert;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.json.JsonTest;
 
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -22,14 +23,12 @@ import static org.hamcrest.Matchers.is;
  * Stanford Center for Biomedical Informatics Research
  * 21 Jun 2018
  */
+@JsonTest
 public class Tag_Serialization_TestCase {
 
+    @Autowired
     private ObjectMapper objectMapper;
 
-    @Before
-    public void setUp() {
-        objectMapper = new ObjectMapperProvider().get();
-    }
 
     @Test
     public void shouldSerializeTag() throws Exception {

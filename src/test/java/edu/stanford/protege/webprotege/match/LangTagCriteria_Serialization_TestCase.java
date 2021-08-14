@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import static edu.stanford.protege.webprotege.match.JsonSerializationTestUtil.testSerialization;
 
 /**
  * Matthew Horridge
@@ -17,20 +16,5 @@ import static edu.stanford.protege.webprotege.match.JsonSerializationTestUtil.te
  */
 public class LangTagCriteria_Serialization_TestCase {
 
-
-    @Test
-    public void shouldSerialize_AnyLangTagOrEmptyLangTagCriteria() throws IOException {
-        testSerialization(AnyLangTagOrEmptyLangTagCriteria.get(), LangTagCriteria.class);
-    }
-
-    @Test
-    public void shouldSerialize_LangTagIsEmptyCriteria() throws IOException {
-        testSerialization(LangTagIsEmptyCriteria.get(), LangTagCriteria.class);
-    }
-
-    @Test
-    public void shouldSerialize_LangTagMatchesCriteria() throws IOException {
-        testSerialization(LangTagMatchesCriteria.get("*-GB"), LangTagCriteria.class);
-    }
 
 }

@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.issues;
 import edu.stanford.protege.webprotege.MockingUtils;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
@@ -23,12 +23,12 @@ public class EditComment_Serialization_TestCase {
         var action = new EditCommentAction(ProjectId.generate(),
                                                    ThreadId.create(),
                                                    CommentId.create(),
-                                                   "Body"); JsonSerializationTestUtil.testSerialization(action, Action.class);
+                                                   "Body");
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new EditCommentResult(Optional.empty());
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+
     }
 }

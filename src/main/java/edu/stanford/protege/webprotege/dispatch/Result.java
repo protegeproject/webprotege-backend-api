@@ -14,7 +14,6 @@ import edu.stanford.protege.webprotege.change.RevertRevisionResult;
 import edu.stanford.protege.webprotege.crud.GetEntityCrudKitsResult;
 import edu.stanford.protege.webprotege.crud.SetEntityCrudKitSettingsResult;
 import edu.stanford.protege.webprotege.entity.*;
-import edu.stanford.protege.webprotege.forms.*;
 import edu.stanford.protege.webprotege.frame.*;
 import edu.stanford.protege.webprotege.hierarchy.*;
 import edu.stanford.protege.webprotege.individuals.GetIndividualsPageContainingIndividualResult;
@@ -75,20 +74,17 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesResult;
         @Type(AddProjectTagResult.class),
         @Type(CheckManchesterSyntaxFrameResult.class),
         @Type(ComputeProjectMergeResult.class),
-        @Type(CopyFormDescriptorsFromProjectResult.class),
         @Type(CreateAnnotationPropertiesResult.class),
         @Type(CreateClassesResult.class),
         @Type(CreateDataPropertiesResult.class),
         @Type(CreateNamedIndividualsResult.class),
         @Type(CreateObjectPropertiesResult.class),
         @Type(CreateEntityDiscussionThreadResult.class),
-        @Type(CreateEntityFromFormDataResult.class),
         @Type(CreateNewProjectResult.class),
         @Type(LoadProjectResult.class),
         @Type(RebuildPermissionsResult.class),
         @Type(DeleteEntitiesResult.class),
         @Type(DeleteEntityCommentResult.class),
-        @Type(DeleteFormResult.class),
         @Type(EditAnnotationsResult.class),
         @Type(EditCommentResult.class),
         @Type(ExistingOntologyMergeAddResult.class),
@@ -103,12 +99,8 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesResult;
         @Type(GetDataPropertyFrameResult.class),
         @Type(GetDeprecatedEntitiesResult.class),
         @Type(GetEmailAddressResult.class),
-        @Type(GetEntityCreationFormsResult.class),
         @Type(GetEntityCrudKitsResult.class),
-        @Type(GetEntityDeprecationFormsResult.class),
         @Type(GetEntityDiscussionThreadsResult.class),
-        @Type(GetEntityFormDescriptorResult.class),
-        @Type(GetEntityFormsResult.class),
         @Type(GetEntityGraphResult.class),
         @Type(GetEntityRenderingResult.class),
         @Type(GetEntityTagsResult.class),
@@ -140,7 +132,6 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesResult;
         @Type(GetPerspectivesResult.class),
         @Type(GetProjectChangesResult.class),
         @Type(GetProjectDetailsResult.class),
-        @Type(GetProjectFormDescriptorsResult.class),
         @Type(GetProjectInfoResult.class),
         @Type(GetPerspectiveLayoutResult.class),
         @Type(GetProjectPermissionsResult.class),
@@ -178,8 +169,6 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesResult;
         @Type(SetDiscussionThreadStatusResult.class),
         @Type(SetEmailAddressResult.class),
         @Type(SetEntityCrudKitSettingsResult.class),
-        @Type(SetEntityFormDescriptorResult.class),
-        @Type(SetEntityFormDataResult.class),
         @Type(SetEntityGraphActiveFiltersResult.class),
         @Type(SetEntityWatchesResult.class),
         @Type(SetManchesterSyntaxFrameResult.class),
@@ -191,7 +180,6 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesResult;
         @Type(SetOboTermXRefsResult.class),
         @Type(SetOntologyAnnotationsResult.class),
         @Type(SetPerspectiveLayoutResult.class),
-        @Type(SetProjectFormDescriptorsResult.class),
         @Type(SetProjectPrefixDeclarationsResult.class),
         @Type(SetProjectSettingsResult.class),
         @Type(SetProjectSharingSettingsResult.class),
@@ -199,7 +187,6 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesResult;
         @Type(SetSearchSettingsResult.class),
         @Type(SetUserProjectEntityGraphSettingsResult.class),
         @Type(UpdateEntityTagsResult.class),
-        @Type(UpdateFormDescriptorResult.class),
 })
 public interface Result {
 

@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.change;
 
-import edu.stanford.protege.webprotege.pagination.Page;
+import edu.stanford.protege.webprotege.common.Page;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

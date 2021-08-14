@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.viz;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import org.junit.Test;
 
 import java.io.IOException;
@@ -21,7 +21,7 @@ public class GetUserProjectEntityGraphCriteria_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetUserProjectEntityGraphCriteriaAction(mockProjectId());
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+        
     }
 
     @Test
@@ -29,6 +29,6 @@ public class GetUserProjectEntityGraphCriteria_Serialization_TestCase {
         var result = new GetUserProjectEntityGraphCriteriaResult(mockProjectId(),
                                                                     mockUserId(),
                                                                     EntityGraphSettings.get(ImmutableList.of(), 22));
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+        
     }
 }

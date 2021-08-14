@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.search;
 
-import edu.stanford.protege.webprotege.lang.LanguageMap;
+import edu.stanford.protege.webprotege.common.LanguageMap;
 import edu.stanford.protege.webprotege.criteria.EntityMatchCriteria;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;

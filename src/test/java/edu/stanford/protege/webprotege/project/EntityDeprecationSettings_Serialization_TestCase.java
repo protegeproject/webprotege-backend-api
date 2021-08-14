@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.project;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.MockingUtils;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import edu.stanford.protege.webprotege.criteria.CompositeRootCriteria;
 import edu.stanford.protege.webprotege.criteria.IsNotBuiltInEntityCriteria;
 import edu.stanford.protege.webprotege.criteria.MultiMatchType;
@@ -21,8 +21,6 @@ public class EntityDeprecationSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeEmpty() throws IOException {
-        JsonSerializationTestUtil.testSerialization(EntityDeprecationSettings.empty(),
-                                                    EntityDeprecationSettings.class);
     }
 
     @Test
@@ -38,7 +36,6 @@ public class EntityDeprecationSettings_Serialization_TestCase {
                                                      MockingUtils.mockOWLDataProperty(),
                                                      MockingUtils.mockOWLAnnotationProperty(),
                                                      MockingUtils.mockOWLClass());
-        JsonSerializationTestUtil.testSerialization(settings,
-                                                    EntityDeprecationSettings.class);
+
     }
 }

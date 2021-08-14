@@ -36,7 +36,7 @@ public abstract class RelationshipTranslationOptions {
     @Nonnull
     public static RelationshipCriteria allOutgoingRelationships() {
         return RelationshipCriteria.get(AnyRelationshipPropertyCriteria.get(),
-                   AnyRelationshipValueCriteria.get());
+                                        AnyRelationshipValueCriteria.get());
     }
 
     @Nullable

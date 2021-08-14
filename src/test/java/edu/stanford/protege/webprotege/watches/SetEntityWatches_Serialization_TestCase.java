@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.watches;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import org.junit.Test;
 
 import java.io.IOException;
@@ -27,12 +27,12 @@ public class SetEntityWatches_Serialization_TestCase {
                                      mockOWLClass(),
                                      WatchType.ENTITY)
                 ));
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+        
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new SetEntityWatchesResult();
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+        
     }
 }

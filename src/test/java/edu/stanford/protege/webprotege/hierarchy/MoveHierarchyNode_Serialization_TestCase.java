@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.hierarchy;
 
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import org.junit.Test;
 
 import java.io.IOException;
@@ -23,12 +23,12 @@ public class MoveHierarchyNode_Serialization_TestCase {
                                                     HierarchyId.CLASS_HIERARCHY, Path.asPath(mockOWLClassNode()),
                                                     Path.emptyPath(),
                                                     DropType.ADD);
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+        
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new MoveHierarchyNodeResult(true);
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+        
     }
 }

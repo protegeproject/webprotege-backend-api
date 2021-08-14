@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.merge;
 
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import org.junit.Test;
 
 import java.io.IOException;
@@ -22,12 +22,12 @@ public class MergeUploadedProject_Serialization_TestCase {
         var action = new MergeUploadedProjectAction(mockProjectId(),
                                                        mockDocumentId(),
                                                        "Test");
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+        
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new MergeUploadedProjectResult();
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+        
     }
 }

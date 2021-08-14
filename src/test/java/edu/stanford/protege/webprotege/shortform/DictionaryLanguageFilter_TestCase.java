@@ -1,14 +1,16 @@
 package edu.stanford.protege.webprotege.shortform;
 
-import edu.stanford.protege.webprotege.lang.LangTagFilter;
+import edu.stanford.protege.webprotege.common.DictionaryLanguage;
+import edu.stanford.protege.webprotege.common.DictionaryLanguageFilter;
+import edu.stanford.protege.webprotege.common.LangTagFilter;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static edu.stanford.protege.webprotege.shortform.DictionaryLanguageFilter.EmptyLangTagTreatment.EXCLUDE_EMPTY_LANG_TAGS;
-import static edu.stanford.protege.webprotege.shortform.DictionaryLanguageFilter.EmptyLangTagTreatment.INCLUDE_EMPTY_LANG_TAGS;
+import static edu.stanford.protege.webprotege.common.DictionaryLanguageFilter.EmptyLangTagTreatment.EXCLUDE_EMPTY_LANG_TAGS;
+import static edu.stanford.protege.webprotege.common.DictionaryLanguageFilter.EmptyLangTagTreatment.INCLUDE_EMPTY_LANG_TAGS;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;

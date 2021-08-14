@@ -3,7 +3,7 @@ import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.MockingUtils;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
@@ -22,12 +22,12 @@ public class DeleteEntities_Serialization_TestCase {
     public void shouldSerializeAction() throws IOException {
         var action = new DeleteEntitiesAction(ProjectId.generate(),
                                               ImmutableSet.of());
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+        
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new DeleteEntitiesResult(ImmutableSet.of());
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+        
     }
 }

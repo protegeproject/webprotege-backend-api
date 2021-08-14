@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.frame;
 
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import org.junit.Test;
 
 import java.io.IOException;
@@ -34,6 +34,6 @@ public class UpdateAnnotationPropertyFrame_Serialization_TestCase {
                         ImmutableSet.of()
                 )
         );
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+        
     }
 }

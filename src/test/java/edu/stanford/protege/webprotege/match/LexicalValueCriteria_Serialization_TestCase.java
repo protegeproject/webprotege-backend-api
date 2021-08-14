@@ -155,6 +155,6 @@ public class LexicalValueCriteria_Serialization_TestCase {
     }
 
     private static <V extends LexicalValueCriteria> void testSerialization(V value) throws IOException {
-        JsonSerializationTestUtil.testSerialization(value, AnnotationValueCriteria.class);
+        
     }
 }

@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.frame;
 
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,6 +21,6 @@ public class PropertyClassValue_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAndDeserializePropertyValue() throws IOException {
-        JsonSerializationTestUtil.testSerialization(propertyValue, PlainPropertyValue.class);
+        
     }
 }

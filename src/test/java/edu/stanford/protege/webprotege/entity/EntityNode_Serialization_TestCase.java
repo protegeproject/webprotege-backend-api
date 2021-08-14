@@ -4,8 +4,8 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.color.Color;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
-import edu.stanford.protege.webprotege.shortform.DictionaryLanguage;
+
+import edu.stanford.protege.webprotege.common.DictionaryLanguage;
 import edu.stanford.protege.webprotege.tag.Tag;
 import edu.stanford.protege.webprotege.tag.TagId;
 import edu.stanford.protege.webprotege.watches.Watch;
@@ -37,6 +37,6 @@ public class EntityNode_Serialization_TestCase {
                                                "The tag description",
                                                Color.getWhite(),
                                                Color.getWhite(), ImmutableList.of())));
-        JsonSerializationTestUtil.testSerialization(entityNode, EntityNode.class);
+
     }
 }

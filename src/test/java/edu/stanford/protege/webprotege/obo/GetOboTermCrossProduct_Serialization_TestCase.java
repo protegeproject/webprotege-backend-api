@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.obo;
 
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import org.junit.Test;
 
 import java.io.IOException;
@@ -23,7 +23,7 @@ public class GetOboTermCrossProduct_Serialization_TestCase {
     public void shouldSerializeAction() throws IOException {
         var action = new GetOboTermCrossProductAction(mockProjectId(),
                                                          mockOWLClass());
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+        
     }
 
     @Test
@@ -31,6 +31,6 @@ public class GetOboTermCrossProduct_Serialization_TestCase {
         var result = new GetOboTermCrossProductResult(new OBOTermCrossProduct(Optional.empty(),
                                                                                  new OBOTermRelationships(Collections.emptySet())
         ));
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+        
     }
 }

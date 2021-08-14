@@ -1,5 +1,4 @@
 package edu.stanford.protege.webprotege.entity;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,9 +6,9 @@ import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import edu.stanford.protege.webprotege.shortform.DictionaryLanguage;
-import edu.stanford.protege.webprotege.shortform.DictionaryLanguageData;
-import edu.stanford.protege.webprotege.shortform.ShortForm;
+import edu.stanford.protege.webprotege.common.DictionaryLanguage;
+import edu.stanford.protege.webprotege.common.DictionaryLanguageData;
+import edu.stanford.protege.webprotege.common.ShortForm;
 import edu.stanford.protege.webprotege.tag.Tag;
 import edu.stanford.protege.webprotege.watches.Watch;
 import org.semanticweb.owlapi.model.OWLEntity;
@@ -62,8 +61,8 @@ public abstract class EntityNode implements  Serializable, Comparable<EntityNode
                                  @JsonProperty("openCommentCount") int openCommentCount,
                                  @JsonProperty("tags") Collection<Tag> tags) {
         ImmutableMap<DictionaryLanguage, String> map = shortForms.stream()
-                                                        .collect(toImmutableMap(ShortForm::getDictionaryLanguage,
-                                                                                ShortForm::getShortForm));
+                                                                 .collect(toImmutableMap(ShortForm::getDictionaryLanguage,
+                                                                                         ShortForm::getShortForm));
 
         return get(entity,
                    browserText,
@@ -132,9 +131,9 @@ public abstract class EntityNode implements  Serializable, Comparable<EntityNode
     @JsonProperty("shortForms")
     public ImmutableList<ShortForm> getShortFormsList() {
         return getShortForms().entrySet()
-                       .stream()
-                       .map(entry -> ShortForm.get(entry.getKey(), entry.getValue()))
-                       .collect(ImmutableList.toImmutableList());
+                              .stream()
+                              .map(entry -> ShortForm.get(entry.getKey(), entry.getValue()))
+                              .collect(ImmutableList.toImmutableList());
     }
 
     @Override

@@ -3,9 +3,9 @@ package edu.stanford.protege.webprotege.project;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
+
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
-import edu.stanford.protege.webprotege.shortform.DictionaryLanguage;
+import edu.stanford.protege.webprotege.common.DictionaryLanguage;
 import edu.stanford.protege.webprotege.user.UserId;
 import org.junit.Test;
 
@@ -45,6 +45,6 @@ public class AvailableProject_Serialization_TestCase {
                                                     true,
                                                     true,
                                                     4L);
-        JsonSerializationTestUtil.testSerialization(availableProject, AvailableProject.class);
+        
     }
 }

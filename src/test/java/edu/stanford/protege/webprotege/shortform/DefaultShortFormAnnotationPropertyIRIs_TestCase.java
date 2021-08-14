@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.shortform;
 
 import com.google.common.collect.ImmutableList;
+import edu.stanford.protege.webprotege.common.DefaultShortFormAnnotationPropertyIRIs;
 import org.junit.Before;
 import org.junit.Test;
 import org.semanticweb.owlapi.model.IRI;

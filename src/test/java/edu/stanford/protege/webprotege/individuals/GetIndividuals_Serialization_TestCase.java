@@ -2,10 +2,10 @@ package edu.stanford.protege.webprotege.individuals;
 
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.match.JsonSerializationTestUtil;
-import edu.stanford.protege.webprotege.pagination.Page;
+
+import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.pagination.PageRequest;
+import edu.stanford.protege.webprotege.common.PageRequest;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -25,13 +25,13 @@ public class GetIndividuals_Serialization_TestCase {
                                               PageRequest.requestFirstPage(),
                                               "Hello",
                                               InstanceRetrievalMode.ALL_INSTANCES);
-        JsonSerializationTestUtil.testSerialization(action, Action.class);
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new GetIndividualsResult(Optional.empty(),
                                                  Page.emptyPage());
-        JsonSerializationTestUtil.testSerialization(result, Result.class);
+
     }
 }
