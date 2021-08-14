@@ -2,7 +2,7 @@
 package edu.stanford.protege.webprotege.itemlist;
 
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.user.UserId;
+import edu.stanford.protege.webprotege.common.UserId;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Before;

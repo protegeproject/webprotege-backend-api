@@ -5,7 +5,7 @@ import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.user.UserId;
+import edu.stanford.protege.webprotege.common.UserId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -34,7 +34,7 @@ public class AddEntityComment_TestCase {
     public void shouldSerializeResult() throws IOException {
         var result = new AddEntityCommentResult(projectId,
                                                    threadId,
-                                                   new Comment(CommentId.create(), UserId.getUserId("TheUser"),
+                                                   new Comment(CommentId.create(), UserId.valueOf("TheUser"),
                                                                1000, Optional.empty(),
                                                                THE_COMMENT,
                                                                THE_COMMENT),

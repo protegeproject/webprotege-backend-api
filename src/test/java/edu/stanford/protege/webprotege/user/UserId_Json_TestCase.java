@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.stanford.protege.webprotege.common.UserId;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,7 +21,7 @@ public class UserId_Json_TestCase {
 
     @Before
     public void setUp() throws Exception {
-        userId = UserId.getUserId(THE_USER_NAME);
+        userId = UserId.valueOf(THE_USER_NAME);
     }
 
     @Test

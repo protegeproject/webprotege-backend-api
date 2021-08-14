@@ -6,7 +6,7 @@ import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
 import edu.stanford.protege.webprotege.common.DictionaryLanguage;
-import edu.stanford.protege.webprotege.user.UserId;
+import edu.stanford.protege.webprotege.common.UserId;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,7 +33,7 @@ public class GetProjectDetails_Serialization_TestCase {
         projectDetails = ProjectDetails.get(ProjectId.valueOf("12345678-1234-1234-1234-123456789abc"),
                                             "The display name",
                                             "The description",
-                                            UserId.getUserId("The Owner"),
+                                            UserId.valueOf("The Owner"),
                                             true,
                                             DictionaryLanguage.rdfsLabel("en-GB"),
                                             DisplayNameSettings.get(ImmutableList.of(DictionaryLanguage.rdfsLabel("en-GB"),
@@ -41,9 +41,9 @@ public class GetProjectDetails_Serialization_TestCase {
                                                                                      DictionaryLanguage.rdfsLabel("")),
                                                                     ImmutableList.of(DictionaryLanguage.rdfsLabel("de"))),
                                             2L,
-                                            UserId.getUserId("The creator"),
+                                            UserId.valueOf("The creator"),
                                             3L,
-                                            UserId.getUserId("The modifier"),
+                                            UserId.valueOf("The modifier"),
                                             EntityDeprecationSettings.empty());
     }
 

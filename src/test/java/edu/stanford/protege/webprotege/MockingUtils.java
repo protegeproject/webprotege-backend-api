@@ -7,7 +7,7 @@ import edu.stanford.protege.webprotege.csv.DocumentId;
 import edu.stanford.protege.webprotege.event.EventTag;
 import edu.stanford.protege.webprotege.event.WebProtegeEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.user.UserId;
+import edu.stanford.protege.webprotege.common.UserId;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.vocab.XSDVocabulary;
 import uk.ac.manchester.cs.owl.owlapi.*;
@@ -97,7 +97,7 @@ public class MockingUtils {
     }
 
     public static UserId mockUserId() {
-        return UserId.getUserId("User" + nextInt());
+        return UserId.valueOf("User" + nextInt());
     }
 
     public static OWLClassData mockOWLClassData() {

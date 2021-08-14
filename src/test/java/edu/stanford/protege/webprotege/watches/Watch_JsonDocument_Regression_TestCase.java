@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.watches;
 
-import edu.stanford.protege.webprotege.user.UserId;
+import edu.stanford.protege.webprotege.common.UserId;
 import org.junit.Test;
 import org.semanticweb.owlapi.model.EntityType;
 import org.semanticweb.owlapi.model.IRI;
@@ -31,7 +31,7 @@ public class Watch_JsonDocument_Regression_TestCase {
     public void shouldDeserializeDocument() throws IOException {
         var parsedWatch = tester.parse(document);
         var watch = parsedWatch.getObject();
-        assertThat(watch.getUserId()).isEqualTo(UserId.getUserId("The User"));
+        assertThat(watch.getUserId()).isEqualTo(UserId.valueOf("The User"));
         assertThat(watch.getEntity().getEntityType()).isEqualTo(EntityType.CLASS);
         assertThat(watch.getEntity().getIRI().toString()).isEqualTo("http://the.ontology/ClsA");
         assertThat(watch.getType()).isEqualTo(WatchType.ENTITY);

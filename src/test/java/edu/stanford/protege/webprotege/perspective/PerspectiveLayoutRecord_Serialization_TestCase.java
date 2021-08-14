@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.perspective;
 
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.user.UserId;
+import edu.stanford.protege.webprotege.common.UserId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class PerspectiveLayoutRecord_Serialization_TestCase {
 
     @Test
     public void shouldSerializeRecordWithUserId() throws IOException {
-        var record = PerspectiveLayoutRecord.get(ProjectId.generate(), UserId.getUserId("Matthew"), PerspectiveId.generate(), null);
+        var record = PerspectiveLayoutRecord.get(ProjectId.generate(), UserId.valueOf("Matthew"), PerspectiveId.generate(), null);
 
     }
 }

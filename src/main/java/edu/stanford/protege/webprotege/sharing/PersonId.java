@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.auto.value.AutoValue;
 import edu.stanford.protege.webprotege.common.ValueObject;
-import edu.stanford.protege.webprotege.user.UserId;
+import edu.stanford.protege.webprotege.common.UserId;
 
 import javax.annotation.Nonnull;
 import java.io.Serializable;
@@ -32,7 +32,7 @@ public abstract class PersonId implements Serializable, Comparable<PersonId>, Va
 
     @Nonnull
     public static PersonId of(UserId userId) {
-        return get(userId.getUserName());
+        return get(userId.id());
     }
 
     @JsonValue
