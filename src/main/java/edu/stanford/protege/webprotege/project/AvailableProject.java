@@ -30,7 +30,7 @@ import java.util.Comparator;
         "downloadable"})
 @AutoValue
 
-public abstract class AvailableProject implements  HasProjectId, Comparable<AvailableProject> {
+public abstract class AvailableProject implements HasProjectId, Comparable<AvailableProject> {
 
     public static final long UNKNOWN = 0;
 
