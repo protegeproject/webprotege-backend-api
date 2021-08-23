@@ -26,18 +26,15 @@ public class ProjectDetailsTestCase {
 
     private ProjectId projectId = ProjectId.generate();
 
-    @Mock
-    private UserId owner;
+    private UserId owner = new UserId("UserX");
 
     private final long createdAt = 22L;
 
-    @Mock
-    private UserId createdBy;
+    private UserId createdBy = new UserId("UserA");
 
     private final long modifiedAt = 33L;
 
-    @Mock
-    private UserId modifiedBy;
+    private UserId modifiedBy = new UserId("UserY");
 
 
     private String displayName;

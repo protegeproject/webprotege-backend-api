@@ -16,13 +16,11 @@ public class IssueAssigned_TestCase {
 
     private IssueAssigned issueAssigned;
 
-    @Mock
-    private UserId userId;
+    private UserId userId = new UserId("UserA");
 
     private final long timestamp = 1L;
 
-    @Mock
-    private UserId assignee;
+    private UserId assignee = new UserId("UserB");
 
     @Before
     public void setUp() {
@@ -61,7 +59,7 @@ public class IssueAssigned_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        MatcherAssert.assertThat(issueAssigned, Matchers.is(Matchers.not(new IssueAssigned(Mockito.mock(UserId.class), timestamp, assignee))));
+        MatcherAssert.assertThat(issueAssigned, Matchers.is(Matchers.not(new IssueAssigned(new UserId("OtherUser"), timestamp, assignee))));
     }
 
     @Test
@@ -71,7 +69,7 @@ public class IssueAssigned_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_assignee() {
-        MatcherAssert.assertThat(issueAssigned, Matchers.is(Matchers.not(new IssueAssigned(userId, timestamp, Mockito.mock(UserId.class)))));
+        MatcherAssert.assertThat(issueAssigned, Matchers.is(Matchers.not(new IssueAssigned(userId, timestamp, new UserId("OtherUser")))));
     }
 
     @Test

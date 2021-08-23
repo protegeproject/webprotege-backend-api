@@ -16,8 +16,7 @@ import static org.mockito.Mockito.mock;
 public class IssueUnlabelled_TestCase {
 
     private IssueUnlabelled issueUnlabelled;
-    @Mock
-    private UserId userId;
+    private UserId userId = new UserId("UserA");
     private final long timestamp = 1L;
     private final String label = "The label";
 
@@ -72,7 +71,7 @@ public class IssueUnlabelled_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        assertThat(issueUnlabelled, is(not(new IssueUnlabelled(mock(UserId.class), timestamp, label))));
+        assertThat(issueUnlabelled, is(not(new IssueUnlabelled(new UserId("OtherUser"), timestamp, label))));
     }
 
     @Test

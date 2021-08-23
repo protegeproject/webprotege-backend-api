@@ -15,8 +15,7 @@ public class IssueClosed_TestCase {
 
     private IssueClosed issueClosed;
 
-    @Mock
-    private UserId userId;
+    private UserId userId = new UserId("UserA");
 
     private final long timestamp = 1L;
 
@@ -47,7 +46,7 @@ public class IssueClosed_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        MatcherAssert.assertThat(issueClosed, Matchers.is(Matchers.not(new IssueClosed(Mockito.mock(UserId.class), timestamp))));
+        MatcherAssert.assertThat(issueClosed, Matchers.is(Matchers.not(new IssueClosed(new UserId("OtherUser"), timestamp))));
     }
 
     @Test

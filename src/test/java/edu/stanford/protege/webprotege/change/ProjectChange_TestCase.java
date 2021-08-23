@@ -34,8 +34,7 @@ public class ProjectChange_TestCase {
     @Mock
     private RevisionNumber revisionNumber;
 
-    @Mock
-    private UserId userId;
+    private UserId userId = new UserId("UserA");
 
     private final int changeCount = 3;
 

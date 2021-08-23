@@ -16,8 +16,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class IssueDemilestoned_TestCase {
 
     private IssueDemilestoned issueDemilestoned;
-    @Mock
-    private UserId userId;
+    private UserId userId = new UserId("UserA");
     private final long timestamp = 1L;
     @Mock
     private Milestone milestone;
@@ -59,7 +58,7 @@ public class IssueDemilestoned_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        MatcherAssert.assertThat(issueDemilestoned, Matchers.is(Matchers.not(new IssueDemilestoned(Mockito.mock(UserId.class), timestamp, milestone))));
+        MatcherAssert.assertThat(issueDemilestoned, Matchers.is(Matchers.not(new IssueDemilestoned(new UserId("OtherUser"), timestamp, milestone))));
     }
 
     @Test

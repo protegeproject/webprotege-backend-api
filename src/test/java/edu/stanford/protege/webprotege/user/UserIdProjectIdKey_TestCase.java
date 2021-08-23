@@ -18,8 +18,7 @@ import static org.mockito.Mockito.mock;
 public class UserIdProjectIdKey_TestCase {
 
     private UserIdProjectIdKey userIdProjectIdKey;
-    @Mock
-    private UserId userId;
+    private UserId userId = new UserId("UserA");
     private ProjectId projectId = ProjectId.generate();
 
     @Before
@@ -66,7 +65,7 @@ public class UserIdProjectIdKey_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        assertThat(userIdProjectIdKey, is(Matchers.not(new UserIdProjectIdKey(mock(UserId.class), projectId))));
+        assertThat(userIdProjectIdKey, is(Matchers.not(new UserIdProjectIdKey(new UserId("OtherUser"), projectId))));
     }
 
     @Test

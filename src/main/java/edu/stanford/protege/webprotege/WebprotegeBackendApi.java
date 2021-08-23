@@ -7,15 +7,9 @@ import org.springframework.context.annotation.Bean;
 import uk.ac.manchester.cs.owl.owlapi.OWLDataFactoryImpl;
 
 @SpringBootApplication
-public class WebprotegeBackendMonolithApplication {
+public class WebprotegeBackendApi {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WebprotegeBackendMonolithApplication.class, args);
+		SpringApplication.run(WebprotegeBackendApi.class, args);
 	}
-
-	@Bean
-	public OWLDataFactory dataFactory() {
-		return new OWLDataFactoryImpl();
-	}
-
 }

@@ -21,8 +21,7 @@ public class Comment_TestCase {
     private Comment comment;
     @Mock
     private CommentId id;
-    @Mock
-    private UserId createdBy;
+    private UserId createdBy = new UserId("UserA");
     private final long createdAt = 1L;
     private final Optional updatedAt = Optional.of(33L);
     private final String body = "The body";
@@ -118,7 +117,7 @@ public class Comment_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_createdBy() {
-        assertThat(comment, is(not(new Comment(id, Mockito.mock(UserId.class), createdAt, updatedAt, body, renderedBody))));
+        assertThat(comment, is(not(new Comment(id, new UserId("OtherUser"), createdAt, updatedAt, body, renderedBody))));
     }
 
     @Test

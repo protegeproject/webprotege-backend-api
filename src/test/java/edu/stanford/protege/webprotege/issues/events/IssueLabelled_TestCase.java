@@ -17,8 +17,7 @@ public class IssueLabelled_TestCase {
 
     private IssueLabelled issueLabelled;
 
-    @Mock
-    private UserId userId;
+    private UserId userId = new UserId("UserA");
 
     private final long timestamp = 1L;
 
@@ -61,7 +60,7 @@ public class IssueLabelled_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        assertThat(issueLabelled, is(not(new IssueLabelled(mock(UserId.class), timestamp, label))));
+        assertThat(issueLabelled, is(not(new IssueLabelled(new UserId("OtherUser"), timestamp, label))));
     }
 
     @Test

@@ -18,8 +18,7 @@ public class GetUserIdCompletionsResult_TestCase {
 
     private GetUserIdCompletionsResult result;
 
-    @Mock
-    private UserId userId;
+    private UserId userId = new UserId("UserA");
 
     private ImmutableList<UserId> possibleItemCompletions;
 
@@ -54,7 +53,7 @@ public class GetUserIdCompletionsResult_TestCase {
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_possibleItemCompletions() {
         MatcherAssert.assertThat(result, Matchers.is(Matchers.not(new GetUserIdCompletionsResult(ImmutableList.of(
-                mock(UserId.class))))));
+                new UserId("OtherUser"))))));
     }
 
     @Test

@@ -18,8 +18,7 @@ public class LoadProjectResult_TestCase {
 
     private ProjectId projectId = ProjectId.generate();
 
-    @Mock
-    private UserId loadedBy;
+    private UserId loadedBy = new UserId("UserA");
 
     @Mock
     private ProjectDetails projectDetails;
@@ -83,7 +82,7 @@ public class LoadProjectResult_TestCase {
     public void shouldNotBeEqualToOtherThatHasDifferent_loadedBy() {
         MatcherAssert.assertThat(loadProjectResult,
                                  Matchers.is(Matchers.not(new LoadProjectResult(projectId,
-                                                                                Mockito.mock(UserId.class),
+                                                                                new UserId("OtherUser"),
                                                                                 projectDetails))));
     }
 

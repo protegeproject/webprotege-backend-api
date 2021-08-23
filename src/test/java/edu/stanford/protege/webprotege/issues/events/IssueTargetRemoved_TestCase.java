@@ -18,8 +18,7 @@ public class IssueTargetRemoved_TestCase {
 
     private IssueTargetRemoved issueTargetRemoved;
 
-    @Mock
-    private UserId userId;
+    private UserId userId = new UserId("UserA");
 
     private final long timestamp = 1L;
 
@@ -78,7 +77,7 @@ public class IssueTargetRemoved_TestCase {
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
         assertThat(issueTargetRemoved,
-                   is(not(new IssueTargetRemoved(Mockito.mock(UserId.class), timestamp, entity))));
+                   is(not(new IssueTargetRemoved(new UserId("OtherUser"), timestamp, entity))));
     }
 
     @Test

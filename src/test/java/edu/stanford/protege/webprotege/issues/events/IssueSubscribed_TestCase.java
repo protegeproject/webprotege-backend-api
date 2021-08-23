@@ -17,13 +17,11 @@ public class IssueSubscribed_TestCase {
 
     private IssueSubscribed issueSubscribed;
 
-    @Mock
-    private UserId userId;
+    private UserId userId = new UserId("UserA");
 
     private final long timestamp = 1L;
 
-    @Mock
-    private UserId subscriber;
+    private UserId subscriber = new UserId("UserB");
 
     @Before
     public void setUp() {
@@ -75,7 +73,7 @@ public class IssueSubscribed_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        assertThat(issueSubscribed, is(not(new IssueSubscribed(Mockito.mock(UserId.class), timestamp, subscriber))));
+        assertThat(issueSubscribed, is(not(new IssueSubscribed(new UserId("OtherUser"), timestamp, subscriber))));
     }
 
     @Test
@@ -85,7 +83,7 @@ public class IssueSubscribed_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_subscriber() {
-        assertThat(issueSubscribed, is(not(new IssueSubscribed(userId, timestamp, Mockito.mock(UserId.class)))));
+        assertThat(issueSubscribed, is(not(new IssueSubscribed(userId, timestamp, new UserId("OtherUser")))));
     }
 
     @Test

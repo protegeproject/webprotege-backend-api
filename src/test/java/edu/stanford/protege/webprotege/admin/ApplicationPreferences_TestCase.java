@@ -380,7 +380,7 @@ public class ApplicationPreferences_TestCase {
                                                   systemNotificationEmailAddress,
                                                   applicationLocation,
                                                   accountCreationSetting,
-                                                  Collections.singletonList(mock(UserId.class)),
+                                                  Collections.singletonList(new UserId("UserC")),
                                                   projectCreationSetting,
                                                   projectCreators,
                                                   projectUploadSetting,
@@ -414,7 +414,7 @@ public class ApplicationPreferences_TestCase {
                                                   accountCreationSetting,
                                                   accountCreators,
                                                   projectCreationSetting,
-                                                  Collections.singletonList(mock(UserId.class)),
+                                                  Collections.singletonList(new UserId("UserB")),
                                                   projectUploadSetting,
                                                   projectUploaders,
                                                   notificationEmailsSetting,
@@ -448,7 +448,7 @@ public class ApplicationPreferences_TestCase {
                                                   projectCreationSetting,
                                                   projectCreators,
                                                   projectUploadSetting,
-                                                  Collections.singletonList(mock(UserId.class)),
+                                                  Collections.singletonList(new UserId("UserD")),
                                                   notificationEmailsSetting,
                                                   maxUploadSize))));
     }

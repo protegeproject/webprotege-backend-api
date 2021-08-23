@@ -3,14 +3,17 @@ package edu.stanford.protege.webprotege.project;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.jackson.WebprotegeOwlApiJacksonApplication;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
 import edu.stanford.protege.webprotege.common.DictionaryLanguage;
 import edu.stanford.protege.webprotege.common.UserId;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 
 import javax.annotation.Nonnull;
 import java.io.IOException;
@@ -24,7 +27,8 @@ import static org.hamcrest.Matchers.is;
  * Stanford Center for Biomedical Informatics Research
  * 18 Jul 2018
  */
-@JsonTest
+@SpringBootTest
+@Import(WebprotegeOwlApiJacksonApplication.class)
 public class ProjectDetails_Serialization_TestCase {
 
     private ProjectDetails projectDetails;
@@ -32,7 +36,7 @@ public class ProjectDetails_Serialization_TestCase {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         projectDetails = ProjectDetails.get(ProjectId.valueOf("12345678-1234-1234-1234-123456789abc"),
                                             "The display name",

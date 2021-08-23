@@ -17,13 +17,11 @@ public class IssueUnassigned_TestCase {
 
     private IssueUnassigned issueUnassigned;
 
-    @Mock
-    private UserId userId;
+    private UserId userId = new UserId("UserA");
 
     private final long timestamp = 1L;
 
-    @Mock
-    private UserId assignee;
+    private UserId assignee = new UserId("UserB");
 
     @Before
     public void setUp() {
@@ -75,7 +73,7 @@ public class IssueUnassigned_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        assertThat(issueUnassigned, is(not(new IssueUnassigned(mock(UserId.class), timestamp, assignee))));
+        assertThat(issueUnassigned, is(not(new IssueUnassigned(new UserId("OtherUser"), timestamp, assignee))));
     }
 
     @Test
@@ -85,7 +83,7 @@ public class IssueUnassigned_TestCase {
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_assignee() {
-        assertThat(issueUnassigned, is(not(new IssueUnassigned(userId, timestamp, mock(UserId.class)))));
+        assertThat(issueUnassigned, is(not(new IssueUnassigned(userId, timestamp, new UserId("OtherUser")))));
     }
 
     @Test

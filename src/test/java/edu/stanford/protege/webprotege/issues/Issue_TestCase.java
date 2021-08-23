@@ -34,8 +34,7 @@ public class Issue_TestCase {
 
     private final int number = 1;
 
-    @Mock
-    private UserId creator;
+    private UserId creator = new UserId("UserA");
 
     private final long createdAt = 1L;
 
@@ -51,7 +50,7 @@ public class Issue_TestCase {
 
     private final LockSetting lockSetting = LockSetting.UNLOCKED;
 
-    private final ImmutableList<UserId> assignees = ImmutableList.of(mock(UserId.class));
+    private final ImmutableList<UserId> assignees = ImmutableList.of(new UserId("OtherUser"));
 
     private final Optional<Milestone> milestone = Optional.of(mock(Milestone.class));
 
@@ -65,7 +64,7 @@ public class Issue_TestCase {
     private final ImmutableList<Mention> mentions = ImmutableList.of(mock(Mention.class));
 
     @Mock
-    private final ImmutableList<UserId> participants = ImmutableList.of(mock(UserId.class));
+    private final ImmutableList<UserId> participants = ImmutableList.of(new UserId("OtherUser"));
 
     @Mock
     private final ImmutableList<IssueEvent> events = ImmutableList.of(mock(IssueEvent.class));
@@ -516,7 +515,7 @@ public class Issue_TestCase {
         assertThat(issue,
                    is(not(new Issue(projectId,
                                     number,
-                                    mock(UserId.class),
+                                    new UserId("OtherUser"),
                                     createdAt,
                                     updatedAt, targetEntities,
                                     title,
@@ -649,7 +648,7 @@ public class Issue_TestCase {
                                     title,
                                     body,
                                     status,
-                                    ImmutableList.of(mock(UserId.class)), milestone,
+                                    ImmutableList.of(new UserId("OtherUser")), milestone,
                                     lockSetting,
                                     labels,
                                     comments,
@@ -743,7 +742,7 @@ public class Issue_TestCase {
                                     lockSetting,
                                     labels,
                                     comments,
-                                    mentions, ImmutableList.of(mock(UserId.class)), events))));
+                                    mentions, ImmutableList.of(new UserId("OtherUser")), events))));
     }
 
     @Test

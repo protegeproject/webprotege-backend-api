@@ -30,8 +30,7 @@ public class GetWatchedEntityChangesAction_TestCase {
 
     private ProjectId projectId = ProjectId.generate();
 
-    @Mock
-    private UserId userId;
+    private UserId userId = new UserId("UserA");
 
     @Mock
     private PageRequest pageRequest;

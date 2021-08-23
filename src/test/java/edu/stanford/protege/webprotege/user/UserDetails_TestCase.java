@@ -28,8 +28,7 @@ public class UserDetails_TestCase {
 
     private UserDetails otherUserDetails;
 
-    @Mock
-    private UserId userId;
+    private UserId userId = new UserId("UserA");
 
     private final String displayName = "Display name";
 
