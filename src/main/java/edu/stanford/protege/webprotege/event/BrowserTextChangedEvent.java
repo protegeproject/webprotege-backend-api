@@ -38,7 +38,7 @@ public class BrowserTextChangedEvent extends ProjectEvent {
     }
 
     @JsonCreator
-    protected BrowserTextChangedEvent(@JsonProperty("term") OWLEntity entity,
+    protected BrowserTextChangedEvent(@JsonProperty("entity") OWLEntity entity,
                                       @JsonProperty("newBrowserText") String newBrowserText,
                                       @JsonProperty("projectId") ProjectId projectId,
                                       @JsonProperty("shortForms") ImmutableList<ShortForm> shortForms) {

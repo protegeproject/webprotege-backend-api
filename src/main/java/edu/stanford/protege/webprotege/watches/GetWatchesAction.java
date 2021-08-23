@@ -18,7 +18,7 @@ import org.semanticweb.owlapi.model.OWLEntity;
 @JsonTypeName("GetWatches")
 public record GetWatchesAction(@JsonProperty("projectId") ProjectId projectId,
                                @JsonProperty("userId") UserId userId,
-                               @JsonProperty("term") OWLEntity entity) implements ProjectAction<GetWatchesResult> {
+                               @JsonProperty("entity") OWLEntity entity) implements ProjectAction<GetWatchesResult> {
 
     public static final String CHANNEL = "webprotege.watches.GetWatches";
 

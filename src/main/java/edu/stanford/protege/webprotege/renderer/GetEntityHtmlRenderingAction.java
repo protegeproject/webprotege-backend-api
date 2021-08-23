@@ -17,7 +17,7 @@ import javax.annotation.Nonnull;
 
 @JsonTypeName("GetEntityHtmlRendering")
 public record GetEntityHtmlRenderingAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                           @JsonProperty("term") @Nonnull OWLEntity entity) implements ProjectAction<GetEntityHtmlRenderingResult> {
+                                           @JsonProperty("entity") @Nonnull OWLEntity entity) implements ProjectAction<GetEntityHtmlRenderingResult> {
 
     public static final String CHANNEL = "webprotege.html.GetEntityHtmlRendering";
 

@@ -17,7 +17,7 @@ import javax.annotation.Nonnull;
 
 @JsonTypeName("GetEntityGraph")
 public record GetEntityGraphAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                   @JsonProperty("term") @Nonnull OWLEntity entity) implements ProjectAction<GetEntityGraphResult> {
+                                   @JsonProperty("entity") @Nonnull OWLEntity entity) implements ProjectAction<GetEntityGraphResult> {
 
     public static final String CHANNEL = "webprotege.graphs.GetEntityGraph";
 

@@ -16,7 +16,7 @@ import org.semanticweb.owlapi.model.OWLEntity;
 
 @JsonTypeName("GetHierarchySiblings")
 public record GetHierarchySiblingsAction(@JsonProperty("projectId") ProjectId projectId,
-                                         @JsonProperty("term") OWLEntity entity,
+                                         @JsonProperty("entity") OWLEntity entity,
                                          @JsonProperty("hierarchyId") HierarchyId hierarchyId,
                                          @JsonProperty("pageRequest") PageRequest pageRequest) implements ProjectAction<GetHierarchySiblingsResult> {
 
