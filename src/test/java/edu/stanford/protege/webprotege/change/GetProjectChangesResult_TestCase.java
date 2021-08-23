@@ -1,24 +1,26 @@
 package edu.stanford.protege.webprotege.change;
 
 import edu.stanford.protege.webprotege.common.Page;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
  * 24/02/15
  */
-@RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
 public class GetProjectChangesResult_TestCase {
 
 
@@ -30,15 +32,17 @@ public class GetProjectChangesResult_TestCase {
     private Page<ProjectChange> projectChanges;
 
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         result = new GetProjectChangesResult(projectChanges);
         otherResult = new GetProjectChangesResult(projectChanges);
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void shouldThrowNullPointerException() {
-        new GetProjectChangesResult(null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetProjectChangesResult(null);
+        });
     }
 
     @Test
@@ -68,6 +72,6 @@ public class GetProjectChangesResult_TestCase {
 
     @Test
     public void shouldReturnSuppliedList() {
-        assertThat(result.changes().getPageCount(), is(projectChanges));
+        assertThat(result.changes(), is(projectChanges));
     }
 }

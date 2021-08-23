@@ -6,6 +6,7 @@ import edu.stanford.protege.webprotege.common.PageRequest;
 import org.semanticweb.owlapi.model.OWLEntity;
 
 import javax.annotation.Nonnull;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -18,6 +19,12 @@ public record GetProjectChangesAction(@Nonnull ProjectId projectId,
                                      @Nonnull PageRequest pageRequest) implements ProjectAction<GetProjectChangesResult> {
 
     public static final String CHANNEL = "webprotege.history.GetProjectChanges";
+
+    public GetProjectChangesAction {
+        Objects.requireNonNull(projectId);
+        Objects.requireNonNull(subject);
+        Objects.requireNonNull(pageRequest);
+    }
 
     @Override
     public String getChannel() {
