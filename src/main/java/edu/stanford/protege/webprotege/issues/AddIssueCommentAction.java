@@ -17,7 +17,7 @@ public record AddIssueCommentAction(ProjectId projectId,
                                     Comment comment) implements Action<AddIssueCommentResult>, HasProjectId {
 
 
-    public static final String CHANNEL = "webprotege.issues.AddIssueComment";
+    public static final String CHANNEL = "webprotege.discussions.AddIssueComment";
 
     @Override
     public String getChannel() {
