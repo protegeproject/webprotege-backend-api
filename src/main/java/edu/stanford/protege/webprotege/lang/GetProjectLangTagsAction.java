@@ -14,7 +14,7 @@ import javax.annotation.Nonnull;
 @JsonTypeName("GetProjectLangTags")
 public record GetProjectLangTagsAction(ProjectId projectId) implements ProjectAction<GetProjectLangTagsResult> {
 
-    public static final String CHANNEL = "webprotege.project.GetProjectLangTags";
+    public static final String CHANNEL = "webprotege.projects.GetProjectLangTags";
 
     public static GetProjectLangTagsAction create(@Nonnull ProjectId projectId) {
         return new GetProjectLangTagsAction(projectId);
