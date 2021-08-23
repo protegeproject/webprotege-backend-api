@@ -19,7 +19,7 @@ import javax.annotation.Nonnull;
 public record SetEntityGraphActiveFiltersAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                                 @JsonProperty("activeFilters") @Nonnull ImmutableList<FilterName> activeFilters) implements ProjectAction<SetEntityGraphActiveFiltersResult> {
 
-    public static final String CHANNEL = "webprotege.graph.SetEntityGraphActiveFilters";
+    public static final String CHANNEL = "webprotege.graphs.SetEntityGraphActiveFilters";
 
     @Override
     public String getChannel() {
