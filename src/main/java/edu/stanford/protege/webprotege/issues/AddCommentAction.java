@@ -21,13 +21,6 @@ public record AddCommentAction(ProjectId projectId,
 
     public static final String CHANNEL = "webprotege.discussions.AddComment";
 
-    @JsonCreator
-    public static AddCommentAction addComment(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                              @JsonProperty("threadId") @Nonnull ThreadId threadId,
-                                              @JsonProperty("comment") @Nonnull String comment) {
-        return new AddCommentAction(projectId, threadId, comment);
-    }
-
     @Override
     public String getChannel() {
         return CHANNEL;
