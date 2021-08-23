@@ -27,11 +27,11 @@ public class UserDetails implements Serializable {
 
     private static final UserDetails GUEST_DETAILS = new UserDetails(UserId.getGuest(), GUEST_DISPLAY_NAME, Optional.empty());
 
-    private UserId userId;
+    private final UserId userId;
 
-    private String displayName;
+    private final String displayName;
 
-    private String emailAddress;
+    private final String emailAddress;
 
 
     /**
@@ -47,11 +47,6 @@ public class UserDetails implements Serializable {
         this.userId = checkNotNull(userId);
         this.displayName = checkNotNull(displayName);
         this.emailAddress = emailAddress.orElse(null);
-    }
-
-
-
-    private UserDetails() {
     }
 
     /**
