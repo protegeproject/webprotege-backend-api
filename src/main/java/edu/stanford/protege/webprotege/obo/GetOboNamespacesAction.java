@@ -10,4 +10,10 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  */
 public record GetOboNamespacesAction(ProjectId projectId) implements ProjectAction<GetOboNamespacesResult> {
 
+    public static final String CHANNEL = "webprotege.obo.GetOboNamespaces";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

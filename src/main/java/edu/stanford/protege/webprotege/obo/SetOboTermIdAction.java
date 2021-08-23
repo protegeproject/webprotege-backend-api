@@ -13,5 +13,8 @@ import javax.annotation.Nonnull;
  */
 public record SetOboTermIdAction(@Nonnull ProjectId projectId, @Nonnull OWLEntity term, @Nonnull OBOTermId termId) implements ProjectAction<SetOboTermIdResult> {
 
-
+    @Override
+    public String getChannel() {
+        return "webprotege.obo.SetOboTermId";
+    }
 }

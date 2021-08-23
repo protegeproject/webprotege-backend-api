@@ -13,4 +13,10 @@ import javax.annotation.Nonnull;
  */
 public record GetOboTermXRefsAction(@Nonnull ProjectId projectId, @Nonnull OWLEntity entity) implements ProjectAction<GetOboTermXRefsResult> {
 
+    public static final String CHANNEL = "webprotege.obo.GetOboTermXRefs";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

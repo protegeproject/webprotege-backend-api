@@ -12,4 +12,11 @@ import org.semanticweb.owlapi.model.OWLEntity;
  * 29/02/16
  */
 public record SetEntityWatchesAction(ProjectId projectId, UserId userId, OWLEntity entity, ImmutableSet<Watch> watches) implements ProjectAction<SetEntityWatchesResult> {
+
+    public static final String CHANNEL = "webprotege.watches.SetEntityWatches";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

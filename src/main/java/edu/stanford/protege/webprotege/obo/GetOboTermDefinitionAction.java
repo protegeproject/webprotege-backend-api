@@ -12,4 +12,11 @@ import org.semanticweb.owlapi.model.OWLEntity;
  */
 public record GetOboTermDefinitionAction(ProjectId projectId,
                                          OWLEntity term) implements ProjectAction<GetOboTermDefinitionResult> {
+
+    public static final String CHANNEL = "webprotege.obo.GetOboTermDefinition";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

@@ -20,4 +20,11 @@ import java.util.Optional;
 @JsonTypeName("GetOntologyAnnotations")
 public record GetOntologyAnnotationsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                            @JsonProperty("ontologyId") @Nonnull Optional<OWLOntologyID> ontologyId) implements ProjectAction<GetOntologyAnnotationsResult> {
+
+    public static final String CHANNEL = "webprotege.ontologies.GetOntologyAnnotations";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

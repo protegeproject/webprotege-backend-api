@@ -11,20 +11,12 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 8/19/13
  */
-public class GetEntityCrudKitSettingsAction implements ProjectAction<GetEntityCrudKitSettingsResult> {
+public record GetEntityCrudKitSettingsAction(ProjectId projectId) implements ProjectAction<GetEntityCrudKitSettingsResult> {
 
-    private ProjectId projectId;
+    public static final String CHANNEL = "webprotege.projects.GetEntityCrudKitSettings";
 
-    private GetEntityCrudKitSettingsAction() {
-    }
-
-    public GetEntityCrudKitSettingsAction(ProjectId projectId) {
-        this.projectId = projectId;
-    }
-
-    @Nonnull
     @Override
-    public ProjectId projectId() {
-        return projectId;
+    public String getChannel() {
+        return CHANNEL;
     }
 }

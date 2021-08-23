@@ -12,4 +12,12 @@ import org.semanticweb.owlapi.model.OWLEntity;
 public record SetOboTermRelationshipsAction(ProjectId projectId,
                                             OWLEntity term,
                                             OBOTermRelationships relationships) implements ProjectAction<SetOboTermRelationshipsResult> {
+
+    public static final String CHANNEL = "webprotege.obo.SetOboTermRelationships";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }
+

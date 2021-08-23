@@ -20,4 +20,10 @@ public record GetHierarchySiblingsAction(@JsonProperty("projectId") ProjectId pr
                                          @JsonProperty("hierarchyId") HierarchyId hierarchyId,
                                          @JsonProperty("pageRequest") PageRequest pageRequest) implements ProjectAction<GetHierarchySiblingsResult> {
 
+    public static final String CHANNEL = "webprotege.hierarchies.GetHierarchySiblings";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

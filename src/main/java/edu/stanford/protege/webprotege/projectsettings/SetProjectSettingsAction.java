@@ -11,4 +11,8 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 public record SetProjectSettingsAction(ProjectId projectId,
                                        ProjectSettings settings) implements ProjectAction<SetProjectSettingsResult> {
 
+    @Override
+    public String getChannel() {
+        return "webprotege.projects.SetProjectSettings";
+    }
 }

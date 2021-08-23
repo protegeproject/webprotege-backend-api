@@ -19,4 +19,11 @@ import javax.annotation.Nonnull;
 public record SetSearchSettingsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                       @JsonProperty("from") @Nonnull ImmutableList<EntitySearchFilter> from,
                                       @JsonProperty("to") @Nonnull ImmutableList<EntitySearchFilter> to) implements ProjectAction<SetSearchSettingsResult> {
+
+    public static final String CHANNEL = "webprotege.search.SetSearchSettings";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

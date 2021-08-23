@@ -20,4 +20,10 @@ public record CreateObjectPropertiesAction(@Nonnull ProjectId projectId,
                                                    @Nonnull String langTag,
                                                    @Nonnull ImmutableSet<OWLObjectProperty> parents) implements Action<CreateObjectPropertiesResult> {
 
+    public static final String CHANNEL = "webprotege.entities.CreateObjectProperties";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

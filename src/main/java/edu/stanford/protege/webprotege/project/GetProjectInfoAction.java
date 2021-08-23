@@ -11,4 +11,10 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  */
 public record GetProjectInfoAction(ProjectId projectId) implements ProjectAction<GetProjectInfoResult> {
 
+    public static final String CHANNEL = "webprotege.projects.GetProjectInfo";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

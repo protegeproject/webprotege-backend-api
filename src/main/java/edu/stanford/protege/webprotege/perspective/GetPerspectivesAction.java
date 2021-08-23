@@ -16,4 +16,11 @@ import edu.stanford.protege.webprotege.common.UserId;
 @JsonTypeName("GetPerspectives")
 public record GetPerspectivesAction(@JsonProperty("projectId") ProjectId projectId,
                                     @JsonProperty("userId") UserId userId) implements Action<GetPerspectivesResult> {
+
+    public static final String CHANNEL = "webprotege.perspectives.GetPerspectives";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

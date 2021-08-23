@@ -19,4 +19,11 @@ import org.semanticweb.owlapi.model.OWLEntity;
 public record GetWatchesAction(@JsonProperty("projectId") ProjectId projectId,
                                @JsonProperty("userId") UserId userId,
                                @JsonProperty("term") OWLEntity entity) implements ProjectAction<GetWatchesResult> {
+
+    public static final String CHANNEL = "webprotege.watches.GetWatches";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

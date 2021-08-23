@@ -15,4 +15,11 @@ import org.semanticweb.owlapi.model.OWLEntity;
 @JsonTypeName("GetOboTermId")
 public record GetOboTermIdAction(ProjectId projectId,
                                  OWLEntity term) implements ProjectAction<GetOboTermIdResult> {
+
+    public static final String CHANNEL = "webprotege.obo.GetOboTermId";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

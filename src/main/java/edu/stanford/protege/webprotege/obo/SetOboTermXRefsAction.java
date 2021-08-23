@@ -14,4 +14,10 @@ import java.util.List;
  */
 public record SetOboTermXRefsAction(@Nonnull ProjectId projectId, @Nonnull OWLEntity entity, @Nonnull List<OBOXRef> xrefs) implements ProjectAction<SetOboTermXRefsResult> {
 
+    public static final String CHANNEL = "webprotege.obo.SetOboTermXRefs";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

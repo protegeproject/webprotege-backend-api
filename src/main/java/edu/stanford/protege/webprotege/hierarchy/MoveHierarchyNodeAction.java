@@ -20,5 +20,10 @@ public record MoveHierarchyNodeAction(@JsonProperty("projectId") @Nonnull Projec
                                       @JsonProperty("toNodeParentPath") @Nonnull Path<EntityNode> toNodeParentPath,
                                       @JsonProperty("dropType") @Nonnull DropType dropType) implements ProjectAction<MoveHierarchyNodeResult> {
 
+    public static final String CHANNEL = "webprotege.hierarchies.MoveHierarchyNode";
 
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

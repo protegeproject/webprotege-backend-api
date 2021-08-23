@@ -13,8 +13,8 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 
 
 @JsonTypeName("AddEntityComment")
-public record AddEntityCommentResult(@JsonProperty("projectId") ProjectId newProjectId,
-                                     @JsonProperty("threadId") ThreadId newThreadId,
-                                     @JsonProperty("comment") Comment newComment,
-                                     @JsonProperty("commentRendering") String newCommentRendering) implements Result {
+public record AddCommentResult(@JsonProperty("projectId") ProjectId newProjectId,
+                               @JsonProperty("threadId") ThreadId newThreadId,
+                               @JsonProperty("comment") Comment newComment,
+                               @JsonProperty("commentRendering") String newCommentRendering) implements Result {
 }

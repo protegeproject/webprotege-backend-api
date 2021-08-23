@@ -14,4 +14,10 @@ import java.util.List;
 public record SetProjectPrefixDeclarationsAction(@Nonnull ProjectId projectId,
                                                  @Nonnull List<PrefixDeclaration> prefixDeclarations) implements ProjectAction<SetProjectPrefixDeclarationsResult> {
 
+    public static final String CHANNEL = "webprotege.projects.SetProjectPrefixDeclarations";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

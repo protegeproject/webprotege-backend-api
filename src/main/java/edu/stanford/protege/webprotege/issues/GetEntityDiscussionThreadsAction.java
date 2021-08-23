@@ -12,4 +12,9 @@ import javax.annotation.Nonnull;
  * 5 Oct 2016
  */
 public record GetEntityDiscussionThreadsAction(@Nonnull ProjectId projectId, @Nonnull OWLEntity entity) implements ProjectAction<GetEntityDiscussionThreadsResult> {
+
+    @Override
+    public String getChannel() {
+        return "webprotege.discussions.GetEntityDiscussionThreads";
+    }
 }

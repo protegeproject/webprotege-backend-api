@@ -11,4 +11,10 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  */
 public record GetProjectTagsAction(ProjectId projectId) implements ProjectAction<GetProjectTagsResult> {
 
+    public static final String CHANNEL = "webprotege.tags.GetProjectTags";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

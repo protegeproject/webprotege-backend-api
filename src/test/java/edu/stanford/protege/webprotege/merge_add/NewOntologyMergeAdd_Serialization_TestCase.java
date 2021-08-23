@@ -1,8 +1,6 @@
 package edu.stanford.protege.webprotege.merge_add;
 
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
 
 import org.junit.Test;
 
@@ -20,10 +18,10 @@ public class NewOntologyMergeAdd_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new NewOntologyMergeAddAction(mockProjectId(),
-                                                      mockDocumentId(),
-                                                      "Iri",
-                                                      ImmutableList.of());
+        var action = new MergeOntologiesAction(mockProjectId(),
+                                               mockDocumentId(),
+                                               "Iri",
+                                               ImmutableList.of());
 
     }
 

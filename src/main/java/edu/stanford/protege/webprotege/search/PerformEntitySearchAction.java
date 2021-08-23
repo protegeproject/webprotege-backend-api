@@ -27,4 +27,11 @@ public record PerformEntitySearchAction(@JsonProperty("projectId") @Nonnull Proj
                                         @JsonProperty("langTagFilter") @Nonnull LangTagFilter langTagFilter,
                                         @JsonProperty("searchFilters") @Nonnull ImmutableList<EntitySearchFilter> searchFilters,
                                         @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest) implements ProjectAction<PerformEntitySearchResult>, HasProjectId {
+
+    public static final String CHANNEL = "webprotege.search.PerformEntitySearch";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

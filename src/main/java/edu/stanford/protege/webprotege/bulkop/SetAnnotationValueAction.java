@@ -25,4 +25,10 @@ public record SetAnnotationValueAction(@JsonProperty("projectId") @Nonnull Proje
                                        @JsonProperty("value") @Nonnull OWLAnnotationValue value,
                                        @JsonProperty("commitMessage") @Nonnull String commitMessage) implements ProjectAction<SetAnnotationValueResult>, HasCommitMessage {
 
+    public static final String CHANNEL = "webprotege.bulkop.SetAnnotationValue";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

@@ -18,4 +18,10 @@ import edu.stanford.protege.webprotege.common.UserId;
  */
 public record SetEmailAddressAction(UserId userId, String emailAddress) implements Action<SetEmailAddressResult> {
 
+    public static final String CHANNEL = "webprotege.users.SetEmailAddress";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

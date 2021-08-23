@@ -1,4 +1,4 @@
-package edu.stanford.protege.webprotege.perspective;
+package edu.stanford.protege.webprotege.issues;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
@@ -7,14 +7,13 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
- * 2020-09-03
+ * 9 Oct 2016
  */
+@JsonTypeName("DeleteComment")
+public record DeleteCommentAction(ProjectId projectId,
+                                  CommentId commentId) implements ProjectAction<DeleteCommentResult> {
 
-
-@JsonTypeName("ResetPerspectives")
-public record ResetPerspectivesAction(ProjectId projectId) implements ProjectAction<ResetPerspectivesResult> {
-
-    public static final String CHANNEL = "webprotege.perspectives.ResetPerspectives";
+    public static final String CHANNEL = "webprotege.discussions.DeleteComment";
 
     @Override
     public String getChannel() {

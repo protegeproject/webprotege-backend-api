@@ -11,5 +11,11 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  */
 public record GetEntityCrudKitsAction(ProjectId projectId) implements ProjectAction<GetEntityCrudKitsResult> {
 
+    public static final String CHANNEL = "webprotege.entities.GetEntityCrudKits";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }
 

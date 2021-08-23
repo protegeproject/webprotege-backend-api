@@ -10,4 +10,10 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  */
 public record GetRevisionSummariesAction(ProjectId projectId) implements ProjectAction<GetRevisionSummariesResult> {
 
+    public static final String CHANNEL = "webprotege.history.GetRevisionSummaries";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

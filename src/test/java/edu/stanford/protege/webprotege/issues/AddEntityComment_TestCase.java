@@ -1,9 +1,5 @@
 package edu.stanford.protege.webprotege.issues;
 
-import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 import org.junit.Test;
@@ -26,19 +22,19 @@ public class AddEntityComment_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = AddEntityCommentAction.addComment(projectId, threadId, THE_COMMENT);
+        var action = AddCommentAction.addComment(projectId, threadId, THE_COMMENT);
 
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = new AddEntityCommentResult(projectId,
-                                                   threadId,
-                                                   new Comment(CommentId.create(), UserId.valueOf("TheUser"),
+        var result = new AddCommentResult(projectId,
+                                          threadId,
+                                          new Comment(CommentId.create(), UserId.valueOf("TheUser"),
                                                                1000, Optional.empty(),
                                                                THE_COMMENT,
                                                                THE_COMMENT),
-                                                   THE_COMMENT);
+                                          THE_COMMENT);
 
     }
 }

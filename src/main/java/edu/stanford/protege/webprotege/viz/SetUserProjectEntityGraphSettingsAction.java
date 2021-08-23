@@ -22,9 +22,15 @@ public record SetUserProjectEntityGraphSettingsAction(@JsonProperty("projectId")
                                                       @JsonProperty("userId") @Nullable UserId userId,
                                                       @JsonProperty("settings") @Nonnull EntityGraphSettings settings) implements ProjectAction<SetUserProjectEntityGraphSettingsResult> {
 
+    public static final String CHANNEL = "webprotege.graphs.SetUserProjectEntityGraphSettings";
+
     @Nonnull
     public Optional<UserId> getUserId() {
         return Optional.ofNullable(userId);
     }
 
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

@@ -24,11 +24,16 @@ public record SetPerspectivesAction(@Nonnull ProjectId projectId,
                                     @Nullable UserId userId,
                                     @Nonnull ImmutableList<PerspectiveDescriptor> perspectiveIds) implements ProjectAction<SetPerspectivesResult> {
 
+    public static final String CHANNEL = "webprotege.perspectives.SetPerspectives";
+
     @JsonIgnore
     public Optional<UserId> getUserId() {
         return Optional.ofNullable(userId);
     }
 
-
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }
 

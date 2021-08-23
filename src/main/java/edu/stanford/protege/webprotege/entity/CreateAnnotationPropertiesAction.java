@@ -19,4 +19,11 @@ public record CreateAnnotationPropertiesAction(@JsonProperty("projectId") @Nonnu
                                                @JsonProperty("sourceText") @Nonnull String sourceText,
                                                @JsonProperty("langTag") @Nonnull String langTag,
                                                @JsonProperty("parents") @Nonnull ImmutableSet<OWLAnnotationProperty> parents) implements CreateEntitiesInHierarchyAction<CreateAnnotationPropertiesResult, OWLAnnotationProperty> {
+
+    public static final String CHANNEL = "webprotege.entities.CreateAnnotationProperties";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

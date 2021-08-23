@@ -19,4 +19,10 @@ import javax.annotation.Nonnull;
 public record GetEntityHtmlRenderingAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                            @JsonProperty("term") @Nonnull OWLEntity entity) implements ProjectAction<GetEntityHtmlRenderingResult> {
 
+    public static final String CHANNEL = "webprotege.entities.GetEntityHtmlRendering";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

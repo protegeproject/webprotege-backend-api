@@ -10,4 +10,10 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  */
 public record GetProjectSharingSettingsAction(ProjectId projectId) implements ProjectAction<GetProjectSharingSettingsResult> {
 
+    public static final String CHANNEL = "webprotege.projects.GetProjectSharingSettings";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

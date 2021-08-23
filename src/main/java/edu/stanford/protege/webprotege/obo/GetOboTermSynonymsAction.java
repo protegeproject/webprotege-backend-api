@@ -12,4 +12,11 @@ import javax.annotation.Nonnull;
  * 22 Jun 2017
  */
 public record GetOboTermSynonymsAction(@Nonnull ProjectId projectId, @Nonnull OWLEntity term) implements ProjectAction<GetOboTermSynonymsResult> {
+
+    public static final String CHANNEL = "webprotege.obo.GetOboTermSynonyms";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

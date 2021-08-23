@@ -12,4 +12,10 @@ import org.semanticweb.owlapi.model.OWLClass;
 public record GetOboTermRelationshipsAction(ProjectId projectId,
                                            OWLClass term) implements ProjectAction<GetOboTermRelationshipsResult> {
 
+    public static final String CHANNEL = "webprotege.obo.GetOboTermRelationships";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

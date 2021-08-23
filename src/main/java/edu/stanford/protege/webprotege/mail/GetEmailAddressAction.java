@@ -13,7 +13,14 @@ import edu.stanford.protege.webprotege.common.UserId;
 @JsonTypeName("GetEmailAddress")
 public record GetEmailAddressAction(UserId userId) implements Action<GetEmailAddressResult> {
 
+    public static final String CHANNEL = "webprotege.users.GetEmailAddress";
+
     public static GetEmailAddressAction create(UserId userId) {
         return new GetEmailAddressAction(userId);
+    }
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
     }
 }

@@ -1,4 +1,4 @@
-package edu.stanford.protege.webprotege.itemlist;
+package edu.stanford.protege.webprotege.user;
 
 import edu.stanford.protege.webprotege.dispatch.Action;
 
@@ -9,4 +9,10 @@ import edu.stanford.protege.webprotege.dispatch.Action;
  */
 public record GetUserIdCompletionsAction(String completionText) implements Action<GetUserIdCompletionsResult> {
 
+    public static final String CHANNEL = "webprotege.users.GetUserIdCompletions";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

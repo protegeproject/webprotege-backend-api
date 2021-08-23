@@ -23,4 +23,10 @@ public record SetOntologyAnnotationsAction(@JsonProperty("projectId") ProjectId 
                                            @JsonProperty("fromAnnotations") Set<PropertyAnnotationValue> fromAnnotations,
                                            @JsonProperty("toAnnotations") Set<PropertyAnnotationValue> toAnnotations) implements ProjectAction<SetOntologyAnnotationsResult> {
 
+    public static final String CHANNEL = "webprotege.ontologies.SetOntologyAnnotations";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

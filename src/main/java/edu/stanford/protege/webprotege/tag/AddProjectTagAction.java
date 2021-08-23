@@ -21,6 +21,8 @@ public record AddProjectTagAction(ProjectId projectId,
                                   Color color,
                                   Color backgroundColor) implements ProjectAction<AddProjectTagResult> {
 
+    public static final String CHANNEL = "webprotege.tags.AddProjectTag";
+
     /**
      * Creates an {@link AddProjectTagAction}.
      *
@@ -38,5 +40,10 @@ public record AddProjectTagAction(ProjectId projectId,
                                              @JsonProperty("color") @Nonnull Color color,
                                              @JsonProperty("backgroundColor") @Nonnull Color backgroundColor) {
         return new AddProjectTagAction(projectId, label, description, color, backgroundColor);
+    }
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
     }
 }

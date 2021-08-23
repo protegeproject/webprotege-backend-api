@@ -12,10 +12,10 @@ import java.util.List;
 
 
 @JsonTypeName("MergeOntologies")
-public record ExistingOntologyMergeAddAction(@JsonProperty("projectId") ProjectId projectId,
-                                             @JsonProperty("documentId") DocumentId documentId,
-                                             @JsonProperty("selectedOntologies") List<OWLOntologyID> selectedOntologies,
-                                             @JsonProperty("targetOntology") OWLOntologyID targetOntology) implements ProjectAction<ExistingOntologyMergeAddResult> {
+public record MergeOntologiesAction(@JsonProperty("projectId") ProjectId projectId,
+                                    @JsonProperty("documentId") DocumentId documentId,
+                                    @JsonProperty("iri") String iri,
+                                    @JsonProperty("ontologyList") List<OWLOntologyID> ontologyList) implements ProjectAction<NewOntologyMergeAddResult> {
 
     public static final String CHANNEL = "webprotege.ontologies.MergeOntologies";
 

@@ -18,4 +18,10 @@ public record MergeUploadedProjectAction(@JsonProperty("projectId") ProjectId pr
                                          @JsonProperty("documentId") DocumentId uploadedDocumentId,
                                          @JsonProperty("commitMessage") String commitMessage) implements ProjectAction<MergeUploadedProjectResult> {
 
+    public static final String CHANNEL = "webprotege.projects.MergeUploadedProject";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

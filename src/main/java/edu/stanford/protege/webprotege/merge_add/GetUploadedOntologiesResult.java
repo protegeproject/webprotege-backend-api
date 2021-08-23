@@ -10,6 +10,6 @@ import java.util.List;
 
 
 @JsonTypeName("GetAllOntologies")
-public record GetAllOntologiesResult(@JsonProperty("ontologies") List<OWLOntologyID> ontologies) implements Result {
+public record GetUploadedOntologiesResult(@JsonProperty("ontologies") List<OWLOntologyID> ontologies) implements Result {
 
 }

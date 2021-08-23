@@ -16,4 +16,11 @@ import java.util.Optional;
 public record GetProjectChangesAction(@Nonnull ProjectId projectId,
                                      @Nonnull Optional<OWLEntity> subject,
                                      @Nonnull PageRequest pageRequest) implements ProjectAction<GetProjectChangesResult> {
+
+    public static final String CHANNEL = "webprotege.history.GetProjectChanges";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

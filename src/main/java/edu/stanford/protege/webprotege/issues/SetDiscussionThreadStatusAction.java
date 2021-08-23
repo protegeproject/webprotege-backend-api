@@ -15,4 +15,10 @@ public record SetDiscussionThreadStatusAction(@Nonnull ProjectId projectId,
                                              @Nonnull ThreadId threadId,
                                              @Nonnull Status status) implements ProjectAction<SetDiscussionThreadStatusResult> {
 
+    public static final String CHANNEL = "webprotege.issues.SetDiscussionThreadStatus";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

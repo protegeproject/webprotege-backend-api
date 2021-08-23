@@ -23,4 +23,11 @@ public record GetIndividualsPageContainingIndividualAction(@JsonProperty("projec
                                                            @JsonProperty("individual") @Nonnull OWLNamedIndividual individual,
                                                            @JsonProperty("preferredType") @Nonnull Optional<OWLClass> preferredType,
                                                            @JsonProperty("preferredMode") @Nullable InstanceRetrievalMode preferredMode) implements ProjectAction<GetIndividualsPageContainingIndividualResult> {
+
+    public static final String CHANNEL = "webprotege.entities.GetIndividualsPageContainingIndividual";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

@@ -17,4 +17,10 @@ import javax.annotation.Nonnull;
 @JsonTypeName("GetUserProjectEntityGraphCriteria")
 public record GetUserProjectEntityGraphCriteriaAction(@JsonProperty("projectId") @Nonnull ProjectId projectId) implements ProjectAction<GetUserProjectEntityGraphCriteriaResult> {
 
+    public static final String CHANNEL = "webprotege.graph.GetUserProjectEntityGraphCriteria";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

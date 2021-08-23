@@ -14,9 +14,17 @@ import org.jetbrains.annotations.NotNull;
 @JsonTypeName("LoadProject")
 public record LoadProjectAction(ProjectId projectId) implements Action<LoadProjectResult>, HasProjectId {
 
+    public static final String CHANNEL = "webprotege.projects.LoadProject";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
+
     @NotNull
     @Override
     public ProjectId getProjectId() {
         return projectId();
     }
+
 }

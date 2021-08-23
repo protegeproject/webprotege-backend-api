@@ -17,5 +17,11 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 public record ComputeProjectMergeAction(@JsonProperty("projectId") ProjectId projectId,
                                         @JsonProperty("projectDocumentId") DocumentId projectDocumentId) implements ProjectAction<ComputeProjectMergeResult> {
 
+    public static final String CHANNEL = "webprotege.projects.ComputeProjectMerge";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }
 

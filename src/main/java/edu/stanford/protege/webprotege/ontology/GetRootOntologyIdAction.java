@@ -15,5 +15,12 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
 @JsonTypeName("GetRootOntologyId")
 public record GetRootOntologyIdAction(ProjectId projectId) implements ProjectAction<GetRootOntologyIdResult> {
+
+    public static final String CHANNEL = "webprotege.ontologies.GetRootOntologyId";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }
 

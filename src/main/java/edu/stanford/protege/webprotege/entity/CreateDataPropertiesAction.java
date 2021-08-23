@@ -19,4 +19,11 @@ public record CreateDataPropertiesAction(@Nonnull ProjectId projectId,
                                          @Nonnull String sourceText,
                                          @Nonnull String langTag,
                                          ImmutableSet<OWLDataProperty> parents) implements ProjectAction<CreateDataPropertiesResult> {
+
+    public static final String CHANNEL = "webprotege.entities.CreateDataProperties";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

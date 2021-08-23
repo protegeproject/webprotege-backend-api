@@ -10,4 +10,11 @@ import edu.stanford.protege.webprotege.common.UserId;
  * 28/02/16
  */
 public record SetPerspectiveLayoutAction(ProjectId projectId, UserId userId, PerspectiveLayout layout) implements ProjectAction<SetPerspectiveLayoutResult> {
+
+    public static final String CHANNEL = "webprotege.perspectives.SetPerspectiveLayout";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

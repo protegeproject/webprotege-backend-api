@@ -16,4 +16,10 @@ public record SetOboTermDefinitionAction(@JsonProperty("projectId") @Nonnull Pro
                                         @Nonnull OWLEntity term,
                                         @JsonProperty("definition") @Nonnull OBOTermDefinition def) implements ProjectAction<SetOboTermDefinitionResult> {
 
+    public static final String CHANNEL = "webprotege.obo.SetOboTermDefinition";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

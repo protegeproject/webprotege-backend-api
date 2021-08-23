@@ -13,4 +13,8 @@ import javax.annotation.Nonnull;
  */
 public record GetProjectPermissionsAction(@Nonnull ProjectId projectId, @Nonnull UserId userId) implements Action<GetProjectPermissionsResult> {
 
+    @Override
+    public String getChannel() {
+        return "webprotege.auth.GetProjectPermissions";
+    }
 }

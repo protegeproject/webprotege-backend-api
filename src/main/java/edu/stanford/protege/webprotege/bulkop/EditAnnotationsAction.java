@@ -28,4 +28,11 @@ public record EditAnnotationsAction(@JsonProperty("projectId") @Nonnull ProjectI
                                     @JsonProperty("langTagExpression") @Nonnull Optional<String> langTagExpression,
                                     @JsonProperty("newAnnotationData") @Nonnull NewAnnotationData newAnnotationData,
                                     @JsonProperty("commitMessage") @Nonnull String commitMessage) implements ProjectAction<EditAnnotationsResult>, HasCommitMessage {
+
+    public static final String CHANNEL = "webprotege.bulkop.EditAnnotations";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

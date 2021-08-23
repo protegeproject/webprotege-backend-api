@@ -14,4 +14,11 @@ import org.semanticweb.owlapi.model.OWLEntity;
 public record CreateEntityDiscussionThreadAction(ProjectId projectId,
                                                          OWLEntity entity,
                                                          String comment) implements ProjectAction<CreateEntityDiscussionThreadResult> {
+
+    public static final String CHANNEL = "webprotege.discussions.CreateEntityDiscussionThread";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

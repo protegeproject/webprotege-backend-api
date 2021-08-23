@@ -17,5 +17,10 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 public record ResetPerspectiveLayoutAction(ProjectId projectId,
                                           PerspectiveId perspectiveId) implements ProjectAction<ResetPerspectiveLayoutResult> {
 
+    public static final String CHANNEL = "webprotege.perspectives.ResetPerspectiveLayout";
 
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

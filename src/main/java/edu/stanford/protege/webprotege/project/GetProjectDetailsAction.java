@@ -13,9 +13,16 @@ import org.jetbrains.annotations.NotNull;
 @JsonTypeName("GetProjectDetails")
 public record GetProjectDetailsAction(ProjectId projectId) implements Action<GetProjectDetailsResult>, HasProjectId {
 
+    public static final String CHANNEL = "webprotege.projects.GetProjectDetails";
+
     @NotNull
     @Override
     public ProjectId getProjectId() {
         return projectId;
+    }
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
     }
 }

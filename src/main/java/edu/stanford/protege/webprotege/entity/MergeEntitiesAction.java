@@ -28,5 +28,10 @@ public record MergeEntitiesAction(@Nonnull ProjectId projectId,
                                   @Nonnull MergedEntityTreatment treatment,
                                   @Nonnull String commitMessage) implements ProjectAction<MergeEntitiesResult> {
 
+    public static final String CHANNEL = "webprotege.entities.MergeEntities";
 
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

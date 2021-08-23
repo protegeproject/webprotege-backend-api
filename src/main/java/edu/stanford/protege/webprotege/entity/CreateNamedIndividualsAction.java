@@ -20,4 +20,10 @@ public record CreateNamedIndividualsAction(@Nonnull ProjectId projectId,
                                                    @Nonnull String langTag,
                                                    @Nonnull ImmutableSet<OWLClass> types) implements ProjectAction<CreateNamedIndividualsResult> {
 
+    public static final String CHANNEL = "webprotege.entities.CreateNamedIndividuals";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

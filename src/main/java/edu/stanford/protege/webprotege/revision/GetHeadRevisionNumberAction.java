@@ -9,4 +9,11 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  * 21/02/15
  */
 public record GetHeadRevisionNumberAction(ProjectId projectId) implements ProjectAction<GetHeadRevisionNumberResult> {
+
+    public static final String CHANNEL = "webprotege.history.GetHeadRevisionNumber";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

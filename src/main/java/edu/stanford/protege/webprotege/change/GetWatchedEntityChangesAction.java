@@ -13,4 +13,10 @@ import edu.stanford.protege.webprotege.common.UserId;
 @JsonTypeName("GetWatchedEntityChanges")
 public record GetWatchedEntityChangesAction(ProjectId projectId, UserId userId) implements ProjectAction<GetWatchedEntityChangesResult> {
 
+    public static final String CHANNEL = "webprotege.watches.GetWatchedEntityChanges";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

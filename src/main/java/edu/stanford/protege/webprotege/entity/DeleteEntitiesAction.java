@@ -14,4 +14,11 @@ import org.semanticweb.owlapi.model.OWLEntity;
 @JsonTypeName("DeleteEntities")
 public record DeleteEntitiesAction(ProjectId projectId,
                                    ImmutableSet<OWLEntity> entities) implements ProjectAction<DeleteEntitiesResult> {
+
+    public static final String CHANNEL = "webprotege.entities.DeleteEntitiesAction";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

@@ -16,5 +16,10 @@ public record SetOboTermSynonymsAction(@Nonnull ProjectId projectId,
                                       @Nonnull OWLEntity entity,
                                       @Nonnull List<OBOTermSynonym> synonyms) implements ProjectAction<SetOboTermSynonymsResult> {
 
+    public static final String CHANNEL = "webprotege.obo.SetOboTermSynonyms";
 
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

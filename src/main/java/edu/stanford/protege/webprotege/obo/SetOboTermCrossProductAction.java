@@ -15,4 +15,10 @@ public record SetOboTermCrossProductAction(@Nonnull ProjectId projectId,
                                           @Nonnull OWLClass term,
                                           @Nonnull OBOTermCrossProduct crossProduct) implements ProjectAction<SetOboTermCrossProductResult> {
 
+    public static final String CHANNEL = "webprotege.obo.SetOboTermCrossProduct";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

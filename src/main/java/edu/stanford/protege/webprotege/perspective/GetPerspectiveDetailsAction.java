@@ -17,4 +17,10 @@ import javax.annotation.Nonnull;
 @JsonTypeName("GetPerspectiveDetails")
 public record GetPerspectiveDetailsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId) implements ProjectAction<GetPerspectiveDetailsResult> {
 
+    public static final String CHANNEL = "webprotege.perspectives.GetPerspectiveDetails";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

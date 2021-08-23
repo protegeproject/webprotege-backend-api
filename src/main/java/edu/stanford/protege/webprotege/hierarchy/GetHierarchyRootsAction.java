@@ -12,4 +12,10 @@ import javax.annotation.Nonnull;
 @JsonTypeName("GetHierarchyRoots")
 public record GetHierarchyRootsAction(@Nonnull ProjectId projectId, @Nonnull HierarchyId hierarchyId) implements ProjectAction<GetHierarchyRootsResult> {
 
+    public static final String CHANNEL = "webprotege.hierarchies.GetHierarchyRoots";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

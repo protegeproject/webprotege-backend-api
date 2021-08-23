@@ -19,4 +19,10 @@ import java.util.List;
 public record SetProjectTagsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                    @JsonProperty("tagData") @Nonnull List<TagData> tagData) implements ProjectAction<SetProjectTagsResult> {
 
+    public static final String CHANNEL = "webprotege.tags.SetProjectTags";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

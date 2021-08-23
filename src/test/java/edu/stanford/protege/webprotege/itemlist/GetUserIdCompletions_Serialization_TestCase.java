@@ -1,9 +1,9 @@
 package edu.stanford.protege.webprotege.itemlist;
 
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
 
+import edu.stanford.protege.webprotege.user.GetUserIdCompletionsAction;
+import edu.stanford.protege.webprotege.user.GetUserIdCompletionsResult;
 import org.junit.Test;
 
 import java.io.IOException;

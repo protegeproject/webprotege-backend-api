@@ -24,4 +24,10 @@ public record GetCommentedEntitiesAction(@JsonProperty("projectId") @Nonnull Pro
                                          @JsonProperty("sortingKey") @Nonnull SortingKey sortingKey,
                                          @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest) implements ProjectAction<GetCommentedEntitiesResult> {
 
+    public static final String CHANNEL = "webprotege.discussions.GetCommentedEntities";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

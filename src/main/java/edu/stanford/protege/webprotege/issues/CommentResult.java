@@ -5,15 +5,15 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
 import javax.annotation.Nonnull;
+import java.util.Optional;
 
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
- * 9 Oct 2016
+ * 8 Oct 2016
  */
 
 
-@JsonTypeName("DeleteEntityComment")
-public record DeleteEntityCommentResult(@JsonProperty("commentId") @Nonnull CommentId commentId,
-                                        @JsonProperty("deleted") boolean deleted) implements Result {
+@JsonTypeName("UpdateComment")
+public record CommentResult(@JsonProperty("editedComment") @Nonnull Optional<Comment> editedComment) implements Result {
 }

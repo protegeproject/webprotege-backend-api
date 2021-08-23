@@ -22,4 +22,10 @@ public record GetDeprecatedEntitiesAction(@JsonProperty("projectId") @Nonnull Pr
                                           @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest,
                                           @JsonProperty("entityTypes") @Nonnull Set<EntityType<?>> entityTypes) implements ProjectAction<GetDeprecatedEntitiesResult> {
 
+    public static final String CHANNEL = "webprotege.entities.GetDeprecatedEntities";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

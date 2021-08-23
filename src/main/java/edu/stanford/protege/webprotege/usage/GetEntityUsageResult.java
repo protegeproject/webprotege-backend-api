@@ -17,8 +17,8 @@ import java.util.List;
 
 
 @JsonTypeName("GetUsage")
-public record GetUsageResult(@JsonProperty("projectId") ProjectId projectId,
-                             @JsonProperty("entityNode") EntityNode entityNode,
-                             @JsonProperty("usageReferences") List<UsageReference> usageReferences,
-                             @JsonProperty("totalUsageCount") int totalUsageCount) implements Result {
+public record GetEntityUsageResult(@JsonProperty("projectId") ProjectId projectId,
+                                   @JsonProperty("entityNode") EntityNode entityNode,
+                                   @JsonProperty("usageReferences") List<UsageReference> usageReferences,
+                                   @JsonProperty("totalUsageCount") int totalUsageCount) implements Result {
 }

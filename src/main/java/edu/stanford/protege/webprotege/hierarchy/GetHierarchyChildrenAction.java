@@ -16,7 +16,14 @@ import javax.annotation.Nonnull;
 
 @JsonTypeName("GetHierarchyChildren")
 public record GetHierarchyChildrenAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                         @JsonProperty("term") @Nonnull OWLEntity entity,
+                                         @JsonProperty("entity") @Nonnull OWLEntity entity,
                                          @JsonProperty("hierarchyId") @Nonnull HierarchyId hierarchyId,
                                          @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest) implements ProjectAction<GetHierarchyChildrenResult> {
+
+    public static final String CHANNEL = "webprotege.hierarchies.GetHierarchyChildren";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

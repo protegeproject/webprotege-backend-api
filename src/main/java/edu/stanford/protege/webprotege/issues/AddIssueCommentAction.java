@@ -3,6 +3,7 @@ package edu.stanford.protege.webprotege.issues;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.project.HasProjectId;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
@@ -11,35 +12,21 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 28 Sep 2016
  */
-public class AddIssueCommentAction implements Action<AddIssueCommentResult>, HasProjectId {
+public record AddIssueCommentAction(ProjectId projectId,
+                                    int issueNumber,
+                                    Comment comment) implements Action<AddIssueCommentResult>, HasProjectId {
 
 
-    private ProjectId projectId;
+    public static final String CHANNEL = "webprotege.issues.AddIssueComment";
 
-    private int issueNumber;
-
-    private Comment comment;
-
-    public AddIssueCommentAction(ProjectId projectId, int issueNumber, Comment comment) {
-        this.projectId = projectId;
-        this.issueNumber = issueNumber;
-        this.comment = comment;
+    @Override
+    public String getChannel() {
+        return CHANNEL;
     }
 
-
-    private AddIssueCommentAction() {
-    }
-
-    public Comment getComment() {
-        return comment;
-    }
-
-    @Nonnull
+    @NotNull
+    @Override
     public ProjectId getProjectId() {
         return projectId;
-    }
-
-    public int getIssueNumber() {
-        return issueNumber;
     }
 }

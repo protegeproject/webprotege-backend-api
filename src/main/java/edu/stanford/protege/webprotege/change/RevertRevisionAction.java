@@ -12,4 +12,11 @@ import edu.stanford.protege.webprotege.revision.RevisionNumber;
  */
 @JsonTypeName("RevertRevision")
 public record RevertRevisionAction(ProjectId projectId, RevisionNumber revisionNumber) implements ProjectAction<RevertRevisionResult> {
+
+    public static final String CHANNEL = "webprotege.history.RevertRevision";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

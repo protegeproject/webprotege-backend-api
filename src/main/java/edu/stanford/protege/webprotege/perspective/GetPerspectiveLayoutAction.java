@@ -12,4 +12,10 @@ import edu.stanford.protege.webprotege.common.UserId;
  */
 public record GetPerspectiveLayoutAction(ProjectId projectId, UserId userId, PerspectiveId perspectiveId) implements ProjectAction<GetPerspectiveLayoutResult>, HasProjectId {
 
+    public static final String CHANNEL = "webprotege.perspectives.GetPerspectiveLayout";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

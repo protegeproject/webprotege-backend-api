@@ -13,4 +13,11 @@ import org.semanticweb.owlapi.model.OWLEntity;
 @JsonTypeName("GetOBOTermCrossProduct")
 public record GetOboTermCrossProductAction(ProjectId projectId,
                                           OWLEntity term) implements ProjectAction<GetOboTermCrossProductResult> {
+
+    public static final String CHANNEL = "webprotege.obo.GetOBOTermCrossProduct";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

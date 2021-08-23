@@ -15,4 +15,10 @@ import org.semanticweb.owlapi.model.OWLEntity;
 public record GetEntityRenderingAction(@JsonProperty("projectId") ProjectId projectId,
                                        @JsonProperty("term") OWLEntity entity) implements ProjectAction<GetEntityRenderingResult> {
 
+    public static final String CHANNEL = "webprotege.entities.GetEntityRendering";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

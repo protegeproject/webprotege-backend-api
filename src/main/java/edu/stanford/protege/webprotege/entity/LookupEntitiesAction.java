@@ -17,4 +17,10 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  */
 public record LookupEntitiesAction(ProjectId projectId, EntityLookupRequest entityLookupRequest) implements ProjectAction<LookupEntitiesResult> {
 
+    public static final String CHANNEL = "webprotege.entities.LookupEntities";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

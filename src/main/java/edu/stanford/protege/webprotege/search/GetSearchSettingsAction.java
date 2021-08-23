@@ -14,4 +14,10 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 @JsonTypeName("GetSearchSettings")
 public record GetSearchSettingsAction(ProjectId projectId) implements ProjectAction<GetSearchSettingsResult> {
 
+    public static final String CHANNEL = "webprotege.search.GetSearchSettings";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

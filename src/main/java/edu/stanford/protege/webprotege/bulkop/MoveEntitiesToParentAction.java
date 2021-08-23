@@ -22,4 +22,10 @@ public record MoveEntitiesToParentAction(@JsonProperty("projectId") @Nonnull Pro
                                          @JsonProperty("parentEntity") @Nonnull OWLClass entity,
                                          @JsonProperty("commitMessage") @Nonnull String commitMessage) implements ProjectAction<MoveEntitiesToParentResult>, HasCommitMessage {
 
+    public static final String CHANNEL = "webprotege.entities.MoveEntitiesToParent";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

@@ -16,4 +16,11 @@ public record UpdateEntityTagsAction(@Nonnull ProjectId projectId,
                                     @Nonnull OWLEntity entity,
                                     @Nonnull Set<TagId> fromTagIds,
                                     @Nonnull Set<TagId> toTagIds) implements ProjectAction<UpdateEntityTagsResult> {
+
+    public static final String CHANNEL = "webprotege.tags.UpdateEntityTags";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }

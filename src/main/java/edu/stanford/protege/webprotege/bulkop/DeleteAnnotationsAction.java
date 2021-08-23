@@ -17,11 +17,13 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @Deprecated
 public class DeleteAnnotationsAction implements ProjectAction<DeleteAnnotationsResult> {
 
-    private ProjectId projectId;
+    public static final String CHANNEL = "webprotege.bulkop.DeleteAnnotations";
 
-    private ImmutableSet<OWLEntity> entities;
+    private final ProjectId projectId;
 
-    private AnnotationSimpleMatchingCriteria criteria;
+    private final ImmutableSet<OWLEntity> entities;
+
+    private final AnnotationSimpleMatchingCriteria criteria;
 
     public DeleteAnnotationsAction(@Nonnull ProjectId projectId,
                                    @Nonnull ImmutableSet<OWLEntity> entities,
@@ -31,8 +33,9 @@ public class DeleteAnnotationsAction implements ProjectAction<DeleteAnnotationsR
         this.criteria = checkNotNull(criteria);
     }
 
-
-    private DeleteAnnotationsAction() {
+    @Override
+    public String getChannel() {
+        return CHANNEL;
     }
 
     @Nonnull

@@ -3,16 +3,13 @@ package edu.stanford.protege.webprotege.itemlist;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.UserId;
+import edu.stanford.protege.webprotege.user.GetUserIdCompletionsResult;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 import static org.mockito.Mockito.mock;
 

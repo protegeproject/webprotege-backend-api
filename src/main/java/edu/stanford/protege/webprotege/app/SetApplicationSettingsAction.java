@@ -15,4 +15,10 @@ import javax.annotation.Nonnull;
 @JsonTypeName("SetApplicationSettings")
 public record SetApplicationSettingsAction(@Nonnull ApplicationSettings applicationSettings) implements Action<SetApplicationSettingsResult> {
 
+    public static final String CHANNEL = "webprotege.application.SetApplicationSettings";
+
+    @Override
+    public String getChannel() {
+        return CHANNEL;
+    }
 }
