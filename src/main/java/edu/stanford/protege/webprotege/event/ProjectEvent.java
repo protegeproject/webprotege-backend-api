@@ -23,7 +23,7 @@ public abstract class ProjectEvent extends WebProtegeEvent implements HasProject
 
     @Nonnull
     @Override
-    public ProjectId getProjectId() {
+    public ProjectId projectId() {
         return getSource();
     }
 }

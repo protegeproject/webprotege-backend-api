@@ -15,15 +15,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 26 Sep 2018
  */
 @Deprecated
-public class DeleteAnnotationsAction implements ProjectAction<DeleteAnnotationsResult> {
+public record DeleteAnnotationsAction(ProjectId projectId,
+                                      ImmutableSet<OWLEntity> entities,
+                                      AnnotationSimpleMatchingCriteria criteria) implements ProjectAction<DeleteAnnotationsResult> {
 
     public static final String CHANNEL = "webprotege.bulkop.DeleteAnnotations";
-
-    private final ProjectId projectId;
-
-    private final ImmutableSet<OWLEntity> entities;
-
-    private final AnnotationSimpleMatchingCriteria criteria;
 
     public DeleteAnnotationsAction(@Nonnull ProjectId projectId,
                                    @Nonnull ImmutableSet<OWLEntity> entities,
@@ -36,21 +32,5 @@ public class DeleteAnnotationsAction implements ProjectAction<DeleteAnnotationsR
     @Override
     public String getChannel() {
         return CHANNEL;
-    }
-
-    @Nonnull
-    @Override
-    public ProjectId projectId() {
-        return projectId;
-    }
-
-    @Nonnull
-    public ImmutableSet<OWLEntity> getEntities() {
-        return entities;
-    }
-
-    @Nonnull
-    public AnnotationSimpleMatchingCriteria getCriteria() {
-        return criteria;
     }
 }

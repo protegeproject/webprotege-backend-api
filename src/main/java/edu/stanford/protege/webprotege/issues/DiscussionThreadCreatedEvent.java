@@ -39,11 +39,11 @@ public class DiscussionThreadCreatedEvent extends ProjectEvent implements HasPro
             return false;
         }
         DiscussionThreadCreatedEvent that = (DiscussionThreadCreatedEvent) o;
-        return Objects.equals(thread, that.thread) && Objects.equals(getProjectId(), ((DiscussionThreadCreatedEvent) o).getProjectId());
+        return Objects.equals(thread, that.thread) && Objects.equals(projectId(), ((DiscussionThreadCreatedEvent) o).projectId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(thread, getProjectId());
+        return Objects.hash(thread, projectId());
     }
 }

@@ -47,11 +47,11 @@ public class DisplayNameSettingsChangedEvent extends ProjectEvent {
         }
         DisplayNameSettingsChangedEvent that = (DisplayNameSettingsChangedEvent) o;
         return displayNameSettings.equals(that.displayNameSettings)
-                && getProjectId().equals(that.getProjectId());
+                && projectId().equals(that.projectId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(displayNameSettings, getProjectId());
+        return Objects.hash(displayNameSettings, projectId());
     }
 }

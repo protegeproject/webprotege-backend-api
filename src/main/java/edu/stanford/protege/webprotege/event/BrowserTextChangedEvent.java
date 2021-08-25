@@ -90,7 +90,7 @@ public class BrowserTextChangedEvent extends ProjectEvent {
         return Objects.hashCode(getEntity(),
                                 getNewBrowserText(),
                                 getShortForms(),
-                                getProjectId());
+                                projectId());
     }
 
     @Override
@@ -105,6 +105,6 @@ public class BrowserTextChangedEvent extends ProjectEvent {
         return entity.equals(that.entity)
                 && newBrowserText.equals(that.newBrowserText)
                 && shortForms.equals(that.shortForms)
-                && getProjectId().equals(that.getProjectId());
+                && projectId().equals(that.projectId());
     }
 }

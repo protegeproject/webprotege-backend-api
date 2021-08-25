@@ -15,12 +15,6 @@ public record GetProjectDetailsAction(ProjectId projectId) implements Action<Get
 
     public static final String CHANNEL = "webprotege.projects.GetProjectDetails";
 
-    @NotNull
-    @Override
-    public ProjectId getProjectId() {
-        return projectId;
-    }
-
     @Override
     public String getChannel() {
         return CHANNEL;

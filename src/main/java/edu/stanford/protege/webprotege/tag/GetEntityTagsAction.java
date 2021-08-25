@@ -11,8 +11,10 @@ import org.semanticweb.owlapi.model.OWLEntity;
  */
 public record GetEntityTagsAction(ProjectId projectId, OWLEntity entity) implements ProjectAction<GetEntityTagsResult> {
 
+    public static final String CHANNEL = "webprotege.tags.GetEntityTags";
+
     @Override
     public String getChannel() {
-        return "webprotege.tags.GetEntityTags";
+        return CHANNEL;
     }
 }

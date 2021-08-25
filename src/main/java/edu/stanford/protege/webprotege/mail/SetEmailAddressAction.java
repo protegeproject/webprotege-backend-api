@@ -2,6 +2,7 @@ package edu.stanford.protege.webprotege.mail;
 
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.common.UserId;
+import edu.stanford.protege.webprotege.user.EmailAddress;
 
 /**
  * Author: Matthew Horridge<br>
@@ -16,7 +17,7 @@ import edu.stanford.protege.webprotege.common.UserId;
  *     @param emailAddress The email address to set.  Not {@code null}.
  *
  */
-public record SetEmailAddressAction(UserId userId, String emailAddress) implements Action<SetEmailAddressResult> {
+public record SetEmailAddressAction(UserId userId, EmailAddress emailAddress) implements Action<SetEmailAddressResult> {
 
     public static final String CHANNEL = "webprotege.users.SetEmailAddress";
 

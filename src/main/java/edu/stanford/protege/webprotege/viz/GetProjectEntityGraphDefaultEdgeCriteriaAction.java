@@ -12,11 +12,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 2019-12-07
  */
-public class GetProjectEntityGraphDefaultEdgeCriteriaAction implements ProjectAction<GetProjectEntityGraphDefaultEdgeCriteriaResult> {
+public record GetProjectEntityGraphDefaultEdgeCriteriaAction(ProjectId projectId) implements ProjectAction<GetProjectEntityGraphDefaultEdgeCriteriaResult> {
 
     public static final String CHANNEL = "webprotege.graphs.GetProjectEntityGraphDefaultEdgeCriteria";
-
-    private final ProjectId projectId;
 
     public GetProjectEntityGraphDefaultEdgeCriteriaAction(@Nonnull ProjectId projectId) {
         this.projectId = checkNotNull(projectId);
@@ -25,28 +23,5 @@ public class GetProjectEntityGraphDefaultEdgeCriteriaAction implements ProjectAc
     @Override
     public String getChannel() {
         return CHANNEL;
-    }
-
-    @Nonnull
-    @Override
-    public ProjectId projectId() {
-        return projectId;
-    }
-
-    @Override
-    public int hashCode() {
-        return projectId.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if(obj == this) {
-            return true;
-        }
-        if(!(obj instanceof GetProjectEntityGraphDefaultEdgeCriteriaAction)) {
-            return false;
-        }
-        GetProjectEntityGraphDefaultEdgeCriteriaAction other = (GetProjectEntityGraphDefaultEdgeCriteriaAction) obj;
-        return this.projectId.equals(other.projectId);
     }
 }

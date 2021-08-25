@@ -23,10 +23,4 @@ public record AddIssueCommentAction(ProjectId projectId,
     public String getChannel() {
         return CHANNEL;
     }
-
-    @NotNull
-    @Override
-    public ProjectId getProjectId() {
-        return projectId;
-    }
 }

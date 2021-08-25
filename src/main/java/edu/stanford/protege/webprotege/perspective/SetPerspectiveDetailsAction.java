@@ -13,33 +13,14 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-09-03
  */
-public class SetPerspectiveDetailsAction implements ProjectAction<SetPerspectiveDetailsResult> {
+public record SetPerspectiveDetailsAction(ProjectId projectId,
+                                          ImmutableList<PerspectiveDetails> perspectiveDetails) implements ProjectAction<SetPerspectiveDetailsResult> {
 
     public static final String CHANNEL = "webprotege.perspectives.SetPerspectiveDetails";
 
-    private ProjectId projectId;
-
-    private ImmutableList<PerspectiveDetails> perspectiveDetails;
-
-    public SetPerspectiveDetailsAction(@Nonnull ProjectId projectId,
-                                       @Nonnull ImmutableList<PerspectiveDetails> perspectiveDetails) {
-        this.projectId = checkNotNull(projectId);
-        this.perspectiveDetails = checkNotNull(perspectiveDetails);
-    }
 
     @Override
     public String getChannel() {
         return CHANNEL;
-    }
-
-    @Nonnull
-    @Override
-    public ProjectId projectId() {
-        return projectId;
-    }
-
-    @Nonnull
-    public ImmutableList<PerspectiveDetails> getPerspectiveDetails() {
-        return perspectiveDetails;
     }
 }

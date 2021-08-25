@@ -1,5 +1,8 @@
 package edu.stanford.protege.webprotege.app;
 
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.google.common.base.Objects;
 import edu.stanford.protege.webprotege.user.EmailAddress;
 import edu.stanford.protege.webprotege.common.UserId;
@@ -15,6 +18,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 16 Mar 2017
  */
+@JsonClassDescription("An object that represents the application settings")
 public class ApplicationSettings {
 
     private final String applicationName;
@@ -63,11 +67,13 @@ public class ApplicationSettings {
         this.maxUploadSize = maxUploadSize;
     }
 
+    @JsonPropertyDescription("The human readable application name")
     @Nonnull
     public String getApplicationName() {
         return applicationName;
     }
 
+    @JsonPropertyDescription("An email address that critical system notifications will be sent to")
     @Nonnull
     public EmailAddress getSystemNotificationEmailAddress() {
         return systemNotificationEmailAddress;
@@ -78,6 +84,7 @@ public class ApplicationSettings {
         return accountCreationSetting;
     }
 
+    @JsonPropertyDescription("A list of users that are allowed to create accounts.  May be empty.")
     @Nonnull
     public List<UserId> getAccountCreators() {
         return accountCreators;
@@ -88,6 +95,8 @@ public class ApplicationSettings {
         return projectCreationSetting;
     }
 
+
+    @JsonPropertyDescription("A list of users that are allowed to create projects.  May be empty.")
     @Nonnull
     public List<UserId> getProjectCreators() {
         return projectCreators;
@@ -98,6 +107,8 @@ public class ApplicationSettings {
         return projectUploadSetting;
     }
 
+
+    @JsonPropertyDescription("A list of users that are allowed to upload ontologies.  May be empty.")
     @Nonnull
     public List<UserId> getProjectUploaders() {
         return projectUploaders;
@@ -108,11 +119,15 @@ public class ApplicationSettings {
         return notificationEmailsSetting;
     }
 
+
+    @JsonPropertyDescription("An object that represents the Web location of the application.")
     @Nonnull
     public ApplicationLocation getApplicationLocation() {
         return applicationLocation;
     }
 
+
+    @JsonPropertyDescription("The maximum upload size in Megabytes")
     public long getMaxUploadSize() {
         return maxUploadSize;
     }

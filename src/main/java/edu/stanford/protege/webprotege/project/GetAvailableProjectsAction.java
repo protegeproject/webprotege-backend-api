@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.project;
 
+import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Action;
 
@@ -9,9 +10,9 @@ import edu.stanford.protege.webprotege.dispatch.Action;
  * Bio-Medical Informatics Research Group<br>
  * Date: 01/04/2013
  */
-
-
 @JsonTypeName("GetAvailableProjects")
+@JsonClassDescription("Gets the available projects for the authenticated user.  " +
+        "An available project is a project that can be opened in WebProtégé.")
 public record GetAvailableProjectsAction() implements Action<GetAvailableProjectsResult> {
 
     public static final String CHANNEL = "webprotege.projects.GetAvailableProjects";

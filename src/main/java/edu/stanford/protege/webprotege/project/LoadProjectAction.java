@@ -20,11 +20,4 @@ public record LoadProjectAction(ProjectId projectId) implements Action<LoadProje
     public String getChannel() {
         return CHANNEL;
     }
-
-    @NotNull
-    @Override
-    public ProjectId getProjectId() {
-        return projectId();
-    }
-
 }

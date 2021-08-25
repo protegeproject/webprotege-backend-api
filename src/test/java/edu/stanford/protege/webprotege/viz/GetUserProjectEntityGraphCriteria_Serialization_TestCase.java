@@ -20,7 +20,7 @@ public class GetUserProjectEntityGraphCriteria_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new GetUserProjectEntityGraphCriteriaAction(mockProjectId());
+        var action = new GetUserProjectEntityGraphCriteriaAction(mockProjectId(), mockUserId());
         
     }
 

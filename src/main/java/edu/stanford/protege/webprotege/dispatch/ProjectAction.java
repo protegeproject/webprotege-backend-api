@@ -12,9 +12,4 @@ import org.jetbrains.annotations.NotNull;
 public interface ProjectAction<R extends Result> extends Action<R>, HasProjectId {
 
     ProjectId projectId();
-
-    @NotNull
-    default ProjectId getProjectId() {
-        return projectId();
-    }
 }

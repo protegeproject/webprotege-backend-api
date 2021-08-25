@@ -47,11 +47,11 @@ public class EntityDeprecatedChangedEvent extends ProjectEvent {
             return false;
         }
         EntityDeprecatedChangedEvent that = (EntityDeprecatedChangedEvent) o;
-        return deprecated == that.deprecated && entity.equals(that.entity) && this.getProjectId().equals(that.getProjectId());
+        return deprecated == that.deprecated && entity.equals(that.entity) && this.projectId().equals(that.projectId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(entity, deprecated, getProjectId());
+        return Objects.hash(entity, deprecated, projectId());
     }
 }

@@ -14,51 +14,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 27 Jul 16
  */
-public class GetIssuesAction implements ProjectAction<GetIssuesResult> {
+public record GetIssuesAction(ProjectId projectId) implements ProjectAction<GetIssuesResult> {
 
     public static final String CHANNEL = "webprotege.issues.GetIssues";
-
-    private final ProjectId projectId;
-
-    public GetIssuesAction(ProjectId projectId) {
-        this.projectId = checkNotNull(projectId);
-    }
 
     @Override
     public String getChannel() {
         return CHANNEL;
-    }
-
-    @Nonnull
-    @Override
-    public ProjectId projectId() {
-        return projectId;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(
-                projectId
-        );
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof GetIssuesAction)) {
-            return false;
-        }
-        GetIssuesAction other = (GetIssuesAction) obj;
-        return this.projectId.equals(other.projectId);
-    }
-
-
-    @Override
-    public String toString() {
-        return toStringHelper("GetIssuesAction")
-                .addValue(projectId)
-                .toString();
     }
 }

@@ -29,7 +29,7 @@ public class PermissionsChangedEvent extends ProjectEvent {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(getProjectId());
+        return Objects.hashCode(projectId());
     }
 
     @Override
@@ -41,14 +41,14 @@ public class PermissionsChangedEvent extends ProjectEvent {
             return false;
         }
         PermissionsChangedEvent other = (PermissionsChangedEvent) obj;
-        return this.getProjectId().equals(other.getProjectId());
+        return this.projectId().equals(other.projectId());
     }
 
 
     @Override
     public String toString() {
         return toStringHelper("PermissionsChangedEvent")
-                .addValue(getProjectId())
+                .addValue(projectId())
                 .toString();
     }
 }

@@ -3,6 +3,7 @@ package edu.stanford.protege.webprotege.viz;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.common.UserId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
 import javax.annotation.Nonnull;
@@ -15,7 +16,8 @@ import javax.annotation.Nonnull;
 
 
 @JsonTypeName("GetUserProjectEntityGraphCriteria")
-public record GetUserProjectEntityGraphCriteriaAction(@JsonProperty("projectId") @Nonnull ProjectId projectId) implements ProjectAction<GetUserProjectEntityGraphCriteriaResult> {
+public record GetUserProjectEntityGraphCriteriaAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                                      UserId userId) implements ProjectAction<GetUserProjectEntityGraphCriteriaResult> {
 
     public static final String CHANNEL = "webprotege.graphs.GetUserProjectEntityGraphCriteria";
 

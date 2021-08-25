@@ -74,7 +74,7 @@ public class ProjectDetailsTestCase {
 
     @Test
     public void suppliedProjectIdIsReturnedByAccessor() {
-        assertEquals(projectDetails.getProjectId(), projectId);
+        assertEquals(projectDetails.projectId(), projectId);
     }
 
     @Test

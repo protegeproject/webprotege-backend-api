@@ -20,8 +20,10 @@ public record GetMatchingEntitiesAction(@JsonProperty("projectId") ProjectId pro
                                         @JsonProperty("criteria") Criteria criteria,
                                         @JsonProperty("pageRequest") PageRequest pageRequest) implements ProjectAction<GetMatchingEntitiesResult>, Request<GetMatchingEntitiesResult> {
 
+    public static final String CHANNEL = "webprotege.entities.GetMatchingEntities";
+
     @Override
     public String getChannel() {
-        return "webprotege.entities.GetMatchingEntities";
+        return CHANNEL;
     }
 }

@@ -21,7 +21,7 @@ public class LargeNumberOfChangesEvent extends ProjectEvent {
 
     @Override
     public int hashCode() {
-        return getProjectId().hashCode();
+        return projectId().hashCode();
     }
 
     @Override
@@ -33,6 +33,6 @@ public class LargeNumberOfChangesEvent extends ProjectEvent {
             return false;
         }
         LargeNumberOfChangesEvent other = (LargeNumberOfChangesEvent) obj;
-        return this.getProjectId().equals(other.getProjectId());
+        return this.projectId().equals(other.projectId());
     }
 }

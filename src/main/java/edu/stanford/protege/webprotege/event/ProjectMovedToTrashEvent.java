@@ -25,7 +25,7 @@ public class ProjectMovedToTrashEvent extends WebProtegeEvent implements HasProj
     }
 
     @Nonnull
-    public ProjectId getProjectId() {
+    public ProjectId projectId() {
         return projectId;
     }
 

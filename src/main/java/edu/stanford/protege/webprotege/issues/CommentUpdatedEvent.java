@@ -38,7 +38,7 @@ public class CommentUpdatedEvent extends ProjectEvent implements HasProjectId {
 
     @Nonnull
     @Override
-    public ProjectId getProjectId() {
+    public ProjectId projectId() {
         return projectId;
     }
 

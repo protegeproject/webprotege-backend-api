@@ -41,7 +41,7 @@ public class ProjectWebhook_TestCase {
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(projectWebhook.getProjectId(), is(this.projectId));
+        assertThat(projectWebhook.projectId(), is(this.projectId));
     }
 
     @SuppressWarnings("ConstantConditions")

@@ -47,7 +47,7 @@ public class WatchAddedEvent extends ProjectEvent {
     @Override
     public String toString() {
         return toStringHelper("WatchAddedEvent")
-                .addValue(getProjectId())
+                .addValue(projectId())
                 .addValue(getWatch())
                 .toString();
     }

@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.project;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import edu.stanford.protege.webprotege.authorization.api.ActionId;
+import edu.stanford.protege.webprotege.authorization.ActionId;
 import edu.stanford.protege.webprotege.dispatch.Action;
 
 import javax.annotation.Nonnull;

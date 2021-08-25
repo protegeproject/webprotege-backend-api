@@ -42,7 +42,7 @@ public class ProjectTagsChangedEvent extends ProjectEvent {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(getProjectId(), projectTags);
+        return Objects.hashCode(projectId(), projectTags);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class ProjectTagsChangedEvent extends ProjectEvent {
             return false;
         }
         ProjectTagsChangedEvent other = (ProjectTagsChangedEvent) obj;
-        return this.getProjectId().equals(other.getProjectId())
+        return this.projectId().equals(other.projectId())
                 && this.projectTags.equals(other.projectTags);
     }
 
@@ -62,7 +62,7 @@ public class ProjectTagsChangedEvent extends ProjectEvent {
     @Override
     public String toString() {
         return toStringHelper("ProjectTagsChangedEvent")
-                .addValue(getProjectId())
+                .addValue(projectId())
                 .add("tags", projectTags)
                 .toString();
     }

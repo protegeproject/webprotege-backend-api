@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.permissions;
 
 import com.google.common.collect.ImmutableSet;
-import edu.stanford.protege.webprotege.authorization.api.ActionId;
+import edu.stanford.protege.webprotege.authorization.ActionId;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
 /**

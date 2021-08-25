@@ -43,7 +43,7 @@ public class EntityTagsChangedEvent_TestCase {
 
     @Test
     public void shouldReturnSupplied_projectId() {
-        assertThat(event.getProjectId(), is(this.projectId));
+        assertThat(event.projectId(), is(this.projectId));
     }
 
     @SuppressWarnings("ConstantConditions")

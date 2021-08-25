@@ -36,7 +36,7 @@ public class WatchRemovedEvent extends ProjectEvent implements HasUserId {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(getProjectId(), watch);
+        return Objects.hashCode(projectId(), watch);
     }
 
     @Override
@@ -48,14 +48,14 @@ public class WatchRemovedEvent extends ProjectEvent implements HasUserId {
             return false;
         }
         WatchRemovedEvent other = (WatchRemovedEvent) obj;
-        return this.getProjectId().equals(other.getProjectId()) && this.getWatch().equals(other.getWatch());
+        return this.projectId().equals(other.projectId()) && this.getWatch().equals(other.getWatch());
     }
 
 
     @Override
     public String toString() {
         return toStringHelper("WatchRemovedEvent")
-                .addValue(getProjectId())
+                .addValue(projectId())
                 .addValue(watch)
                 .toString();
     }

@@ -29,7 +29,7 @@ public class GetIssuesResult implements Result, HasProjectId {
 
     @Nonnull
     @Override
-    public ProjectId getProjectId() {
+    public ProjectId projectId() {
         return projectId;
     }
 

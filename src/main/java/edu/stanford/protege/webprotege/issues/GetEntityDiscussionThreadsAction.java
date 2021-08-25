@@ -13,8 +13,10 @@ import javax.annotation.Nonnull;
  */
 public record GetEntityDiscussionThreadsAction(@Nonnull ProjectId projectId, @Nonnull OWLEntity entity) implements ProjectAction<GetEntityDiscussionThreadsResult> {
 
+    public static final String CHANNEL = "webprotege.discussions.GetEntityDiscussionThreads";
+
     @Override
     public String getChannel() {
-        return "webprotege.discussions.GetEntityDiscussionThreads";
+        return CHANNEL;
     }
 }

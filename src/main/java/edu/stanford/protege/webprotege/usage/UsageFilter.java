@@ -32,6 +32,14 @@ public class UsageFilter implements Serializable {
         this.entityTypes = new HashSet<EntityType<?>>(entityTypes);
     }
 
+    public Set<AxiomType<?>> getAxiomTypes() {
+        return axiomTypes;
+    }
+
+    public Set<EntityType<?>> getEntityTypes() {
+        return entityTypes;
+    }
+
     public boolean isShowDefiningAxioms() {
         return showDefiningAxioms;
     }
