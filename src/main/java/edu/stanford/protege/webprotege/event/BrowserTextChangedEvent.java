@@ -25,10 +25,10 @@ import static com.google.common.collect.ImmutableMap.toImmutableMap;
  * Date: 19/03/2013
  */
 @JsonTypeName("BrowserTextChangedEvent")
-public record BrowserTextChangedEvent(@JsonProperty("entity") OWLEntity entity,
-                                     @JsonProperty("newBrowserText") String newBrowserText,
-                                     @JsonProperty("projectId") ProjectId projectId,
-                                     @JsonProperty("shortForms") ImmutableList<ShortForm> shortForms) implements Event {
+public record BrowserTextChangedEvent(@JsonProperty("projectId") ProjectId projectId,
+                                      @JsonProperty("entity") OWLEntity entity,
+                                      @JsonProperty("newBrowserText") String newBrowserText,
+                                      @JsonProperty("shortForms") ImmutableList<ShortForm> shortForms) implements Event {
 
     public static final String CHANNEL = "webprotege.entities.events.BrowserTextChanged";
 
