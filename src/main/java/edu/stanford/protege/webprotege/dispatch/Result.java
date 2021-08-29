@@ -67,7 +67,7 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesResult;
  *     The basic interface for results which are returned from the dispatch service
  * </p>
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "action")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
 @JsonSubTypes({
         @Type(AddCommentResult.class),
         @Type(AddProjectTagResult.class),
