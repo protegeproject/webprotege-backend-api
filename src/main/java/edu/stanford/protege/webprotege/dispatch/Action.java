@@ -9,7 +9,6 @@ import edu.stanford.protege.webprotege.bulkop.EditAnnotationsAction;
 import edu.stanford.protege.webprotege.bulkop.MoveEntitiesToParentAction;
 import edu.stanford.protege.webprotege.bulkop.SetAnnotationValueAction;
 import edu.stanford.protege.webprotege.change.GetProjectChangesAction;
-import edu.stanford.protege.webprotege.change.GetWatchedEntityChangesAction;
 import edu.stanford.protege.webprotege.change.RevertRevisionAction;
 import edu.stanford.protege.webprotege.common.Request;
 import edu.stanford.protege.webprotege.crud.GetEntityCrudKitsAction;
@@ -142,7 +141,6 @@ import edu.stanford.protege.webprotege.watches.SetEntityWatchesAction;
         @Type(value = GetUserProjectEntityGraphCriteriaAction.class),
         @Type(value = GetEntityUsageAction.class),
         @Type(value = GetWatchesAction.class),
-        @Type(value = GetWatchedEntityChangesAction.class),
         @Type(value = LoadProjectAction.class),
         @Type(value = LookupEntitiesAction.class),
         @Type(value = MergeEntitiesAction.class),

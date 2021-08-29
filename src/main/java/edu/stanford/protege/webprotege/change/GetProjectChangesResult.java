@@ -2,8 +2,9 @@ package edu.stanford.protege.webprotege.change;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import edu.stanford.protege.webprotege.dispatch.Result;
+import edu.stanford.protege.webprotege.common.Response;
 import edu.stanford.protege.webprotege.common.Page;
+import edu.stanford.protege.webprotege.dispatch.Result;
 
 import java.util.Objects;
 
