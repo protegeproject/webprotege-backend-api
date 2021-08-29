@@ -5,7 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import edu.stanford.protege.webprotege.entity.*;
 import edu.stanford.protege.webprotege.csv.DocumentId;
 import edu.stanford.protege.webprotege.event.EventTag;
-import edu.stanford.protege.webprotege.event.WebProtegeEvent;
+
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 import org.semanticweb.owlapi.model.*;

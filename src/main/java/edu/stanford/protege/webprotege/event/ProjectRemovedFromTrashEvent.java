@@ -4,9 +4,7 @@ package edu.stanford.protege.webprotege.event;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.Event;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.project.HasProjectId;
 
-import javax.annotation.Nonnull;
 import java.util.Objects;
 
 /**
@@ -15,10 +13,10 @@ import java.util.Objects;
  * Bio-Medical Informatics Research Group<br>
  * Date: 09/04/2013
  */
-@JsonTypeName("ProjectMovedToTrashEvent")
-public record ProjectMovedToTrashEvent(ProjectId projectId) implements Event {
+@JsonTypeName("ProjectRemovedFromTrashEvent")
+public record ProjectRemovedFromTrashEvent(ProjectId projectId) implements Event {
 
-    public static final String CHANNEL = "webprotege.projects.events.ProjectMovedToTrash";
+    public static final String CHANNEL = "webprotege.projects.events.ProjectRemovedFromTrash";
 
     @Override
     public String getChannel() {

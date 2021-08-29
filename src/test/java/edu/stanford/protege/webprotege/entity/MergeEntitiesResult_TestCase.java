@@ -1,7 +1,6 @@
 
 package edu.stanford.protege.webprotege.entity;
 
-import edu.stanford.protege.webprotege.event.ProjectEvent;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

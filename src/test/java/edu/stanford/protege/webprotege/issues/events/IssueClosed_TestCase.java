@@ -1,32 +1,33 @@
 
 package edu.stanford.protege.webprotege.issues.events;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 
 @RunWith(org.mockito.runners.MockitoJUnitRunner.class)
 public class IssueClosed_TestCase {
 
-    private IssueClosed issueClosed;
+    private IssueClosedEvent issueClosed;
 
     private UserId userId = new UserId("UserA");
 
     private final long timestamp = 1L;
 
+    private ProjectId projectId = ProjectId.generate();
+
     @Before
     public void setUp() {
-        issueClosed = new IssueClosed(userId, timestamp);
+        issueClosed = new IssueClosedEvent(projectId, userId, timestamp);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        new IssueClosed(null, timestamp);
+        new IssueClosedEvent(projectId, null, timestamp);
     }
 
     @Test
@@ -41,22 +42,22 @@ public class IssueClosed_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        MatcherAssert.assertThat(issueClosed, Matchers.is(new IssueClosed(userId, timestamp)));
+        MatcherAssert.assertThat(issueClosed, Matchers.is(new IssueClosedEvent(projectId, userId, timestamp)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        MatcherAssert.assertThat(issueClosed, Matchers.is(Matchers.not(new IssueClosed(new UserId("OtherUser"), timestamp))));
+        MatcherAssert.assertThat(issueClosed, Matchers.is(Matchers.not(new IssueClosedEvent(projectId, new UserId("OtherUser"), timestamp))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_timestamp() {
-        MatcherAssert.assertThat(issueClosed, Matchers.is(Matchers.not(new IssueClosed(userId, 2L))));
+        MatcherAssert.assertThat(issueClosed, Matchers.is(Matchers.not(new IssueClosedEvent(projectId, userId, 2L))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        MatcherAssert.assertThat(issueClosed.hashCode(), Matchers.is(new IssueClosed(userId, timestamp).hashCode()));
+        MatcherAssert.assertThat(issueClosed.hashCode(), Matchers.is(new IssueClosedEvent(projectId, userId, timestamp).hashCode()));
     }
 
     @Test

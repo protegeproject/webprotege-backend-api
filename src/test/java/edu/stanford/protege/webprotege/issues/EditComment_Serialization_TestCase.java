@@ -24,7 +24,7 @@ public class EditComment_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = new CommentResult(Optional.empty());
+        var result = new UpdateCommentResult(Optional.empty());
 
     }
 }

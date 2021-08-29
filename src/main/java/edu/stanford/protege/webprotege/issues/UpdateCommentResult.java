@@ -15,5 +15,5 @@ import java.util.Optional;
 
 
 @JsonTypeName("UpdateComment")
-public record CommentResult(@JsonProperty("editedComment") @Nonnull Optional<Comment> editedComment) implements Result {
+public record UpdateCommentResult(@JsonProperty("editedComment") @Nonnull Optional<Comment> editedComment) implements Result {
 }

@@ -33,7 +33,7 @@ public class PermissionsChangedEvent_TestCase {
 
     @Test
     public void shouldReturnSupplied_source() {
-        assertThat(permissionsChangedEvent.getSource(), is(this.source));
+        assertThat(permissionsChangedEvent.toString(), is(this.source));
     }
 
     @Test

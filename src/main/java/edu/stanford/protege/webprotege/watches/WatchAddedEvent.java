@@ -1,13 +1,9 @@
 package edu.stanford.protege.webprotege.watches;
 
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.Event;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.event.ProjectEvent;
-import edu.stanford.protege.webprotege.common.UserId;
-
-import java.util.Objects;
-
-import static com.google.common.base.MoreObjects.toStringHelper;
 
 /**
  * Author: Matthew Horridge<br>
@@ -15,57 +11,13 @@ import static com.google.common.base.MoreObjects.toStringHelper;
  * Bio-Medical Informatics Research Group<br>
  * Date: 21/03/2013
  */
-public class WatchAddedEvent extends ProjectEvent {
+@JsonTypeName("WatchAddedEvent")
+public record WatchAddedEvent(ProjectId projectId, Watch watch) implements Event {
 
-    private Watch watch;
-
-    /**
-     * For serialization only.
-     */
-    private WatchAddedEvent() {
-    }
-
-    /**
-     * Creates a {@link WatchAddedEvent}.
-     * @param source The id of the project that the watch was added to.  Not {@code null}.
-     * @param watch The watch that was added.  Not {@code null}.
-     */
-    public WatchAddedEvent(ProjectId source, Watch watch) {
-        super(source);
-        this.watch = watch;
-    }
-
-    public Watch getWatch() {
-        return watch;
-    }
-
-    public UserId getUserId() {
-        return watch.getUserId();
-    }
-
+    public static final String CHANNEL = "webprotege.watches.events.WatchAdded";
 
     @Override
-    public String toString() {
-        return toStringHelper("WatchAddedEvent")
-                .addValue(projectId())
-                .addValue(getWatch())
-                .toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof WatchAddedEvent)) {
-            return false;
-        }
-        WatchAddedEvent that = (WatchAddedEvent) o;
-        return Objects.equals(watch, that.watch);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(watch);
+    public String getChannel() {
+        return CHANNEL;
     }
 }

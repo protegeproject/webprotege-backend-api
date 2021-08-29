@@ -1,6 +1,7 @@
 
 package edu.stanford.protege.webprotege.issues.events;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +17,7 @@ import static org.hamcrest.Matchers.*;
 @RunWith(MockitoJUnitRunner.class)
 public class IssueTargetRemoved_TestCase {
 
-    private IssueTargetRemoved issueTargetRemoved;
+    private IssueTargetRemovedEvent issueTargetRemoved;
 
     private UserId userId = new UserId("UserA");
 
@@ -25,37 +26,39 @@ public class IssueTargetRemoved_TestCase {
     @Mock
     private OWLEntity entity;
 
+    private ProjectId projectId = ProjectId.generate();
+
     @Before
     public void setUp()
             throws Exception {
-        issueTargetRemoved = new IssueTargetRemoved(userId, timestamp, entity);
+        issueTargetRemoved = new IssueTargetRemovedEvent(projectId, userId, timestamp, entity);
     }
 
     @SuppressWarnings("ConstantConditions" )
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        new IssueTargetRemoved(null, timestamp, entity);
+        new IssueTargetRemovedEvent(projectId, null, timestamp, entity);
     }
 
     @Test
     public void shouldReturnSupplied_userId() {
-        assertThat(issueTargetRemoved.getUserId(), is(this.userId));
+        assertThat(issueTargetRemoved.userId(), is(this.userId));
     }
 
     @Test
     public void shouldReturnSupplied_timestamp() {
-        assertThat(issueTargetRemoved.getTimestamp(), is(this.timestamp));
+        assertThat(issueTargetRemoved.timestamp(), is(this.timestamp));
     }
 
     @SuppressWarnings("ConstantConditions" )
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        new IssueTargetRemoved(userId, timestamp, null);
+        new IssueTargetRemovedEvent(projectId, userId, timestamp, null);
     }
 
     @Test
     public void shouldReturnSupplied_entity() {
-        assertThat(issueTargetRemoved.getEntity(), is(this.entity));
+        assertThat(issueTargetRemoved.entity(), is(this.entity));
     }
 
     @Test
@@ -71,30 +74,30 @@ public class IssueTargetRemoved_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(issueTargetRemoved, is(new IssueTargetRemoved(userId, timestamp, entity)));
+        assertThat(issueTargetRemoved, is(new IssueTargetRemovedEvent(projectId, userId, timestamp, entity)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
         assertThat(issueTargetRemoved,
-                   is(not(new IssueTargetRemoved(new UserId("OtherUser"), timestamp, entity))));
+                   is(not(new IssueTargetRemovedEvent(projectId, new UserId("OtherUser"), timestamp, entity))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_timestamp() {
-        assertThat(issueTargetRemoved, is(not(new IssueTargetRemoved(userId, 2L, entity))));
+        assertThat(issueTargetRemoved, is(not(new IssueTargetRemovedEvent(projectId, userId, 2L, entity))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entity() {
         assertThat(issueTargetRemoved,
-                   is(not(new IssueTargetRemoved(userId, timestamp, Mockito.mock(OWLEntity.class)))));
+                   is(not(new IssueTargetRemovedEvent(projectId, userId, timestamp, Mockito.mock(OWLEntity.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
         assertThat(issueTargetRemoved.hashCode(),
-                   is(new IssueTargetRemoved(userId, timestamp, entity).hashCode()));
+                   is(new IssueTargetRemovedEvent(projectId, userId, timestamp, entity).hashCode()));
     }
 
     @Test

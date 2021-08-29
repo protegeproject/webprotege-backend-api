@@ -1,9 +1,9 @@
 package edu.stanford.protege.webprotege.permissions;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.base.Objects;
+import edu.stanford.protege.webprotege.common.Event;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.event.ProjectEvent;
-
 import javax.annotation.Nonnull;
 
 import static com.google.common.base.MoreObjects.toStringHelper;
@@ -17,38 +17,13 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * An event that is fired when the permissions for a project change.
  */
-public class PermissionsChangedEvent extends ProjectEvent {
+@JsonTypeName("PermissionsChangedEvent")
+public record PermissionsChangedEvent(ProjectId projectId) implements Event {
 
-    public PermissionsChangedEvent(@Nonnull ProjectId source) {
-        super(checkNotNull(source));
-    }
-
-
-    private PermissionsChangedEvent() {
-    }
+    public static final String CHANNEL = "webprotege.projects.events.PermissionsChanged";
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(projectId());
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if(obj == this) {
-            return true;
-        }
-        if(!(obj instanceof PermissionsChangedEvent)) {
-            return false;
-        }
-        PermissionsChangedEvent other = (PermissionsChangedEvent) obj;
-        return this.projectId().equals(other.projectId());
-    }
-
-
-    @Override
-    public String toString() {
-        return toStringHelper("PermissionsChangedEvent")
-                .addValue(projectId())
-                .toString();
+    public String getChannel() {
+        return CHANNEL;
     }
 }

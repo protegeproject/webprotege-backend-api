@@ -1,9 +1,10 @@
 package edu.stanford.protege.webprotege.tag;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableList;
+import edu.stanford.protege.webprotege.common.Event;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.event.ProjectEvent;
 
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
@@ -17,53 +18,14 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 26 Mar 2018
  */
-public class ProjectTagsChangedEvent extends ProjectEvent {
+@JsonTypeName("ProjectTagsChangedEvent")
+public record ProjectTagsChangedEvent(@Nonnull ProjectId source,
+                                      @Nonnull Collection<Tag> projectTags) implements Event {
 
-    private Collection<Tag> projectTags;
-
-    @Inject
-    public ProjectTagsChangedEvent(@Nonnull ProjectId source,
-                                   @Nonnull Collection<Tag> projectTags) {
-        super(source);
-        this.projectTags = ImmutableList.copyOf(checkNotNull(projectTags));
-    }
-
-
-    private ProjectTagsChangedEvent() {
-    }
-
-    /**
-     * Returns an immutable list of project tags.
-     */
-    @Nonnull
-    public Collection<Tag> getProjectTags() {
-        return projectTags;
-    }
+    public static final String CHANNEL = "webprotege.tags.events.ProjectTagsChanged";
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(projectId(), projectTags);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof ProjectTagsChangedEvent)) {
-            return false;
-        }
-        ProjectTagsChangedEvent other = (ProjectTagsChangedEvent) obj;
-        return this.projectId().equals(other.projectId())
-                && this.projectTags.equals(other.projectTags);
-    }
-
-
-    @Override
-    public String toString() {
-        return toStringHelper("ProjectTagsChangedEvent")
-                .addValue(projectId())
-                .add("tags", projectTags)
-                .toString();
+    public String getChannel() {
+        return CHANNEL;
     }
 }

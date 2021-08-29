@@ -2,6 +2,8 @@ package edu.stanford.protege.webprotege.event;
 
 
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.Event;
 import edu.stanford.protege.webprotege.common.ProjectId;
 
 /**
@@ -9,30 +11,13 @@ import edu.stanford.protege.webprotege.common.ProjectId;
  * Stanford Center for Biomedical Informatics Research
  * 2020-11-04
  */
-public class LargeNumberOfChangesEvent extends ProjectEvent {
+@JsonTypeName("LargeNumberOfChangesEvent")
+public record LargeNumberOfChangesEvent() implements Event {
 
-    public LargeNumberOfChangesEvent(ProjectId source) {
-        super(source);
-    }
-
-
-    private LargeNumberOfChangesEvent() {
-    }
+    public static final String CHANNEL = "webprotege.projects.events.LargeNumberOfChanges";
 
     @Override
-    public int hashCode() {
-        return projectId().hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if(obj == this) {
-            return true;
-        }
-        if(!(obj instanceof LargeNumberOfChangesEvent)) {
-            return false;
-        }
-        LargeNumberOfChangesEvent other = (LargeNumberOfChangesEvent) obj;
-        return this.projectId().equals(other.projectId());
+    public String getChannel() {
+        return CHANNEL;
     }
 }

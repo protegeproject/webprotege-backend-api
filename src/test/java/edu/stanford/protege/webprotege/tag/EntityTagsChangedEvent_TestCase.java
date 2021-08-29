@@ -54,7 +54,7 @@ public class EntityTagsChangedEvent_TestCase {
 
     @Test
     public void shouldReturnSupplied_entity() {
-        assertThat(event.getEntity(), is(this.entity));
+        assertThat(event.entity(), is(this.entity));
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -65,7 +65,7 @@ public class EntityTagsChangedEvent_TestCase {
 
     @Test
     public void shouldReturnSupplied_tags() {
-        assertThat(event.getTags(), is(this.tags));
+        assertThat(event.tags(), is(this.tags));
     }
 
     @Test

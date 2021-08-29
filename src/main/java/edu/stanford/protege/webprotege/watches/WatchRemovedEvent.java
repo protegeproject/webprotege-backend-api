@@ -1,12 +1,8 @@
 package edu.stanford.protege.webprotege.watches;
 
-import com.google.common.base.Objects;
-import edu.stanford.protege.webprotege.HasUserId;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.Event;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.event.ProjectEvent;
-import edu.stanford.protege.webprotege.common.UserId;
-
-import static com.google.common.base.MoreObjects.toStringHelper;
 
 /**
  * Author: Matthew Horridge<br>
@@ -14,49 +10,13 @@ import static com.google.common.base.MoreObjects.toStringHelper;
  * Bio-Medical Informatics Research Group<br>
  * Date: 21/03/2013
  */
-public class WatchRemovedEvent extends ProjectEvent implements HasUserId {
+@JsonTypeName("WatchRemovedEvent")
+public record WatchRemovedEvent(ProjectId projectId, Watch watch) implements Event {
 
-    private Watch watch;
-
-    public WatchRemovedEvent(ProjectId source, Watch watch) {
-        super(source);
-        this.watch = watch;
-    }
-
-    private WatchRemovedEvent() {
-    }
-
-    public Watch getWatch() {
-        return watch;
-    }
-
-    public UserId getUserId() {
-        return watch.getUserId();
-    }
+    public static final String CHANNEL = "webprotege.watches.events.WatchRemoved";
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(projectId(), watch);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if(obj == this) {
-            return true;
-        }
-        if(!(obj instanceof WatchRemovedEvent)) {
-            return false;
-        }
-        WatchRemovedEvent other = (WatchRemovedEvent) obj;
-        return this.projectId().equals(other.projectId()) && this.getWatch().equals(other.getWatch());
-    }
-
-
-    @Override
-    public String toString() {
-        return toStringHelper("WatchRemovedEvent")
-                .addValue(projectId())
-                .addValue(watch)
-                .toString();
+    public String getChannel() {
+        return CHANNEL;
     }
 }

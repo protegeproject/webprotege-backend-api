@@ -1,6 +1,7 @@
 
 package edu.stanford.protege.webprotege.issues.events;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.issues.Milestone;
 import edu.stanford.protege.webprotege.common.UserId;
 import org.hamcrest.MatcherAssert;
@@ -15,30 +16,32 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class IssueDemilestoned_TestCase {
 
-    private IssueDemilestoned issueDemilestoned;
+    private IssueDemilestonedEvent issueDemilestoned;
     private UserId userId = new UserId("UserA");
     private final long timestamp = 1L;
     @Mock
     private Milestone milestone;
 
+    private ProjectId projectId = ProjectId.generate();
+
     @Before
     public void setUp() {
-        issueDemilestoned = new IssueDemilestoned(userId, timestamp, milestone);
+        issueDemilestoned = new IssueDemilestonedEvent(projectId, userId, timestamp, milestone);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        new IssueDemilestoned(null, timestamp, milestone);
+        new IssueDemilestonedEvent(projectId, null, timestamp, milestone);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_milestone_IsNull() {
-        new IssueDemilestoned(userId, timestamp, null);
+        new IssueDemilestonedEvent(projectId, userId, timestamp, null);
     }
 
     @Test
     public void shouldReturnSupplied_milestone() {
-        MatcherAssert.assertThat(issueDemilestoned.getMilestone(), Matchers.is(this.milestone));
+        MatcherAssert.assertThat(issueDemilestoned.milestone(), Matchers.is(this.milestone));
     }
 
     @Test
@@ -53,28 +56,28 @@ public class IssueDemilestoned_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        MatcherAssert.assertThat(issueDemilestoned, Matchers.is(new IssueDemilestoned(userId, timestamp, milestone)));
+        MatcherAssert.assertThat(issueDemilestoned, Matchers.is(new IssueDemilestonedEvent(projectId, userId, timestamp, milestone)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        MatcherAssert.assertThat(issueDemilestoned, Matchers.is(Matchers.not(new IssueDemilestoned(new UserId("OtherUser"), timestamp, milestone))));
+        MatcherAssert.assertThat(issueDemilestoned, Matchers.is(Matchers.not(new IssueDemilestonedEvent(projectId, new UserId("OtherUser"), timestamp, milestone))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_timestamp() {
-        MatcherAssert.assertThat(issueDemilestoned, Matchers.is(Matchers.not(new IssueDemilestoned(userId, 2L, milestone))));
+        MatcherAssert.assertThat(issueDemilestoned, Matchers.is(Matchers.not(new IssueDemilestonedEvent(projectId, userId, 2L, milestone))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_milestone() {
-        MatcherAssert.assertThat(issueDemilestoned, Matchers.is(Matchers.not(new IssueDemilestoned(userId, timestamp, Mockito
+        MatcherAssert.assertThat(issueDemilestoned, Matchers.is(Matchers.not(new IssueDemilestonedEvent(projectId, userId, timestamp, Mockito
                 .mock(Milestone.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        MatcherAssert.assertThat(issueDemilestoned.hashCode(), Matchers.is(new IssueDemilestoned(userId, timestamp, milestone).hashCode()));
+        MatcherAssert.assertThat(issueDemilestoned.hashCode(), Matchers.is(new IssueDemilestonedEvent(projectId, userId, timestamp, milestone).hashCode()));
     }
 
     @Test

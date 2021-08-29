@@ -1,5 +1,7 @@
 package edu.stanford.protege.webprotege.issues.events;
 
+import edu.stanford.protege.webprotege.common.Event;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 
 import javax.annotation.Nonnull;
@@ -9,10 +11,13 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 26 Sep 16
  */
-public interface IssueEvent {
+public interface IssueEvent extends Event {
 
     @Nonnull
-    UserId getUserId();
+    ProjectId projectId();
 
-    long getTimestamp();
+    @Nonnull
+    UserId userId();
+
+    long timestamp();
 }

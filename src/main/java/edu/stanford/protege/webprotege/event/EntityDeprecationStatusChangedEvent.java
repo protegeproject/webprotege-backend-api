@@ -4,21 +4,20 @@ package edu.stanford.protege.webprotege.event;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.Event;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.project.HasProjectId;
+import org.semanticweb.owlapi.model.OWLEntity;
 
-import javax.annotation.Nonnull;
 import java.util.Objects;
 
 /**
  * Author: Matthew Horridge<br>
  * Stanford University<br>
  * Bio-Medical Informatics Research Group<br>
- * Date: 09/04/2013
+ * Date: 21/03/2013
  */
-@JsonTypeName("ProjectMovedToTrashEvent")
-public record ProjectMovedToTrashEvent(ProjectId projectId) implements Event {
+@JsonTypeName("EntityDeprecationStatusChangedEvent")
+public record EntityDeprecationStatusChangedEvent(ProjectId source, OWLEntity entity, boolean deprecated) implements Event {
 
-    public static final String CHANNEL = "webprotege.projects.events.ProjectMovedToTrash";
+    public static final String CHANNEL = "webprotege.entities.events.EntityDeprecationStatusChanged";
 
     @Override
     public String getChannel() {

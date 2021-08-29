@@ -2,29 +2,23 @@ package edu.stanford.protege.webprotege.lang;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.Event;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.event.ProjectEvent;
 
 import javax.annotation.Nonnull;
-import java.util.Objects;
-
-import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
  * 29 Jul 2018
  */
-public class DisplayNameSettingsChangedEvent extends ProjectEvent {
+@JsonTypeName("DisplayNameSettingsChangedEvent")
+public record DisplayNameSettingsChangedEvent(ProjectId projectId,
+                                             DisplayNameSettings displayNameSettings) implements Event {
 
-    @Nonnull
-    private final DisplayNameSettings displayNameSettings;
+    public static final String CHANNEL = "webprotege.projects.events.DisplayNameSettingsChanged";
 
-    private DisplayNameSettingsChangedEvent(@Nonnull ProjectId source,
-                                            @Nonnull DisplayNameSettings displayNameSettings) {
-        super(source);
-        this.displayNameSettings = checkNotNull(displayNameSettings);
-    }
 
     @JsonCreator
     public static DisplayNameSettingsChangedEvent get(@JsonProperty("projectId") @Nonnull ProjectId projectId,
@@ -32,26 +26,8 @@ public class DisplayNameSettingsChangedEvent extends ProjectEvent {
         return new DisplayNameSettingsChangedEvent(projectId, displayNameSettings);
     }
 
-    @Nonnull
-    public DisplayNameSettings getDisplayNameSettings() {
-        return displayNameSettings;
-    }
-
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof DisplayNameSettingsChangedEvent)) {
-            return false;
-        }
-        DisplayNameSettingsChangedEvent that = (DisplayNameSettingsChangedEvent) o;
-        return displayNameSettings.equals(that.displayNameSettings)
-                && projectId().equals(that.projectId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(displayNameSettings, projectId());
+    public String getChannel() {
+        return CHANNEL;
     }
 }

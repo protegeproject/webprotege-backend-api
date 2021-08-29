@@ -1,6 +1,7 @@
 
 package edu.stanford.protege.webprotege.issues.events;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.issues.Milestone;
 import edu.stanford.protege.webprotege.common.UserId;
 import org.junit.Before;
@@ -16,7 +17,7 @@ import static org.mockito.Mockito.mock;
 @RunWith(MockitoJUnitRunner.class)
 public class IssueMilestoned_TestCase {
 
-    private IssueMilestoned issueMilestoned;
+    private IssueMilestonedEvent issueMilestoned;
 
     private UserId userId = new UserId("UserA");
 
@@ -25,24 +26,26 @@ public class IssueMilestoned_TestCase {
     @Mock
     private Milestone milestone;
 
+    private ProjectId projectId = ProjectId.generate();
+
     @Before
     public void setUp() {
-        issueMilestoned = new IssueMilestoned(userId, timestamp, milestone);
+        issueMilestoned = new IssueMilestonedEvent(projectId, userId, timestamp, milestone);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        new IssueMilestoned(null, timestamp, milestone);
+        new IssueMilestonedEvent(projectId, null, timestamp, milestone);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_milestone_IsNull() {
-        new IssueMilestoned(userId, timestamp, null);
+        new IssueMilestonedEvent(projectId, userId, timestamp, null);
     }
 
     @Test
     public void shouldReturnSupplied_milestone() {
-        assertThat(issueMilestoned.getMilestone(), is(this.milestone));
+        assertThat(issueMilestoned.milestone(), is(this.milestone));
     }
 
     @Test
@@ -57,27 +60,27 @@ public class IssueMilestoned_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(issueMilestoned, is(new IssueMilestoned(userId, timestamp, milestone)));
+        assertThat(issueMilestoned, is(new IssueMilestonedEvent(projectId, userId, timestamp, milestone)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        assertThat(issueMilestoned, is(not(new IssueMilestoned(new UserId("OtherUser"), timestamp, milestone))));
+        assertThat(issueMilestoned, is(not(new IssueMilestonedEvent(projectId, new UserId("OtherUser"), timestamp, milestone))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_timestamp() {
-        assertThat(issueMilestoned, is(not(new IssueMilestoned(userId, 2L, milestone))));
+        assertThat(issueMilestoned, is(not(new IssueMilestonedEvent(projectId, userId, 2L, milestone))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_milestone() {
-        assertThat(issueMilestoned, is(not(new IssueMilestoned(userId, timestamp, mock(Milestone.class)))));
+        assertThat(issueMilestoned, is(not(new IssueMilestonedEvent(projectId, userId, timestamp, mock(Milestone.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(issueMilestoned.hashCode(), is(new IssueMilestoned(userId, timestamp, milestone).hashCode()));
+        assertThat(issueMilestoned.hashCode(), is(new IssueMilestonedEvent(projectId, userId, timestamp, milestone).hashCode()));
     }
 
     @Test

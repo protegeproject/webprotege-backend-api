@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 public record UpdateCommentAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                   @JsonProperty("threadId") @Nonnull ThreadId threadId,
                                   @JsonProperty("commentId") @Nonnull CommentId commentId,
-                                  @JsonProperty("body") @Nonnull String body) implements ProjectAction<CommentResult> {
+                                  @JsonProperty("body") @Nonnull String body) implements ProjectAction<UpdateCommentResult> {
 
     public static final String CHANNEL = "webprotege.discussions.UpdateComment";
 

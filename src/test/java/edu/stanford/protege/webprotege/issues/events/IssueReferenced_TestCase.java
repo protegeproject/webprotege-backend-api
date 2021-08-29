@@ -1,11 +1,11 @@
 
 package edu.stanford.protege.webprotege.issues.events;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -15,7 +15,7 @@ import static org.mockito.Mockito.mock;
 @RunWith(MockitoJUnitRunner.class)
 public class IssueReferenced_TestCase {
 
-    private IssueReferenced issueReferenced;
+    private IssueReferencedEvent issueReferenced;
 
     private UserId userId = new UserId("UserA");
 
@@ -25,36 +25,38 @@ public class IssueReferenced_TestCase {
 
     private final int referencedByIssueNumber = 2;
 
+    private ProjectId projectId = ProjectId.generate();
+
     @Before
     public void setUp()
             throws Exception {
-        issueReferenced = new IssueReferenced(userId, timestamp, issueNumber, referencedByIssueNumber);
+        issueReferenced = new IssueReferencedEvent(projectId, userId, timestamp, issueNumber, referencedByIssueNumber);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        new IssueReferenced(null, timestamp, issueNumber, referencedByIssueNumber);
+        new IssueReferencedEvent(projectId, null, timestamp, issueNumber, referencedByIssueNumber);
     }
 
     @Test
     public void shouldReturnSupplied_userId() {
-        assertThat(issueReferenced.getUserId(), is(this.userId));
+        assertThat(issueReferenced.userId(), is(this.userId));
     }
 
     @Test
     public void shouldReturnSupplied_timestamp() {
-        assertThat(issueReferenced.getTimestamp(), is(this.timestamp));
+        assertThat(issueReferenced.timestamp(), is(this.timestamp));
     }
 
     @Test
     public void shouldReturnSupplied_issueNumber() {
-        assertThat(issueReferenced.getIssueNumber(), is(this.issueNumber));
+        assertThat(issueReferenced.issueNumber(), is(this.issueNumber));
     }
 
     @Test
     public void shouldReturnSupplied_referencedByIssueNumber() {
-        assertThat(issueReferenced.getReferencedByIssueNumber(), is(this.referencedByIssueNumber));
+        assertThat(issueReferenced.referencedByIssueNumber(), is(this.referencedByIssueNumber));
     }
 
     @Test
@@ -70,32 +72,32 @@ public class IssueReferenced_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(issueReferenced, is(new IssueReferenced(userId, timestamp, issueNumber, referencedByIssueNumber)));
+        assertThat(issueReferenced, is(new IssueReferencedEvent(projectId, userId, timestamp, issueNumber, referencedByIssueNumber)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        assertThat(issueReferenced, is(not(new IssueReferenced(new UserId("OtherUser"), timestamp, issueNumber, referencedByIssueNumber))));
+        assertThat(issueReferenced, is(not(new IssueReferencedEvent(projectId, new UserId("OtherUser"), timestamp, issueNumber, referencedByIssueNumber))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_timestamp() {
-        assertThat(issueReferenced, is(not(new IssueReferenced(userId, 2L, issueNumber, referencedByIssueNumber))));
+        assertThat(issueReferenced, is(not(new IssueReferencedEvent(projectId, userId, 2L, issueNumber, referencedByIssueNumber))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_issueNumber() {
-        assertThat(issueReferenced, is(not(new IssueReferenced(userId, timestamp, 3, referencedByIssueNumber))));
+        assertThat(issueReferenced, is(not(new IssueReferencedEvent(projectId, userId, timestamp, 3, referencedByIssueNumber))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_referencedByIssueNumber() {
-        assertThat(issueReferenced, is(not(new IssueReferenced(userId, timestamp, issueNumber, 4))));
+        assertThat(issueReferenced, is(not(new IssueReferencedEvent(projectId, userId, timestamp, issueNumber, 4))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(issueReferenced.hashCode(), is(new IssueReferenced(userId, timestamp, issueNumber, referencedByIssueNumber).hashCode()));
+        assertThat(issueReferenced.hashCode(), is(new IssueReferencedEvent(projectId, userId, timestamp, issueNumber, referencedByIssueNumber).hashCode()));
     }
 
     @Test

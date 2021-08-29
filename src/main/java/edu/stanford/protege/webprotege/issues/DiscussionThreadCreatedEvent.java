@@ -2,48 +2,23 @@ package edu.stanford.protege.webprotege.issues;
 
 
 
-import edu.stanford.protege.webprotege.event.ProjectEvent;
-import edu.stanford.protege.webprotege.project.HasProjectId;
-
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.Event;
+import edu.stanford.protege.webprotege.common.ProjectId;
 
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
  * 12 Oct 2016
  */
-public class DiscussionThreadCreatedEvent extends ProjectEvent implements HasProjectId {
+@JsonTypeName("DiscussionThreadCreatedEvent")
+public record DiscussionThreadCreatedEvent(ProjectId projectId,
+                                          EntityDiscussionThread discussionThread) implements Event {
 
-    private EntityDiscussionThread thread;
-
-    public DiscussionThreadCreatedEvent(EntityDiscussionThread thread) {
-        super(thread.getProjectId());
-        this.thread = thread;
-    }
-
-
-    private DiscussionThreadCreatedEvent() {
-    }
-
-    public EntityDiscussionThread getThread() {
-        return thread;
-    }
-
+    public static final String CHANNEL = "webprotege.discussion.events.DiscussionThreadCreated";
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof DiscussionThreadCreatedEvent)) {
-            return false;
-        }
-        DiscussionThreadCreatedEvent that = (DiscussionThreadCreatedEvent) o;
-        return Objects.equals(thread, that.thread) && Objects.equals(projectId(), ((DiscussionThreadCreatedEvent) o).projectId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(thread, projectId());
+    public String getChannel() {
+        return CHANNEL;
     }
 }

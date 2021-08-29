@@ -1,12 +1,12 @@
 
 package edu.stanford.protege.webprotege.issues.events;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -16,7 +16,7 @@ import static org.mockito.Mockito.mock;
 @RunWith(org.mockito.runners.MockitoJUnitRunner.class)
 public class IssueRenamed_TestCase {
 
-    private IssueRenamed issueRenamed;
+    private IssueRenamedEvent issueRenamed;
 
     private UserId userId = new UserId("UserA");
 
@@ -26,37 +26,39 @@ public class IssueRenamed_TestCase {
 
     private final String to = "The to";
 
+    private ProjectId projectId = ProjectId.generate();
+
     @Before
     public void setUp() {
-        issueRenamed = new IssueRenamed(userId, timestamp, from, to);
+        issueRenamed = new IssueRenamedEvent(projectId, userId, timestamp, from, to);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        new IssueRenamed(null, timestamp, from, to);
+        new IssueRenamedEvent(projectId, null, timestamp, from, to);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_from_IsNull() {
-        new IssueRenamed(userId, timestamp, null, to);
+        new IssueRenamedEvent(projectId, userId, timestamp, null, to);
     }
 
     @Test
     public void shouldReturnSupplied_from() {
-        assertThat(issueRenamed.getFrom(), is(this.from));
+        assertThat(issueRenamed.from(), is(this.from));
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_to_IsNull() {
-        new IssueRenamed(userId, timestamp, from, null);
+        new IssueRenamedEvent(projectId, userId, timestamp, from, null);
     }
 
     @Test
     public void shouldReturnSupplied_to() {
-        assertThat(issueRenamed.getTo(), is(this.to));
+        assertThat(issueRenamed.to(), is(this.to));
     }
 
     @Test
@@ -72,32 +74,32 @@ public class IssueRenamed_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(issueRenamed, is(new IssueRenamed(userId, timestamp, from, to)));
+        assertThat(issueRenamed, is(new IssueRenamedEvent(projectId, userId, timestamp, from, to)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        assertThat(issueRenamed, is(not(new IssueRenamed(new UserId("OtherUser"), timestamp, from, to))));
+        assertThat(issueRenamed, is(not(new IssueRenamedEvent(projectId, new UserId("OtherUser"), timestamp, from, to))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_timestamp() {
-        assertThat(issueRenamed, is(not(new IssueRenamed(userId, 2L, from, to))));
+        assertThat(issueRenamed, is(not(new IssueRenamedEvent(projectId, userId, 2L, from, to))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_from() {
-        assertThat(issueRenamed, is(not(new IssueRenamed(userId, timestamp, "String-b732cb1b-aa8a-4e0f-8ab9-d197f50c2e34", to))));
+        assertThat(issueRenamed, is(not(new IssueRenamedEvent(projectId, userId, timestamp, "String-b732cb1b-aa8a-4e0f-8ab9-d197f50c2e34", to))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_to() {
-        assertThat(issueRenamed, is(not(new IssueRenamed(userId, timestamp, from, "String-b61dab75-71be-4fe5-9e3b-1fc8275ffdce"))));
+        assertThat(issueRenamed, is(not(new IssueRenamedEvent(projectId, userId, timestamp, from, "String-b61dab75-71be-4fe5-9e3b-1fc8275ffdce"))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(issueRenamed.hashCode(), is(new IssueRenamed(userId, timestamp, from, to).hashCode()));
+        assertThat(issueRenamed.hashCode(), is(new IssueRenamedEvent(projectId, userId, timestamp, from, to).hashCode()));
     }
 
     @Test

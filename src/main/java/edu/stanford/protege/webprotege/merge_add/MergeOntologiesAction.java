@@ -15,7 +15,7 @@ import java.util.List;
 public record MergeOntologiesAction(@JsonProperty("projectId") ProjectId projectId,
                                     @JsonProperty("documentId") DocumentId documentId,
                                     @JsonProperty("iri") String iri,
-                                    @JsonProperty("ontologyList") List<OWLOntologyID> ontologyList) implements ProjectAction<NewOntologyMergeAddResult> {
+                                    @JsonProperty("ontologyList") List<OWLOntologyID> ontologyList) implements ProjectAction<MergeOntologiesResult> {
 
     public static final String CHANNEL = "webprotege.ontologies.MergeOntologies";
 

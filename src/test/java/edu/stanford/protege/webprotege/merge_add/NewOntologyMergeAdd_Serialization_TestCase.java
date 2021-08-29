@@ -27,7 +27,7 @@ public class NewOntologyMergeAdd_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = new NewOntologyMergeAddResult();
+        var result = new MergeOntologiesResult();
 
     }
 }

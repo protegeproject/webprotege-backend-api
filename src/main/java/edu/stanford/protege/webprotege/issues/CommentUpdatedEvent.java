@@ -1,9 +1,9 @@
 package edu.stanford.protege.webprotege.issues;
 
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.Event;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.event.ProjectEvent;
-import edu.stanford.protege.webprotege.project.HasProjectId;
 
 import javax.annotation.Nonnull;
 import java.util.Objects;
@@ -15,57 +15,15 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 11 Oct 2016
  */
-public class CommentUpdatedEvent extends ProjectEvent implements HasProjectId {
+@JsonTypeName("CommentUpdatedEvent")
+public record CommentUpdatedEvent(@Nonnull ProjectId projectId,
+                                 @Nonnull ThreadId threadId,
+                                 @Nonnull Comment comment) implements Event {
 
-    private ProjectId projectId;
-
-    private ThreadId threadId;
-
-    private Comment comment;
-
-    public CommentUpdatedEvent(@Nonnull ProjectId projectId,
-                               @Nonnull ThreadId threadId,
-                               @Nonnull Comment comment) {
-        super(projectId);
-        this.projectId = checkNotNull(projectId);
-        this.threadId = checkNotNull(threadId);
-        this.comment = checkNotNull(comment);
-    }
-
-
-    private CommentUpdatedEvent() {
-    }
-
-    @Nonnull
-    @Override
-    public ProjectId projectId() {
-        return projectId;
-    }
-
-    public ThreadId getThreadId() {
-        return threadId;
-    }
-
-    public Comment getComment() {
-        return comment;
-    }
+    public static final String CHANNEL = "webprotege.discussions.events.CommentUpdated";
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof CommentUpdatedEvent)) {
-            return false;
-        }
-        CommentUpdatedEvent that = (CommentUpdatedEvent) o;
-        return Objects.equals(projectId, that.projectId) && Objects.equals(threadId, that.threadId) && Objects.equals(
-                comment,
-                that.comment);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(projectId, threadId, comment);
+    public String getChannel() {
+        return CHANNEL;
     }
 }

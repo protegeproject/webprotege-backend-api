@@ -1,7 +1,6 @@
 
 package edu.stanford.protege.webprotege.change;
 
-import edu.stanford.protege.webprotege.event.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.revision.RevisionNumber;
 import org.hamcrest.MatcherAssert;
@@ -10,7 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 
 @RunWith(org.mockito.runners.MockitoJUnitRunner.class)
 public class RevertRevisionResult_TestCase {

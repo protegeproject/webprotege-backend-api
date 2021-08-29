@@ -8,5 +8,5 @@ package edu.stanford.protege.webprotege.event;
  */
 public interface ProjectMovedFromTrashHandler {
 
-    void handleProjectMovedFromTrash(ProjectMovedFromTrashEvent event);
+    void handleProjectMovedFromTrash(ProjectRemovedFromTrashEvent event);
 }

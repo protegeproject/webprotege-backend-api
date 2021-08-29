@@ -1,11 +1,11 @@
 
 package edu.stanford.protege.webprotege.issues.events;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -15,7 +15,7 @@ import static org.mockito.Mockito.mock;
 @RunWith(MockitoJUnitRunner.class)
 public class IssueUnassigned_TestCase {
 
-    private IssueUnassigned issueUnassigned;
+    private IssueUnassignedEvent issueUnassigned;
 
     private UserId userId = new UserId("UserA");
 
@@ -23,36 +23,38 @@ public class IssueUnassigned_TestCase {
 
     private UserId assignee = new UserId("UserB");
 
+    private ProjectId projectId = ProjectId.generate();
+
     @Before
     public void setUp() {
-        issueUnassigned = new IssueUnassigned(userId, timestamp, assignee);
+        issueUnassigned = new IssueUnassignedEvent(projectId, userId, timestamp, assignee);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        new IssueUnassigned(null, timestamp, assignee);
+        new IssueUnassignedEvent(projectId, null, timestamp, assignee);
     }
 
     @Test
     public void shouldReturnSupplied_userId() {
-        assertThat(issueUnassigned.getUserId(), is(this.userId));
+        assertThat(issueUnassigned.userId(), is(this.userId));
     }
 
     @Test
     public void shouldReturnSupplied_timestamp() {
-        assertThat(issueUnassigned.getTimestamp(), is(this.timestamp));
+        assertThat(issueUnassigned.timestamp(), is(this.timestamp));
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_assignee_IsNull() {
-        new IssueUnassigned(userId, timestamp, null);
+        new IssueUnassignedEvent(projectId, userId, timestamp, null);
     }
 
     @Test
     public void shouldReturnSupplied_assignee() {
-        assertThat(issueUnassigned.getAssignee(), is(this.assignee));
+        assertThat(issueUnassigned.assignee(), is(this.assignee));
     }
 
     @Test
@@ -68,27 +70,27 @@ public class IssueUnassigned_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(issueUnassigned, is(new IssueUnassigned(userId, timestamp, assignee)));
+        assertThat(issueUnassigned, is(new IssueUnassignedEvent(projectId, userId, timestamp, assignee)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        assertThat(issueUnassigned, is(not(new IssueUnassigned(new UserId("OtherUser"), timestamp, assignee))));
+        assertThat(issueUnassigned, is(not(new IssueUnassignedEvent(projectId, new UserId("OtherUser"), timestamp, assignee))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_timestamp() {
-        assertThat(issueUnassigned, is(not(new IssueUnassigned(userId, 2L, assignee))));
+        assertThat(issueUnassigned, is(not(new IssueUnassignedEvent(projectId, userId, 2L, assignee))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_assignee() {
-        assertThat(issueUnassigned, is(not(new IssueUnassigned(userId, timestamp, new UserId("OtherUser")))));
+        assertThat(issueUnassigned, is(not(new IssueUnassignedEvent(projectId, userId, timestamp, new UserId("OtherUser")))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(issueUnassigned.hashCode(), is(new IssueUnassigned(userId, timestamp, assignee).hashCode()));
+        assertThat(issueUnassigned.hashCode(), is(new IssueUnassignedEvent(projectId, userId, timestamp, assignee).hashCode()));
     }
 
     @Test
