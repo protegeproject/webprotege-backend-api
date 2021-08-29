@@ -2,6 +2,7 @@ package edu.stanford.protege.webprotege.event;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.Event;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.semanticweb.owlapi.model.OWLOntologyID;
 
 import java.io.Serializable;
@@ -24,7 +25,8 @@ import static java.util.Objects.requireNonNull;
  */
 
 @JsonTypeName("OntologyBrowserTextChangedEvent")
-public record OntologyBrowserTextChangedEvent(OWLOntologyID ontologyID,
+public record OntologyBrowserTextChangedEvent(ProjectId projectId,
+                                              OWLOntologyID ontologyID,
                                               String oldValue,
                                               String newValue) implements Event {
 
