@@ -12,7 +12,7 @@ import edu.stanford.protege.webprotege.common.ProjectId;
  * 2020-11-04
  */
 @JsonTypeName("LargeNumberOfChangesEvent")
-public record LargeNumberOfChangesEvent() implements Event {
+public record LargeNumberOfChangesEvent(ProjectId projectId) implements Event {
 
     public static final String CHANNEL = "webprotege.projects.events.LargeNumberOfChanges";
 
