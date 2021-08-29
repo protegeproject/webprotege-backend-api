@@ -3,6 +3,7 @@ package edu.stanford.protege.webprotege.issues;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.Event;
+import edu.stanford.protege.webprotege.common.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.entity.OWLEntityData;
 
@@ -20,7 +21,7 @@ public record CommentPostedEvent(@Nonnull ProjectId projectId,
                                  @Nonnull Comment comment,
                                  @Nonnull Optional<OWLEntityData> entity,
                                  int commentCountForEntity,
-                                 int openCommentCountForEntity) implements Event {
+                                 int openCommentCountForEntity) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.discussion.events.CommentPosted";
 

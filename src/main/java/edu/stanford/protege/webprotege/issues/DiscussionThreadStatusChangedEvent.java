@@ -3,6 +3,7 @@ package edu.stanford.protege.webprotege.issues;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.Event;
+import edu.stanford.protege.webprotege.common.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.semanticweb.owlapi.model.OWLEntity;
 
@@ -19,7 +20,7 @@ public record DiscussionThreadStatusChangedEvent(@Nonnull ProjectId projectId,
                                                 @Nonnull ThreadId threadId,
                                                 @Nonnull Optional<OWLEntity> entity,
                                                 int openCommentsCountForEntity,
-                                                @Nonnull Status status) implements Event {
+                                                @Nonnull Status status) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.discussion.events.DiscussionThreadStatusChanged";
 

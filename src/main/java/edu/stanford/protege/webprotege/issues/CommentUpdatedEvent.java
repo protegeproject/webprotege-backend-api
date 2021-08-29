@@ -3,6 +3,7 @@ package edu.stanford.protege.webprotege.issues;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.Event;
+import edu.stanford.protege.webprotege.common.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
 
 import javax.annotation.Nonnull;
@@ -18,7 +19,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @JsonTypeName("CommentUpdatedEvent")
 public record CommentUpdatedEvent(@Nonnull ProjectId projectId,
                                  @Nonnull ThreadId threadId,
-                                 @Nonnull Comment comment) implements Event {
+                                 @Nonnull Comment comment) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.discussions.events.CommentUpdated";
 

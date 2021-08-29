@@ -2,6 +2,7 @@ package edu.stanford.protege.webprotege.watches;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.Event;
+import edu.stanford.protege.webprotege.common.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
 
 /**
@@ -11,7 +12,7 @@ import edu.stanford.protege.webprotege.common.ProjectId;
  * Date: 21/03/2013
  */
 @JsonTypeName("WatchRemovedEvent")
-public record WatchRemovedEvent(ProjectId projectId, Watch watch) implements Event {
+public record WatchRemovedEvent(ProjectId projectId, Watch watch) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.watches.events.WatchRemoved";
 

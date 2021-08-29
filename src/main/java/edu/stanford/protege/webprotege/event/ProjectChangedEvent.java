@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.base.MoreObjects;
 import edu.stanford.protege.webprotege.common.Event;
+import edu.stanford.protege.webprotege.common.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.entity.OWLEntityData;
 import edu.stanford.protege.webprotege.revision.RevisionNumber;
@@ -30,7 +31,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @throws NullPointerException if any parameters are {@code null}.
  */
 @JsonTypeName("ProjectChangedEvent")
-public record ProjectChangedEvent(ProjectId projectId, RevisionSummary revisionSummary, Set<OWLEntityData> subjects) implements Event {
+public record ProjectChangedEvent(ProjectId projectId, RevisionSummary revisionSummary, Set<OWLEntityData> subjects) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.project.events.ProjectChanged";
 

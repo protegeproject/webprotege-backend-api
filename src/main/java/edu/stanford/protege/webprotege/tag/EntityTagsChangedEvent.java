@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.Event;
+import edu.stanford.protege.webprotege.common.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.semanticweb.owlapi.model.OWLEntity;
 
@@ -19,7 +20,7 @@ import java.util.Collection;
 @JsonTypeName("EntityTagsChangedEvent")
 public record EntityTagsChangedEvent(@Nonnull ProjectId projectId,
                                     @Nonnull OWLEntity entity,
-                                    @Nonnull Collection<Tag> tags) implements Event {
+                                    @Nonnull Collection<Tag> tags) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.tags.events.EntityTagsChanged";
 

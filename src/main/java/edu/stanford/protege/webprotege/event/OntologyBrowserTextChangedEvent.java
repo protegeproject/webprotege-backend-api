@@ -2,6 +2,7 @@ package edu.stanford.protege.webprotege.event;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.Event;
+import edu.stanford.protege.webprotege.common.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.semanticweb.owlapi.model.OWLOntologyID;
 
@@ -28,7 +29,7 @@ import static java.util.Objects.requireNonNull;
 public record OntologyBrowserTextChangedEvent(ProjectId projectId,
                                               OWLOntologyID ontologyID,
                                               String oldValue,
-                                              String newValue) implements Event {
+                                              String newValue) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.ontologies.events.OntologyBrowserTextChanged";
 

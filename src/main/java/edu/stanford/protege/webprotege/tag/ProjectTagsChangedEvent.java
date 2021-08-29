@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.Event;
+import edu.stanford.protege.webprotege.common.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
 
 import javax.annotation.Nonnull;
@@ -19,8 +20,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 26 Mar 2018
  */
 @JsonTypeName("ProjectTagsChangedEvent")
-public record ProjectTagsChangedEvent(@Nonnull ProjectId source,
-                                      @Nonnull Collection<Tag> projectTags) implements Event {
+public record ProjectTagsChangedEvent(@Nonnull ProjectId projectId,
+                                      @Nonnull Collection<Tag> projectTags) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.tags.events.ProjectTagsChanged";
 
