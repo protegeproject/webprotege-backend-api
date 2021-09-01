@@ -1,4 +1,4 @@
-package edu.stanford.protege.webprotege.crud.obo;
+package edu.stanford.protege.webprotege.crud.uuid;
 
 import edu.stanford.protege.webprotege.crud.uuid.UuidFormat;
 import edu.stanford.protege.webprotege.crud.uuid.UuidSuffixKit;

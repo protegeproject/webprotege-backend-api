@@ -12,7 +12,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Bio-Medical Informatics Research Group<br>
  * Date: 22/02/2013
  */
-@JsonTypeName("CreateClasses")
+@JsonTypeName("CreateClassesResult")
 public record CreateClassesResult(ProjectId projectId,
                                   ImmutableSet<EntityNode> entities) implements Result, Response {
 }

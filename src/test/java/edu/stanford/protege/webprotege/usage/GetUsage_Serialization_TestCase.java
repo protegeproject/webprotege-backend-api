@@ -2,6 +2,7 @@ package edu.stanford.protege.webprotege.usage;
 
 import com.google.common.collect.ImmutableList;
 
+import edu.stanford.protege.webprotege.common.PageRequest;
 import org.junit.Test;
 import org.semanticweb.owlapi.model.AxiomType;
 
@@ -20,7 +21,7 @@ public class GetUsage_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new GetEntityUsageAction(mockOWLClass(), mockProjectId(), new UsageFilter());
+        var action = new GetEntityUsageAction(mockOWLClass(), mockProjectId(), new UsageFilter(), PageRequest.requestFirstPage());
         
     }
 
