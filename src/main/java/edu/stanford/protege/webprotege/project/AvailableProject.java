@@ -80,6 +80,7 @@ public abstract class AvailableProject implements HasProjectId, Comparable<Avail
      */
     @Override
     @Nonnull
+    @JsonProperty("projectId")
     public abstract ProjectId projectId();
 
 
