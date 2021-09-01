@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.axioms;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.Response;
 
 /**
@@ -7,6 +8,7 @@ import edu.stanford.protege.webprotege.common.Response;
  * Stanford Center for Biomedical Informatics Research
  * 2021-09-01
  */
-public record AddAxiomsResponse(int addedAxiomsCount) implements Response {
+public record AddAxiomsResponse(ProjectId projectId,
+                                int addedAxiomsCount) implements Response {
 
 }
