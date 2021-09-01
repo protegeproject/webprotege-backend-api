@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.revision;
 
+import edu.stanford.protege.webprotege.common.PageRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,16 +28,18 @@ public class GetRevisionSummariesAction_TestCase {
 
     private ProjectId projectId = ProjectId.generate();
 
+    private PageRequest pageRequest = PageRequest.requestFirstPage();
+
 
     @Before
     public void setUp() throws Exception {
-        action = new GetRevisionSummariesAction(projectId);
-        otherAction = new GetRevisionSummariesAction(projectId);
+        action = new GetRevisionSummariesAction(projectId, pageRequest);
+        otherAction = new GetRevisionSummariesAction(projectId, pageRequest);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        new GetRevisionSummariesAction(null);
+        new GetRevisionSummariesAction(null, pageRequest);
     }
 
     @Test
