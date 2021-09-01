@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.revision;
 
 import com.google.common.collect.ImmutableList;
+import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.common.PageRequest;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
@@ -27,7 +28,7 @@ public class GetRevisionSummaries_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = new GetRevisionSummariesResult(ImmutableList.of());
+        var result = new GetRevisionSummariesResult(Page.emptyPage());
 
     }
 }

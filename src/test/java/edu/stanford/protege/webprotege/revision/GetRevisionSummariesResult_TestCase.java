@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.revision;
 
 import com.google.common.collect.ImmutableList;
+import edu.stanford.protege.webprotege.common.Page;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,7 +28,7 @@ public class GetRevisionSummariesResult_TestCase {
     private GetRevisionSummariesResult otherResult;
 
     @Mock
-    private ImmutableList<RevisionSummary> summaries;
+    private Page<RevisionSummary> summaries;
 
 
     @Before
