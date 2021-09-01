@@ -8,6 +8,8 @@ import edu.stanford.protege.webprotege.common.PageRequest;
 import org.semanticweb.owlapi.model.EntityType;
 
 import javax.annotation.Nonnull;
+import java.util.Collections;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -18,11 +20,19 @@ import java.util.Set;
 
 
 @JsonTypeName("GetDeprecatedEntities")
-public record GetDeprecatedEntitiesAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+public record GetDeprecatedEntitiesAction(@JsonProperty(value = "projectId", required = true) @Nonnull ProjectId projectId,
                                           @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest,
                                           @JsonProperty("entityTypes") @Nonnull Set<EntityType<?>> entityTypes) implements ProjectAction<GetDeprecatedEntitiesResult> {
 
     public static final String CHANNEL = "webprotege.entities.GetDeprecatedEntities";
+
+    public GetDeprecatedEntitiesAction(@JsonProperty(value = "projectId", required = true) @Nonnull ProjectId projectId,
+                                       @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest,
+                                       @JsonProperty("entityTypes") @Nonnull Set<EntityType<?>> entityTypes) {
+        this.projectId = projectId;
+        this.pageRequest = Objects.requireNonNullElse(pageRequest, PageRequest.requestFirstPage());
+        this.entityTypes = Objects.requireNonNullElse(entityTypes, Collections.emptySet());
+    }
 
     @Override
     public String getChannel() {
