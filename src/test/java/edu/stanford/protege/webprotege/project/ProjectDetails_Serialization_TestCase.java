@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.project;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.jackson.WebprotegeOwlApiJacksonApplication;
+import edu.stanford.protege.webprotege.jackson.WebProtegeJacksonApplication;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
 import edu.stanford.protege.webprotege.common.DictionaryLanguage;
@@ -28,7 +28,7 @@ import static org.hamcrest.Matchers.is;
  * 18 Jul 2018
  */
 @SpringBootTest
-@Import(WebprotegeOwlApiJacksonApplication.class)
+@Import(WebProtegeJacksonApplication.class)
 public class ProjectDetails_Serialization_TestCase {
 
     private ProjectDetails projectDetails;

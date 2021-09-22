@@ -6,13 +6,12 @@ import edu.stanford.protege.webprotege.color.Color;
 import edu.stanford.protege.webprotege.common.WebProtegeCommonConfiguration;
 import edu.stanford.protege.webprotege.criteria.EntityIsNotDeprecatedCriteria;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.jackson.WebprotegeOwlApiJacksonApplication;
+import edu.stanford.protege.webprotege.jackson.WebProtegeJacksonApplication;
 import edu.stanford.protege.webprotege.tag.Tag;
 import edu.stanford.protege.webprotege.tag.TagId;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 
@@ -27,7 +26,7 @@ import static org.hamcrest.Matchers.is;
  * 21 Jun 2018
  */
 @SpringBootTest
-@Import({WebProtegeCommonConfiguration.class, WebprotegeOwlApiJacksonApplication.class})
+@Import({WebProtegeCommonConfiguration.class, WebProtegeJacksonApplication.class})
 public class Tag_Serialization_TestCase {
 
     @Autowired

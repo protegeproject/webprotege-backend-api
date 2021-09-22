@@ -1,17 +1,14 @@
 package edu.stanford.protege.webprotege.issues;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.common.UserId;
-import edu.stanford.protege.webprotege.jackson.WebprotegeOwlApiJacksonApplication;
+import edu.stanford.protege.webprotege.jackson.WebProtegeJacksonApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.context.annotation.Import;
 
 import java.io.IOException;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * 2021-04-05
  */
 @JsonTest
-@Import({WebprotegeOwlApiJacksonApplication.class})
+@Import({WebProtegeJacksonApplication.class})
 public class AddEntityComment_TestCase {
 
     private static final String THE_COMMENT = "The comment";
