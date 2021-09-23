@@ -29,8 +29,8 @@ public class EntityCrudKitSettingsTestCase {
         EntityCrudKitPrefixSettings prefixSettings = EntityCrudKitPrefixSettings.get();
         EntityCrudKitSuffixSettings suffixSettings = mock(EntityCrudKitSuffixSettings.class);
         GeneratedAnnotationsSettings generatedAnnotationsSettings = mock(GeneratedAnnotationsSettings.class);
-        EntityCrudKitSettings<?> settingsA = EntityCrudKitSettings.get(prefixSettings, suffixSettings, generatedAnnotationsSettings);
-        EntityCrudKitSettings<?> settingsB = EntityCrudKitSettings.get(prefixSettings, suffixSettings, generatedAnnotationsSettings);
+        EntityCrudKitSettings settingsA = EntityCrudKitSettings.get(prefixSettings, suffixSettings, generatedAnnotationsSettings);
+        EntityCrudKitSettings settingsB = EntityCrudKitSettings.get(prefixSettings, suffixSettings, generatedAnnotationsSettings);
         assertEquals(settingsA.hashCode(), settingsB.hashCode());
     }
 
@@ -39,8 +39,8 @@ public class EntityCrudKitSettingsTestCase {
         EntityCrudKitPrefixSettings prefixSettings = EntityCrudKitPrefixSettings.get();
         EntityCrudKitSuffixSettings suffixSettings = mock(EntityCrudKitSuffixSettings.class);
         GeneratedAnnotationsSettings generatedAnnotationsSettings = mock(GeneratedAnnotationsSettings.class);
-        EntityCrudKitSettings<?> settingsA = EntityCrudKitSettings.get(prefixSettings, suffixSettings, generatedAnnotationsSettings);
-        EntityCrudKitSettings<?> settingsB = EntityCrudKitSettings.get(prefixSettings, suffixSettings, generatedAnnotationsSettings);
+        EntityCrudKitSettings settingsA = EntityCrudKitSettings.get(prefixSettings, suffixSettings, generatedAnnotationsSettings);
+        EntityCrudKitSettings settingsB = EntityCrudKitSettings.get(prefixSettings, suffixSettings, generatedAnnotationsSettings);
         assertEquals(settingsA, settingsB);
     }
 

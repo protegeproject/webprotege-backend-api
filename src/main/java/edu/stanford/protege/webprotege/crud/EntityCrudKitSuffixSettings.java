@@ -1,7 +1,9 @@
 package edu.stanford.protege.webprotege.crud;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import edu.stanford.protege.webprotege.crud.oboid.OboIdSuffixSettings;
 import edu.stanford.protege.webprotege.crud.supplied.SuppliedNameSuffixSettings;
@@ -20,27 +22,14 @@ import java.io.Serializable;
  *     IRI suffix for an term.  This suffix may or may not depend upon a supplied short form for the term.
  * </p>
  */
-@JsonSubTypes(
-        {
-                @JsonSubTypes.Type(value = UuidSuffixSettings.class,
-                                   name = "edu.stanford.bmir.protege.web.shared.crud.uuid.UUIDSuffixSettings"),
-                @JsonSubTypes.Type(value = UuidSuffixSettings.class,
-                                   name = UuidSuffixSettings.TYPE_ID),
-                @JsonSubTypes.Type(value = SuppliedNameSuffixSettings.class,
-                                   name = "edu.stanford.protege.webprotege.crud.supplied.SuppliedNameSuffixSettings"),
-                @JsonSubTypes.Type(value = SuppliedNameSuffixSettings.class,
-                                   name = SuppliedNameSuffixSettings.TYPE_ID),
-                @JsonSubTypes.Type(value = OboIdSuffixSettings.class,
-                                   name = "edu.stanford.bmir.protege.web.shared.crud.oboid.OBOIdSuffixSettings"),
-                @JsonSubTypes.Type(value = OboIdSuffixSettings.class,
-                                   name = OboIdSuffixSettings.TYPE_ID)
-        }
-)
+@JsonSubTypes({
+        @Type(value = UuidSuffixSettings.class),
+        @Type(value = SuppliedNameSuffixSettings.class),
+        @Type(value = OboIdSuffixSettings.class)
+})
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
 public abstract class EntityCrudKitSuffixSettings implements Serializable {
 
-        /**
-         * The type property.  This is _class for backwards compatibility
-         */
-        public static final String TYPE_PROPERTY = "_class";
+        @JsonIgnore
+        public abstract EntityCrudKitId getKitId();
 }

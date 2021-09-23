@@ -9,7 +9,7 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  * Bio-Medical Informatics Research Group<br>
  * Date: 8/19/13
  */
-public record SetEntityCrudKitSettingsAction(ProjectId projectId, EntityCrudKitSettings<?> fromSettings, EntityCrudKitSettings<?> toSettings, IRIPrefixUpdateStrategy prefixUpdateStrategy) implements ProjectAction<SetEntityCrudKitSettingsResult> {
+public record SetEntityCrudKitSettingsAction(ProjectId projectId, EntityCrudKitSettings fromSettings, EntityCrudKitSettings toSettings, IRIPrefixUpdateStrategy prefixUpdateStrategy) implements ProjectAction<SetEntityCrudKitSettingsResult> {
 
     public static final String CHANNEL = "webprotege.projects.SetEntityCrudKitSettingsAction";
 

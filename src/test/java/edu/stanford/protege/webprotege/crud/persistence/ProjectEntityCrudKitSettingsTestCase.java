@@ -36,7 +36,7 @@ public class ProjectEntityCrudKitSettingsTestCase {
 
     @Test
     public void getSettingsShouldReturnValueEqualToSettingsSuppliedInConstructor() {
-        EntityCrudKitSettings<?> entityCrudKitSettings = mock(EntityCrudKitSettings.class);
+        EntityCrudKitSettings entityCrudKitSettings = mock(EntityCrudKitSettings.class);
         ProjectEntityCrudKitSettings settings = ProjectEntityCrudKitSettings.get(ProjectId.generate(), entityCrudKitSettings);
         assertEquals(entityCrudKitSettings, settings.getSettings());
     }
@@ -44,7 +44,7 @@ public class ProjectEntityCrudKitSettingsTestCase {
     @Test
     public void hashCodeShouldBeEqualForSameProjectIdAndSettings() {
         ProjectId projectId = ProjectId.generate();
-        EntityCrudKitSettings<?> settings = mock(EntityCrudKitSettings.class);
+        EntityCrudKitSettings settings = mock(EntityCrudKitSettings.class);
         ProjectEntityCrudKitSettings settingsA = ProjectEntityCrudKitSettings.get(projectId, settings);
         ProjectEntityCrudKitSettings settingsB = ProjectEntityCrudKitSettings.get(projectId, settings);
         assertEquals(settingsA.hashCode(), settingsB.hashCode());
@@ -53,7 +53,7 @@ public class ProjectEntityCrudKitSettingsTestCase {
     @Test
     public void equalsShouldReturnTrueForEqualProjectIdAndEqualSettings() {
         ProjectId projectId = ProjectId.generate();
-        EntityCrudKitSettings<?> settings = mock(EntityCrudKitSettings.class);
+        EntityCrudKitSettings settings = mock(EntityCrudKitSettings.class);
         ProjectEntityCrudKitSettings settingsA = ProjectEntityCrudKitSettings.get(projectId, settings);
         ProjectEntityCrudKitSettings settingsB = ProjectEntityCrudKitSettings.get(projectId, settings);
         assertEquals(settingsA, settingsB);

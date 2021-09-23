@@ -12,7 +12,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class GetEntityCrudKitSettingsResult implements Result {
 
-    private EntityCrudKitSettings<?> settings;
+    private EntityCrudKitSettings settings;
 
     /**
      * For serialization purposes only
@@ -20,11 +20,11 @@ public class GetEntityCrudKitSettingsResult implements Result {
     private GetEntityCrudKitSettingsResult() {
     }
 
-    public GetEntityCrudKitSettingsResult(EntityCrudKitSettings<?> settings) {
+    public GetEntityCrudKitSettingsResult(EntityCrudKitSettings settings) {
         this.settings = checkNotNull(settings);
     }
 
-    public EntityCrudKitSettings<?> getSettings() {
+    public EntityCrudKitSettings getSettings() {
         return settings;
     }
 }
