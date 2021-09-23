@@ -24,7 +24,6 @@ import static edu.stanford.protege.webprotege.crud.uuid.UuidSuffixSettings.TYPE_
  * </p>
  */
 @AutoValue
-
 @JsonTypeName(TYPE_ID)
 public abstract class UuidSuffixSettings extends EntityCrudKitSuffixSettings {
 

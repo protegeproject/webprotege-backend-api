@@ -36,7 +36,7 @@ import java.io.Serializable;
                                    name = OboIdSuffixSettings.TYPE_ID)
         }
 )
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = EntityCrudKitSuffixSettings.TYPE_PROPERTY)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
 public abstract class EntityCrudKitSuffixSettings implements Serializable {
 
         /**
