@@ -9,6 +9,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 27 Feb 2018
  */
-public record GetProjectPrefixDeclarationsResult(ProjectId projectId, ImmutableList<PrefixDeclaration> prefixDeclarations) implements Result {
+public record GetProjectPrefixDeclarationsResponse(ProjectId projectId, ImmutableList<PrefixDeclaration> prefixDeclarations) implements Result {
 
 }

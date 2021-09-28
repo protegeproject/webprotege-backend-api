@@ -9,7 +9,7 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  * Stanford Center for Biomedical Informatics Research
  * 27 Feb 2018
  */
-public record GetProjectPrefixDeclarationsAction(ProjectId projectId) implements ProjectAction<GetProjectPrefixDeclarationsResult> {
+public record GetProjectPrefixDeclarationsRequest(ProjectId projectId) implements ProjectAction<GetProjectPrefixDeclarationsResponse> {
 
     public static final String CHANNEL = "webprotege.projects.GetProjectPrefixDeclarations";
 

@@ -7,12 +7,7 @@ import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -20,9 +15,9 @@ import static org.hamcrest.Matchers.not;
 import static org.mockito.Mockito.mock;
 
 @RunWith(MockitoJUnitRunner.class)
-public class GetProjectPrefixDeclarationsResult_TestCase {
+public class GetProjectPrefixDeclarationsResponse_TestCase {
 
-    private GetProjectPrefixDeclarationsResult result;
+    private GetProjectPrefixDeclarationsResponse result;
 
     private ProjectId projectId = ProjectId.generate();
 
@@ -31,13 +26,13 @@ public class GetProjectPrefixDeclarationsResult_TestCase {
     @Before
     public void setUp() {
         prefixDeclarations = ImmutableList.of(PrefixDeclaration.get("a:", "b"));
-        result = new GetProjectPrefixDeclarationsResult(projectId, prefixDeclarations);
+        result = new GetProjectPrefixDeclarationsResponse(projectId, prefixDeclarations);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new GetProjectPrefixDeclarationsResult(null, prefixDeclarations);
+        new GetProjectPrefixDeclarationsResponse(null, prefixDeclarations);
     }
 
     @Test
@@ -48,7 +43,7 @@ public class GetProjectPrefixDeclarationsResult_TestCase {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_prefixDeclarations_IsNull() {
-        new GetProjectPrefixDeclarationsResult(projectId, null);
+        new GetProjectPrefixDeclarationsResponse(projectId, null);
     }
 
     @Test
@@ -69,22 +64,22 @@ public class GetProjectPrefixDeclarationsResult_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(result, is(new GetProjectPrefixDeclarationsResult(projectId, prefixDeclarations)));
+        assertThat(result, is(new GetProjectPrefixDeclarationsResponse(projectId, prefixDeclarations)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(result, is(not(new GetProjectPrefixDeclarationsResult(ProjectId.generate(), prefixDeclarations))));
+        assertThat(result, is(not(new GetProjectPrefixDeclarationsResponse(ProjectId.generate(), prefixDeclarations))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_prefixDeclarations() {
-        assertThat(result, is(not(new GetProjectPrefixDeclarationsResult(projectId, ImmutableList.of()))));
+        assertThat(result, is(not(new GetProjectPrefixDeclarationsResponse(projectId, ImmutableList.of()))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(result.hashCode(), is(new GetProjectPrefixDeclarationsResult(projectId, prefixDeclarations).hashCode()));
+        assertThat(result.hashCode(), is(new GetProjectPrefixDeclarationsResponse(projectId, prefixDeclarations).hashCode()));
     }
 
     @Test

@@ -13,21 +13,21 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
 
 @RunWith(MockitoJUnitRunner.class)
-public class GetProjectPrefixDeclarationsAction_TestCase {
+public class GetProjectPrefixDeclarationsRequest_TestCase {
 
-    private GetProjectPrefixDeclarationsAction action;
+    private GetProjectPrefixDeclarationsRequest action;
 
     private final ProjectId projectId = ProjectId.valueOf("12345678-1234-1234-1234-123456789abc");
 
     @Before
     public void setUp() {
-        action = new GetProjectPrefixDeclarationsAction(projectId);
+        action = new GetProjectPrefixDeclarationsRequest(projectId);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new GetProjectPrefixDeclarationsAction(null);
+        new GetProjectPrefixDeclarationsRequest(null);
     }
 
     @Test
@@ -48,18 +48,18 @@ public class GetProjectPrefixDeclarationsAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(action, is(new GetProjectPrefixDeclarationsAction(projectId)));
+        assertThat(action, is(new GetProjectPrefixDeclarationsRequest(projectId)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
         ProjectId otherProjectId = ProjectId.valueOf("12345678-abcd-abcd-abcd-123456789abc");
-        assertThat(action, is(Matchers.not(new GetProjectPrefixDeclarationsAction(otherProjectId))));
+        assertThat(action, is(Matchers.not(new GetProjectPrefixDeclarationsRequest(otherProjectId))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(action.hashCode(), is(new GetProjectPrefixDeclarationsAction(projectId).hashCode()));
+        assertThat(action.hashCode(), is(new GetProjectPrefixDeclarationsRequest(projectId).hashCode()));
     }
 
     @Test
