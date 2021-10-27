@@ -22,7 +22,7 @@ import java.util.Optional;
 public abstract class NewProjectSettings {
 
 
-    private static final String PROJECT_OWNER = "projectOwner";
+    private static final String OWNER = "owner";
 
     private static final String DISPLAY_NAME = "displayName";
 
@@ -45,7 +45,7 @@ public abstract class NewProjectSettings {
      *                              null.
      */
     @JsonCreator
-    public static NewProjectSettings get(@JsonProperty(PROJECT_OWNER) @Nonnull UserId projectOwner,
+    public static NewProjectSettings get(@JsonProperty(OWNER) @Nonnull UserId projectOwner,
                                          @JsonProperty(DISPLAY_NAME) @Nonnull String displayName,
                                          @JsonProperty(LANG_TAG) @Nonnull String langTag,
                                          @JsonProperty(DESCRIPTION) @Nonnull String projectDescription,
@@ -66,7 +66,7 @@ public abstract class NewProjectSettings {
      * @param projectDescription The desired project description for the new project.  Not {@code null}.
      * @throws NullPointerException if either projectOwner, displayName or projectDescription are null.
      */
-    public static NewProjectSettings get(@JsonProperty(PROJECT_OWNER) UserId projectOwner,
+    public static NewProjectSettings get(@JsonProperty(OWNER) UserId projectOwner,
                                          @JsonProperty(DISPLAY_NAME) String displayName,
                                          @JsonProperty(LANG_TAG) String langTag,
                                          @JsonProperty(DESCRIPTION) String projectDescription) {
@@ -82,7 +82,7 @@ public abstract class NewProjectSettings {
      *
      * @return The {@link UserId} representing the desired ownner of the project.  Not null.
      */
-    @JsonProperty(PROJECT_OWNER)
+    @JsonProperty(OWNER)
     @Nonnull
     public abstract UserId getProjectOwner();
 
