@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
  * @param treatment The treatment for the merged term that specifies whether the merged term
  *                  will be deleted or deprecated.
  */
-@JsonTypeName("MergeEntities")
+@JsonTypeName("webprotege.entities.MergeEntities")
 public record MergeEntitiesAction(@Nonnull ProjectId projectId,
                                   @Nonnull ImmutableSet<OWLEntity> sourceEntities,
                                   @Nonnull OWLEntity targetEntity,

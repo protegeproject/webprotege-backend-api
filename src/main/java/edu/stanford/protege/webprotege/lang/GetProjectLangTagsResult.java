@@ -13,7 +13,7 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-04-26
  */
-@JsonTypeName("GetProjectLangTags")
+@JsonTypeName("webprotege.projects.GetProjectLangTags")
 public record GetProjectLangTagsResult(@Nonnull ProjectId projectId, @Nonnull ImmutableSet<LangTag> langTags) implements Result {
 
 }

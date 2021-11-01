@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.change;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import edu.stanford.protege.webprotege.common.PageRequest;
@@ -14,6 +15,7 @@ import java.util.Optional;
  * Stanford Center for Biomedical Informatics Research
  * 24/02/15
  */
+@JsonTypeName("webprotege.history.GetProjectChanges")
 public record GetProjectChangesAction(@Nonnull ProjectId projectId,
                                      @Nonnull Optional<OWLEntity> subject,
                                      @Nonnull PageRequest pageRequest) implements ProjectAction<GetProjectChangesResult> {

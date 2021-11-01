@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.project;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Stanford Center for Biomedical Informatics Research
  * 1 Mar 2018
  */
+@JsonTypeName("webprotege.projects.SetProjectPrefixDeclarations")
 public record SetProjectPrefixDeclarationsAction(@Nonnull ProjectId projectId,
                                                  @Nonnull List<PrefixDeclaration> prefixDeclarations) implements ProjectAction<SetProjectPrefixDeclarationsResult> {
 

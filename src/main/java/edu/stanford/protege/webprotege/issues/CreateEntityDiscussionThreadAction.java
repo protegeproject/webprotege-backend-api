@@ -10,7 +10,7 @@ import org.semanticweb.owlapi.model.OWLEntity;
  * Stanford Center for Biomedical Informatics Research
  * 6 Oct 2016
  */
-@JsonTypeName("CreateEntityDiscussionThread")
+@JsonTypeName("webprotege.discussions.CreateEntityDiscussionThread")
 public record CreateEntityDiscussionThreadAction(ProjectId projectId,
                                                          OWLEntity entity,
                                                          String comment) implements ProjectAction<CreateEntityDiscussionThreadResult> {

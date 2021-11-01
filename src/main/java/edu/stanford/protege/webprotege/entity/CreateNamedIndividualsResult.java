@@ -13,7 +13,7 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 12/09/2013
  */
-@JsonTypeName("CreateNamedIndividuals")
+@JsonTypeName("webprotege.entities.CreateNamedIndividuals")
 public record CreateNamedIndividualsResult(@Nonnull ProjectId projectId,
                                                    ImmutableSet<EntityNode> entities) implements Result {
 }

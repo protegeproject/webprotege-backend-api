@@ -11,7 +11,7 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 2020-04-26
  */
-@JsonTypeName("GetProjectLangTags")
+@JsonTypeName("webprotege.projects.GetProjectLangTags")
 public record GetProjectLangTagsAction(ProjectId projectId) implements ProjectAction<GetProjectLangTagsResult> {
 
     public static final String CHANNEL = "webprotege.projects.GetProjectLangTags";

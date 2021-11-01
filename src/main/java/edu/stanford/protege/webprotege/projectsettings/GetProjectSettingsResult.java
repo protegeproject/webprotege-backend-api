@@ -8,9 +8,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 25/11/14
  */
-
-
-@JsonTypeName("GetProjectSettings")
+@JsonTypeName("webprotege.projects.GetProjectSettings")
 public record GetProjectSettingsResult(ProjectSettings settings) implements Result {
 
 }

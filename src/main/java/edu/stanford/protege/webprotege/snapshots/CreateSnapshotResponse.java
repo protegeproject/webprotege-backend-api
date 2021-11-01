@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.snapshots;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.Response;
 
 /**
@@ -7,6 +8,7 @@ import edu.stanford.protege.webprotege.common.Response;
  * Stanford Center for Biomedical Informatics Research
  * 2021-09-23
  */
+@JsonTypeName("webprotege.snapshots.CreateSnapshot")
 public record CreateSnapshotResponse(SnapshotStorageCoordinates snapshotStorageCoordinates) implements Response {
 
 }

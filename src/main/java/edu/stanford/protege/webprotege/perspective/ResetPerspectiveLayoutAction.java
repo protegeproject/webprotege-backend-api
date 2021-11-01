@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.perspective;
 
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
@@ -14,6 +15,7 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  * @param projectId The project id.
  * @param perspectiveId The perspective id.
  */
+@JsonTypeName("webprotege.perspectives.ResetPerspectiveLayout")
 public record ResetPerspectiveLayoutAction(ProjectId projectId,
                                           PerspectiveId perspectiveId) implements ProjectAction<ResetPerspectiveLayoutResult> {
 

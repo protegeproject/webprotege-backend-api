@@ -17,7 +17,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("GetIndividualsPageContainingIndividual")
+@JsonTypeName("webprotege.entities.GetIndividualsPageContainingIndividual")
 public record GetIndividualsPageContainingIndividualResult(@JsonProperty("individual") @Nonnull OWLNamedIndividual individual,
                                                            @JsonProperty("page") @Nonnull Page<EntityNode> page,
                                                            @JsonProperty("actualType") @Nonnull EntityNode actualType,

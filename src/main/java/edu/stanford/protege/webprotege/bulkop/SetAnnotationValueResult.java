@@ -10,6 +10,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("SetAnnotationValue")
+@JsonTypeName("webprotege.bulkop.SetAnnotationValue")
 public record SetAnnotationValueResult() implements Result {
 }

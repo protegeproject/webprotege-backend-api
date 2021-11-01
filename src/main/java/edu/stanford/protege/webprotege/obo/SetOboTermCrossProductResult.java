@@ -10,6 +10,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("SetOboTermCrossProduct")
+@JsonTypeName("webprotege.obo.SetOboTermCrossProduct")
 public record SetOboTermCrossProductResult() implements Result {
 }

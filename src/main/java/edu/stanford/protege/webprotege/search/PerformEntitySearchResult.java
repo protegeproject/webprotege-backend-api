@@ -12,7 +12,7 @@ import edu.stanford.protege.webprotege.common.Page;
  */
 
 
-@JsonTypeName("PerformEntitySearch")
+@JsonTypeName("webprotege.search.PerformEntitySearch")
 public record PerformEntitySearchResult(@JsonProperty("searchString") String searchString,
                                         @JsonProperty("results") Page<EntitySearchResult> results) implements Result {
 

@@ -14,7 +14,7 @@ import org.semanticweb.owlapi.model.OWLOntologyID;
  */
 
 
-@JsonTypeName("GetOntologyAnnotations")
+@JsonTypeName("webprotege.ontologies.GetOntologyAnnotations")
 public record GetOntologyAnnotationsResult(@JsonProperty("ontologyId") OWLOntologyID ontologyID,
                                            @JsonProperty("annotations") ImmutableList<PropertyAnnotationValue> annotations) implements Result {
 }

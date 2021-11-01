@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 
-@JsonTypeName("GetAvailableProjects")
+@JsonTypeName("webprotege.projects.GetAvailableProjects")
 public record GetAvailableProjectsResult(@JsonProperty("availableProjects") List<AvailableProject> availableProjects) implements Result {
 
 }

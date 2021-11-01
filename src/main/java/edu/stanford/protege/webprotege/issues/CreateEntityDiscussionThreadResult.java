@@ -11,6 +11,6 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 6 Oct 2016
  */
-@JsonTypeName("CreateEntityDiscussionThread")
+@JsonTypeName("webprotege.discussions.CreateEntityDiscussionThread")
 public record CreateEntityDiscussionThreadResult(@Nonnull ImmutableList<EntityDiscussionThread> threads) implements Result {
 }

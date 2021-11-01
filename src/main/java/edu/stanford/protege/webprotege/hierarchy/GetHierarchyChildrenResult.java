@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
  * Matthew Horridge Stanford Center for Biomedical Informatics Research 28 Nov 2017
  */
 
-@JsonTypeName("GetHierarchyChildren")
+@JsonTypeName("webprotege.hierarchies.GetHierarchyChildren")
 public record GetHierarchyChildrenResult(@JsonProperty("parent") @Nullable GraphNode parent,
                                          @JsonProperty("children") @Nonnull Page<GraphNode<EntityNode>> children) implements Result {
 }

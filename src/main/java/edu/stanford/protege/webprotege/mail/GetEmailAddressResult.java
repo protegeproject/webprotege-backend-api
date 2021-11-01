@@ -20,7 +20,7 @@ import java.util.Optional;
  */
 
 
-@JsonTypeName("GetEmailAddress")
+@JsonTypeName("webprotege.users.GetEmailAddress")
 public record GetEmailAddressResult(@JsonProperty("userId") UserId userId,
                                     @JsonProperty("emailAddress") @Nullable EmailAddress emailAddress) implements Result {
 

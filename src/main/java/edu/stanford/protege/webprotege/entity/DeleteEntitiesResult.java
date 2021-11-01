@@ -10,6 +10,6 @@ import org.semanticweb.owlapi.model.OWLEntity;
  * Stanford Center for Biomedical Informatics Research
  * 9 May 2017
  */
-@JsonTypeName("DeleteEntities")
+@JsonTypeName("webprotege.entities.DeleteEntities")
 public record DeleteEntitiesResult(ImmutableSet<OWLEntity> deletedEntities) implements Result {
 }

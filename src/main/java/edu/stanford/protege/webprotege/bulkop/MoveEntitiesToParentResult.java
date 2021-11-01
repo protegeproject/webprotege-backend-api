@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("MoveEntitiesToParent")
+@JsonTypeName("webprotege.entities.MoveEntitiesToParent")
 public record MoveEntitiesToParentResult() implements Result {
 
 }

@@ -14,7 +14,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("GetSearchSettings")
+@JsonTypeName("webprotege.search.GetSearchSettings")
 public record GetSearchSettingsResult(@JsonProperty("filters") @Nonnull ImmutableList<EntitySearchFilter> filters) implements Result {
 
 }

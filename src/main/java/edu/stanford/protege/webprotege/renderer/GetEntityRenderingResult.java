@@ -11,7 +11,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("GetEntityRendering")
+@JsonTypeName("webprotege.entities.GetEntityRendering")
 public record GetEntityRenderingResult(@Nonnull OWLEntityData entityData) implements Result {
 
 }

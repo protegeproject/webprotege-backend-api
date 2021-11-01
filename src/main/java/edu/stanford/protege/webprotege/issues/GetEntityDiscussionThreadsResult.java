@@ -12,7 +12,7 @@ import edu.stanford.protege.webprotege.entity.OWLEntityData;
  */
 
 
-@JsonTypeName("GetEntityDiscussionThreads")
+@JsonTypeName("webprotege.discussions.GetEntityDiscussionThreads")
 public record GetEntityDiscussionThreadsResult(OWLEntityData entity,
                                                ImmutableList<EntityDiscussionThread> threads) implements Result {
 }

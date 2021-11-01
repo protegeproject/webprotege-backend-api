@@ -8,7 +8,7 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
 
 
-@JsonTypeName("GetUploadedOntologies")
+@JsonTypeName("webprotege.uploads.GetUploadedOntologies")
 public record GetUploadedOntologiesAction(@JsonProperty("projectId") ProjectId projectId,
                                           @JsonProperty("documentId") DocumentId documentId) implements ProjectAction<GetUploadedOntologiesResult> {
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 
 
-@JsonTypeName("GetAllOntologies")
+@JsonTypeName("webprotege.uploads.GetUploadedOntologies")
 public record GetUploadedOntologiesResult(@JsonProperty("ontologies") List<OWLOntologyID> ontologies) implements Result {
 
 }

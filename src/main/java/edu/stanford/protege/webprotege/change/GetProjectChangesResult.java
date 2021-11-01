@@ -13,9 +13,7 @@ import java.util.Objects;
  * Stanford Center for Biomedical Informatics Research
  * 24/02/15
  */
-
-
-@JsonTypeName("GetProjectChanges")
+@JsonTypeName("webprotege.history.GetProjectChanges")
 public record GetProjectChangesResult(@JsonProperty("projectChanges") Page<ProjectChange> changes) implements Result {
 
     public GetProjectChangesResult {

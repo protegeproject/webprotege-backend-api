@@ -8,8 +8,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 22 Jun 2017
  */
-
-
-@JsonTypeName("SetOboTermDefinition")
+@JsonTypeName("webprotege.obo.SetOboTermDefinition")
 public record SetOboTermDefinitionResult() implements Result {
 }

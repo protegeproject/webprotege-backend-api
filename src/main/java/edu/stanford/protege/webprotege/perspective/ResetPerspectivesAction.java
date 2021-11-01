@@ -11,7 +11,7 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  */
 
 
-@JsonTypeName("ResetPerspectives")
+@JsonTypeName("webprotege.perspectives.ResetPerspectives")
 public record ResetPerspectivesAction(ProjectId projectId) implements ProjectAction<ResetPerspectivesResult> {
 
     public static final String CHANNEL = "webprotege.perspectives.ResetPerspectives";

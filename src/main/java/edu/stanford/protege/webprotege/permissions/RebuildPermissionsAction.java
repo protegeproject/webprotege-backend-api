@@ -8,7 +8,7 @@ import edu.stanford.protege.webprotege.dispatch.Action;
  * Stanford Center for Biomedical Informatics Research
  * 11 Apr 2017
  */
-@JsonTypeName("RebuildPermissions")
+@JsonTypeName("webprotege.auth.RebuildPermissions")
 public record RebuildPermissionsAction() implements Action<RebuildPermissionsResult> {
 
     public static final String CHANNEL = "webprotege.auth.RebuildPermissions";

@@ -17,7 +17,7 @@ import java.util.Optional;
  */
 
 
-@JsonTypeName("GetOntologyAnnotations")
+@JsonTypeName("webprotege.ontologies.GetOntologyAnnotations")
 public record GetOntologyAnnotationsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                            @JsonProperty("ontologyId") @Nonnull Optional<OWLOntologyID> ontologyId) implements ProjectAction<GetOntologyAnnotationsResult> {
 

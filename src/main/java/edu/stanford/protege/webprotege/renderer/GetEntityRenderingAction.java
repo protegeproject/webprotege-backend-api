@@ -11,7 +11,7 @@ import org.semanticweb.owlapi.model.OWLEntity;
  */
 
 
-@JsonTypeName("GetEntityRendering")
+@JsonTypeName("webprotege.entities.GetEntityRendering")
 public record GetEntityRenderingAction(@JsonProperty("projectId") ProjectId projectId,
                                        @JsonProperty("entity") OWLEntity entity) implements ProjectAction<GetEntityRenderingResult> {
 

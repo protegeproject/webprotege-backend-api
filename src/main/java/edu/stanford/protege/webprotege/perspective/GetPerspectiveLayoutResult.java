@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("GetPerspectiveLayout")
+@JsonTypeName("webprotege.perspectives.GetPerspectiveLayout")
 public record GetPerspectiveLayoutResult(PerspectiveLayout layout) implements Result {
 
 }

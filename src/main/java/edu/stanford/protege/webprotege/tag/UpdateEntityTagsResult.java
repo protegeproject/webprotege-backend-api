@@ -8,9 +8,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 21 Mar 2018
  */
-
-
-@JsonTypeName("UpdateEntityTags")
+@JsonTypeName("webprotege.tags.UpdateEntityTags")
 public record UpdateEntityTagsResult() implements Result{
 
 }

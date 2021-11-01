@@ -16,7 +16,7 @@ import java.util.List;
  */
 
 
-@JsonTypeName("GetUsage")
+@JsonTypeName("webprotege.entities.GetEntityUsage")
 public record GetEntityUsageResult(@JsonProperty("projectId") ProjectId projectId,
                                    @JsonProperty("entityNode") EntityNode entityNode,
                                    @JsonProperty("usageReferences") List<UsageReference> usageReferences,

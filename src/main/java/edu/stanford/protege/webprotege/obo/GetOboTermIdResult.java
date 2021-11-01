@@ -9,7 +9,7 @@ import org.semanticweb.owlapi.model.OWLEntity;
  * Stanford Center for Biomedical Informatics Research
  * 22 Jun 2017
  */
-@JsonTypeName("GetOboTermId")
+@JsonTypeName("webprotege.obo.GetOboTermId")
 public record GetOboTermIdResult(OWLEntity term,
                                 OBOTermId termId) implements Result {
 

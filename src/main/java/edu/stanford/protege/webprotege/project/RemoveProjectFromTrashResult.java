@@ -11,7 +11,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("RemoveProjectFromTrash")
+@JsonTypeName("webprotege.projects.RemoveProjectFromTrash")
 public record RemoveProjectFromTrashResult() implements Result {
 
 }

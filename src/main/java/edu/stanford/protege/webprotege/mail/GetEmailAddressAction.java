@@ -11,7 +11,7 @@ import edu.stanford.protege.webprotege.common.UserId;
  * Bio-Medical Informatics Research Group<br>
  * Date: 06/11/2013
  */
-@JsonTypeName("GetEmailAddress")
+@JsonTypeName("webprotege.users.GetEmailAddress")
 public record GetEmailAddressAction(UserId userId) implements Action<GetEmailAddressResult> {
 
     public static final String CHANNEL = "webprotege.users.GetEmailAddress";

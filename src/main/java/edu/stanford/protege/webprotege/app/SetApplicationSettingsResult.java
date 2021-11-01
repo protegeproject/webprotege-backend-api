@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("SetApplicationSettings")
+@JsonTypeName("webprotege.application.SetApplicationSettings")
 public record SetApplicationSettingsResult() implements Result {
 
 }

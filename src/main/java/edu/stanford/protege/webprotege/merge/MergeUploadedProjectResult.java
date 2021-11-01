@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("MergeUploadedProject")
+@JsonTypeName("webprotege.projects.MergeUploadedProject")
 public record MergeUploadedProjectResult() implements Result {
 
 }

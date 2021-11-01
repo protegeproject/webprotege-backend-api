@@ -14,7 +14,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("UpdateComment")
+@JsonTypeName("webprotege.discussions.UpdateComment")
 public record UpdateCommentAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                   @JsonProperty("threadId") @Nonnull ThreadId threadId,
                                   @JsonProperty("commentId") @Nonnull CommentId commentId,

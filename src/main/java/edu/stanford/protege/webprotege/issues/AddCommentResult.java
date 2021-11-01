@@ -12,7 +12,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("AddEntityComment")
+@JsonTypeName("webprotege.discussions.AddComment")
 public record AddCommentResult(@JsonProperty("projectId") ProjectId newProjectId,
                                @JsonProperty("threadId") ThreadId newThreadId,
                                @JsonProperty("comment") Comment newComment,

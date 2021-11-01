@@ -8,8 +8,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 22 Jun 2017
  */
-
-
-@JsonTypeName("SetOboTermSynonymsResult")
+@JsonTypeName("webprotege.obo.SetOboTermSynonyms")
 public record SetOboTermSynonymsResult() implements Result {
 }

@@ -11,7 +11,7 @@ import java.util.Collection;
  */
 
 
-@JsonTypeName("GetHierarchyPathsToRoot")
+@JsonTypeName("webprotege.hierarchies.GetHierarchyPathsToRoot")
 public record GetHierarchyPathsToRootResult(Collection<Path<GraphNode<EntityNode>>> paths) implements Result {
 
 }

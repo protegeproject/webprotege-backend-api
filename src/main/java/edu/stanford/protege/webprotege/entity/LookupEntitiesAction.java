@@ -16,7 +16,7 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  * @param entityLookupRequest The lookup request. Not {@code null}.
  * @throws  NullPointerException if any parameters are {@code null}.
  */
-@JsonTypeName("LookupEntities")
+@JsonTypeName("webprotege.entities.LookupEntities")
 public record LookupEntitiesAction(ProjectId projectId, EntityLookupRequest entityLookupRequest) implements ProjectAction<LookupEntitiesResult> {
 
     public static final String CHANNEL = "webprotege.entities.LookupEntities";

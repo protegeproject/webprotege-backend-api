@@ -15,7 +15,7 @@ import edu.stanford.protege.webprotege.common.PageRequest;
  */
 
 
-@JsonTypeName("GetMatchingEntities")
+@JsonTypeName("webprotege.entities.GetMatchingEntities")
 public record GetMatchingEntitiesAction(@JsonProperty("projectId") ProjectId projectId,
                                         @JsonProperty("criteria") Criteria criteria,
                                         @JsonProperty("pageRequest") PageRequest pageRequest) implements ProjectAction<GetMatchingEntitiesResult>, Request<GetMatchingEntitiesResult> {

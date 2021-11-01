@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.user;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Action;
 
 /**
@@ -7,6 +8,7 @@ import edu.stanford.protege.webprotege.dispatch.Action;
  * Stanford Center for Biomedical Informatics Research
  * 12/05/15
  */
+@JsonTypeName("webprotege.users.GetUserIdCompletions")
 public record GetUserIdCompletionsAction(String completionText) implements Action<GetUserIdCompletionsResult> {
 
     public static final String CHANNEL = "webprotege.users.GetUserIdCompletions";

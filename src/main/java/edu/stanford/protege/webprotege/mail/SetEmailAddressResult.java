@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.mail;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
 /**
@@ -8,6 +9,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Bio-Medical Informatics Research Group<br>
  * Date: 06/11/2013
  */
+@JsonTypeName("webprotege.users.SetEmailAddress")
 public record SetEmailAddressResult(Result result) implements Result {
 
     public enum Result {

@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("ResetPerspectives")
+@JsonTypeName("webprotege.perspectives.ResetPerspectives")
 public record ResetPerspectivesResult() implements Result {
 
 }

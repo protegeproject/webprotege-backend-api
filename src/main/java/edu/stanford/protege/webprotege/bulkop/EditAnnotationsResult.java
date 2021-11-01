@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("EditAnnotations")
+@JsonTypeName("webprotege.bulkop.EditAnnotations")
 public record EditAnnotationsResult() implements Result {
 
 }

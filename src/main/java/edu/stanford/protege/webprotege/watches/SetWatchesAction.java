@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.watches;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
@@ -11,9 +12,10 @@ import org.semanticweb.owlapi.model.OWLEntity;
  * Stanford Center for Biomedical Informatics Research
  * 29/02/16
  */
-public record SetEntityWatchesAction(ProjectId projectId, UserId userId, OWLEntity entity, ImmutableSet<Watch> watches) implements ProjectAction<SetEntityWatchesResult> {
+@JsonTypeName("webprotege.watches.SetWatches")
+public record SetWatchesAction(ProjectId projectId, UserId userId, OWLEntity entity, ImmutableSet<Watch> watches) implements ProjectAction<SetWatchesResult> {
 
-    public static final String CHANNEL = "webprotege.watches.SetEntityWatches";
+    public static final String CHANNEL = "webprotege.watches.SetWatches";
 
     @Override
     public String getChannel() {

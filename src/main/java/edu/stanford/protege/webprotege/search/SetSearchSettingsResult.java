@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("SetSearchSettings")
+@JsonTypeName("webprotege.search.SetSearchSettings")
 public record SetSearchSettingsResult() implements Result {
 
 }

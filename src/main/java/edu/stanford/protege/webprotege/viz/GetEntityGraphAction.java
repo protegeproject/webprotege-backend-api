@@ -15,7 +15,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("GetEntityGraph")
+@JsonTypeName("webprotege.graphs.GetEntityGraph")
 public record GetEntityGraphAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                    @JsonProperty("entity") @Nonnull OWLEntity entity) implements ProjectAction<GetEntityGraphResult> {
 

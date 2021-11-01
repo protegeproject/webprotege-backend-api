@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.crud;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -10,6 +11,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 8/19/13
  */
+@JsonTypeName("webprotege.projects.GetEntityCrudKitSettings")
 public class GetEntityCrudKitSettingsResult implements Result {
 
     private EntityCrudKitSettings settings;

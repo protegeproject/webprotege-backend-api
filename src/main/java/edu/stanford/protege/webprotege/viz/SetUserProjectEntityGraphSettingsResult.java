@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("SetUserProjectEntityGraphSettings")
+@JsonTypeName("webprotege.graphs.SetUserProjectEntityGraphSettings")
 public record SetUserProjectEntityGraphSettingsResult() implements Result {
 
 }

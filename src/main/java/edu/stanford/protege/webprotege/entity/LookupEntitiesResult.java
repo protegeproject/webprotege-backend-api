@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 
-@JsonTypeName("LookupEntities")
+@JsonTypeName("webprotege.entities.LookupEntities")
 public record LookupEntitiesResult(List<EntityLookupResult> results) implements Result {
 
 }

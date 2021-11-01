@@ -14,7 +14,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("GetAvailableProjectsWithPermission")
+@JsonTypeName("webprotege.projects.GetAvailableProjectsWithPermission")
 public record GetAvailableProjectsWithPermissionAction(@JsonProperty("permission") @Nonnull ActionId permission) implements Action<GetAvailableProjectsWithPermissionResult> {
 
     public static final String CHANNEL = "webprotege.projects.GetAvailableProjectsWithPermission";

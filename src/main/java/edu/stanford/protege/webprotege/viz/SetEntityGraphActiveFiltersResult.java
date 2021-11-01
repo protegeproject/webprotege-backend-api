@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("SetEntityGraphActiveFilters")
+@JsonTypeName("webprotege.graphs.SetEntityGraphActiveFilters")
 public record SetEntityGraphActiveFiltersResult() implements Result {
 
 }

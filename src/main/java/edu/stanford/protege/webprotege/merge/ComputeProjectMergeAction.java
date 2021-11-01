@@ -13,7 +13,7 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  */
 
 
-@JsonTypeName("ComputeProjectMerge")
+@JsonTypeName("webprotege.projects.ComputeProjectMerge")
 public record ComputeProjectMergeAction(@JsonProperty("projectId") ProjectId projectId,
                                         @JsonProperty("projectDocumentId") DocumentId projectDocumentId) implements ProjectAction<ComputeProjectMergeResult> {
 

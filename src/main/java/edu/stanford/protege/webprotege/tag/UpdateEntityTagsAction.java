@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.tag;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import org.semanticweb.owlapi.model.OWLEntity;
@@ -12,6 +13,7 @@ import java.util.Set;
  * Stanford Center for Biomedical Informatics Research
  * 21 Mar 2018
  */
+@JsonTypeName("webprotege.tags.UpdateEntityTags")
 public record UpdateEntityTagsAction(@Nonnull ProjectId projectId,
                                     @Nonnull OWLEntity entity,
                                     @Nonnull Set<TagId> fromTagIds,

@@ -15,7 +15,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("SetEntityGraphActiveFilters")
+@JsonTypeName("webprotege.graphs.SetEntityGraphActiveFilters")
 public record SetEntityGraphActiveFiltersAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                                 @JsonProperty("activeFilters") @Nonnull ImmutableList<FilterName> activeFilters) implements ProjectAction<SetEntityGraphActiveFiltersResult> {
 

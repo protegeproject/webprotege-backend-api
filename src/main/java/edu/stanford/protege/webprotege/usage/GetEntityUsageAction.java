@@ -21,7 +21,7 @@ import java.util.Optional;
  */
 
 
-@JsonTypeName("GetEntityUsage")
+@JsonTypeName("webprotege.entities.GetEntityUsage")
 @JsonClassDescription("Requests the entity usage for the specified entity.  The usage is the set of OWL axioms that mention the entity in their signature.")
 public record GetEntityUsageAction(@JsonPropertyDescription("The entity whose usage will be returned")
                                    OWLEntity subject,

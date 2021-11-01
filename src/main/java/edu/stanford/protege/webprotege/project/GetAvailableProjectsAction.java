@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.dispatch.Action;
  * Bio-Medical Informatics Research Group<br>
  * Date: 01/04/2013
  */
-@JsonTypeName("GetAvailableProjects")
+@JsonTypeName("webprotege.projects.GetAvailableProjects")
 @JsonClassDescription("Gets the available projects for the authenticated user.  " +
         "An available project is a project that can be opened in WebProtégé.")
 public record GetAvailableProjectsAction() implements Action<GetAvailableProjectsResult> {

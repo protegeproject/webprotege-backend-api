@@ -21,7 +21,7 @@ import edu.stanford.protege.webprotege.common.ProjectRequest;
  * @param mimeType The MIME type of the ontology document.
  * @param commitMessage The message that will be added to the change log
  */
-@JsonTypeName("RemoveAxiomsRequest")
+@JsonTypeName("webprotege.axioms.RemoveAxioms")
 public record RemoveAxiomsRequest(ProjectId projectId,
                                   String ontologyDocument,
                                   String mimeType,

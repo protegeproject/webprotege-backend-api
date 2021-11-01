@@ -12,7 +12,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("SetApplicationSettings")
+@JsonTypeName("webprotege.application.SetApplicationSettings")
 public record SetApplicationSettingsAction(@Nonnull ApplicationSettings applicationSettings) implements Action<SetApplicationSettingsResult> {
 
     public static final String CHANNEL = "webprotege.application.SetApplicationSettings";

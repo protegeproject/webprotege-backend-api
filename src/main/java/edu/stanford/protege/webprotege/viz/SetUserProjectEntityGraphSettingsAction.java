@@ -17,7 +17,7 @@ import java.util.Optional;
  */
 
 
-@JsonTypeName("SetUserProjectEntityGraphSettings")
+@JsonTypeName("webprotege.graphs.SetUserProjectEntityGraphSettings")
 public record SetUserProjectEntityGraphSettingsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                                       @JsonProperty("userId") @Nullable UserId userId,
                                                       @JsonProperty("settings") @Nonnull EntityGraphSettings settings) implements ProjectAction<SetUserProjectEntityGraphSettingsResult> {

@@ -13,6 +13,6 @@ import java.util.List;
  */
 
 
-@JsonTypeName("GetHierarchyRoots")
+@JsonTypeName("webprotege.hierarchies.GetHierarchyRoots")
 public record GetHierarchyRootsResult(@JsonProperty("rootNodes") @Nonnull List<GraphNode<EntityNode>> rootNodes) implements Result {
 }

@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
  * Stanford Center for Biomedical Informatics Research
  * 10/03/16
  */
-@JsonTypeName("GetProjectDetails")
+@JsonTypeName("webprotege.projects.GetProjectDetails")
 public record GetProjectDetailsAction(ProjectId projectId) implements Action<GetProjectDetailsResult>, HasProjectId {
 
     public static final String CHANNEL = "webprotege.projects.GetProjectDetails";

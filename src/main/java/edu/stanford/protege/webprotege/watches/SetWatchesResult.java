@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("SetEntityWatches")
-public record SetEntityWatchesResult() implements Result {
+@JsonTypeName("webprotege.watches.SetWatches")
+public record SetWatchesResult() implements Result {
 
 }

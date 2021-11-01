@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 05/04/2013
  */
-@JsonTypeName("LoadProject")
+@JsonTypeName("webprotege.projects.LoadProject")
 public record LoadProjectAction(ProjectId projectId) implements Action<LoadProjectResult>, HasProjectId {
 
     public static final String CHANNEL = "webprotege.projects.LoadProject";

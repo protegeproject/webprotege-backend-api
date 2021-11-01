@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.dispatch.Action;
  */
 
 
-@JsonTypeName("GetApplicationSettings")
+@JsonTypeName("webprotege.application.GetApplicationSettings")
 public record GetApplicationSettingsAction() implements Action<GetApplicationSettingsResult> {
 
     public static final String CHANNEL = "webprotege.application.GetApplicationSettings";

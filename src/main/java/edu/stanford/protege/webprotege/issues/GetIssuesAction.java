@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.issues;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
@@ -14,6 +15,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 27 Jul 16
  */
+@JsonTypeName("webprotege.issues.GetIssues")
 public record GetIssuesAction(ProjectId projectId) implements ProjectAction<GetIssuesResult> {
 
     public static final String CHANNEL = "webprotege.issues.GetIssues";

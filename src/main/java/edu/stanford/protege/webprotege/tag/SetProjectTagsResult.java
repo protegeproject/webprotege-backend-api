@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("SetProjectTags")
+@JsonTypeName("webprotege.tags.SetProjectTags")
 public record SetProjectTagsResult() implements Result {
 
 }

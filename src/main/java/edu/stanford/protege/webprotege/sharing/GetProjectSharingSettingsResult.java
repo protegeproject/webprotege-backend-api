@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.sharing;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
 /**
@@ -7,6 +8,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 07/02/15
  */
+@JsonTypeName("webprotege.projects.GetProjectSharingSettings")
 public record GetProjectSharingSettingsResult(ProjectSharingSettings settings) implements Result {
 
 }

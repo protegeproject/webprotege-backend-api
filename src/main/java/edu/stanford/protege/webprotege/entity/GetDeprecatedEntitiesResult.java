@@ -11,7 +11,7 @@ import edu.stanford.protege.webprotege.common.Page;
  */
 
 
-@JsonTypeName("GetDeprecatedEntities")
+@JsonTypeName("webprotege.entities.GetDeprecatedEntities")
 public record GetDeprecatedEntitiesResult(Page<OWLEntityData> entities) implements Result {
 
 }

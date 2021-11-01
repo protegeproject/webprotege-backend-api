@@ -13,7 +13,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("DeleteEntityComment")
+@JsonTypeName("webprotege.discussions.DeleteComment")
 public record DeleteCommentResult(@JsonProperty("commentId") @Nonnull CommentId commentId,
                                   @JsonProperty("deleted") boolean deleted) implements Result {
 }

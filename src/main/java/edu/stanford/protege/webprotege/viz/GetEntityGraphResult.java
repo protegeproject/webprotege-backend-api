@@ -13,7 +13,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("GetEntityGraph")
+@JsonTypeName("webprotege.graphs.GetEntityGraph")
 public record GetEntityGraphResult(@JsonProperty("graph") @Nonnull EntityGraph entityGraph,
                                    @JsonProperty("settings") @Nonnull EntityGraphSettings settings) implements Result {
 

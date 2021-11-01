@@ -14,7 +14,7 @@ import java.util.Optional;
  * Stanford Center for Biomedical Informatics Research
  * 18 Mar 2018
  */
-@JsonTypeName("AddProjectTag")
+@JsonTypeName("webprotege.tags.AddProjectTag")
 public record AddProjectTagResult(Tag addedTag) implements Result {
 
     @JsonCreator

@@ -1,8 +1,6 @@
 package edu.stanford.protege.webprotege.watches;
 
 import com.google.common.collect.ImmutableSet;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
 
 import org.junit.Test;
 
@@ -20,9 +18,9 @@ public class SetEntityWatches_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new SetEntityWatchesAction(mockProjectId(),
-                                                   mockUserId(),
-                                                   mockOWLClass(), ImmutableSet.of(
+        var action = new SetWatchesAction(mockProjectId(),
+                                          mockUserId(),
+                                          mockOWLClass(), ImmutableSet.of(
                         Watch.create(mockUserId(),
                                      mockOWLClass(),
                                      WatchType.ENTITY)
@@ -32,7 +30,7 @@ public class SetEntityWatches_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = new SetEntityWatchesResult();
+        var result = new SetWatchesResult();
         
     }
 }

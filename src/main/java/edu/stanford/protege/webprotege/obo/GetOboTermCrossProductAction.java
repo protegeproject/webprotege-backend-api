@@ -10,7 +10,7 @@ import org.semanticweb.owlapi.model.OWLEntity;
  * Stanford Center for Biomedical Informatics Research
  * 22 Jun 2017
  */
-@JsonTypeName("GetOBOTermCrossProduct")
+@JsonTypeName("webprotege.obo.GetOBOTermCrossProduct")
 public record GetOboTermCrossProductAction(ProjectId projectId,
                                           OWLEntity term) implements ProjectAction<GetOboTermCrossProductResult> {
 

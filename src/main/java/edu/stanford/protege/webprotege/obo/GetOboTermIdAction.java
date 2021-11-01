@@ -12,7 +12,7 @@ import org.semanticweb.owlapi.model.OWLEntity;
  */
 
 
-@JsonTypeName("GetOboTermId")
+@JsonTypeName("webprotege.obo.GetOboTermId")
 public record GetOboTermIdAction(ProjectId projectId,
                                  OWLEntity term) implements ProjectAction<GetOboTermIdResult> {
 

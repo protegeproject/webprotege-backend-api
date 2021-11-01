@@ -15,7 +15,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("SetPerspectives")
+@JsonTypeName("webprotege.perspectives.SetPerspectives")
 public record SetPerspectivesResult(@JsonProperty("perspectives") @Nonnull ImmutableList<PerspectiveDescriptor> perspectives,
                                     @JsonProperty("resettablePerspectives") @Nonnull ImmutableSet<PerspectiveId> resettablePerspectives) implements Result {
 }

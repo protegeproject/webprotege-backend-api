@@ -26,7 +26,7 @@ import static java.util.Objects.requireNonNullElse;
  */
 
 
-@JsonTypeName("PerformEntitySearch")
+@JsonTypeName("webprotege.search.PerformEntitySearch")
 public record PerformEntitySearchAction(@JsonProperty(value = "projectId", required = true) @Nonnull ProjectId projectId,
                                         @JsonProperty(value = "searchString", required = true) @Nonnull String searchString,
                                         @JsonProperty(value = "entityTypes", defaultValue = "[]") @Nonnull Set<EntityType<?>> entityTypes,

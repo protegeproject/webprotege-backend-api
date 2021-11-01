@@ -12,7 +12,7 @@ import edu.stanford.protege.webprotege.dispatch.Action;
  */
 
 
-@JsonTypeName("MoveProjectToTrash")
+@JsonTypeName("webprotege.projects.MoveProjectToTrash")
 public record MoveProjectsToTrashAction(ProjectId projectId) implements Action<MoveProjectsToTrashResult> {
 
     public static final String CHANNEL = "webprotege.projects.MoveProjectToTrash";

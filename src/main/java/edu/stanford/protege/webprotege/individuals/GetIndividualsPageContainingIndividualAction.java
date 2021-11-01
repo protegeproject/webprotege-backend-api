@@ -18,7 +18,7 @@ import java.util.Optional;
  */
 
 
-@JsonTypeName("GetIndividualsPageContainingIndividual")
+@JsonTypeName("webprotege.entities.GetIndividualsPageContainingIndividual")
 public record GetIndividualsPageContainingIndividualAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                                            @JsonProperty("individual") @Nonnull OWLNamedIndividual individual,
                                                            @JsonProperty("preferredType") @Nonnull Optional<OWLClass> preferredType,

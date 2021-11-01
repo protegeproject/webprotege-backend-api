@@ -12,7 +12,7 @@ import edu.stanford.protege.webprotege.project.ProjectDetails;
  */
 
 
-@JsonTypeName(value = "GetAvailableProjectsWithPermission")
+@JsonTypeName(value = "webprotege.projects.GetAvailableProjectsWithPermission")
 public record GetAvailableProjectsWithPermissionResult(ImmutableList<ProjectDetails> projectDetails) implements Result {
 
 }

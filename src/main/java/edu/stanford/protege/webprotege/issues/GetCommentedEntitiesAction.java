@@ -17,7 +17,7 @@ import java.util.Set;
  */
 
 
-@JsonTypeName("GetCommentedEntities")
+@JsonTypeName("webprotege.discussions.GetCommentedEntities")
 public record GetCommentedEntitiesAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                          @JsonProperty("userIdFilter") @Nonnull String userIdFilter,
                                          @JsonProperty("statusFilter") @Nonnull Set<Status> statusFilter,

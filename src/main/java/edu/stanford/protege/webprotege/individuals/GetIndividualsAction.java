@@ -13,7 +13,7 @@ import org.semanticweb.owlapi.model.OWLClass;
  * Bio-Medical Informatics Research Group<br>
  * Date: 12/09/2013
  */
-@JsonTypeName("GetIndividuals")
+@JsonTypeName("webprotege.entities.GetIndividuals")
 public record GetIndividualsAction(ProjectId projectId,
                                   OWLClass type,
                                   PageRequest pageRequest,

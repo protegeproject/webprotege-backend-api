@@ -9,7 +9,7 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  * Stanford Center for Biomedical Informatics Research
  * 9 Oct 2016
  */
-@JsonTypeName("DeleteComment")
+@JsonTypeName("webprotege.discussions.DeleteComment")
 public record DeleteCommentAction(ProjectId projectId,
                                   CommentId commentId) implements ProjectAction<DeleteCommentResult> {
 

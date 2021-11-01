@@ -14,6 +14,6 @@ import java.util.Optional;
  */
 
 
-@JsonTypeName("UpdateComment")
+@JsonTypeName("webprotege.discussions.UpdateComment")
 public record UpdateCommentResult(@JsonProperty("editedComment") @Nonnull Optional<Comment> editedComment) implements Result {
 }

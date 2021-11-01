@@ -13,7 +13,7 @@ import org.semanticweb.owlapi.model.OWLOntologyID;
  */
 
 
-@JsonTypeName("GetRootOntologyId")
+@JsonTypeName("webprotege.ontologies.GetRootOntologyId")
 public record GetRootOntologyIdResult(ProjectId projectId,
                                       OWLOntologyID rootOntologyId) implements Result {
 

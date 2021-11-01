@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 /**
  * Matthew Horridge Stanford Center for Biomedical Informatics Research 30 Nov 2017
  */
-@JsonTypeName("GetHierarchyRoots")
+@JsonTypeName("webprotege.hierarchies.GetHierarchyRoots")
 public record GetHierarchyRootsAction(@Nonnull ProjectId projectId, @Nonnull HierarchyId hierarchyId) implements ProjectAction<GetHierarchyRootsResult> {
 
     public static final String CHANNEL = "webprotege.hierarchies.GetHierarchyRoots";

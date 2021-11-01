@@ -19,7 +19,7 @@ import java.util.Optional;
  */
 
 
-@JsonTypeName("SetPerspectives")
+@JsonTypeName("webprotege.perspectives.SetPerspectives")
 public record SetPerspectivesAction(@Nonnull ProjectId projectId,
                                     @Nullable UserId userId,
                                     @Nonnull ImmutableList<PerspectiveDescriptor> perspectiveIds) implements ProjectAction<SetPerspectivesResult> {

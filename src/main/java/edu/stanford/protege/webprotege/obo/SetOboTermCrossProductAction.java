@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.obo;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import org.semanticweb.owlapi.model.OWLClass;
@@ -11,6 +12,7 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 22 Jun 2017
  */
+@JsonTypeName("webprotege.obo.SetOboTermCrossProduct")
 public record SetOboTermCrossProductAction(@Nonnull ProjectId projectId,
                                           @Nonnull OWLClass term,
                                           @Nonnull OBOTermCrossProduct crossProduct) implements ProjectAction<SetOboTermCrossProductResult> {

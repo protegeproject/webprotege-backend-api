@@ -15,7 +15,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("GetUserProjectEntityGraphCriteria")
+@JsonTypeName("webprotege.graphs.GetUserProjectEntityGraphCriteria")
 public record GetUserProjectEntityGraphCriteriaResult(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                                       @JsonProperty("userId") @Nonnull UserId userId,
                                                       @JsonProperty("settings") @Nonnull EntityGraphSettings settings) implements Result {

@@ -14,7 +14,7 @@ import edu.stanford.protege.webprotege.common.Page;
  */
 
 
-@JsonTypeName("GetCommentedEntities")
+@JsonTypeName("webprotege.discussions.GetCommentedEntities")
 public record GetCommentedEntitiesResult(@JsonProperty("projectId") ProjectId projectId,
                                          @JsonProperty("entities") Page<CommentedEntityData> entities) implements Result {
 }

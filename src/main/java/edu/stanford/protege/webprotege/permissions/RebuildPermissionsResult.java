@@ -8,6 +8,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 11 Apr 2017
  */
-@JsonTypeName("RebuildPermissions")
+@JsonTypeName("webprotege.auth.RebuildPermissions")
 public record RebuildPermissionsResult() implements Result {
 }

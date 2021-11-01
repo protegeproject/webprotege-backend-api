@@ -14,7 +14,7 @@ import javax.annotation.Nonnull;
  * Bio-Medical Informatics Research Group<br>
  * Date: 25/03/2013
  */
-@JsonTypeName("CreateDataProperties")
+@JsonTypeName("webprotege.entities.CreateDataProperties")
 public record CreateDataPropertiesAction(@Nonnull ProjectId projectId,
                                          @Nonnull String sourceText,
                                          @Nonnull String langTag,

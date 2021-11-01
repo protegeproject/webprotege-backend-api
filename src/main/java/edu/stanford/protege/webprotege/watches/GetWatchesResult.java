@@ -14,7 +14,7 @@ import java.util.Set;
  */
 
 
-@JsonTypeName("GetWatches")
+@JsonTypeName("webprotege.watches.GetWatches")
 public record GetWatchesResult(@JsonProperty("watches") Set<Watch> watches) implements Result {
 
 }

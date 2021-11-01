@@ -13,7 +13,7 @@ import edu.stanford.protege.webprotege.common.UserId;
  */
 
 
-@JsonTypeName("GetPerspectives")
+@JsonTypeName("webprotege.perspectives.GetPerspectives")
 public record GetPerspectivesAction(@JsonProperty("projectId") ProjectId projectId,
                                     @JsonProperty("userId") UserId userId) implements Action<GetPerspectivesResult> {
 

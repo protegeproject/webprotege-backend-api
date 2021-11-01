@@ -15,7 +15,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("SetSearchSettings")
+@JsonTypeName("webprotege.search.SetSearchSettings")
 public record SetSearchSettingsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                       @JsonProperty("from") @Nonnull ImmutableList<EntitySearchFilter> from,
                                       @JsonProperty("to") @Nonnull ImmutableList<EntitySearchFilter> to) implements ProjectAction<SetSearchSettingsResult> {

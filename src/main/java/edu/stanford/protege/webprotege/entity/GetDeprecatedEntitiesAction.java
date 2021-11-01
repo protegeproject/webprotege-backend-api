@@ -19,7 +19,7 @@ import java.util.Set;
  */
 
 
-@JsonTypeName("GetDeprecatedEntities")
+@JsonTypeName("webprotege.entities.GetDeprecatedEntities")
 public record GetDeprecatedEntitiesAction(@JsonProperty(value = "projectId", required = true) @Nonnull ProjectId projectId,
                                           @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest,
                                           @JsonProperty("entityTypes") @Nonnull Set<EntityType<?>> entityTypes) implements ProjectAction<GetDeprecatedEntitiesResult> {

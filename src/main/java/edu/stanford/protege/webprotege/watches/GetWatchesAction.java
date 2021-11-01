@@ -15,7 +15,7 @@ import org.semanticweb.owlapi.model.OWLEntity;
  */
 
 
-@JsonTypeName("GetWatches")
+@JsonTypeName("webprotege.watches.GetWatches")
 public record GetWatchesAction(@JsonProperty("projectId") ProjectId projectId,
                                @JsonProperty("userId") UserId userId,
                                @JsonProperty("entity") OWLEntity entity) implements ProjectAction<GetWatchesResult> {

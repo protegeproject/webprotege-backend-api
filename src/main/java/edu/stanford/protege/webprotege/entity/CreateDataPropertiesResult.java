@@ -11,7 +11,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Bio-Medical Informatics Research Group<br>
  * Date: 25/03/2013
  */
-@JsonTypeName("CreateDataProperties")
+@JsonTypeName("webprotege.entities.CreateDataProperties")
 public record CreateDataPropertiesResult(ProjectId projectId,
                                          ImmutableSet<EntityNode> entities) implements Result {
 }

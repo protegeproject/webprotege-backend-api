@@ -14,7 +14,7 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 18 Mar 2018
  */
-@JsonTypeName("AddProjectTag")
+@JsonTypeName("webprotege.tags.AddProjectTag")
 public record AddProjectTagAction(ProjectId projectId,
                                   String label,
                                   String description,

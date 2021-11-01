@@ -16,7 +16,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("CreateAnnotationProperties")
+@JsonTypeName("webprotege.entities.CreateAnnotationProperties")
 public record CreateAnnotationPropertiesResult(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                                @JsonProperty("entities") @Nonnull ImmutableSet<EntityNode> entities) implements CreateEntitiesInHierarchyResult<OWLAnnotationProperty> {
 

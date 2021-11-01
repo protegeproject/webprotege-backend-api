@@ -12,7 +12,7 @@ import edu.stanford.protege.webprotege.common.Page;
  */
 
 
-@JsonTypeName("GetHierarchySiblings")
+@JsonTypeName("webprotege.hierarchies.GetHierarchySiblings")
 public record GetHierarchySiblingsResult(Page<GraphNode<EntityNode>> siblingsPage) implements Result {
 
 }

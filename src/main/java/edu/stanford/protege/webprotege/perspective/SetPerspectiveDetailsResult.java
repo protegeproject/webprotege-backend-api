@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.perspective;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
 /**
@@ -7,5 +8,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 2020-09-03
  */
+@JsonTypeName("webprotege.perspectives.SetPerspectiveDetails")
 public class SetPerspectiveDetailsResult implements Result {
 }

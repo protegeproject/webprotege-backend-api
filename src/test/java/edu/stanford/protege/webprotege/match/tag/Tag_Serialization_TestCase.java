@@ -6,6 +6,7 @@ import edu.stanford.protege.webprotege.color.Color;
 import edu.stanford.protege.webprotege.common.WebProtegeCommonConfiguration;
 import edu.stanford.protege.webprotege.criteria.EntityIsNotDeprecatedCriteria;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.ipc.WebProtegeIpcApplication;
 import edu.stanford.protege.webprotege.jackson.WebProtegeJacksonApplication;
 import edu.stanford.protege.webprotege.tag.Tag;
 import edu.stanford.protege.webprotege.tag.TagId;
@@ -26,7 +27,7 @@ import static org.hamcrest.Matchers.is;
  * 21 Jun 2018
  */
 @SpringBootTest
-@Import({WebProtegeCommonConfiguration.class, WebProtegeJacksonApplication.class})
+@Import({WebProtegeCommonConfiguration.class, WebProtegeIpcApplication.class, WebProtegeJacksonApplication.class})
 public class Tag_Serialization_TestCase {
 
     @Autowired

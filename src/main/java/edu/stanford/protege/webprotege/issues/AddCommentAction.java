@@ -14,7 +14,7 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 7 Oct 2016
  */
-@JsonTypeName("AddComment")
+@JsonTypeName("webprotege.discussions.AddComment")
 public record AddCommentAction(ProjectId projectId,
                                ThreadId threadId,
                                String comment) implements ProjectAction<AddCommentResult>, HasProjectId {

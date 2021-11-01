@@ -14,7 +14,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("GetHierarchyChildren")
+@JsonTypeName("webprotege.hierarchies.GetHierarchyChildren")
 public record GetHierarchyChildrenAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                          @JsonProperty("entity") @Nonnull OWLEntity entity,
                                          @JsonProperty("hierarchyId") @Nonnull HierarchyId hierarchyId,

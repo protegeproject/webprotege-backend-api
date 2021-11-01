@@ -9,7 +9,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  */
 
 
-@JsonTypeName("MoveHierarchyNode")
+@JsonTypeName("webprotege.hierarchies.MoveHierarchyNode")
 public record MoveHierarchyNodeResult(@JsonProperty("moved") boolean moved) implements Result {
 
 }

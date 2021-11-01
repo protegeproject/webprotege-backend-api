@@ -11,11 +11,11 @@ import org.semanticweb.owlapi.model.OWLEntity;
  * Stanford Center for Biomedical Informatics Research
  * 9 May 2017
  */
-@JsonTypeName("DeleteEntities")
+@JsonTypeName("webprotege.entities.DeleteEntities")
 public record DeleteEntitiesAction(ProjectId projectId,
                                    ImmutableSet<OWLEntity> entities) implements ProjectAction<DeleteEntitiesResult> {
 
-    public static final String CHANNEL = "webprotege.entities.DeleteEntitiesAction";
+    public static final String CHANNEL = "webprotege.entities.DeleteEntities";
 
     @Override
     public String getChannel() {

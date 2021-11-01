@@ -15,7 +15,7 @@ import java.util.Set;
  */
 
 
-@JsonTypeName("SetOntologyAnnotations")
+@JsonTypeName("webprotege.ontologies.SetOntologyAnnotations")
 public record SetOntologyAnnotationsResult(@JsonProperty("ontologyAnnotations") Set<OWLAnnotation> ontologyAnnotations) implements Result {
 
 }

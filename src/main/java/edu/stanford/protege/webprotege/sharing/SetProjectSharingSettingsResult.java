@@ -8,9 +8,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 07/02/15
  */
-
-
-@JsonTypeName("SetProjectSharingSettings")
+@JsonTypeName("webprotege.sharing.SetProjectSharingSettings")
 public record SetProjectSharingSettingsResult() implements Result {
 
 }

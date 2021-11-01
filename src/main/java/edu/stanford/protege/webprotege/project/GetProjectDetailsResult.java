@@ -11,7 +11,7 @@ import edu.stanford.protege.webprotege.project.ProjectDetails;
  */
 
 
-@JsonTypeName("GetProjectDetails")
+@JsonTypeName("webprotege.projects.GetProjectDetails")
 public record GetProjectDetailsResult(ProjectDetails projectDetails) implements Result {
 
 }

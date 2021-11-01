@@ -8,8 +8,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Stanford Center for Biomedical Informatics Research
  * 28/02/16
  */
-
-
-@JsonTypeName("SetPerspectiveLayout")
+@JsonTypeName("webprotege.perspectives.SetPerspectiveLayout")
 public record SetPerspectiveLayoutResult() implements Result {
 }

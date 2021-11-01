@@ -16,7 +16,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("MoveEntitiesToParent")
+@JsonTypeName("webprotege.entities.MoveEntitiesToParent")
 public record MoveEntitiesToParentAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                          @JsonProperty("entities") @Nonnull ImmutableSet<OWLClass> entities,
                                          @JsonProperty("parentEntity") @Nonnull OWLClass entity,

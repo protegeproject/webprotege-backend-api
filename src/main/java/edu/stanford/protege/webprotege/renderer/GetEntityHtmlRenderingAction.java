@@ -15,7 +15,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("GetEntityHtmlRendering")
+@JsonTypeName("webprotege.html.GetEntityHtmlRendering")
 public record GetEntityHtmlRenderingAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                            @JsonProperty("entity") @Nonnull OWLEntity entity) implements ProjectAction<GetEntityHtmlRenderingResult> {
 

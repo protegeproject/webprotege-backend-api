@@ -15,7 +15,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("RevertRevision")
+@JsonTypeName("webprotege.history.RevertRevision")
 public record RevertRevisionResult(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                    @JsonProperty("revisionNumber") @Nonnull RevisionNumber revisionNumber) implements Result {
 

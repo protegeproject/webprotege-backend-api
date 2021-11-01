@@ -15,7 +15,7 @@ import java.util.List;
  */
 
 
-@JsonTypeName("SetProjectTags")
+@JsonTypeName("webprotege.tags.SetProjectTags")
 public record SetProjectTagsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                    @JsonProperty("tagData") @Nonnull List<TagData> tagData) implements ProjectAction<SetProjectTagsResult> {
 

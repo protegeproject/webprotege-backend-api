@@ -15,7 +15,7 @@ import org.semanticweb.owlapi.model.OWLClass;
  * Bio-Medical Informatics Research Group<br>
  * Date: 22/02/2013
  */
-@JsonTypeName("CreateClassesRequest")
+@JsonTypeName("webprotege.entities.CreateClasses")
 @JsonClassDescription("Represents a request to create OWL classes in a specified project")
 public record CreateClassesAction(@JsonPropertyDescription("The id of the project where the classes will be created")
                                   ProjectId projectId,

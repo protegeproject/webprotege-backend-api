@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.bulkop;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
@@ -15,6 +16,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 26 Sep 2018
  */
 @Deprecated
+@JsonTypeName("webprotege.bulkop.DeleteAnnotations")
 public record DeleteAnnotationsAction(ProjectId projectId,
                                       ImmutableSet<OWLEntity> entities,
                                       AnnotationSimpleMatchingCriteria criteria) implements ProjectAction<DeleteAnnotationsResult> {

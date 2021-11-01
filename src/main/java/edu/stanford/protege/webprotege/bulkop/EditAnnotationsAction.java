@@ -18,7 +18,7 @@ import java.util.Optional;
  */
 
 
-@JsonTypeName("EditAnnotations")
+@JsonTypeName("webprotege.bulkop.EditAnnotations")
 public record EditAnnotationsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                     @JsonProperty("entities") @Nonnull ImmutableSet<OWLEntity> entities,
                                     @JsonProperty("operation") Operation operation,

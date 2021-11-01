@@ -13,7 +13,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("GetHierarchyPathsToRoot")
+@JsonTypeName("webprotege.hierarchies.GetHierarchyPathsToRoot")
 public record GetHierarchyPathsToRootAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                             @JsonProperty("entity") @Nonnull OWLEntity entity,
                                             @JsonProperty("hierarchyId") @Nonnull HierarchyId hierarchyId) implements ProjectAction<GetHierarchyPathsToRootResult> {

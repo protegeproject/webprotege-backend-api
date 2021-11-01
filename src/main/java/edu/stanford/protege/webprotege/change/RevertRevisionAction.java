@@ -10,7 +10,7 @@ import edu.stanford.protege.webprotege.revision.RevisionNumber;
  * Stanford Center for Biomedical Informatics Research
  * 19/03/15
  */
-@JsonTypeName("RevertRevision")
+@JsonTypeName("webprotege.history.RevertRevision")
 public record RevertRevisionAction(ProjectId projectId, RevisionNumber revisionNumber) implements ProjectAction<RevertRevisionResult> {
 
     public static final String CHANNEL = "webprotege.history.RevertRevision";

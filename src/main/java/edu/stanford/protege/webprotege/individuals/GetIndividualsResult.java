@@ -17,7 +17,7 @@ import java.util.Optional;
  */
 
 
-@JsonTypeName("GetIndividuals")
+@JsonTypeName("webprotege.entities.GetIndividuals")
 public record GetIndividualsResult(@JsonProperty("type") Optional<OWLClassData> type,
                                    @JsonProperty("individuals") Page<EntityNode> result) implements Result {
 }

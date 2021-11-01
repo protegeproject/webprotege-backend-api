@@ -11,7 +11,7 @@ import java.util.List;
 
 
 
-@JsonTypeName("MergeOntologies")
+@JsonTypeName("webprotege.ontologies.MergeOntologies")
 public record ExistingOntologyMergeAddAction(@JsonProperty("projectId") ProjectId projectId,
                                              @JsonProperty("documentId") DocumentId documentId,
                                              @JsonProperty("selectedOntologies") List<OWLOntologyID> selectedOntologies,

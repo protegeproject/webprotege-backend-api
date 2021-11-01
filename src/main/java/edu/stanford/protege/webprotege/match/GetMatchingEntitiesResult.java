@@ -15,7 +15,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("GetMatchingEntitiesResult")
+@JsonTypeName("webprotege.entities.GetMatchingEntities")
 public record GetMatchingEntitiesResult(@Nonnull Page<EntityNode> entities) implements Result, Response {
 
 }

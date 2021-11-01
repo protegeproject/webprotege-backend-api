@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 
-@JsonTypeName("ComputeProjectMerge")
+@JsonTypeName("webprotege.projects.ComputeProjectMerge")
 public record ComputeProjectMergeResult(List<DiffElement<String, String>> diff) implements Result {
 
 }

@@ -13,7 +13,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("MoveHierarchyNode")
+@JsonTypeName("webprotege.hierarchies.MoveHierarchyNode")
 public record MoveHierarchyNodeAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                       @JsonProperty("hierarchyId") @Nonnull HierarchyId hierarchyId,
                                       @JsonProperty("fromNodePath") @Nonnull Path<EntityNode> fromNodePath,

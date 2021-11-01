@@ -16,7 +16,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("LoadProject")
+@JsonTypeName("webprotege.projects.LoadProject")
 public record LoadProjectResult(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                 @JsonProperty("userId") @Nonnull UserId loadedBy,
                                 @JsonProperty("projectDetails") @Nonnull ProjectDetails projectDetails) implements Result {

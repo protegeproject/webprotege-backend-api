@@ -13,7 +13,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 21/02/15
  */
-@JsonTypeName("CreateNewProject")
+@JsonTypeName("webprotege.projects.CreateNewProject")
 public record CreateNewProjectAction(NewProjectSettings newProjectSettings) implements Action<CreateNewProjectResult>, Request<CreateNewProjectResult> {
 
     public static final String CHANNEL = "webprotege.projects.CreateNewProject";

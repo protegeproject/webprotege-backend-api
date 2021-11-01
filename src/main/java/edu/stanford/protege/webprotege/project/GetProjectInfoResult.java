@@ -16,7 +16,7 @@ import javax.annotation.Nonnull;
  */
 
 
-@JsonTypeName("GetProjectInfo")
+@JsonTypeName("webprotege.projects.GetProjectInfo")
 public record GetProjectInfoResult(@JsonProperty("projectSettings") @Nonnull ProjectSettings projectSettings,
                                    @JsonProperty("projectLanguages") @Nonnull ImmutableList<DictionaryLanguageUsage> projectLanguages) implements Result {
 }

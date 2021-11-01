@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.axioms;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.ProjectRequest;
 
@@ -17,9 +18,10 @@ import edu.stanford.protege.webprotege.common.ProjectRequest;
  *                         ontology then the axioms will be added to the project root ontology.
  * @param mimeType The MIME type of the ontology document.
  */
+@JsonTypeName("webprotege.axioms.AddAxioms")
 public record AddAxiomsRequest(ProjectId projectId, String ontologyDocument, String mimeType, String commitMessage) implements ProjectRequest<AddAxiomsResponse> {
 
-    public static final String CHANNEL = "webprotege.axioms.AddAxiom";
+    public static final String CHANNEL = "webprotege.axioms.AddAxioms";
 
     @Override
     public String getChannel() {
