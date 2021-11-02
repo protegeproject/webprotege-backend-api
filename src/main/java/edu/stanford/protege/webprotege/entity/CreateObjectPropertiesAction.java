@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.Action;
+import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 
 import javax.annotation.Nonnull;
@@ -18,7 +19,7 @@ import javax.annotation.Nonnull;
 public record CreateObjectPropertiesAction(@Nonnull ProjectId projectId,
                                                    @Nonnull String sourceText,
                                                    @Nonnull String langTag,
-                                                   @Nonnull ImmutableSet<OWLObjectProperty> parents) implements Action<CreateObjectPropertiesResult> {
+                                                   @Nonnull ImmutableSet<OWLObjectProperty> parents) implements ProjectAction<CreateObjectPropertiesResult> {
 
     public static final String CHANNEL = "webprotege.entities.CreateObjectProperties";
 
