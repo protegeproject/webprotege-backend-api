@@ -13,12 +13,15 @@ import edu.stanford.protege.webprotege.tag.TagId;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.context.annotation.Import;
 
 import java.io.StringReader;
 import java.io.StringWriter;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.is;
 
 /**
@@ -26,28 +29,30 @@ import static org.hamcrest.Matchers.is;
  * Stanford Center for Biomedical Informatics Research
  * 21 Jun 2018
  */
-@SpringBootTest
-@Import({WebProtegeCommonConfiguration.class, WebProtegeIpcApplication.class, WebProtegeJacksonApplication.class})
+@JsonTest
 public class Tag_Serialization_TestCase {
 
     @Autowired
-    private ObjectMapper objectMapper;
-
+    private JacksonTester<Tag> tester;
 
     @Test
     public void shouldSerializeTag() throws Exception {
-        Tag tag = Tag.get(TagId.createTagId(),
+        var tagId = TagId.createTagId();
+        Tag tag = Tag.get(tagId,
                           ProjectId.valueOf("12345678-1234-1234-1234-123456789abc"),
                           "The label",
                           "The description",
-                          Color.getRGB(10, 20, 30),
-                          Color.getRGB(200, 210, 220),
+                          Color.getRGB(1, 2, 3),
+                          Color.getRGB(5, 6, 7),
                           ImmutableList.of(EntityIsNotDeprecatedCriteria.get()));
-        StringWriter sw = new StringWriter();
-        objectMapper.writeValue(sw, tag);
-        System.out.println(sw);
-        Tag readTag = objectMapper.readValue(new StringReader(sw.toString()), Tag.class);
-        MatcherAssert.assertThat(readTag, is(tag));
+        var json = tester.write(tag);
+        assertThat(json).extractingJsonPathStringValue("_id").isEqualTo(tagId.value());
+        assertThat(json).extractingJsonPathStringValue("projectId").isEqualTo("12345678-1234-1234-1234-123456789abc");
+        assertThat(json).extractingJsonPathStringValue("label").isEqualTo("The label");
+        assertThat(json).extractingJsonPathStringValue("description").isEqualTo("The description");
+        assertThat(json).extractingJsonPathStringValue("color").isEqualTo("#010203");
+        assertThat(json).extractingJsonPathStringValue("backgroundColor").isEqualTo("#050607");
+        assertThat(json).hasJsonPathValue("criteria");
     }
 
     /**
@@ -55,16 +60,21 @@ public class Tag_Serialization_TestCase {
      */
     @Test
     public void shouldDeserializeTagWithMissingCriteriaField() throws Exception {
-        Tag tag = Tag.get(TagId.getId("605bc497-fd7f-4338-b7c9-81cc3559c470"),
-                          ProjectId.valueOf("12345678-1234-1234-1234-123456789abc"),
-                          "The label",
-                          "The description",
-                          Color.getRGB(10, 20, 30),
-                          Color.getRGB(200, 210, 220),
-                          ImmutableList.of());
-
-        String tagJson = "{\"_id\":\"605bc497-fd7f-4338-b7c9-81cc3559c470\",\"projectId\":\"12345678-1234-1234-1234-123456789abc\",\"label\":\"The label\",\"description\":\"The description\",\"color\":\"#0a141e\",\"backgroundColor\":\"#c8d2dc\"}";
-        Tag readTag = objectMapper.readValue(new StringReader(tagJson), Tag.class);
-        MatcherAssert.assertThat(readTag, is(tag));
+        String tagJson = """
+                {"_id":"605bc497-fd7f-4338-b7c9-81cc3559c470",
+                 "projectId":"12345678-1234-1234-1234-123456789abc",
+                 "label":"The label",
+                 "description":"The description",
+                 "color":"#010203",
+                 "backgroundColor":"#040506"}""
+                """;
+        var content = tester.parse(tagJson);
+        var tag = content.getObject();
+        assertThat(tag.getTagId()).isEqualTo(TagId.getId("605bc497-fd7f-4338-b7c9-81cc3559c470"));
+        assertThat(tag.getProjectId()).isEqualTo(ProjectId.valueOf("12345678-1234-1234-1234-123456789abc"));
+        assertThat(tag.getLabel()).isEqualTo("The label");
+        assertThat(tag.getDescription()).isEqualTo("The description");
+        assertThat(tag.getColor()).isEqualTo(Color.get(1, 2, 3));
+        assertThat(tag.getBackgroundColor()).isEqualTo(Color.get(4, 5, 6));
     }
 }
