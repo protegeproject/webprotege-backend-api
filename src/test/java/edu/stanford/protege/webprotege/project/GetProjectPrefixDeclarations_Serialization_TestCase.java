@@ -22,6 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * 2021-04-07
  */
 @JsonTest
+@Import(WebProtegeJacksonApplication.class)
 public class GetProjectPrefixDeclarations_Serialization_TestCase {
 
     @Autowired
