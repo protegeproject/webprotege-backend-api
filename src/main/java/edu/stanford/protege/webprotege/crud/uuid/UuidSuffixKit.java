@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.crud.uuid;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.crud.EntityCrudKit;
 import edu.stanford.protege.webprotege.crud.EntityCrudKitId;
 import edu.stanford.protege.webprotege.crud.EntityCrudKitPrefixSettings;
@@ -15,6 +16,7 @@ import java.util.Optional;
  * Bio-Medical Informatics Research Group<br>
  * Date: 13/08/2013
  */
+@JsonTypeName("Uuid")
 public class UuidSuffixKit extends EntityCrudKit<UuidSuffixSettings> {
 
     public static final String EXAMPLE_SUFFIX = "RtvBaCCEyk09YwGRQljc2z";

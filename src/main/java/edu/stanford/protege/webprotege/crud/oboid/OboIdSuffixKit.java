@@ -1,5 +1,7 @@
 package edu.stanford.protege.webprotege.crud.oboid;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.crud.EntityCrudKit;
 import edu.stanford.protege.webprotege.crud.EntityCrudKitId;
@@ -16,6 +18,7 @@ import java.util.Optional;
  * Bio-Medical Informatics Research Group<br>
  * Date: 14/08/2013
  */
+@JsonTypeName("OboId")
 public class OboIdSuffixKit extends EntityCrudKit<OboIdSuffixSettings> {
 
     public static final String DEFAULT_PREFIX = "http://purl.obolibrary.org/obo/ONT_";
@@ -27,6 +30,7 @@ public class OboIdSuffixKit extends EntityCrudKit<OboIdSuffixSettings> {
         super(ID, "Auto-generated  OBO Style Id");
     }
 
+    @JsonIgnore
     public static EntityCrudKitId getId() {
         return ID;
     }

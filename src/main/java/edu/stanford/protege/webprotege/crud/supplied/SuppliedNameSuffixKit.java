@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.crud.supplied;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.crud.EntityCrudKit;
 import edu.stanford.protege.webprotege.crud.EntityCrudKitId;
 import edu.stanford.protege.webprotege.crud.EntityCrudKitPrefixSettings;
@@ -15,6 +16,7 @@ import java.util.Optional;
  * Bio-Medical Informatics Research Group<br>
  * Date: 14/08/2013
  */
+@JsonTypeName("SuppliedName")
 public class SuppliedNameSuffixKit extends EntityCrudKit<SuppliedNameSuffixSettings> {
 
     private static final EntityCrudKitId ID = EntityCrudKitId.get("SuppliedNameSuffix");
