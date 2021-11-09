@@ -9,6 +9,8 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
 import javax.annotation.Nonnull;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -45,5 +47,18 @@ public record AddProjectTagAction(ProjectId projectId,
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+
+    public AddProjectTagAction(ProjectId projectId,
+                               String label,
+                               String description,
+                               Color color,
+                               Color backgroundColor) {
+        this.projectId = checkNotNull(projectId);
+        this.label = checkNotNull(label);
+        this.description = checkNotNull(description);
+        this.color = checkNotNull(color);
+        this.backgroundColor = checkNotNull(backgroundColor);
     }
 }

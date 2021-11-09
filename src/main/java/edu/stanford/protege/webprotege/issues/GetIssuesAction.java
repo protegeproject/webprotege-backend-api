@@ -24,4 +24,8 @@ public record GetIssuesAction(ProjectId projectId) implements ProjectAction<GetI
     public String getChannel() {
         return CHANNEL;
     }
+
+    public GetIssuesAction(ProjectId projectId) {
+        this.projectId = checkNotNull(projectId);
+    }
 }

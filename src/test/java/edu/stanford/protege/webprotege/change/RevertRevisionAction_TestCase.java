@@ -28,19 +28,9 @@ public class RevertRevisionAction_TestCase {
         revertRevisionAction = new RevertRevisionAction(projectId, revisionNumber);
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
-    public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new RevertRevisionAction(null, revisionNumber);
-    }
-
     @Test
     public void shouldReturnSupplied_projectId() {
         MatcherAssert.assertThat(revertRevisionAction.projectId(), Matchers.is(this.projectId));
-    }
-
-    @Test(expected = java.lang.NullPointerException.class)
-    public void shouldThrowNullPointerExceptionIf_revisionNumber_IsNull() {
-        new RevertRevisionAction(projectId, null);
     }
 
     @Test

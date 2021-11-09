@@ -1,14 +1,18 @@
 package edu.stanford.protege.webprotege.project;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.jackson.WebProtegeJacksonApplication;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
 import edu.stanford.protege.webprotege.common.DictionaryLanguage;
 import edu.stanford.protege.webprotege.common.UserId;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.json.JsonTest;
+import org.springframework.boot.test.json.JacksonTester;
+import org.springframework.context.annotation.Import;
 
 import javax.annotation.Nonnull;
 import java.io.IOException;
@@ -22,13 +26,16 @@ import static org.hamcrest.Matchers.is;
  * Stanford Center for Biomedical Informatics Research
  * 18 Jul 2018
  */
+@JsonTest
+@Import(WebProtegeJacksonApplication.class)
 public class GetProjectDetails_Serialization_TestCase {
 
     private ProjectDetails projectDetails;
 
-    private ObjectMapper objectMapper;
+    @Autowired
+    private JacksonTester<ProjectDetails> tester;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         projectDetails = ProjectDetails.get(ProjectId.valueOf("12345678-1234-1234-1234-123456789abc"),
                                             "The display name",
@@ -49,28 +56,9 @@ public class GetProjectDetails_Serialization_TestCase {
 
     @Test
     public void shouldSerializeToJson() throws IOException {
-        String val = objectMapper.writeValueAsString(projectDetails);
-        System.out.println(val);
-        ProjectDetails readProjectDetails = objectMapper.readValue(val, ProjectDetails.class);
-        assertThat(readProjectDetails, is(projectDetails));
-    }
-
-    @Test
-    public void shouldDeserializeFromJsonWithMissingDescription() {
-        ProjectDetails readProjectDetails = roundTripWithoutField(ProjectDetails.DESCRIPTION);
-        assertThat(readProjectDetails, is(projectDetails.withDescription("")));
-    }
-
-    @Test
-    public void shouldDeserializeFromJsonWithMissingDefaultLanguage() {
-        ProjectDetails readProjectDetails = roundTripWithoutField(ProjectDetails.DEFAULT_LANGUAGE);
-        DictionaryLanguage expectedDefaultLanguage = DictionaryLanguage.rdfsLabel("");
-        assertThat(readProjectDetails, is(projectDetails.withDefaultLanguage(expectedDefaultLanguage)));
-    }
-
-    private ProjectDetails roundTripWithoutField(@Nonnull String fieldName) {
-        Map document = objectMapper.convertValue(projectDetails, Map.class);
-        document.remove(fieldName);
-        return objectMapper.convertValue(document, ProjectDetails.class);
+        var val = tester.write(projectDetails);
+        System.out.println(val.getJson());
+        var readProjectDetails = tester.parse(val.getJson());
+        assertThat(readProjectDetails.getObject(), is(projectDetails));
     }
 }

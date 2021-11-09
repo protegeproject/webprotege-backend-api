@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import javax.annotation.Nonnull;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -26,6 +28,13 @@ import javax.annotation.Nonnull;
 public record PrefixDeclaration(@Nonnull String prefixName,
                                 @Nonnull String prefix) {
 
+    public PrefixDeclaration(@Nonnull String prefixName, @Nonnull String prefix) {
+        this.prefixName = checkNotNull(prefixName);
+        this.prefix = checkNotNull(prefix);
+        if(!prefixName.endsWith(":")) {
+            throw new IllegalArgumentException("Prefix names must end with a colon");
+        }
+    }
 
     /**
      *  Determines if the prefix in this declaration has a common terminating character.  The vast majority

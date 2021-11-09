@@ -6,6 +6,8 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import edu.stanford.protege.webprotege.project.HasProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -19,5 +21,11 @@ public record GetPerspectiveLayoutAction(ProjectId projectId, UserId userId, Per
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+    public GetPerspectiveLayoutAction(ProjectId projectId, UserId userId, PerspectiveId perspectiveId) {
+        this.projectId = checkNotNull(projectId);
+        this.userId = checkNotNull(userId);
+        this.perspectiveId = checkNotNull(perspectiveId);
     }
 }

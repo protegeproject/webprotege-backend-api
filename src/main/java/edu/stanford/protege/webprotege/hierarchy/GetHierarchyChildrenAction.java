@@ -9,6 +9,8 @@ import org.semanticweb.owlapi.model.OWLEntity;
 
 import javax.annotation.Nonnull;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge Stanford Center for Biomedical Informatics Research 28 Nov 2017
  */
@@ -25,5 +27,15 @@ public record GetHierarchyChildrenAction(@JsonProperty("projectId") @Nonnull Pro
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+    public GetHierarchyChildrenAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                      @JsonProperty("entity") @Nonnull OWLEntity entity,
+                                      @JsonProperty("hierarchyId") @Nonnull HierarchyId hierarchyId,
+                                      @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest) {
+        this.projectId = checkNotNull(projectId);
+        this.entity = checkNotNull(entity);
+        this.hierarchyId = checkNotNull(hierarchyId);
+        this.pageRequest = checkNotNull(pageRequest);
     }
 }

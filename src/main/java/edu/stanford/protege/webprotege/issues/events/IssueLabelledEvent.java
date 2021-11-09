@@ -24,4 +24,14 @@ public record IssueLabelledEvent(@Nonnull ProjectId projectId, @Nonnull UserId u
     public String getChannel() {
         return CHANNEL;
     }
+
+    public IssueLabelledEvent(@Nonnull ProjectId projectId,
+                              @Nonnull UserId userId,
+                              long timestamp,
+                              @Nonnull String label) {
+        this.projectId = checkNotNull(projectId);
+        this.userId = checkNotNull(userId);
+        this.timestamp = timestamp;
+        this.label = checkNotNull(label);
+    }
 }

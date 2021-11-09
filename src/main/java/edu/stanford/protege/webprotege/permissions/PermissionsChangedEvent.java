@@ -27,4 +27,8 @@ public record PermissionsChangedEvent(ProjectId projectId) implements ProjectEve
     public String getChannel() {
         return CHANNEL;
     }
+
+    public PermissionsChangedEvent(ProjectId projectId) {
+        this.projectId = checkNotNull(projectId);
+    }
 }

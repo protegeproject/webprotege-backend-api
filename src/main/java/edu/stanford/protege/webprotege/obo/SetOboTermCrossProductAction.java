@@ -7,6 +7,8 @@ import org.semanticweb.owlapi.model.OWLClass;
 
 import javax.annotation.Nonnull;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -22,5 +24,13 @@ public record SetOboTermCrossProductAction(@Nonnull ProjectId projectId,
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+    public SetOboTermCrossProductAction(@Nonnull ProjectId projectId,
+                                        @Nonnull OWLClass term,
+                                        @Nonnull OBOTermCrossProduct crossProduct) {
+        this.projectId = checkNotNull(projectId);
+        this.term = checkNotNull(term);
+        this.crossProduct = checkNotNull(crossProduct);
     }
 }

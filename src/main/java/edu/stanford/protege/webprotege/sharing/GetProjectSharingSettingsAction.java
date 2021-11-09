@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -17,5 +19,9 @@ public record GetProjectSharingSettingsAction(ProjectId projectId) implements Pr
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+    public GetProjectSharingSettingsAction(ProjectId projectId) {
+        this.projectId = checkNotNull(projectId);
     }
 }

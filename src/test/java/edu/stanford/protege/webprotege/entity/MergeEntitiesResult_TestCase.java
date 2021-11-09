@@ -21,12 +21,6 @@ public class MergeEntitiesResult_TestCase {
         mergeEntitiesResult = new MergeEntitiesResult();
     }
 
-    @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
-    public void shouldThrowNullPointerExceptionIf_eventList_IsNull() {
-        new MergeEntitiesResult();
-    }
-
     @Test
     public void shouldBeEqualToSelf() {
         assertThat(mergeEntitiesResult, is(mergeEntitiesResult));
@@ -43,10 +37,6 @@ public class MergeEntitiesResult_TestCase {
         assertThat(mergeEntitiesResult, is(new MergeEntitiesResult()));
     }
 
-    @Test
-    public void shouldNotBeEqualToOtherThatHasDifferent_eventList() {
-        assertThat(mergeEntitiesResult, is(not(new MergeEntitiesResult())));
-    }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {

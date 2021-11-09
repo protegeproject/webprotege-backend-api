@@ -7,6 +7,8 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import edu.stanford.protege.webprotege.common.UserId;
 import org.semanticweb.owlapi.model.OWLEntity;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -20,5 +22,12 @@ public record SetWatchesAction(ProjectId projectId, UserId userId, OWLEntity ent
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+    public SetWatchesAction(ProjectId projectId, UserId userId, OWLEntity entity, ImmutableSet<Watch> watches) {
+        this.projectId = checkNotNull(projectId);
+        this.userId = checkNotNull(userId);
+        this.entity = checkNotNull(entity);
+        this.watches = checkNotNull(watches);
     }
 }

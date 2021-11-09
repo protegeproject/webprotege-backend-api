@@ -40,12 +40,6 @@ public class DeleteEntitiesAction_TestCase {
         assertThat(deleteEntitiesAction.projectId(), is(this.projectId));
     }
 
-    @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
-    public void shouldThrowNullPointerExceptionIf_entities_IsNull() {
-        new DeleteEntitiesAction(projectId, null);
-    }
-
     @Test
     public void shouldReturnSupplied_entities() {
         assertThat(deleteEntitiesAction.entities(), is(this.entities));

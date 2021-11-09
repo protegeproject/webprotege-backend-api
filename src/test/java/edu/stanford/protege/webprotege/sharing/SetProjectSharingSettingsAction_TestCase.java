@@ -36,7 +36,6 @@ public class SetProjectSharingSettingsAction_TestCase {
     public void setUp() throws Exception {
         action = new SetProjectSharingSettingsAction(projectId, projectSharingSettings);
         otherAction = new SetProjectSharingSettingsAction(projectId, projectSharingSettings);
-        when(projectSharingSettings.getProjectId()).thenReturn(projectId);
     }
 
     @Test(expected = NullPointerException.class)

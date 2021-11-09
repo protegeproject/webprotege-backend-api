@@ -8,6 +8,8 @@ import org.semanticweb.owlapi.model.OWLEntity;
 
 import javax.annotation.Nonnull;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -33,5 +35,17 @@ public record MergeEntitiesAction(@Nonnull ProjectId projectId,
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+    public MergeEntitiesAction(@Nonnull ProjectId projectId,
+                               @Nonnull ImmutableSet<OWLEntity> sourceEntities,
+                               @Nonnull OWLEntity targetEntity,
+                               @Nonnull MergedEntityTreatment treatment,
+                               @Nonnull String commitMessage) {
+        this.projectId = checkNotNull(projectId);
+        this.sourceEntities = checkNotNull(sourceEntities);
+        this.targetEntity = checkNotNull(targetEntity);
+        this.treatment = checkNotNull(treatment);
+        this.commitMessage = checkNotNull(commitMessage);
     }
 }

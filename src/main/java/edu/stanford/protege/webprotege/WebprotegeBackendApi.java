@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import uk.ac.manchester.cs.owl.owlapi.OWLDataFactoryImpl;
 
-@Configuration
+@SpringBootApplication
 @Import({WebProtegeJacksonApplication.class})
 public class WebprotegeBackendApi {
 

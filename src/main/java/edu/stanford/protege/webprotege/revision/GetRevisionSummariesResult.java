@@ -5,6 +5,8 @@ import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -13,4 +15,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 @JsonTypeName("webprotege.history.GetRevisionSummaries")
 public record GetRevisionSummariesResult(Page<RevisionSummary> revisionSummaries) implements Result {
 
+    public GetRevisionSummariesResult(Page<RevisionSummary> revisionSummaries) {
+        this.revisionSummaries = checkNotNull(revisionSummaries);
+    }
 }

@@ -25,4 +25,14 @@ public record IssueTargetRemovedEvent(@Nonnull ProjectId projectId, @Nonnull Use
     public String getChannel() {
         return CHANNEL;
     }
+
+    public IssueTargetRemovedEvent(@Nonnull ProjectId projectId,
+                                   @Nonnull UserId userId,
+                                   long timestamp,
+                                   @Nonnull OWLEntity entity) {
+        this.projectId = checkNotNull(projectId);
+        this.userId = checkNotNull(userId);
+        this.timestamp = timestamp;
+        this.entity = checkNotNull(entity);
+    }
 }

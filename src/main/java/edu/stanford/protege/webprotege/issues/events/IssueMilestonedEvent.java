@@ -25,4 +25,14 @@ public record IssueMilestonedEvent(@Nonnull ProjectId projectId, @Nonnull UserId
     public String getChannel() {
         return CHANNEL;
     }
+
+    public IssueMilestonedEvent(@Nonnull ProjectId projectId,
+                                @Nonnull UserId userId,
+                                long timestamp,
+                                @Nonnull Milestone milestone) {
+        this.projectId = checkNotNull(projectId);
+        this.userId = checkNotNull(userId);
+        this.timestamp = timestamp;
+        this.milestone = checkNotNull(milestone);
+    }
 }

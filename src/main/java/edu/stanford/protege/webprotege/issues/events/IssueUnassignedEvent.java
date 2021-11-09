@@ -26,4 +26,14 @@ public record IssueUnassignedEvent(@Nonnull ProjectId projectId, @Nonnull UserId
     public String getChannel() {
         return CHANNEL;
     }
+
+    public IssueUnassignedEvent(@Nonnull ProjectId projectId,
+                                @Nonnull UserId userId,
+                                long timestamp,
+                                @Nonnull UserId assignee) {
+        this.projectId = checkNotNull(projectId);
+        this.userId = checkNotNull(userId);
+        this.timestamp = timestamp;
+        this.assignee = checkNotNull(assignee);
+    }
 }

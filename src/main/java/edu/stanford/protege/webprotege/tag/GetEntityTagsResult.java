@@ -5,6 +5,8 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 
 import java.util.Collection;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -13,4 +15,9 @@ import java.util.Collection;
 @JsonTypeName("webprotege.tags.GetEntityTags")
 public record GetEntityTagsResult(Collection<Tag> entityTags,
                                  Collection<Tag> projectTags) implements Result {
+
+    public GetEntityTagsResult(Collection<Tag> entityTags, Collection<Tag> projectTags) {
+        this.entityTags = checkNotNull(entityTags);
+        this.projectTags = checkNotNull(projectTags);
+    }
 }

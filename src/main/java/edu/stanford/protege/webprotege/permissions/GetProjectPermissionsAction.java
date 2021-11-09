@@ -7,6 +7,8 @@ import edu.stanford.protege.webprotege.common.UserId;
 
 import javax.annotation.Nonnull;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -20,5 +22,10 @@ public record GetProjectPermissionsAction(@Nonnull ProjectId projectId, @Nonnull
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+    public GetProjectPermissionsAction(@Nonnull ProjectId projectId, @Nonnull UserId userId) {
+        this.projectId = checkNotNull(projectId);
+        this.userId = checkNotNull(userId);
     }
 }

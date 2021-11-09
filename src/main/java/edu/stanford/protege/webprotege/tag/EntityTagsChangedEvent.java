@@ -11,6 +11,8 @@ import org.semanticweb.owlapi.model.OWLEntity;
 import javax.annotation.Nonnull;
 import java.util.Collection;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 
 /**
  * Matthew Horridge
@@ -27,5 +29,13 @@ public record EntityTagsChangedEvent(@Nonnull ProjectId projectId,
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+    public EntityTagsChangedEvent(@Nonnull ProjectId projectId,
+                                  @Nonnull OWLEntity entity,
+                                  @Nonnull Collection<Tag> tags) {
+        this.projectId = checkNotNull(projectId);
+        this.entity = checkNotNull(entity);
+        this.tags = checkNotNull(tags);
     }
 }

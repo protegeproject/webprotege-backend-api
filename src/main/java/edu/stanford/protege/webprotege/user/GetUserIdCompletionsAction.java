@@ -3,6 +3,8 @@ package edu.stanford.protege.webprotege.user;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Action;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -16,5 +18,10 @@ public record GetUserIdCompletionsAction(String completionText) implements Actio
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+    public GetUserIdCompletionsAction(String completionText) {
+        this.completionText =
+                checkNotNull(completionText);
     }
 }

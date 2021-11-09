@@ -8,6 +8,8 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
 import java.util.Objects;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -20,7 +22,7 @@ public record GetRevisionSummariesAction(@JsonProperty(required = true) ProjectI
     public static final String CHANNEL = "webprotege.history.GetRevisionSummaries";
 
     public GetRevisionSummariesAction(@JsonProperty(required = true) ProjectId projectId, PageRequest pageRequest) {
-        this.projectId = projectId;
+        this.projectId = checkNotNull(projectId);
         this.pageRequest = Objects.requireNonNullElse(pageRequest, PageRequest.requestFirstPage());
     }
 

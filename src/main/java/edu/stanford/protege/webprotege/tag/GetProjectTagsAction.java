@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -18,5 +20,9 @@ public record GetProjectTagsAction(ProjectId projectId) implements ProjectAction
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+    public GetProjectTagsAction(ProjectId projectId) {
+        this.projectId = checkNotNull(projectId);
     }
 }

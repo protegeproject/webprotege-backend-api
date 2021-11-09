@@ -8,6 +8,7 @@ import edu.stanford.protege.webprotege.common.UserId;
 import javax.annotation.Nonnull;
 
 import static com.google.common.base.MoreObjects.toStringHelper;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Matthew Horridge
@@ -24,5 +25,17 @@ public record IssueReferencedEvent(@Nonnull ProjectId projectId, @Nonnull UserId
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+    public IssueReferencedEvent(@Nonnull ProjectId projectId,
+                                @Nonnull UserId userId,
+                                long timestamp,
+                                int issueNumber,
+                                int referencedByIssueNumber) {
+        this.projectId = checkNotNull(projectId);
+        this.userId = checkNotNull(userId);
+        this.timestamp = timestamp;
+        this.issueNumber = issueNumber;
+        this.referencedByIssueNumber = referencedByIssueNumber;
     }
 }

@@ -84,7 +84,7 @@ public class GetProjectPrefixDeclarationsResponse_TestCase {
 
     @Test
     public void shouldImplementToString() {
-        assertThat(result.toString(), Matchers.startsWith("GetProjectPrefixDeclarationsResult"));
+        assertThat(result.toString(), Matchers.startsWith("GetProjectPrefixDeclarationsResponse"));
     }
 
 }

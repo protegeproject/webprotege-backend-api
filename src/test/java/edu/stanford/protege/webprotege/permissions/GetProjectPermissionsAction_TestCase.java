@@ -71,7 +71,7 @@ public class GetProjectPermissionsAction_TestCase {
 
     @Test
     public void shouldGenerateToString() {
-        assertThat(action.toString(), startsWith("GetPermissionsAction"));
+        assertThat(action.toString(), startsWith("GetProjectPermissionsAction"));
     }
 
     @Test

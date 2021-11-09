@@ -5,6 +5,8 @@ import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import org.jetbrains.annotations.NotNull;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Author: Matthew Horridge<br>
  * Stanford University<br>
@@ -19,5 +21,9 @@ public record LoadProjectAction(ProjectId projectId) implements Action<LoadProje
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+    public LoadProjectAction(ProjectId projectId) {
+        this.projectId = checkNotNull(projectId);
     }
 }

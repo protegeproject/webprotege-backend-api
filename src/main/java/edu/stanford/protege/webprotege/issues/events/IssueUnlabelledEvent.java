@@ -26,4 +26,14 @@ public record IssueUnlabelledEvent(@Nonnull ProjectId projectId, @Nonnull UserId
     public String getChannel() {
         return CHANNEL;
     }
+
+    public IssueUnlabelledEvent(@Nonnull ProjectId projectId,
+                                @Nonnull UserId userId,
+                                long timestamp,
+                                @Nonnull String label) {
+        this.projectId = checkNotNull(projectId);
+        this.userId = checkNotNull(userId);
+        this.timestamp = timestamp;
+        this.label = checkNotNull(label);
+    }
 }

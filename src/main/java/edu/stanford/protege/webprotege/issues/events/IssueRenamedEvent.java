@@ -24,4 +24,16 @@ public record IssueRenamedEvent(@Nonnull ProjectId projectId, @Nonnull UserId us
     public String getChannel() {
         return CHANNEL;
     }
+
+    public IssueRenamedEvent(@Nonnull ProjectId projectId,
+                             @Nonnull UserId userId,
+                             long timestamp,
+                             @Nonnull String from,
+                             @Nonnull String to) {
+        this.projectId = checkNotNull(projectId);
+        this.userId = checkNotNull(userId);
+        this.timestamp = timestamp;
+        this.from = checkNotNull(from);
+        this.to = checkNotNull(to);
+    }
 }

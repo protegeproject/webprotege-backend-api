@@ -369,7 +369,7 @@ public class Issue {
                 && Objects.equal(this.updatedAt, other.updatedAt)
                 && this.targetEntities.equals(other.targetEntities)
                 && this.status == other.status
-                && Objects.equal(this.assignees, other.assignees)
+                && this.assignees.equals(other.assignees)
                 && Objects.equal(this.milestone, other.milestone)
                 && this.lockSetting.equals(other.lockSetting)
                 && this.labels.equals(other.labels)

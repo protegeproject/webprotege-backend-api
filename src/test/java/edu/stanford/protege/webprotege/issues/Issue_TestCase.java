@@ -16,8 +16,7 @@ import org.semanticweb.owlapi.model.OWLEntity;
 import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.mock;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -640,7 +639,7 @@ public class Issue_TestCase {
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_assignee() {
         assertThat(issue,
-                   is(not(new Issue(projectId,
+                   not(equalTo(new Issue(projectId,
                                     number,
                                     creator,
                                     createdAt,
@@ -648,7 +647,7 @@ public class Issue_TestCase {
                                     title,
                                     body,
                                     status,
-                                    ImmutableList.of(new UserId("OtherUser")), milestone,
+                                    ImmutableList.of(new UserId("OtherUserB")), milestone,
                                     lockSetting,
                                     labels,
                                     comments,

@@ -102,7 +102,7 @@ public class IssueTargetRemoved_TestCase {
 
     @Test
     public void shouldImplementToString() {
-        assertThat(issueTargetRemoved.toString(), startsWith("IssueEntityTargetRemoved" ));
+        assertThat(issueTargetRemoved.toString(), startsWith("IssueTargetRemoved" ));
     }
 
 }

@@ -28,7 +28,6 @@ public class SetProjectSettingsAction_TestCase {
 
     @Before
     public void setUp() throws Exception {
-        when(projectSettings.getProjectId()).thenReturn(projectId);
         action = new SetProjectSettingsAction(projectId, projectSettings);
     }
 

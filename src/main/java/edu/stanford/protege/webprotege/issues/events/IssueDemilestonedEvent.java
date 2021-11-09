@@ -28,4 +28,11 @@ public record IssueDemilestonedEvent(ProjectId projectId,
     public String getChannel() {
         return CHANNEL;
     }
+
+    public IssueDemilestonedEvent(ProjectId projectId, UserId userId, long timestamp, Milestone milestone) {
+        this.projectId = checkNotNull(projectId);
+        this.userId = checkNotNull(userId);
+        this.timestamp = timestamp;
+        this.milestone = checkNotNull(milestone);
+    }
 }

@@ -25,4 +25,14 @@ public record IssueTargetAddedEvent(@Nonnull ProjectId projectId, @Nonnull UserI
     public String getChannel() {
         return CHANNEL;
     }
+
+    public IssueTargetAddedEvent(@Nonnull ProjectId projectId,
+                                 @Nonnull UserId userId,
+                                 long timestamp,
+                                 @Nonnull OWLEntity targetEntity) {
+        this.projectId = checkNotNull(projectId);
+        this.userId = checkNotNull(userId);
+        this.timestamp = timestamp;
+        this.targetEntity = checkNotNull(targetEntity);
+    }
 }

@@ -64,7 +64,7 @@ public class GetProjectPrefixDeclarationsRequest_TestCase {
 
     @Test
     public void shouldImplementToString() {
-        assertThat(action.toString(), startsWith("GetProjectPrefixDeclarationsAction"));
+        assertThat(action.toString(), startsWith("GetProjectPrefixDeclarationsRequest"));
     }
 
 }

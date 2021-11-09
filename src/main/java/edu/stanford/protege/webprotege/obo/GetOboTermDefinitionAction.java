@@ -6,6 +6,8 @@ import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import org.semanticweb.owlapi.model.OWLEntity;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -20,5 +22,10 @@ public record GetOboTermDefinitionAction(ProjectId projectId,
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+    public GetOboTermDefinitionAction(ProjectId projectId, OWLEntity term) {
+        this.projectId = checkNotNull(projectId);
+        this.term = checkNotNull(term);
     }
 }

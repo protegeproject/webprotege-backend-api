@@ -8,6 +8,8 @@ import edu.stanford.protege.webprotege.common.UserId;
 
 import javax.annotation.Nonnull;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Author: Matthew Horridge<br>
  * Stanford University<br>
@@ -20,4 +22,12 @@ import javax.annotation.Nonnull;
 public record LoadProjectResult(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                 @JsonProperty("userId") @Nonnull UserId loadedBy,
                                 @JsonProperty("projectDetails") @Nonnull ProjectDetails projectDetails) implements Result {
+
+    public LoadProjectResult(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                             @JsonProperty("userId") @Nonnull UserId loadedBy,
+                             @JsonProperty("projectDetails") @Nonnull ProjectDetails projectDetails) {
+        this.projectId = checkNotNull(projectId);
+        this.loadedBy = checkNotNull(loadedBy);
+        this.projectDetails = checkNotNull(projectDetails);
+    }
 }

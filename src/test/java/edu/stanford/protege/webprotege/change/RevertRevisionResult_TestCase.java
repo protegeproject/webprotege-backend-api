@@ -25,19 +25,9 @@ public class RevertRevisionResult_TestCase {
         revertRevisionResult = new RevertRevisionResult(projectId, revisionNumber);
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
-    public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new RevertRevisionResult(null, revisionNumber);
-    }
-
     @Test
     public void shouldReturnSupplied_projectId() {
         MatcherAssert.assertThat(revertRevisionResult.projectId(), Matchers.is(this.projectId));
-    }
-
-    @Test(expected = java.lang.NullPointerException.class)
-    public void shouldThrowNullPointerExceptionIf_eventList_IsNull() {
-        new RevertRevisionResult(projectId, revisionNumber);
     }
 
     @Test
@@ -58,11 +48,6 @@ public class RevertRevisionResult_TestCase {
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
         MatcherAssert.assertThat(revertRevisionResult, Matchers.is(Matchers.not(new RevertRevisionResult(ProjectId.generate(), revisionNumber))));
-    }
-
-    @Test
-    public void shouldNotBeEqualToOtherThatHasDifferent_eventList() {
-        MatcherAssert.assertThat(revertRevisionResult, Matchers.is(Matchers.not(new RevertRevisionResult(projectId, revisionNumber))));
     }
 
     @Test
