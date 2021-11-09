@@ -74,25 +74,31 @@
 
         <dependency>
             <groupId>edu.stanford.protege</groupId>
-            <artifactId>webprotege-entity</artifactId>
+            <artifactId>webprotege-entity-data</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>edu.stanford.protege</groupId>
-            <artifactId>webprotege-entity-frames-api</artifactId>
+            <artifactId>webprotege-entity-frames</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>edu.stanford.protege</groupId>
-            <artifactId>webprotege-criteria-api</artifactId>
+            <artifactId>webprotege-criteria</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>edu.stanford.protege</groupId>
-            <artifactId>webprotege-authorization-service-api-java</artifactId>
+            <artifactId>webprotege-authorization</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>edu.stanford.protege</groupId>
+            <artifactId>webprotege-change</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
@@ -106,12 +112,6 @@
             <groupId>net.sourceforge.owlapi</groupId>
             <artifactId>owlapi-apibinding</artifactId>
             <version>${owlapi.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>edu.stanford.protege</groupId>
-            <artifactId>webprotege-change-api</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
