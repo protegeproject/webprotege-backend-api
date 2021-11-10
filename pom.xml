@@ -34,6 +34,13 @@
         <spring-cloud.version>2020.0.3</spring-cloud.version>
     </properties>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <scm>
         <connection>scm:git:https://github.com/protegeproject/webprotege.git</connection>
         <url>https://github.com/webprotege/webprotege.git</url>
