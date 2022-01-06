@@ -23,7 +23,8 @@ public class CreateNewProject_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new CreateNewProjectAction(NewProjectSettings.get(UserId.getGuest(),
+        var action = new CreateNewProjectAction(ProjectId.generate(),
+                                                NewProjectSettings.get(UserId.getGuest(),
                                                                        "DisplayName",
                                                                        "en",
                                                                        "The description",

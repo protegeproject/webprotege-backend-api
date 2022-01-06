@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.project;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,13 +32,15 @@ public class CreateNewProjectAction_TestCase {
 
     @Before
     public void setUp() throws Exception {
-        action = new CreateNewProjectAction(newProjectSettings);
-        otherAction = new CreateNewProjectAction(newProjectSettings);
+        var projectId = ProjectId.generate();
+        action = new CreateNewProjectAction(projectId,
+                                            newProjectSettings);
+        otherAction = new CreateNewProjectAction(projectId, newProjectSettings);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        new CreateNewProjectAction(null);
+        new CreateNewProjectAction(ProjectId.generate(), null);
     }
 
     @Test
