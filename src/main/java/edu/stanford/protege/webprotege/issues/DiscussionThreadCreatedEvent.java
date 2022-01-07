@@ -12,7 +12,7 @@ import edu.stanford.protege.webprotege.common.ProjectId;
  * Stanford Center for Biomedical Informatics Research
  * 12 Oct 2016
  */
-@JsonTypeName("DiscussionThreadCreatedEvent")
+@JsonTypeName("webprotege.discussion.events.DiscussionThreadCreated")
 public record DiscussionThreadCreatedEvent(ProjectId projectId,
                                           EntityDiscussionThread discussionThread) implements ProjectEvent {
 

@@ -15,7 +15,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 26 Sep 16
  */
-@JsonTypeName("IssueRenamedEvent")
+@JsonTypeName("webprotege.issues.event.IssueRenamed")
 public record IssueRenamedEvent(@Nonnull ProjectId projectId, @Nonnull UserId userId, long timestamp, @Nonnull String from, @Nonnull String to) implements IssueEvent {
 
     public static final String CHANNEL = "webprotege.issues.event.IssueRenamed";

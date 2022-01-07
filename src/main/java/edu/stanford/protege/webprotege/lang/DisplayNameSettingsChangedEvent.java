@@ -14,7 +14,7 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 29 Jul 2018
  */
-@JsonTypeName("DisplayNameSettingsChangedEvent")
+@JsonTypeName("webprotege.projects.events.DisplayNameSettingsChanged")
 public record DisplayNameSettingsChangedEvent(ProjectId projectId,
                                              DisplayNameSettings displayNameSettings) implements ProjectEvent {
 

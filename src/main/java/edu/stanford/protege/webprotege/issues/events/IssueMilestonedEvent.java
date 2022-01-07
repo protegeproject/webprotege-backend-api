@@ -16,7 +16,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 26 Sep 16
  */
-@JsonTypeName("IssueMilestonedEvent")
+@JsonTypeName("webprotege.issues.event.IssueMilestoned")
 public record IssueMilestonedEvent(@Nonnull ProjectId projectId, @Nonnull UserId userId, long timestamp, @Nonnull Milestone milestone) implements IssueEvent {
 
     public static final String CHANNEL = "webprotege.issues.event.IssueMilestoned";

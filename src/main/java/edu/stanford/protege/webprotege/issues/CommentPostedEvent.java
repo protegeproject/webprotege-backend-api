@@ -15,7 +15,7 @@ import java.util.Optional;
  * Stanford Center for Biomedical Informatics Research
  * 11 Oct 2016
  */
-@JsonTypeName("CommentPostedEvent")
+@JsonTypeName("webprotege.discussion.events.CommentPosted")
 public record CommentPostedEvent(@Nonnull ProjectId projectId,
                                  @Nonnull ThreadId threadId,
                                  @Nonnull Comment comment,

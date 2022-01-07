@@ -16,7 +16,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 11 Oct 2016
  */
-@JsonTypeName("CommentUpdatedEvent")
+@JsonTypeName("webprotege.discussions.events.CommentUpdated")
 public record CommentUpdatedEvent(@Nonnull ProjectId projectId,
                                  @Nonnull ThreadId threadId,
                                  @Nonnull Comment comment) implements ProjectEvent {

@@ -14,7 +14,7 @@ import java.util.Objects;
  * Bio-Medical Informatics Research Group<br>
  * Date: 09/04/2013
  */
-@JsonTypeName("ProjectRemovedFromTrashEvent")
+@JsonTypeName("webprotege.projects.events.ProjectRemovedFromTrash")
 public record ProjectRemovedFromTrashEvent(ProjectId projectId) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.projects.events.ProjectRemovedFromTrash";

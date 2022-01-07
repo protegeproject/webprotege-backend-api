@@ -16,7 +16,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 29 Sep 2016
  */
-@JsonTypeName("IssueTargetRemovedEvent")
+@JsonTypeName("webprotege.issues.event.IssueTargetRemoved")
 public record IssueTargetRemovedEvent(@Nonnull ProjectId projectId, @Nonnull UserId userId, long timestamp, @Nonnull OWLEntity entity) implements IssueEvent {
 
     public static final String CHANNEL = "webprotege.issues.event.IssueTargetRemoved";

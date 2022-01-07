@@ -25,7 +25,7 @@ import static java.util.Objects.requireNonNull;
  * @param newValue The new browser text.  Not {@code null}.  May be empty.
  */
 
-@JsonTypeName("OntologyBrowserTextChangedEvent")
+@JsonTypeName("webprotege.ontologies.events.OntologyBrowserTextChanged")
 public record OntologyBrowserTextChangedEvent(ProjectId projectId,
                                               OWLOntologyID ontologyID,
                                               String oldValue,

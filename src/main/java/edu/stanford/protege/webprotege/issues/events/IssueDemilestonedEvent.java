@@ -16,7 +16,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 26 Sep 16
  */
-@JsonTypeName("IssueDemilestonedEvent")
+@JsonTypeName("webprotege.issues.event.IssueDemilestoned")
 public record IssueDemilestonedEvent(ProjectId projectId,
                                      UserId userId,
                                      long timestamp,

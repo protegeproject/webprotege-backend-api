@@ -15,7 +15,7 @@ import java.util.Objects;
  * Bio-Medical Informatics Research Group<br>
  * Date: 21/03/2013
  */
-@JsonTypeName("EntityDeprecationStatusChangedEvent")
+@JsonTypeName("webprotege.entities.events.EntityDeprecationStatusChanged")
 public record EntityDeprecationStatusChangedEvent(ProjectId projectId, OWLEntity entity, boolean deprecated) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.entities.events.EntityDeprecationStatusChanged";

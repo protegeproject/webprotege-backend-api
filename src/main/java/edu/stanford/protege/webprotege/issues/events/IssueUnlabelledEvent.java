@@ -15,7 +15,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 26 Sep 16
  */
-@JsonTypeName("IssueUnlabelledEvent")
+@JsonTypeName("webprotege.issues.event.IssueUnlabelled")
 public record IssueUnlabelledEvent(@Nonnull ProjectId projectId, @Nonnull UserId userId,
                                    long timestamp,
                                    @Nonnull String label) implements IssueEvent {

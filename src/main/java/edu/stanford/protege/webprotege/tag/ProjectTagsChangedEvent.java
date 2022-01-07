@@ -19,7 +19,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 26 Mar 2018
  */
-@JsonTypeName("ProjectTagsChangedEvent")
+@JsonTypeName("webprotege.tags.events.ProjectTagsChanged")
 public record ProjectTagsChangedEvent(@Nonnull ProjectId projectId,
                                       @Nonnull Collection<Tag> projectTags) implements ProjectEvent {
 

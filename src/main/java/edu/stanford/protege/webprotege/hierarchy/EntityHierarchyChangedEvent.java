@@ -14,7 +14,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Matthew Horridge Stanford Center for Biomedical Informatics Research 1 Dec 2017
  */
-@JsonTypeName("EntityHierarchyChangedEvent")
+@JsonTypeName("webprotege.hierarchies.events.EntityHierarchyChanged")
 public record EntityHierarchyChangedEvent(@Nonnull ProjectId projectId,
                                          @Nonnull HierarchyId hierarchyId,
                                          @Nonnull GraphModelChangedEvent changeEvent) implements ProjectEvent {

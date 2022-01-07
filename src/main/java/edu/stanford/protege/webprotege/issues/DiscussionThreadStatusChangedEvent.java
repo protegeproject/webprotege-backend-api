@@ -15,7 +15,7 @@ import java.util.Optional;
  * Stanford Center for Biomedical Informatics Research
  * 12 Oct 2016
  */
-@JsonTypeName("DiscussionThreadStatusChangedEvent")
+@JsonTypeName("webprotege.discussion.events.DiscussionThreadStatusChanged")
 public record DiscussionThreadStatusChangedEvent(@Nonnull ProjectId projectId,
                                                 @Nonnull ThreadId threadId,
                                                 @Nonnull Optional<OWLEntity> entity,

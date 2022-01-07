@@ -15,7 +15,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 26 Sep 16
  */
-@JsonTypeName("IssueUnassignedEvent")
+@JsonTypeName("webprotege.issues.event.IssueUnassigned")
 public record IssueUnassignedEvent(@Nonnull ProjectId projectId, @Nonnull UserId userId,
                                    long timestamp,
                                    @Nonnull UserId assignee) implements IssueEvent {

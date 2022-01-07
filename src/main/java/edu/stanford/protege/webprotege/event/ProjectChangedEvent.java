@@ -30,7 +30,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @param subjects The possibly empty set of subjects of the changes.  Not {@code null}.
  * @throws NullPointerException if any parameters are {@code null}.
  */
-@JsonTypeName("ProjectChangedEvent")
+@JsonTypeName("webprotege.project.events.ProjectChanged")
 public record ProjectChangedEvent(ProjectId projectId, RevisionSummary revisionSummary, Set<OWLEntityData> subjects) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.project.events.ProjectChanged";

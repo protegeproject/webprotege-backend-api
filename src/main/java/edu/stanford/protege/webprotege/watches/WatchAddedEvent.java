@@ -12,7 +12,7 @@ import edu.stanford.protege.webprotege.common.ProjectId;
  * Bio-Medical Informatics Research Group<br>
  * Date: 21/03/2013
  */
-@JsonTypeName("WatchAddedEvent")
+@JsonTypeName("webprotege.watches.events.WatchAdded")
 public record WatchAddedEvent(ProjectId projectId, Watch watch) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.watches.events.WatchAdded";

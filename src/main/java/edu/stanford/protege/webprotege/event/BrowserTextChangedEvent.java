@@ -21,7 +21,7 @@ import static com.google.common.collect.ImmutableMap.toImmutableMap;
  * Bio-Medical Informatics Research Group<br>
  * Date: 19/03/2013
  */
-@JsonTypeName("BrowserTextChangedEvent")
+@JsonTypeName("webprotege.entities.events.BrowserTextChanged")
 public record BrowserTextChangedEvent(@JsonProperty("projectId") ProjectId projectId,
                                       @JsonProperty("entity") OWLEntity entity,
                                       @JsonProperty("newBrowserText") String newBrowserText,
