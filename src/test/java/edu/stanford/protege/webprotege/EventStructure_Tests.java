@@ -67,7 +67,9 @@ public class EventStructure_Tests {
             if(eventClsAnnotation == null) {
                 fail("@JsonTypeName is missing on " + eventCls.getName());
             }
-            assertThat(eventClsAnnotation.value()).isEqualTo(eventCls.getSimpleName());
+            var eventName = eventCls.getSimpleName();
+            var expectedTypeNameSuffix =  "." + eventName.substring(0, eventName.length() - "Event".length());
+            assertThat(eventClsAnnotation.value()).endsWith(expectedTypeNameSuffix);
         }
     }
 }
