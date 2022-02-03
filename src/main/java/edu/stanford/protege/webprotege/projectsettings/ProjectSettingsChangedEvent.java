@@ -11,10 +11,10 @@ import edu.stanford.protege.webprotege.common.ProjectId;
  * Stanford Center for Biomedical Informatics Research
  * 25/11/14
  */
-@JsonTypeName("webprotege.project.events.ProjectSettingsChanged")
+@JsonTypeName("webprotege.events.project.ProjectSettingsChanged")
 public record ProjectSettingsChangedEvent(ProjectId projectId, ProjectSettings projectSettings) implements ProjectEvent {
 
-    public static final String CHANNEL = "webprotege.project.events.ProjectSettingsChanged";
+    public static final String CHANNEL = "webprotege.events.project.ProjectSettingsChanged";
 
     @Override
     public String getChannel() {

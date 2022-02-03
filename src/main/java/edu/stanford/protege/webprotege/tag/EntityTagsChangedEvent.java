@@ -19,12 +19,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 22 Mar 2018
  */
-@JsonTypeName("webprotege.tags.events.EntityTagsChanged")
+@JsonTypeName("webprotege.events.tags.EntityTagsChanged")
 public record EntityTagsChangedEvent(@Nonnull ProjectId projectId,
                                     @Nonnull OWLEntity entity,
                                     @Nonnull Collection<Tag> tags) implements ProjectEvent {
 
-    public static final String CHANNEL = "webprotege.tags.events.EntityTagsChanged";
+    public static final String CHANNEL = "webprotege.events.tags.EntityTagsChanged";
 
     @Override
     public String getChannel() {

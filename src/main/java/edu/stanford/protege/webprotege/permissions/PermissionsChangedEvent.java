@@ -18,10 +18,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * An event that is fired when the permissions for a project change.
  */
-@JsonTypeName("webprotege.projects.events.PermissionsChanged")
+@JsonTypeName("webprotege.events.projects.PermissionsChanged")
 public record PermissionsChangedEvent(ProjectId projectId) implements ProjectEvent {
 
-    public static final String CHANNEL = "webprotege.projects.events.PermissionsChanged";
+    public static final String CHANNEL = "webprotege.events.projects.PermissionsChanged";
 
     @Override
     public String getChannel() {

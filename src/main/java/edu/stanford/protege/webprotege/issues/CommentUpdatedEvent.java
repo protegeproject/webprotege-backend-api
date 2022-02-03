@@ -16,12 +16,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Stanford Center for Biomedical Informatics Research
  * 11 Oct 2016
  */
-@JsonTypeName("webprotege.discussions.events.CommentUpdated")
+@JsonTypeName("webprotege.events.discussions.CommentUpdated")
 public record CommentUpdatedEvent(@Nonnull ProjectId projectId,
                                  @Nonnull ThreadId threadId,
                                  @Nonnull Comment comment) implements ProjectEvent {
 
-    public static final String CHANNEL = "webprotege.discussions.events.CommentUpdated";
+    public static final String CHANNEL = "webprotege.events.discussions.CommentUpdated";
 
     @Override
     public String getChannel() {

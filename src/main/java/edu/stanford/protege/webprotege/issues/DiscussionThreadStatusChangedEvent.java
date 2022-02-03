@@ -15,14 +15,14 @@ import java.util.Optional;
  * Stanford Center for Biomedical Informatics Research
  * 12 Oct 2016
  */
-@JsonTypeName("webprotege.discussion.events.DiscussionThreadStatusChanged")
+@JsonTypeName("webprotege.events.discussion.DiscussionThreadStatusChanged")
 public record DiscussionThreadStatusChangedEvent(@Nonnull ProjectId projectId,
                                                 @Nonnull ThreadId threadId,
                                                 @Nonnull Optional<OWLEntity> entity,
                                                 int openCommentsCountForEntity,
                                                 @Nonnull Status status) implements ProjectEvent {
 
-    public static final String CHANNEL = "webprotege.discussion.events.DiscussionThreadStatusChanged";
+    public static final String CHANNEL = "webprotege.events.discussion.DiscussionThreadStatusChanged";
 
     @Override
     public String getChannel() {

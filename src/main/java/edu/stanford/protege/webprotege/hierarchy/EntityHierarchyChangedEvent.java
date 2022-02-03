@@ -14,12 +14,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Matthew Horridge Stanford Center for Biomedical Informatics Research 1 Dec 2017
  */
-@JsonTypeName("webprotege.hierarchies.events.EntityHierarchyChanged")
+@JsonTypeName("webprotege.events.hierarchies.EntityHierarchyChanged")
 public record EntityHierarchyChangedEvent(@Nonnull ProjectId projectId,
                                          @Nonnull HierarchyId hierarchyId,
                                          @Nonnull GraphModelChangedEvent changeEvent) implements ProjectEvent {
 
-    public static final String CHANNEL = "webprotege.hierarchies.events.EntityHierarchyChanged";
+    public static final String CHANNEL = "webprotege.events.hierarchies.EntityHierarchyChanged";
 
     @Override
     public String getChannel() {

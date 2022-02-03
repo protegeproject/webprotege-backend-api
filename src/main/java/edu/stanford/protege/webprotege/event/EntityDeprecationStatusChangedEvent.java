@@ -15,10 +15,10 @@ import java.util.Objects;
  * Bio-Medical Informatics Research Group<br>
  * Date: 21/03/2013
  */
-@JsonTypeName("webprotege.entities.events.EntityDeprecationStatusChanged")
+@JsonTypeName("webprotege.events.entities.EntityDeprecationStatusChanged")
 public record EntityDeprecationStatusChangedEvent(ProjectId projectId, OWLEntity entity, boolean deprecated) implements ProjectEvent {
 
-    public static final String CHANNEL = "webprotege.entities.events.EntityDeprecationStatusChanged";
+    public static final String CHANNEL = "webprotege.events.entities.EntityDeprecationStatusChanged";
 
     @Override
     public String getChannel() {

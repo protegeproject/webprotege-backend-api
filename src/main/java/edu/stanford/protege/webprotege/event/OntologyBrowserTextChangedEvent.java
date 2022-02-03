@@ -25,13 +25,13 @@ import static java.util.Objects.requireNonNull;
  * @param newValue The new browser text.  Not {@code null}.  May be empty.
  */
 
-@JsonTypeName("webprotege.ontologies.events.OntologyBrowserTextChanged")
+@JsonTypeName("webprotege.events.ontologies.OntologyBrowserTextChanged")
 public record OntologyBrowserTextChangedEvent(ProjectId projectId,
                                               OWLOntologyID ontologyID,
                                               String oldValue,
                                               String newValue) implements ProjectEvent {
 
-    public static final String CHANNEL = "webprotege.ontologies.events.OntologyBrowserTextChanged";
+    public static final String CHANNEL = "webprotege.events.ontologies.OntologyBrowserTextChanged";
 
     public OntologyBrowserTextChangedEvent {
         requireNonNull(ontologyID);

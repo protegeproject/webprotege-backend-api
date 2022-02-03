@@ -16,10 +16,10 @@ import java.util.Objects;
  * Bio-Medical Informatics Research Group<br>
  * Date: 09/04/2013
  */
-@JsonTypeName("webprotege.projects.events.ProjectMovedToTrash")
+@JsonTypeName("webprotege.events.projects.ProjectMovedToTrash")
 public record ProjectMovedToTrashEvent(ProjectId projectId) implements ProjectEvent {
 
-    public static final String CHANNEL = "webprotege.projects.events.ProjectMovedToTrash";
+    public static final String CHANNEL = "webprotege.events.projects.ProjectMovedToTrash";
 
     @Override
     public String getChannel() {

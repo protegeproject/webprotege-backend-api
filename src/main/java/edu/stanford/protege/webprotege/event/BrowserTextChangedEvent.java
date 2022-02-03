@@ -21,13 +21,13 @@ import static com.google.common.collect.ImmutableMap.toImmutableMap;
  * Bio-Medical Informatics Research Group<br>
  * Date: 19/03/2013
  */
-@JsonTypeName("webprotege.entities.events.BrowserTextChanged")
+@JsonTypeName("webprotege.events.entities.BrowserTextChanged")
 public record BrowserTextChangedEvent(@JsonProperty("projectId") ProjectId projectId,
                                       @JsonProperty("entity") OWLEntity entity,
                                       @JsonProperty("newBrowserText") String newBrowserText,
                                       @JsonProperty("shortForms") ImmutableList<ShortForm> shortForms) implements ProjectEvent {
 
-    public static final String CHANNEL = "webprotege.entities.events.BrowserTextChanged";
+    public static final String CHANNEL = "webprotege.events.entities.BrowserTextChanged";
 
     @Override
     public String getChannel() {

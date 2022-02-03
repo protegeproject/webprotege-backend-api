@@ -12,11 +12,11 @@ import edu.stanford.protege.webprotege.common.ProjectId;
  * Stanford Center for Biomedical Informatics Research
  * 12 Oct 2016
  */
-@JsonTypeName("webprotege.discussion.events.DiscussionThreadCreated")
+@JsonTypeName("webprotege.events.discussion.DiscussionThreadCreated")
 public record DiscussionThreadCreatedEvent(ProjectId projectId,
                                           EntityDiscussionThread discussionThread) implements ProjectEvent {
 
-    public static final String CHANNEL = "webprotege.discussion.events.DiscussionThreadCreated";
+    public static final String CHANNEL = "webprotege.events.discussion.DiscussionThreadCreated";
 
     @Override
     public String getChannel() {

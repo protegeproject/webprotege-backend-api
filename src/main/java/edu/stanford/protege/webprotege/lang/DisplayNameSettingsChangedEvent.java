@@ -14,11 +14,11 @@ import javax.annotation.Nonnull;
  * Stanford Center for Biomedical Informatics Research
  * 29 Jul 2018
  */
-@JsonTypeName("webprotege.projects.events.DisplayNameSettingsChanged")
+@JsonTypeName("webprotege.events.projects.DisplayNameSettingsChanged")
 public record DisplayNameSettingsChangedEvent(ProjectId projectId,
                                              DisplayNameSettings displayNameSettings) implements ProjectEvent {
 
-    public static final String CHANNEL = "webprotege.projects.events.DisplayNameSettingsChanged";
+    public static final String CHANNEL = "webprotege.events.projects.DisplayNameSettingsChanged";
 
 
     @JsonCreator

@@ -15,7 +15,7 @@ import java.util.Optional;
  * Stanford Center for Biomedical Informatics Research
  * 11 Oct 2016
  */
-@JsonTypeName("webprotege.discussion.events.CommentPosted")
+@JsonTypeName("webprotege.events.discussion.CommentPosted")
 public record CommentPostedEvent(@Nonnull ProjectId projectId,
                                  @Nonnull ThreadId threadId,
                                  @Nonnull Comment comment,
@@ -23,7 +23,7 @@ public record CommentPostedEvent(@Nonnull ProjectId projectId,
                                  int commentCountForEntity,
                                  int openCommentCountForEntity) implements ProjectEvent {
 
-    public static final String CHANNEL = "webprotege.discussion.events.CommentPosted";
+    public static final String CHANNEL = "webprotege.events.discussion.CommentPosted";
 
     @Override
     public String getChannel() {
