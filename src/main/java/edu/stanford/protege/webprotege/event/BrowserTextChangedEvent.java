@@ -22,7 +22,8 @@ import static com.google.common.collect.ImmutableMap.toImmutableMap;
  * Date: 19/03/2013
  */
 @JsonTypeName("webprotege.events.entities.BrowserTextChanged")
-public record BrowserTextChangedEvent(@JsonProperty("projectId") ProjectId projectId,
+public record BrowserTextChangedEvent(@JsonProperty("eventId") EventId eventId,
+                                      @JsonProperty("projectId") ProjectId projectId,
                                       @JsonProperty("entity") OWLEntity entity,
                                       @JsonProperty("newBrowserText") String newBrowserText,
                                       @JsonProperty("shortForms") ImmutableList<ShortForm> shortForms) implements ProjectEvent {

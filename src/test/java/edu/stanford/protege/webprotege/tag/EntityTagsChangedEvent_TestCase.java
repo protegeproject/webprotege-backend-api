@@ -1,6 +1,7 @@
 
 package edu.stanford.protege.webprotege.tag;
 
+import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,16 +30,18 @@ public class EntityTagsChangedEvent_TestCase {
     @Mock
     private Collection<Tag> tags;
 
+    private EventId eventId = EventId.generate();
+
     @Before
     public void setUp() {
         tags = Collections.singleton(mock(Tag.class));
-        event = new EntityTagsChangedEvent(projectId, entity, tags);
+        event = new EntityTagsChangedEvent(eventId, projectId, entity, tags);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new EntityTagsChangedEvent(null, entity, tags);
+        new EntityTagsChangedEvent(eventId, null, entity, tags);
     }
 
     @Test
@@ -49,7 +52,7 @@ public class EntityTagsChangedEvent_TestCase {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        new EntityTagsChangedEvent(projectId, null, tags);
+        new EntityTagsChangedEvent(eventId, projectId, null, tags);
     }
 
     @Test
@@ -60,7 +63,7 @@ public class EntityTagsChangedEvent_TestCase {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_tags_IsNull() {
-        new EntityTagsChangedEvent(projectId, entity, null);
+        new EntityTagsChangedEvent(eventId, projectId, entity, null);
     }
 
     @Test
@@ -81,27 +84,27 @@ public class EntityTagsChangedEvent_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(event, is(new EntityTagsChangedEvent(projectId, entity, tags)));
+        assertThat(event, is(new EntityTagsChangedEvent(eventId, projectId, entity, tags)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(event, is(not(new EntityTagsChangedEvent(ProjectId.generate(), entity, tags))));
+        assertThat(event, is(not(new EntityTagsChangedEvent(eventId, ProjectId.generate(), entity, tags))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entity() {
-        assertThat(event, is(not(new EntityTagsChangedEvent(projectId, mock(OWLEntity.class), tags))));
+        assertThat(event, is(not(new EntityTagsChangedEvent(eventId, projectId, mock(OWLEntity.class), tags))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_tags() {
-        assertThat(event, is(not(new EntityTagsChangedEvent(projectId, entity, Collections.singleton(mock(Tag.class))))));
+        assertThat(event, is(not(new EntityTagsChangedEvent(eventId, projectId, entity, Collections.singleton(mock(Tag.class))))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(event.hashCode(), is(new EntityTagsChangedEvent(projectId, entity, tags).hashCode()));
+        assertThat(event.hashCode(), is(new EntityTagsChangedEvent(eventId, projectId, entity, tags).hashCode()));
     }
 
     @Test

@@ -3,6 +3,7 @@ package edu.stanford.protege.webprotege.issues;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.Event;
+import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
 
@@ -17,9 +18,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 11 Oct 2016
  */
 @JsonTypeName("webprotege.events.discussions.CommentUpdated")
-public record CommentUpdatedEvent(@Nonnull ProjectId projectId,
-                                 @Nonnull ThreadId threadId,
-                                 @Nonnull Comment comment) implements ProjectEvent {
+public record CommentUpdatedEvent(@Nonnull EventId eventId,
+                                  @Nonnull ProjectId projectId,
+                                  @Nonnull ThreadId threadId,
+                                  @Nonnull Comment comment) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.events.discussions.CommentUpdated";
 
