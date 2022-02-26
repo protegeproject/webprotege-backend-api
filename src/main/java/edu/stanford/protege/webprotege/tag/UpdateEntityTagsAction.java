@@ -1,6 +1,8 @@
 package edu.stanford.protege.webprotege.tag;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.ChangeRequest;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import org.semanticweb.owlapi.model.OWLEntity;
@@ -16,10 +18,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 21 Mar 2018
  */
 @JsonTypeName("webprotege.tags.UpdateEntityTags")
-public record UpdateEntityTagsAction(@Nonnull ProjectId projectId,
-                                    @Nonnull OWLEntity entity,
-                                    @Nonnull Set<TagId> fromTagIds,
-                                    @Nonnull Set<TagId> toTagIds) implements ProjectAction<UpdateEntityTagsResult> {
+public record UpdateEntityTagsAction(@Nonnull ChangeRequestId changeRequestId,
+                                     @Nonnull ProjectId projectId,
+                                     @Nonnull OWLEntity entity,
+                                     @Nonnull Set<TagId> fromTagIds,
+                                     @Nonnull Set<TagId> toTagIds) implements ProjectAction<UpdateEntityTagsResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.tags.UpdateEntityTags";
 
@@ -28,10 +31,11 @@ public record UpdateEntityTagsAction(@Nonnull ProjectId projectId,
         return CHANNEL;
     }
 
-    public UpdateEntityTagsAction(@Nonnull ProjectId projectId,
+    public UpdateEntityTagsAction(ChangeRequestId changeRequestId, @Nonnull ProjectId projectId,
                                   @Nonnull OWLEntity entity,
                                   @Nonnull Set<TagId> fromTagIds,
                                   @Nonnull Set<TagId> toTagIds) {
+        this.changeRequestId = checkNotNull(changeRequestId);
         this.projectId = checkNotNull(projectId);
         this.entity = checkNotNull(entity);
         this.fromTagIds = checkNotNull(fromTagIds);

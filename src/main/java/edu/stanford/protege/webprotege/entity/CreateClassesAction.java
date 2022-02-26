@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
+import edu.stanford.protege.webprotege.common.ContentChangeRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.Request;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
@@ -17,7 +19,8 @@ import org.semanticweb.owlapi.model.OWLClass;
  */
 @JsonTypeName("webprotege.entities.CreateClasses")
 @JsonClassDescription("Represents a request to create OWL classes in a specified project")
-public record CreateClassesAction(@JsonPropertyDescription("The id of the project where the classes will be created")
+public record CreateClassesAction(ChangeRequestId changeRequestId,
+                                  @JsonPropertyDescription("The id of the project where the classes will be created")
                                   ProjectId projectId,
                                   @JsonPropertyDescription("""
                                           The source text that contains the user supplied names for the classes.
@@ -30,7 +33,7 @@ public record CreateClassesAction(@JsonPropertyDescription("The id of the projec
                                           A set of classes that the created classes will be subclasses of.
 
                                           May be empty.""")
-                                  ImmutableSet<OWLClass> parents) implements ProjectAction<CreateClassesResult>, Request<CreateClassesResult> {
+                                  ImmutableSet<OWLClass> parents) implements ProjectAction<CreateClassesResult>, Request<CreateClassesResult>, ContentChangeRequest {
 
     public static final String CHANNEL = "webprotege.entities.CreateClasses";
 

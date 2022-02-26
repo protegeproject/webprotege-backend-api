@@ -1,6 +1,8 @@
 package edu.stanford.protege.webprotege.crud;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.ChangeRequest;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
@@ -11,7 +13,8 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  * Date: 8/19/13
  */
 @JsonTypeName("webprotege.projects.SetEntityCrudKitSettings")
-public record SetEntityCrudKitSettingsAction(ProjectId projectId, EntityCrudKitSettings fromSettings, EntityCrudKitSettings toSettings, IRIPrefixUpdateStrategy prefixUpdateStrategy) implements ProjectAction<SetEntityCrudKitSettingsResult> {
+public record SetEntityCrudKitSettingsAction(ChangeRequestId changeRequestId,
+                                             ProjectId projectId, EntityCrudKitSettings fromSettings, EntityCrudKitSettings toSettings, IRIPrefixUpdateStrategy prefixUpdateStrategy) implements ProjectAction<SetEntityCrudKitSettingsResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.projects.SetEntityCrudKitSettings";
 

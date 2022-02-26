@@ -1,8 +1,7 @@
 package edu.stanford.protege.webprotege.projectsettings;
 
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 
 import edu.stanford.protege.webprotege.common.DictionaryLanguage;
@@ -22,7 +21,9 @@ public class SetProjectSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new SetProjectSettingsAction(mockProjectId(), ProjectSettings.get(
+        var action = new SetProjectSettingsAction(ChangeRequestId.generate(),
+                                                  mockProjectId(),
+                                                  ProjectSettings.get(
                 mockProjectId(),
                 "The display name",
                 "The description",

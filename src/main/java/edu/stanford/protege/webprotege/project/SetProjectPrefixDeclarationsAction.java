@@ -1,6 +1,8 @@
 package edu.stanford.protege.webprotege.project;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.ChangeRequest;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
@@ -15,8 +17,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 1 Mar 2018
  */
 @JsonTypeName("webprotege.projects.SetProjectPrefixDeclarations")
-public record SetProjectPrefixDeclarationsAction(@Nonnull ProjectId projectId,
-                                                 @Nonnull List<PrefixDeclaration> prefixDeclarations) implements ProjectAction<SetProjectPrefixDeclarationsResult> {
+public record SetProjectPrefixDeclarationsAction(@Nonnull ChangeRequestId changeRequestId,
+                                                 @Nonnull ProjectId projectId,
+                                                 @Nonnull List<PrefixDeclaration> prefixDeclarations) implements ProjectAction<SetProjectPrefixDeclarationsResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.projects.SetProjectPrefixDeclarations";
 
@@ -25,8 +28,9 @@ public record SetProjectPrefixDeclarationsAction(@Nonnull ProjectId projectId,
         return CHANNEL;
     }
 
-    public SetProjectPrefixDeclarationsAction(@Nonnull ProjectId projectId,
+    public SetProjectPrefixDeclarationsAction(ChangeRequestId changeRequestId, @Nonnull ProjectId projectId,
                                               @Nonnull List<PrefixDeclaration> prefixDeclarations) {
+        this.changeRequestId = checkNotNull(changeRequestId);
         this.projectId = checkNotNull(projectId);
         this.prefixDeclarations = checkNotNull(prefixDeclarations);
     }

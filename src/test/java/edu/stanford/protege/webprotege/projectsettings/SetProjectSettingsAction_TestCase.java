@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.projectsettings;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,7 +10,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Mockito.when;
 
 /**
  * Matthew Horridge
@@ -26,15 +26,17 @@ public class SetProjectSettingsAction_TestCase {
 
     private SetProjectSettingsAction action;
 
+    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     @Before
     public void setUp() throws Exception {
-        action = new SetProjectSettingsAction(projectId, projectSettings);
+        action = new SetProjectSettingsAction(changeRequestId, projectId, projectSettings);
     }
 
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_ProjectSettings_IsNull() {
-        new SetProjectSettingsAction(projectId, null);
+        new SetProjectSettingsAction(changeRequestId, projectId, null);
     }
 
     @Test
@@ -54,13 +56,13 @@ public class SetProjectSettingsAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        SetProjectSettingsAction other = new SetProjectSettingsAction(projectId, projectSettings);
+        SetProjectSettingsAction other = new SetProjectSettingsAction(changeRequestId, projectId, projectSettings);
         assertThat(action, is(equalTo(other)));
     }
 
     @Test
     public void shouldHaveSameHashCode() {
-        SetProjectSettingsAction other = new SetProjectSettingsAction(projectId, projectSettings);
+        SetProjectSettingsAction other = new SetProjectSettingsAction(changeRequestId, projectId, projectSettings);
         assertThat(action.hashCode(), is(other.hashCode()));
     }
 }

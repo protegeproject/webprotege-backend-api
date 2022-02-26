@@ -2,6 +2,7 @@ package edu.stanford.protege.webprotege.bulkop;
 
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.MockingUtils;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
@@ -22,6 +23,7 @@ public class EditAnnotations_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new EditAnnotationsAction(
+                ChangeRequestId.generate(),
                 ProjectId.generate(),
                 ImmutableSet.of(),
                 Operation.DELETE, Optional.empty(),

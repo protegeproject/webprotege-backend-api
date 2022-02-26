@@ -3,6 +3,8 @@ package edu.stanford.protege.webprotege.viz;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableList;
+import edu.stanford.protege.webprotege.common.ChangeRequest;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
@@ -16,8 +18,9 @@ import javax.annotation.Nonnull;
 
 
 @JsonTypeName("webprotege.graphs.SetEntityGraphActiveFilters")
-public record SetEntityGraphActiveFiltersAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                                @JsonProperty("activeFilters") @Nonnull ImmutableList<FilterName> activeFilters) implements ProjectAction<SetEntityGraphActiveFiltersResult> {
+public record SetEntityGraphActiveFiltersAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                                @JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                                @JsonProperty("activeFilters") @Nonnull ImmutableList<FilterName> activeFilters) implements ProjectAction<SetEntityGraphActiveFiltersResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.graphs.SetEntityGraphActiveFilters";
 

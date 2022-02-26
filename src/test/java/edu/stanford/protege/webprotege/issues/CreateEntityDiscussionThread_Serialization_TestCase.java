@@ -2,9 +2,8 @@ package edu.stanford.protege.webprotege.issues;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.MockingUtils;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
@@ -17,10 +16,12 @@ import java.io.IOException;
  */
 public class CreateEntityDiscussionThread_Serialization_TestCase {
 
+    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new CreateEntityDiscussionThreadAction(ProjectId.generate(), MockingUtils.mockOWLClass(),
-                                                               "The comment");
+        var action = new CreateEntityDiscussionThreadAction(changeRequestId, ProjectId.generate(), MockingUtils.mockOWLClass(),
+                                                            "The comment");
 
     }
 

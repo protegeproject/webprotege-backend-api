@@ -2,6 +2,8 @@ package edu.stanford.protege.webprotege.hierarchy;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
+import edu.stanford.protege.webprotege.common.ContentChangeRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import edu.stanford.protege.webprotege.entity.EntityNode;
@@ -14,11 +16,12 @@ import javax.annotation.Nonnull;
 
 
 @JsonTypeName("webprotege.hierarchies.MoveHierarchyNode")
-public record MoveHierarchyNodeAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+public record MoveHierarchyNodeAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                      @JsonProperty("projectId") @Nonnull ProjectId projectId,
                                       @JsonProperty("hierarchyId") @Nonnull HierarchyId hierarchyId,
                                       @JsonProperty("fromNodePath") @Nonnull Path<EntityNode> fromNodePath,
                                       @JsonProperty("toNodeParentPath") @Nonnull Path<EntityNode> toNodeParentPath,
-                                      @JsonProperty("dropType") @Nonnull DropType dropType) implements ProjectAction<MoveHierarchyNodeResult> {
+                                      @JsonProperty("dropType") @Nonnull DropType dropType) implements ProjectAction<MoveHierarchyNodeResult>, ContentChangeRequest {
 
     public static final String CHANNEL = "webprotege.hierarchies.MoveHierarchyNode";
 

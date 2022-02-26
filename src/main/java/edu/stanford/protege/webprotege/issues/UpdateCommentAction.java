@@ -2,6 +2,8 @@ package edu.stanford.protege.webprotege.issues;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
+import edu.stanford.protege.webprotege.common.ContentChangeRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
@@ -15,10 +17,11 @@ import javax.annotation.Nonnull;
 
 
 @JsonTypeName("webprotege.discussions.UpdateComment")
-public record UpdateCommentAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+public record UpdateCommentAction(@JsonProperty("changeRequestId") @Nonnull ChangeRequestId changeRequestId,
+                                  @JsonProperty("projectId") @Nonnull ProjectId projectId,
                                   @JsonProperty("threadId") @Nonnull ThreadId threadId,
                                   @JsonProperty("commentId") @Nonnull CommentId commentId,
-                                  @JsonProperty("body") @Nonnull String body) implements ProjectAction<UpdateCommentResult> {
+                                  @JsonProperty("body") @Nonnull String body) implements ProjectAction<UpdateCommentResult>, ContentChangeRequest {
 
     public static final String CHANNEL = "webprotege.discussions.UpdateComment";
 

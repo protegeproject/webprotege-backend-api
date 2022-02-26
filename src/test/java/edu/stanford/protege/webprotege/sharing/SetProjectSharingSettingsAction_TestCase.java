@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.sharing;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +13,6 @@ import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.mockito.Mockito.when;
 
 /**
  * Matthew Horridge
@@ -32,15 +32,17 @@ public class SetProjectSharingSettingsAction_TestCase {
 
     private ProjectId projectId = ProjectId.generate();
 
+    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     @Before
     public void setUp() throws Exception {
-        action = new SetProjectSharingSettingsAction(projectId, projectSharingSettings);
-        otherAction = new SetProjectSharingSettingsAction(projectId, projectSharingSettings);
+        action = new SetProjectSharingSettingsAction(changeRequestId, projectId, projectSharingSettings);
+        otherAction = new SetProjectSharingSettingsAction(changeRequestId, projectId, projectSharingSettings);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        new SetProjectSharingSettingsAction(projectId, null);
+        new SetProjectSharingSettingsAction(changeRequestId, projectId, null);
     }
 
     @Test

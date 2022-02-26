@@ -1,9 +1,8 @@
 package edu.stanford.protege.webprotege.merge_add;
 
 import edu.stanford.protege.webprotege.MockingUtils;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.csv.DocumentId;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
@@ -21,10 +20,11 @@ public class ExistingOntologyMergeAdd_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new ExistingOntologyMergeAddAction(ProjectId.generate(),
-                                                           new DocumentId("abc"),
-                                                           Collections.emptyList(),
-                                                           MockingUtils.mockOWLOntologyID());
+        var action = new ExistingOntologyMergeAddAction(ChangeRequestId.generate(),
+                                                        ProjectId.generate(),
+                                                        new DocumentId("abc"),
+                                                        Collections.emptyList(),
+                                                        MockingUtils.mockOWLOntologyID());
 
     }
 

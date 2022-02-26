@@ -2,9 +2,8 @@ package edu.stanford.protege.webprotege.tag;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.color.Color;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -21,7 +20,7 @@ public class SetProjectTags_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new SetProjectTagsAction(mockProjectId(), ImmutableList.of(
+        var action = new SetProjectTagsAction(ChangeRequestId.generate(), mockProjectId(), ImmutableList.of(
                 TagData.get(TagId.createTagId(),
                             "Label",
                             "Description",

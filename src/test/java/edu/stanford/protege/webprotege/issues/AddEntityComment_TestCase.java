@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.issues;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.jackson.WebProtegeJacksonApplication;
 import org.junit.jupiter.api.Test;
@@ -30,9 +31,11 @@ public class AddEntityComment_TestCase {
     @Autowired
     private JacksonTester<AddCommentAction> tester;
 
+    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new AddCommentAction(projectId, threadId, THE_COMMENT);
+        var action = new AddCommentAction(changeRequestId, projectId, threadId, THE_COMMENT);
         var json = tester.write(action);
         assertThat(json).hasJsonPathValue("projectId");
         assertThat(json).hasJsonPathValue("threadId");

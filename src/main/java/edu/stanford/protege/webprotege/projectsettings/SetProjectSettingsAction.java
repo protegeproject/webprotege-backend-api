@@ -1,6 +1,8 @@
 package edu.stanford.protege.webprotege.projectsettings;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.ChangeRequest;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
@@ -12,8 +14,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 25/11/14
  */
 @JsonTypeName("webprotege.projects.SetProjectSettings")
-public record SetProjectSettingsAction(ProjectId projectId,
-                                       ProjectSettings settings) implements ProjectAction<SetProjectSettingsResult> {
+public record SetProjectSettingsAction(ChangeRequestId changeRequestId,
+                                       ProjectId projectId,
+                                       ProjectSettings settings) implements ProjectAction<SetProjectSettingsResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.projects.SetProjectSettings";
 
@@ -22,7 +25,8 @@ public record SetProjectSettingsAction(ProjectId projectId,
         return CHANNEL;
     }
 
-    public SetProjectSettingsAction(ProjectId projectId, ProjectSettings settings) {
+    public SetProjectSettingsAction(ChangeRequestId changeRequestId, ProjectId projectId, ProjectSettings settings) {
+        this.changeRequestId = checkNotNull(changeRequestId);
         this.projectId = checkNotNull(projectId);
         this.settings = checkNotNull(settings);
     }

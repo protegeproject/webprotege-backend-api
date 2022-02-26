@@ -1,8 +1,6 @@
 package edu.stanford.protege.webprotege.app;
 
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.user.EmailAddress;
 import org.junit.Test;
 
@@ -18,7 +16,7 @@ public class SetApplicationSettings_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new SetApplicationSettingsAction(new ApplicationSettings(
+        var action = new SetApplicationSettingsAction(ChangeRequestId.generate(), new ApplicationSettings(
                 "Name",
                 new EmailAddress("Email"),
                 new ApplicationLocation("scheme", "host", "path", 20),

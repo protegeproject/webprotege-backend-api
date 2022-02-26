@@ -1,6 +1,8 @@
 package edu.stanford.protege.webprotege.axioms;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
+import edu.stanford.protege.webprotege.common.ContentChangeRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.ProjectRequest;
 
@@ -19,7 +21,7 @@ import edu.stanford.protege.webprotege.common.ProjectRequest;
  * @param mimeType The MIME type of the ontology document.
  */
 @JsonTypeName("webprotege.axioms.AddAxioms")
-public record AddAxiomsRequest(ProjectId projectId, String ontologyDocument, String mimeType, String commitMessage) implements ProjectRequest<AddAxiomsResponse> {
+public record AddAxiomsRequest(ChangeRequestId changeRequestId, ProjectId projectId, String ontologyDocument, String mimeType, String commitMessage) implements ProjectRequest<AddAxiomsResponse>, ContentChangeRequest {
 
     public static final String CHANNEL = "webprotege.axioms.AddAxioms";
 

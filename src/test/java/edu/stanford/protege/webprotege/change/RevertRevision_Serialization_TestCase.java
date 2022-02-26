@@ -1,5 +1,7 @@
 package edu.stanford.protege.webprotege.change;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
@@ -18,10 +20,14 @@ import static edu.stanford.protege.webprotege.MockingUtils.*;
  */
 public class RevertRevision_Serialization_TestCase {
 
+    private final ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
+    private final ProjectId projectId = mockProjectId();
+
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new RevertRevisionAction(mockProjectId(),
-                                                 RevisionNumber.getHeadRevisionNumber());
+        var action = new RevertRevisionAction(changeRequestId, projectId,
+                                              RevisionNumber.getHeadRevisionNumber());
         
     }
 

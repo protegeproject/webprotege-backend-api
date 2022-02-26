@@ -1,6 +1,8 @@
 package edu.stanford.protege.webprotege.perspective;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.ChangeRequest;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import edu.stanford.protege.webprotege.common.UserId;
@@ -13,7 +15,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 28/02/16
  */
 @JsonTypeName("webprotege.perspectives.SetPerspectiveLayout")
-public record SetPerspectiveLayoutAction(ProjectId projectId, UserId userId, PerspectiveLayout layout) implements ProjectAction<SetPerspectiveLayoutResult> {
+public record SetPerspectiveLayoutAction(ChangeRequestId changeRequestId,
+                                         ProjectId projectId, UserId userId, PerspectiveLayout layout) implements ProjectAction<SetPerspectiveLayoutResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.perspectives.SetPerspectiveLayout";
 
@@ -22,7 +25,8 @@ public record SetPerspectiveLayoutAction(ProjectId projectId, UserId userId, Per
         return CHANNEL;
     }
 
-    public SetPerspectiveLayoutAction(ProjectId projectId, UserId userId, PerspectiveLayout layout) {
+    public SetPerspectiveLayoutAction(ChangeRequestId changeRequestId, ProjectId projectId, UserId userId, PerspectiveLayout layout) {
+        this.changeRequestId = checkNotNull(changeRequestId);
         this.projectId = checkNotNull(projectId);
         this.userId = checkNotNull(userId);
         this.layout = checkNotNull(layout);

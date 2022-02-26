@@ -2,6 +2,7 @@ package edu.stanford.protege.webprotege.dispatch.actions;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.entity.CreateAnnotationPropertiesAction;
@@ -21,9 +22,14 @@ import static com.google.common.collect.ImmutableSet.*;
  */
 public class CreateAnnotationProperties_Serialization_TestCase {
 
+    private final ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
+    private final ProjectId projectId = ProjectId.generate();
+
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new CreateAnnotationPropertiesAction(ProjectId.generate(),
+        var action = new CreateAnnotationPropertiesAction(changeRequestId,
+                                                          projectId,
                                                           "A\nB",
                                                           "en", of());
         

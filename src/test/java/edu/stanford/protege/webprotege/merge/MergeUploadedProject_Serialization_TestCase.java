@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.merge;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
@@ -17,9 +18,12 @@ import static edu.stanford.protege.webprotege.MockingUtils.*;
  */
 public class MergeUploadedProject_Serialization_TestCase {
 
+    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new MergeUploadedProjectAction(mockProjectId(),
+        var action = new MergeUploadedProjectAction(changeRequestId,
+                                                    mockProjectId(),
                                                        mockDocumentId(),
                                                        "Test");
         

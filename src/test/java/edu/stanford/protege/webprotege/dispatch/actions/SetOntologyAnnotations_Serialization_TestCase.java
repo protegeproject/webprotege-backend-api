@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.dispatch.actions;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
@@ -22,10 +23,11 @@ public class SetOntologyAnnotations_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new SetOntologyAnnotationsAction(mockProjectId(),
-                                                         mockOWLOntologyID(),
-                                                         Collections.emptySet(),
-                                                         Collections.emptySet());
+        var action = new SetOntologyAnnotationsAction(ChangeRequestId.generate(),
+                                                      mockProjectId(),
+                                                      mockOWLOntologyID(),
+                                                      Collections.emptySet(),
+                                                      Collections.emptySet());
         
     }
 

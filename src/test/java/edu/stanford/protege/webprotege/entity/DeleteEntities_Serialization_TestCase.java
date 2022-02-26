@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.entity;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.MockingUtils;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
@@ -20,7 +21,8 @@ public class DeleteEntities_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new DeleteEntitiesAction(ProjectId.generate(),
+        var action = new DeleteEntitiesAction(ChangeRequestId.generate(),
+                                              ProjectId.generate(),
                                               ImmutableSet.of());
         
     }

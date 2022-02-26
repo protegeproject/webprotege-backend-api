@@ -2,6 +2,8 @@ package edu.stanford.protege.webprotege.watches;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
+import edu.stanford.protege.webprotege.common.ChangeRequest;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import edu.stanford.protege.webprotege.common.UserId;
@@ -15,7 +17,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 29/02/16
  */
 @JsonTypeName("webprotege.watches.SetWatches")
-public record SetWatchesAction(ProjectId projectId, UserId userId, OWLEntity entity, ImmutableSet<Watch> watches) implements ProjectAction<SetWatchesResult> {
+public record SetWatchesAction(ChangeRequestId changeRequestId,
+                               ProjectId projectId, UserId userId, OWLEntity entity, ImmutableSet<Watch> watches) implements ProjectAction<SetWatchesResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.watches.SetWatches";
 
@@ -24,7 +27,12 @@ public record SetWatchesAction(ProjectId projectId, UserId userId, OWLEntity ent
         return CHANNEL;
     }
 
-    public SetWatchesAction(ProjectId projectId, UserId userId, OWLEntity entity, ImmutableSet<Watch> watches) {
+    public SetWatchesAction(ChangeRequestId changeRequestId,
+                            ProjectId projectId,
+                            UserId userId,
+                            OWLEntity entity,
+                            ImmutableSet<Watch> watches) {
+        this.changeRequestId = checkNotNull(changeRequestId);
         this.projectId = checkNotNull(projectId);
         this.userId = checkNotNull(userId);
         this.entity = checkNotNull(entity);

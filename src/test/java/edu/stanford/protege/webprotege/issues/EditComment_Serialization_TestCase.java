@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.issues;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
@@ -13,10 +14,11 @@ import java.util.Optional;
  */
 public class EditComment_Serialization_TestCase {
 
+    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new UpdateCommentAction(ProjectId.generate(),
+        var action = new UpdateCommentAction(changeRequestId, ProjectId.generate(),
                                              ThreadId.create(),
                                              CommentId.create(),
                                              "Body");

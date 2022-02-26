@@ -2,6 +2,7 @@ package edu.stanford.protege.webprotege.watches;
 
 import com.google.common.collect.ImmutableSet;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -18,7 +19,7 @@ public class SetEntityWatches_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new SetWatchesAction(mockProjectId(),
+        var action = new SetWatchesAction(ChangeRequestId.generate(), mockProjectId(),
                                           mockUserId(),
                                           mockOWLClass(), ImmutableSet.of(
                         Watch.create(mockUserId(),

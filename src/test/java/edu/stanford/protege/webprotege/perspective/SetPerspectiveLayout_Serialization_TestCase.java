@@ -1,8 +1,6 @@
 package edu.stanford.protege.webprotege.perspective;
 
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -19,9 +17,10 @@ public class SetPerspectiveLayout_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new SetPerspectiveLayoutAction(mockProjectId(),
-                                                       mockUserId(),
-                                                       PerspectiveLayout.get(PerspectiveId.generate()));
+        var action = new SetPerspectiveLayoutAction(ChangeRequestId.generate(),
+                                                    mockProjectId(),
+                                                    mockUserId(),
+                                                    PerspectiveLayout.get(PerspectiveId.generate()));
 
     }
 

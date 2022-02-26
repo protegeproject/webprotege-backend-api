@@ -2,6 +2,8 @@ package edu.stanford.protege.webprotege.merge_add;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
+import edu.stanford.protege.webprotege.common.ContentChangeRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.csv.DocumentId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
@@ -12,10 +14,11 @@ import java.util.List;
 
 
 @JsonTypeName("webprotege.ontologies.MergeOntologies")
-public record MergeOntologiesAction(@JsonProperty("projectId") ProjectId projectId,
+public record MergeOntologiesAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                    @JsonProperty("projectId") ProjectId projectId,
                                     @JsonProperty("documentId") DocumentId documentId,
                                     @JsonProperty("iri") String iri,
-                                    @JsonProperty("ontologyList") List<OWLOntologyID> ontologyList) implements ProjectAction<MergeOntologiesResult> {
+                                    @JsonProperty("ontologyList") List<OWLOntologyID> ontologyList) implements ProjectAction<MergeOntologiesResult>, ContentChangeRequest {
 
     public static final String CHANNEL = "webprotege.ontologies.MergeOntologies";
 

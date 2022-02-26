@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.issues;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
@@ -13,9 +14,11 @@ import java.io.IOException;
 public class DeleteEntityComment_Serialization_TestCase {
 
 
+    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new DeleteCommentAction(ProjectId.generate(),
+        var action = new DeleteCommentAction(changeRequestId, ProjectId.generate(),
                                              CommentId.create());
         
     }

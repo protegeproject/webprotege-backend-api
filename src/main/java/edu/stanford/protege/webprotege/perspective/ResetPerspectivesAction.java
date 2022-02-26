@@ -1,6 +1,8 @@
 package edu.stanford.protege.webprotege.perspective;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.ChangeRequest;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
@@ -12,7 +14,8 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
 
 @JsonTypeName("webprotege.perspectives.ResetPerspectives")
-public record ResetPerspectivesAction(ProjectId projectId) implements ProjectAction<ResetPerspectivesResult> {
+public record ResetPerspectivesAction(ChangeRequestId changeRequestId,
+                                      ProjectId projectId) implements ProjectAction<ResetPerspectivesResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.perspectives.ResetPerspectives";
 

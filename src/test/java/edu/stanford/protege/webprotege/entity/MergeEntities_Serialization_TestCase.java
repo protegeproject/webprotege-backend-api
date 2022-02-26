@@ -1,9 +1,8 @@
 package edu.stanford.protege.webprotege.entity;
 
 import com.google.common.collect.ImmutableSet;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -18,12 +17,14 @@ import static edu.stanford.protege.webprotege.MockingUtils.*;
  */
 public class MergeEntities_Serialization_TestCase {
 
+    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new MergeEntitiesAction(mockProjectId(), ImmutableSet.of(),
-                                                mockOWLClass(),
-                                                MergedEntityTreatment.DELETE_MERGED_ENTITY,
-                                                "Test");
+        var action = new MergeEntitiesAction(changeRequestId, mockProjectId(), ImmutableSet.of(),
+                                             mockOWLClass(),
+                                             MergedEntityTreatment.DELETE_MERGED_ENTITY,
+                                             "Test");
         
     }
 

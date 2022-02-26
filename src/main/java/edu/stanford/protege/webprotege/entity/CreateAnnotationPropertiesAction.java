@@ -3,6 +3,7 @@ package edu.stanford.protege.webprotege.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.semanticweb.owlapi.model.OWLAnnotationProperty;
 
@@ -15,7 +16,8 @@ import javax.annotation.Nonnull;
  * Date: 25/03/2013
  */
 @JsonTypeName("webprotege.entities.CreateAnnotationProperties")
-public record CreateAnnotationPropertiesAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+public record CreateAnnotationPropertiesAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                               @JsonProperty("projectId") @Nonnull ProjectId projectId,
                                                @JsonProperty("sourceText") @Nonnull String sourceText,
                                                @JsonProperty("langTag") @Nonnull String langTag,
                                                @JsonProperty("parents") @Nonnull ImmutableSet<OWLAnnotationProperty> parents) implements CreateEntitiesInHierarchyAction<CreateAnnotationPropertiesResult, OWLAnnotationProperty> {

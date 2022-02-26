@@ -1,6 +1,7 @@
 
 package edu.stanford.protege.webprotege.tag;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -33,17 +34,19 @@ public class UpdateEntityTagsAction_TestCase {
     @Mock
     private Set<TagId> toTagIds;
 
+    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     @Before
     public void setUp() {
         fromTagIds = Collections.singleton(mock(TagId.class));
         toTagIds = Collections.singleton(mock(TagId.class));
-        action = new UpdateEntityTagsAction(projectId, entity, fromTagIds, toTagIds);
+        action = new UpdateEntityTagsAction(changeRequestId, projectId, entity, fromTagIds, toTagIds);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new UpdateEntityTagsAction(null, entity, fromTagIds, toTagIds);
+        new UpdateEntityTagsAction(changeRequestId, null, entity, fromTagIds, toTagIds);
     }
 
     @Test
@@ -54,7 +57,7 @@ public class UpdateEntityTagsAction_TestCase {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        new UpdateEntityTagsAction(projectId, null, fromTagIds, toTagIds);
+        new UpdateEntityTagsAction(changeRequestId, projectId, null, fromTagIds, toTagIds);
     }
 
     @Test
@@ -65,7 +68,7 @@ public class UpdateEntityTagsAction_TestCase {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_fromTagIds_IsNull() {
-        new UpdateEntityTagsAction(projectId, entity, null, toTagIds);
+        new UpdateEntityTagsAction(changeRequestId, projectId, entity, null, toTagIds);
     }
 
     @Test
@@ -76,7 +79,7 @@ public class UpdateEntityTagsAction_TestCase {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_toTagIds_IsNull() {
-        new UpdateEntityTagsAction(projectId, entity, fromTagIds, null);
+        new UpdateEntityTagsAction(changeRequestId, projectId, entity, fromTagIds, null);
     }
 
     @Test
@@ -97,32 +100,37 @@ public class UpdateEntityTagsAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(action, is(new UpdateEntityTagsAction(projectId, entity, fromTagIds, toTagIds)));
+        assertThat(action, is(new UpdateEntityTagsAction(changeRequestId, projectId, entity, fromTagIds, toTagIds)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(action, is(Matchers.not(new UpdateEntityTagsAction(ProjectId.generate(), entity, fromTagIds, toTagIds))));
+        assertThat(action, is(Matchers.not(new UpdateEntityTagsAction(changeRequestId,
+                                                                      ProjectId.generate(), entity, fromTagIds, toTagIds))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entity() {
-        assertThat(action, is(Matchers.not(new UpdateEntityTagsAction(projectId, mock(OWLEntity.class), fromTagIds, toTagIds))));
+        assertThat(action, is(Matchers.not(new UpdateEntityTagsAction(changeRequestId,
+                                                                      projectId, mock(OWLEntity.class), fromTagIds, toTagIds))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_fromTagIds() {
-        assertThat(action, is(Matchers.not(new UpdateEntityTagsAction(projectId, entity, Collections.singleton(mock(TagId.class)), toTagIds))));
+        assertThat(action, is(Matchers.not(new UpdateEntityTagsAction(changeRequestId,
+                                                                      projectId, entity, Collections.singleton(mock(TagId.class)), toTagIds))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_toTagIds() {
-        assertThat(action, is(Matchers.not(new UpdateEntityTagsAction(projectId, entity, fromTagIds, Collections.singleton(mock(TagId.class))))));
+        assertThat(action, is(Matchers.not(new UpdateEntityTagsAction(changeRequestId,
+                                                                      projectId, entity, fromTagIds, Collections.singleton(mock(TagId.class))))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(action.hashCode(), is(new UpdateEntityTagsAction(projectId, entity, fromTagIds, toTagIds).hashCode()));
+        assertThat(action.hashCode(), is(new UpdateEntityTagsAction(changeRequestId,
+                                                                    projectId, entity, fromTagIds, toTagIds).hashCode()));
     }
 
     @Test

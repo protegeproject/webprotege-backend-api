@@ -2,6 +2,7 @@
 package edu.stanford.protege.webprotege.watches;
 
 import com.google.common.collect.ImmutableSet;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 import org.hamcrest.Matchers;
@@ -32,15 +33,17 @@ public class SetWatchesAction_TestCase {
     @Mock
     private ImmutableSet watches;
 
+    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     @Before
     public void setUp()
     {
-        setWatchesAction = new SetWatchesAction(projectId, userId, entity, watches);
+        setWatchesAction = new SetWatchesAction(changeRequestId, projectId, userId, entity, watches);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new SetWatchesAction(null, userId, entity, watches);
+        new SetWatchesAction(changeRequestId, null, userId, entity, watches);
     }
 
     @Test
@@ -50,7 +53,7 @@ public class SetWatchesAction_TestCase {
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        new SetWatchesAction(projectId, null, entity, watches);
+        new SetWatchesAction(changeRequestId, projectId, null, entity, watches);
     }
 
     @Test
@@ -60,7 +63,7 @@ public class SetWatchesAction_TestCase {
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        new SetWatchesAction(projectId, userId, null, watches);
+        new SetWatchesAction(changeRequestId, projectId, userId, null, watches);
     }
 
     @Test
@@ -70,7 +73,7 @@ public class SetWatchesAction_TestCase {
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_watches_IsNull() {
-        new SetWatchesAction(projectId, userId, entity, null);
+        new SetWatchesAction(changeRequestId, projectId, userId, entity, null);
     }
 
     @Test
@@ -90,32 +93,37 @@ public class SetWatchesAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(setWatchesAction, is(new SetWatchesAction(projectId, userId, entity, watches)));
+        assertThat(setWatchesAction, is(new SetWatchesAction(changeRequestId, projectId, userId, entity, watches)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(setWatchesAction, is(not(new SetWatchesAction(ProjectId.generate(), userId, entity, watches))));
+        assertThat(setWatchesAction, is(not(new SetWatchesAction(changeRequestId,
+                                                                 ProjectId.generate(), userId, entity, watches))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        assertThat(setWatchesAction, is(not(new SetWatchesAction(projectId, new UserId("OtherUser"), entity, watches))));
+        assertThat(setWatchesAction, is(not(new SetWatchesAction(changeRequestId,
+                                                                 projectId, new UserId("OtherUser"), entity, watches))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entity() {
-        assertThat(setWatchesAction, is(not(new SetWatchesAction(projectId, userId, mock(OWLEntity.class), watches))));
+        assertThat(setWatchesAction, is(not(new SetWatchesAction(changeRequestId,
+                                                                 projectId, userId, mock(OWLEntity.class), watches))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_watches() {
-        assertThat(setWatchesAction, is(not(new SetWatchesAction(projectId, userId, entity, mock(ImmutableSet.class)))));
+        assertThat(setWatchesAction, is(not(new SetWatchesAction(changeRequestId,
+                                                                 projectId, userId, entity, mock(ImmutableSet.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(setWatchesAction.hashCode(), is(new SetWatchesAction(projectId, userId, entity, watches)
+        assertThat(setWatchesAction.hashCode(), is(new SetWatchesAction(changeRequestId,
+                                                                        projectId, userId, entity, watches)
                                                                                .hashCode()));
     }
 

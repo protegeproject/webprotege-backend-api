@@ -3,6 +3,8 @@ package edu.stanford.protege.webprotege.bulkop;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
+import edu.stanford.protege.webprotege.common.ContentChangeRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import org.semanticweb.owlapi.model.OWLAnnotationProperty;
@@ -19,11 +21,12 @@ import javax.annotation.Nonnull;
 
 
 @JsonTypeName("webprotege.bulkop.SetAnnotationValue")
-public record SetAnnotationValueAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+public record SetAnnotationValueAction(ChangeRequestId changeRequestId,
+                                       @JsonProperty("projectId") @Nonnull ProjectId projectId,
                                        @JsonProperty("entities") @Nonnull ImmutableSet<OWLEntity> entities,
                                        @JsonProperty("property") @Nonnull OWLAnnotationProperty property,
                                        @JsonProperty("value") @Nonnull OWLAnnotationValue value,
-                                       @JsonProperty("commitMessage") @Nonnull String commitMessage) implements ProjectAction<SetAnnotationValueResult>, HasCommitMessage {
+                                       @JsonProperty("commitMessage") @Nonnull String commitMessage) implements ProjectAction<SetAnnotationValueResult>, HasCommitMessage, ContentChangeRequest {
 
     public static final String CHANNEL = "webprotege.bulkop.SetAnnotationValue";
 

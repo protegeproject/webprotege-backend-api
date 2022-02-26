@@ -1,6 +1,7 @@
 
 package edu.stanford.protege.webprotege.perspective;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 import org.hamcrest.Matchers;
@@ -23,16 +24,18 @@ public class SetPerspectiveLayoutAction_TestCase {
     @Mock
     private PerspectiveLayout layout;
 
+    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     @Before
     public void setUp()
         throws Exception
     {
-        setPerspectiveLayoutAction = new SetPerspectiveLayoutAction(projectId, userId, layout);
+        setPerspectiveLayoutAction = new SetPerspectiveLayoutAction(changeRequestId, projectId, userId, layout);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new SetPerspectiveLayoutAction(null, userId, layout);
+        new SetPerspectiveLayoutAction(changeRequestId, null, userId, layout);
     }
 
     @Test
@@ -42,7 +45,7 @@ public class SetPerspectiveLayoutAction_TestCase {
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        new SetPerspectiveLayoutAction(projectId, null, layout);
+        new SetPerspectiveLayoutAction(changeRequestId, projectId, null, layout);
     }
 
     @Test
@@ -52,7 +55,7 @@ public class SetPerspectiveLayoutAction_TestCase {
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_layout_IsNull() {
-        new SetPerspectiveLayoutAction(projectId, userId, null);
+        new SetPerspectiveLayoutAction(changeRequestId, projectId, userId, null);
     }
 
     @Test
@@ -72,27 +75,32 @@ public class SetPerspectiveLayoutAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(setPerspectiveLayoutAction, is(new SetPerspectiveLayoutAction(projectId, userId, layout)));
+        assertThat(setPerspectiveLayoutAction, is(new SetPerspectiveLayoutAction(changeRequestId,
+                                                                                 projectId, userId, layout)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(setPerspectiveLayoutAction, is(Matchers.not(new SetPerspectiveLayoutAction(ProjectId.generate(), userId, layout))));
+        assertThat(setPerspectiveLayoutAction, is(Matchers.not(new SetPerspectiveLayoutAction(changeRequestId,
+                                                                                              ProjectId.generate(), userId, layout))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
-        assertThat(setPerspectiveLayoutAction, is(Matchers.not(new SetPerspectiveLayoutAction(projectId, new UserId("OtherUser"), layout))));
+        assertThat(setPerspectiveLayoutAction, is(Matchers.not(new SetPerspectiveLayoutAction(changeRequestId,
+                                                                                              projectId, new UserId("OtherUser"), layout))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_layout() {
-        assertThat(setPerspectiveLayoutAction, is(Matchers.not(new SetPerspectiveLayoutAction(projectId, userId, mock(PerspectiveLayout.class)))));
+        assertThat(setPerspectiveLayoutAction, is(Matchers.not(new SetPerspectiveLayoutAction(changeRequestId,
+                                                                                              projectId, userId, mock(PerspectiveLayout.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(setPerspectiveLayoutAction.hashCode(), is(new SetPerspectiveLayoutAction(projectId, userId, layout)
+        assertThat(setPerspectiveLayoutAction.hashCode(), is(new SetPerspectiveLayoutAction(changeRequestId,
+                                                                                            projectId, userId, layout)
                                                                                        .hashCode()));
     }
 

@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.tag;
 
 import edu.stanford.protege.webprotege.color.Color;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.dispatch.Action;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
@@ -19,7 +20,8 @@ public class AddProjectTag_TestCase {
 
     @Test
     public void shouldSerializeAddProjectTagAction() throws IOException {
-        var action = AddProjectTagAction.create(ProjectId.generate(),
+        var action = AddProjectTagAction.create(ChangeRequestId.generate(),
+                                                ProjectId.generate(),
                                                 "TheLabel",
                                                 "TheDescription",
                                                 Color.getWhite(),

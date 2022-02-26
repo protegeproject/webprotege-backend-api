@@ -2,6 +2,8 @@ package edu.stanford.protege.webprotege.perspective;
 
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.ChangeRequest;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
@@ -14,12 +16,14 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * Requests that the perspective identified by the specified id in the specified project is reset to
  * the default for the current user.
+ * @param changeRequestId
  * @param projectId The project id.
  * @param perspectiveId The perspective id.
  */
 @JsonTypeName("webprotege.perspectives.ResetPerspectiveLayout")
-public record ResetPerspectiveLayoutAction(ProjectId projectId,
-                                          PerspectiveId perspectiveId) implements ProjectAction<ResetPerspectiveLayoutResult> {
+public record ResetPerspectiveLayoutAction(ChangeRequestId changeRequestId,
+                                           ProjectId projectId,
+                                           PerspectiveId perspectiveId) implements ProjectAction<ResetPerspectiveLayoutResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.perspectives.ResetPerspectiveLayout";
 
@@ -28,7 +32,8 @@ public record ResetPerspectiveLayoutAction(ProjectId projectId,
         return CHANNEL;
     }
 
-    public ResetPerspectiveLayoutAction(ProjectId projectId, PerspectiveId perspectiveId) {
+    public ResetPerspectiveLayoutAction(ChangeRequestId changeRequestId, ProjectId projectId, PerspectiveId perspectiveId) {
+        this.changeRequestId = checkNotNull(changeRequestId);
         this.projectId = checkNotNull(projectId);
         this.perspectiveId = checkNotNull(perspectiveId);
     }

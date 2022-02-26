@@ -2,6 +2,7 @@
 package edu.stanford.protege.webprotege.entity;
 
 import com.google.common.collect.ImmutableSet;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,17 +23,19 @@ public class DeleteEntitiesAction_TestCase {
 
     private ProjectId projectId = ProjectId.generate();
 
+    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     private final ImmutableSet<OWLEntity> entities = ImmutableSet.of(mock(OWLEntity.class));
 
     @Before
     public void setUp() {
-        deleteEntitiesAction = new DeleteEntitiesAction(projectId, entities);
+        deleteEntitiesAction = new DeleteEntitiesAction(changeRequestId, projectId, entities);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new DeleteEntitiesAction(null, entities);
+        new DeleteEntitiesAction(changeRequestId, null, entities);
     }
 
     @Test
@@ -58,22 +61,22 @@ public class DeleteEntitiesAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(deleteEntitiesAction, is(new DeleteEntitiesAction(projectId, entities)));
+        assertThat(deleteEntitiesAction, is(new DeleteEntitiesAction(changeRequestId, projectId, entities)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(deleteEntitiesAction, is(not(new DeleteEntitiesAction(ProjectId.generate(), entities))));
+        assertThat(deleteEntitiesAction, is(not(new DeleteEntitiesAction(changeRequestId, ProjectId.generate(), entities))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entities() {
-        assertThat(deleteEntitiesAction, is(not(new DeleteEntitiesAction(projectId, ImmutableSet.of()))));
+        assertThat(deleteEntitiesAction, is(not(new DeleteEntitiesAction(changeRequestId, projectId, ImmutableSet.of()))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(deleteEntitiesAction.hashCode(), is(new DeleteEntitiesAction(projectId, entities).hashCode()));
+        assertThat(deleteEntitiesAction.hashCode(), is(new DeleteEntitiesAction(changeRequestId, projectId, entities).hashCode()));
     }
 
     @Test

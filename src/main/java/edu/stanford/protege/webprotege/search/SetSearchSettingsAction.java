@@ -3,6 +3,8 @@ package edu.stanford.protege.webprotege.search;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableList;
+import edu.stanford.protege.webprotege.common.ChangeRequest;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
@@ -16,9 +18,10 @@ import javax.annotation.Nonnull;
 
 
 @JsonTypeName("webprotege.search.SetSearchSettings")
-public record SetSearchSettingsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+public record SetSearchSettingsAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                      @JsonProperty("projectId") @Nonnull ProjectId projectId,
                                       @JsonProperty("from") @Nonnull ImmutableList<EntitySearchFilter> from,
-                                      @JsonProperty("to") @Nonnull ImmutableList<EntitySearchFilter> to) implements ProjectAction<SetSearchSettingsResult> {
+                                      @JsonProperty("to") @Nonnull ImmutableList<EntitySearchFilter> to) implements ProjectAction<SetSearchSettingsResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.search.SetSearchSettings";
 

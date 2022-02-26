@@ -2,6 +2,8 @@ package edu.stanford.protege.webprotege.ontology;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
+import edu.stanford.protege.webprotege.common.ContentChangeRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import edu.stanford.protege.webprotege.frame.PropertyAnnotationValue;
@@ -18,10 +20,11 @@ import java.util.Set;
 
 
 @JsonTypeName("webprotege.ontologies.SetOntologyAnnotations")
-public record SetOntologyAnnotationsAction(@JsonProperty("projectId") ProjectId projectId,
+public record SetOntologyAnnotationsAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                           @JsonProperty("projectId") ProjectId projectId,
                                            @JsonProperty("ontologyId") OWLOntologyID ontologyID,
                                            @JsonProperty("fromAnnotations") Set<PropertyAnnotationValue> fromAnnotations,
-                                           @JsonProperty("toAnnotations") Set<PropertyAnnotationValue> toAnnotations) implements ProjectAction<SetOntologyAnnotationsResult> {
+                                           @JsonProperty("toAnnotations") Set<PropertyAnnotationValue> toAnnotations) implements ProjectAction<SetOntologyAnnotationsResult>, ContentChangeRequest {
 
     public static final String CHANNEL = "webprotege.ontologies.SetOntologyAnnotations";
 

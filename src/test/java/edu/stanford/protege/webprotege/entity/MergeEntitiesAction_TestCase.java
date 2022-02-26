@@ -2,6 +2,7 @@
 package edu.stanford.protege.webprotege.entity;
 
 import com.google.common.collect.ImmutableSet;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,15 +31,18 @@ public class MergeEntitiesAction_TestCase {
 
     private final String commitMessage = "The commit message";
 
+    private final ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     @Before
     public void setUp() {
-        action = new MergeEntitiesAction(projectId, sourceEntities, targetEntity, treatment, commitMessage);
+        action = new MergeEntitiesAction(changeRequestId,
+                                         projectId, sourceEntities, targetEntity, treatment, commitMessage);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new MergeEntitiesAction(null, sourceEntities, targetEntity, treatment, commitMessage);
+        new MergeEntitiesAction(changeRequestId, null, sourceEntities, targetEntity, treatment, commitMessage);
     }
 
     @Test
@@ -49,7 +53,7 @@ public class MergeEntitiesAction_TestCase {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_sourceEntity_IsNull() {
-        new MergeEntitiesAction(projectId, null, targetEntity, treatment, commitMessage);
+        new MergeEntitiesAction(changeRequestId, projectId, null, targetEntity, treatment, commitMessage);
     }
 
     @Test
@@ -60,7 +64,7 @@ public class MergeEntitiesAction_TestCase {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_targetEntity_IsNull() {
-        new MergeEntitiesAction(projectId, sourceEntities, null, treatment, commitMessage);
+        new MergeEntitiesAction(changeRequestId, projectId, sourceEntities, null, treatment, commitMessage);
     }
 
     @Test
@@ -71,7 +75,7 @@ public class MergeEntitiesAction_TestCase {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_treatment_IsNull() {
-        new MergeEntitiesAction(projectId, sourceEntities, targetEntity, null, commitMessage);
+        new MergeEntitiesAction(changeRequestId, projectId, sourceEntities, targetEntity, null, commitMessage);
     }
 
     @Test
@@ -92,32 +96,38 @@ public class MergeEntitiesAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(action, is(new MergeEntitiesAction(projectId, sourceEntities, targetEntity, treatment, commitMessage)));
+        assertThat(action, is(new MergeEntitiesAction(changeRequestId,
+                                                      projectId, sourceEntities, targetEntity, treatment, commitMessage)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(action, is(not(new MergeEntitiesAction(ProjectId.generate(), sourceEntities, targetEntity, treatment, commitMessage))));
+        assertThat(action, is(not(new MergeEntitiesAction(changeRequestId,
+                                                          ProjectId.generate(), sourceEntities, targetEntity, treatment, commitMessage))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_sourceEntity() {
-        assertThat(action, is(not(new MergeEntitiesAction(projectId, ImmutableSet.of(mock(OWLEntity.class)), targetEntity, treatment, commitMessage))));
+        assertThat(action, is(not(new MergeEntitiesAction(changeRequestId,
+                                                          projectId, ImmutableSet.of(mock(OWLEntity.class)), targetEntity, treatment, commitMessage))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_targetEntity() {
-        assertThat(action, is(not(new MergeEntitiesAction(projectId, sourceEntities, mock(OWLEntity.class), treatment, commitMessage))));
+        assertThat(action, is(not(new MergeEntitiesAction(changeRequestId,
+                                                          projectId, sourceEntities, mock(OWLEntity.class), treatment, commitMessage))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_treatment() {
-        assertThat(action, is(not(new MergeEntitiesAction(projectId, sourceEntities, targetEntity, MergedEntityTreatment.DEPRECATE_MERGED_ENTITY, commitMessage))));
+        assertThat(action, is(not(new MergeEntitiesAction(changeRequestId,
+                                                          projectId, sourceEntities, targetEntity, MergedEntityTreatment.DEPRECATE_MERGED_ENTITY, commitMessage))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(action.hashCode(), is(new MergeEntitiesAction(projectId, sourceEntities, targetEntity, treatment, commitMessage)
+        assertThat(action.hashCode(), is(new MergeEntitiesAction(changeRequestId,
+                                                                 projectId, sourceEntities, targetEntity, treatment, commitMessage)
                                                             .hashCode()));
     }
 
@@ -128,7 +138,8 @@ public class MergeEntitiesAction_TestCase {
 
     @Test
     public void should_createMergeEntitiesAction() {
-        assertThat(new MergeEntitiesAction(projectId, sourceEntities, targetEntity, treatment, commitMessage), is(action));
+        assertThat(new MergeEntitiesAction(changeRequestId,
+                                           projectId, sourceEntities, targetEntity, treatment, commitMessage), is(action));
     }
 
 }

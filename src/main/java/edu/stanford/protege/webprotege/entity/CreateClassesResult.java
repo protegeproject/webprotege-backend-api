@@ -2,6 +2,7 @@ package edu.stanford.protege.webprotege.entity;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.Response;
 import edu.stanford.protege.webprotege.dispatch.Result;
@@ -13,6 +14,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * Date: 22/02/2013
  */
 @JsonTypeName("webprotege.entities.CreateClasses")
-public record CreateClassesResult(ProjectId projectId,
+public record CreateClassesResult(ChangeRequestId changeRequestId,
+                                  ProjectId projectId,
                                   ImmutableSet<EntityNode> entities) implements Result, Response {
 }

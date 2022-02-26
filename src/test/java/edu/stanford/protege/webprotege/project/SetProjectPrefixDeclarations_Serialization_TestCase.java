@@ -1,9 +1,8 @@
 package edu.stanford.protege.webprotege.project;
 
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -20,7 +19,7 @@ public class SetProjectPrefixDeclarations_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new SetProjectPrefixDeclarationsAction(mockProjectId(), ImmutableList.of(
+        var action = new SetProjectPrefixDeclarationsAction(ChangeRequestId.generate(), mockProjectId(), ImmutableList.of(
                 PrefixDeclaration.get("hello:", "http://example.org/")
         ));
 

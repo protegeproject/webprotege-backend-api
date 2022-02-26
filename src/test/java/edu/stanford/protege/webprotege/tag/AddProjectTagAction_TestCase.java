@@ -1,6 +1,7 @@
 
 package edu.stanford.protege.webprotege.tag;
 
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.color.Color;
 import org.junit.Before;
@@ -32,15 +33,17 @@ public class AddProjectTagAction_TestCase {
     @Mock
     private Color backgroundColor;
 
+    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     @Before
     public void setUp() {
-        addProjectTagAction = AddProjectTagAction.create(projectId, label, description, color, backgroundColor);
+        addProjectTagAction = AddProjectTagAction.create(changeRequestId, projectId, label, description, color, backgroundColor);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        AddProjectTagAction.create(null, label, description, color, backgroundColor);
+        AddProjectTagAction.create(changeRequestId, null, label, description, color, backgroundColor);
     }
 
     @Test
@@ -51,7 +54,7 @@ public class AddProjectTagAction_TestCase {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_label_IsNull() {
-        AddProjectTagAction.create(projectId, null, description, color, backgroundColor);
+        AddProjectTagAction.create(changeRequestId, projectId, null, description, color, backgroundColor);
     }
 
     @Test
@@ -62,7 +65,7 @@ public class AddProjectTagAction_TestCase {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_description_IsNull() {
-        AddProjectTagAction.create(projectId, label, null, color, backgroundColor);
+        AddProjectTagAction.create(changeRequestId, projectId, label, null, color, backgroundColor);
     }
 
     @Test
@@ -73,7 +76,7 @@ public class AddProjectTagAction_TestCase {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_color_IsNull() {
-        AddProjectTagAction.create(projectId, label, description, null, backgroundColor);
+        AddProjectTagAction.create(changeRequestId, projectId, label, description, null, backgroundColor);
     }
 
     @Test
@@ -84,7 +87,7 @@ public class AddProjectTagAction_TestCase {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_backgroundColor_IsNull() {
-        AddProjectTagAction.create(projectId, label, description, color, null);
+        AddProjectTagAction.create(changeRequestId, projectId, label, description, color, null);
     }
 
     @Test
@@ -105,37 +108,37 @@ public class AddProjectTagAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(addProjectTagAction, is(AddProjectTagAction.create(projectId, label, description, color, backgroundColor)));
+        assertThat(addProjectTagAction, is(AddProjectTagAction.create(changeRequestId, projectId, label, description, color, backgroundColor)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(addProjectTagAction, is(not(AddProjectTagAction.create(ProjectId.generate(), label, description, color, backgroundColor))));
+        assertThat(addProjectTagAction, is(not(AddProjectTagAction.create(changeRequestId, ProjectId.generate(), label, description, color, backgroundColor))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_label() {
-        assertThat(addProjectTagAction, is(not(AddProjectTagAction.create(projectId, "String-3bba18b6-6903-4c92-8ffb-7b00cb3fef7a", description, color, backgroundColor))));
+        assertThat(addProjectTagAction, is(not(AddProjectTagAction.create(changeRequestId, projectId, "String-3bba18b6-6903-4c92-8ffb-7b00cb3fef7a", description, color, backgroundColor))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_description() {
-        assertThat(addProjectTagAction, is(not(AddProjectTagAction.create(projectId, label, "String-69702116-7cad-4810-b6f5-e844b8d51369", color, backgroundColor))));
+        assertThat(addProjectTagAction, is(not(AddProjectTagAction.create(changeRequestId, projectId, label, "String-69702116-7cad-4810-b6f5-e844b8d51369", color, backgroundColor))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_color() {
-        assertThat(addProjectTagAction, is(not(AddProjectTagAction.create(projectId, label, description, mock(Color.class), backgroundColor))));
+        assertThat(addProjectTagAction, is(not(AddProjectTagAction.create(changeRequestId, projectId, label, description, mock(Color.class), backgroundColor))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_backgroundColor() {
-        assertThat(addProjectTagAction, is(not(AddProjectTagAction.create(projectId, label, description, color, mock(Color.class)))));
+        assertThat(addProjectTagAction, is(not(AddProjectTagAction.create(changeRequestId, projectId, label, description, color, mock(Color.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(addProjectTagAction.hashCode(), is(AddProjectTagAction.create(projectId, label, description, color, backgroundColor).hashCode()));
+        assertThat(addProjectTagAction.hashCode(), is(AddProjectTagAction.create(changeRequestId, projectId, label, description, color, backgroundColor).hashCode()));
     }
 
     @Test

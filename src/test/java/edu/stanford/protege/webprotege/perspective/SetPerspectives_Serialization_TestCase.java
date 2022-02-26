@@ -2,8 +2,7 @@ package edu.stanford.protege.webprotege.perspective;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.LanguageMap;
 
 import org.junit.Test;
@@ -22,8 +21,8 @@ public class SetPerspectives_Serialization_TestCase {
 
     @Test
     public void shouldSerializeAction() throws IOException {
-        var action = new SetPerspectivesAction(mockProjectId(),
-                                                  mockUserId(), ImmutableList.of(
+        var action = new SetPerspectivesAction(ChangeRequestId.generate(), mockProjectId(),
+                                               mockUserId(), ImmutableList.of(
                         PerspectiveDescriptor.get(PerspectiveId.generate(),
                                                   LanguageMap.of("en", "Hello"),
                                                   true)
