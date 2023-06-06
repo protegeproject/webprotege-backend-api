@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.context.ContextConfiguration;
 
 import java.io.IOException;
 
@@ -22,6 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Stanford Center for Biomedical Informatics Research
  * 2020-04-07
  */
+@ContextConfiguration
 @JsonTest
 @Import(WebProtegeJacksonApplication.class)
 public class ProjectEntityCrudKitSettings_SerializationTestCase {
