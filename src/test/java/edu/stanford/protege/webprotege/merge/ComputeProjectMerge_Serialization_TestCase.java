@@ -1,10 +1,7 @@
 package edu.stanford.protege.webprotege.merge;
 
-import edu.stanford.protege.webprotege.csv.DocumentId;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.csv.DocumentId;
 import org.junit.Test;
 
 import java.io.IOException;

@@ -2,9 +2,9 @@ package edu.stanford.protege.webprotege.individuals;
 
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.PageRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
-import edu.stanford.protege.webprotege.common.PageRequest;
 import org.semanticweb.owlapi.model.OWLClass;
 
 /**

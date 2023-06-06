@@ -1,8 +1,8 @@
 
 package edu.stanford.protege.webprotege.hierarchy;
 
-import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.PageRequest;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

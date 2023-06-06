@@ -9,9 +9,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.semanticweb.owlapi.model.OWLEntity;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.mock;

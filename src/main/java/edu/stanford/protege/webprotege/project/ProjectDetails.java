@@ -2,11 +2,11 @@ package edu.stanford.protege.webprotege.project;
 
 import com.fasterxml.jackson.annotation.*;
 import com.google.auto.value.AutoValue;
+import edu.stanford.protege.webprotege.common.DictionaryLanguage;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.common.UserId;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
-import edu.stanford.protege.webprotege.common.DictionaryLanguage;
-import edu.stanford.protege.webprotege.common.UserId;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

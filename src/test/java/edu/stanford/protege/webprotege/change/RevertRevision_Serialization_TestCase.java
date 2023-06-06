@@ -2,16 +2,12 @@ package edu.stanford.protege.webprotege.change;
 
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-
 import edu.stanford.protege.webprotege.revision.RevisionNumber;
 import org.junit.Test;
 
 import java.io.IOException;
 
-
-import static edu.stanford.protege.webprotege.MockingUtils.*;
+import static edu.stanford.protege.webprotege.MockingUtils.mockProjectId;
 
 /**
  * Matthew Horridge

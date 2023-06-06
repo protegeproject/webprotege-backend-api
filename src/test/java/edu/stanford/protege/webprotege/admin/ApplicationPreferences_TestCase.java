@@ -2,8 +2,8 @@
 package edu.stanford.protege.webprotege.admin;
 
 import edu.stanford.protege.webprotege.app.*;
-import edu.stanford.protege.webprotege.user.EmailAddress;
 import edu.stanford.protege.webprotege.common.UserId;
+import edu.stanford.protege.webprotege.user.EmailAddress;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;

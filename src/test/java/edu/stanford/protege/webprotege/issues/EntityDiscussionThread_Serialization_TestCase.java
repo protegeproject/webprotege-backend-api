@@ -2,7 +2,6 @@ package edu.stanford.protege.webprotege.issues;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.MockingUtils;
-
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 

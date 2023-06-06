@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
-import javax.annotation.Nonnull;
-
 /**
  * Author: Matthew Horridge<br>
  * Stanford University<br>

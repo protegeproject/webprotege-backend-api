@@ -1,12 +1,10 @@
 package edu.stanford.protege.webprotege.crud.obo;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
+import edu.stanford.protege.webprotege.common.UserId;
 import edu.stanford.protege.webprotege.crud.EntityCrudKitSuffixSettings;
 import edu.stanford.protege.webprotege.crud.oboid.OboIdSuffixSettings;
 import edu.stanford.protege.webprotege.crud.oboid.UserIdRange;
-
-import edu.stanford.protege.webprotege.common.UserId;
 import edu.stanford.protege.webprotege.jackson.WebProtegeJacksonApplication;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

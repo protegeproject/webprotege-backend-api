@@ -2,16 +2,15 @@ package edu.stanford.protege.webprotege.project;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
+import edu.stanford.protege.webprotege.common.DictionaryLanguage;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.common.UserId;
 import edu.stanford.protege.webprotege.jackson.WebProtegeJacksonApplication;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
-import edu.stanford.protege.webprotege.common.DictionaryLanguage;
-import edu.stanford.protege.webprotege.common.UserId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 

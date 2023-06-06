@@ -1,11 +1,11 @@
 package edu.stanford.protege.webprotege.change;
 
 import com.google.common.collect.ImmutableSet;
+import edu.stanford.protege.webprotege.common.Page;
+import edu.stanford.protege.webprotege.common.UserId;
 import edu.stanford.protege.webprotege.diff.DiffElement;
 import edu.stanford.protege.webprotege.entity.OWLEntityData;
-import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.revision.RevisionNumber;
-import edu.stanford.protege.webprotege.common.UserId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

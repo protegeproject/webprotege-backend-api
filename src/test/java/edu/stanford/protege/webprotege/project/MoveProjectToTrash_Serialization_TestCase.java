@@ -1,8 +1,5 @@
 package edu.stanford.protege.webprotege.project;
 
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

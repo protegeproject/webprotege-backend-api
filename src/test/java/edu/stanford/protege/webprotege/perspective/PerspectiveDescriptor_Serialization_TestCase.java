@@ -1,7 +1,6 @@
 package edu.stanford.protege.webprotege.perspective;
 
 import edu.stanford.protege.webprotege.common.LanguageMap;
-
 import org.junit.Test;
 
 import java.io.IOException;

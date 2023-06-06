@@ -1,11 +1,10 @@
 package edu.stanford.protege.webprotege.app;
 
 import com.fasterxml.jackson.annotation.JsonClassDescription;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.google.common.base.Objects;
-import edu.stanford.protege.webprotege.user.EmailAddress;
 import edu.stanford.protege.webprotege.common.UserId;
+import edu.stanford.protege.webprotege.user.EmailAddress;
 
 import javax.annotation.Nonnull;
 import java.util.List;

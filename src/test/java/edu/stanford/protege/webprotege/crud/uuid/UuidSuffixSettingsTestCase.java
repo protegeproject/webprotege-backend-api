@@ -1,8 +1,5 @@
 package edu.stanford.protege.webprotege.crud.uuid;
 
-import edu.stanford.protege.webprotege.crud.uuid.UuidFormat;
-import edu.stanford.protege.webprotege.crud.uuid.UuidSuffixKit;
-import edu.stanford.protege.webprotege.crud.uuid.UuidSuffixSettings;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;

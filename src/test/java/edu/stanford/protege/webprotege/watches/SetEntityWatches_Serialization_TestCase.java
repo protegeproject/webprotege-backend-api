@@ -1,12 +1,10 @@
 package edu.stanford.protege.webprotege.watches;
 
 import com.google.common.collect.ImmutableSet;
-
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import org.junit.Test;
 
 import java.io.IOException;
-
 
 import static edu.stanford.protege.webprotege.MockingUtils.*;
 

@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.lessThan;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class ShortFormMatchPosition_TestCase {
 

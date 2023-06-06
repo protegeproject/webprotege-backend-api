@@ -2,7 +2,6 @@ package edu.stanford.protege.webprotege.project;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.project.ProjectDetails;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

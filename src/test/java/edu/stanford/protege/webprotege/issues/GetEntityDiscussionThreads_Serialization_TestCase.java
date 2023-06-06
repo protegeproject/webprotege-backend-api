@@ -3,11 +3,8 @@ package edu.stanford.protege.webprotege.issues;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import edu.stanford.protege.webprotege.MockingUtils;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.entity.OWLClassData;
-
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.entity.OWLClassData;
 import org.junit.Test;
 
 import java.io.IOException;

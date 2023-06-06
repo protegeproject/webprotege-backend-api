@@ -1,7 +1,6 @@
 package edu.stanford.protege.webprotege.viz;
 
 import com.google.common.collect.ImmutableSet;
-
 import edu.stanford.protege.webprotege.criteria.EntityTypeIsOneOfCriteria;
 import org.junit.Test;
 import org.semanticweb.owlapi.model.EntityType;

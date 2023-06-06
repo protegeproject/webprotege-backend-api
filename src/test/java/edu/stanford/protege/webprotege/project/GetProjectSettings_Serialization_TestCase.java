@@ -1,12 +1,5 @@
 package edu.stanford.protege.webprotege.project;
 
-import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
-
-import edu.stanford.protege.webprotege.common.DictionaryLanguage;
-import edu.stanford.protege.webprotege.projectsettings.*;
 import org.junit.Test;
 
 import java.io.IOException;

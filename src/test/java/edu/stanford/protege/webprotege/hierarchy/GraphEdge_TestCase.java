@@ -6,8 +6,6 @@ package edu.stanford.protege.webprotege.hierarchy;
  * 2021-04-21
  */
 
-import edu.stanford.protege.webprotege.MockingUtils;
-
 import org.junit.Test;
 
 import java.io.IOException;

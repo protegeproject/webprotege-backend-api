@@ -2,7 +2,6 @@ package edu.stanford.protege.webprotege.project;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.MockingUtils;
-
 import edu.stanford.protege.webprotege.criteria.CompositeRootCriteria;
 import edu.stanford.protege.webprotege.criteria.IsNotBuiltInEntityCriteria;
 import edu.stanford.protege.webprotege.criteria.MultiMatchType;

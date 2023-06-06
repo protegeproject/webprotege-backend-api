@@ -2,21 +2,20 @@ package edu.stanford.protege.webprotege.projectsettings;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.color.Color;
+import edu.stanford.protege.webprotege.common.DictionaryLanguage;
+import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.criteria.EntityIsDeprecatedCriteria;
 import edu.stanford.protege.webprotege.crud.EntityCrudKitPrefixSettings;
 import edu.stanford.protege.webprotege.crud.EntityCrudKitSettings;
 import edu.stanford.protege.webprotege.crud.gen.GeneratedAnnotationsSettings;
 import edu.stanford.protege.webprotege.crud.uuid.UuidSuffixSettings;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
-
-import edu.stanford.protege.webprotege.criteria.EntityIsDeprecatedCriteria;
 import edu.stanford.protege.webprotege.project.PrefixDeclaration;
-import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.search.ProjectSearchSettings;
 import edu.stanford.protege.webprotege.sharing.PersonId;
 import edu.stanford.protege.webprotege.sharing.ProjectSharingSettings;
 import edu.stanford.protege.webprotege.sharing.SharingPermission;
 import edu.stanford.protege.webprotege.sharing.SharingSetting;
-import edu.stanford.protege.webprotege.common.DictionaryLanguage;
 import edu.stanford.protege.webprotege.tag.Tag;
 import edu.stanford.protege.webprotege.tag.TagId;
 import org.junit.Test;

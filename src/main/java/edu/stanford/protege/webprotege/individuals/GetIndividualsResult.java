@@ -2,10 +2,10 @@ package edu.stanford.protege.webprotege.individuals;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.entity.EntityNode;
 import edu.stanford.protege.webprotege.entity.OWLClassData;
-import edu.stanford.protege.webprotege.common.Page;
 
 import java.util.Optional;
 

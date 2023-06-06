@@ -2,7 +2,6 @@ package edu.stanford.protege.webprotege.projectsettings;
 
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import edu.stanford.protege.webprotege.common.Event;
 import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;

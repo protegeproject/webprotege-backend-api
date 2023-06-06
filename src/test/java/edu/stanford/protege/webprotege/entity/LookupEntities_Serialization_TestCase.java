@@ -1,18 +1,15 @@
 package edu.stanford.protege.webprotege.entity;
 
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-
+import edu.stanford.protege.webprotege.common.DictionaryLanguage;
 import edu.stanford.protege.webprotege.search.SearchResultMatch;
 import edu.stanford.protege.webprotege.search.SearchResultMatchPosition;
-import edu.stanford.protege.webprotege.common.DictionaryLanguage;
 import org.junit.Test;
 
 import java.io.IOException;
 
-
-import static edu.stanford.protege.webprotege.MockingUtils.*;
+import static edu.stanford.protege.webprotege.MockingUtils.mockOWLClassNode;
+import static edu.stanford.protege.webprotege.MockingUtils.mockProjectId;
 
 /**
  * Matthew Horridge

@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.auto.value.AutoValue;
-import edu.stanford.protege.webprotege.csv.DocumentId;
 import edu.stanford.protege.webprotege.common.UserId;
+import edu.stanford.protege.webprotege.csv.DocumentId;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

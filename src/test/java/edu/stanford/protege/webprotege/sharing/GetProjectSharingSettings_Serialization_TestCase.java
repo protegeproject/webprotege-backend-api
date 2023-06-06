@@ -1,16 +1,12 @@
 package edu.stanford.protege.webprotege.sharing;
 
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-
 import org.junit.Test;
 
 import java.io.IOException;
 import java.util.Optional;
 
-
-import static edu.stanford.protege.webprotege.MockingUtils.*;
+import static edu.stanford.protege.webprotege.MockingUtils.mockProjectId;
 
 /**
  * Matthew Horridge

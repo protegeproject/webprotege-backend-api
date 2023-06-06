@@ -6,7 +6,6 @@ import edu.stanford.protege.webprotege.common.LangTagFilter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static edu.stanford.protege.webprotege.common.DictionaryLanguageFilter.EmptyLangTagTreatment.EXCLUDE_EMPTY_LANG_TAGS;

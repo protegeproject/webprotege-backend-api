@@ -1,6 +1,5 @@
 package edu.stanford.protege.webprotege.axioms;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ContentChangeRequest;

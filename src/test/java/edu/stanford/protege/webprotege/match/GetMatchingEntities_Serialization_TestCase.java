@@ -1,18 +1,15 @@
 package edu.stanford.protege.webprotege.match;
 
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.criteria.CompositeRootCriteria;
-import edu.stanford.protege.webprotege.criteria.MultiMatchType;
 import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.common.PageRequest;
+import edu.stanford.protege.webprotege.criteria.CompositeRootCriteria;
+import edu.stanford.protege.webprotege.criteria.MultiMatchType;
 import org.junit.Test;
 
 import java.io.IOException;
 
-
-import static edu.stanford.protege.webprotege.MockingUtils.*;
+import static edu.stanford.protege.webprotege.MockingUtils.mockProjectId;
 
 /**
  * Matthew Horridge

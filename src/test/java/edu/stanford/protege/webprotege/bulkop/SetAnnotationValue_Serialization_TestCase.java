@@ -1,6 +1,5 @@
 package edu.stanford.protege.webprotege.bulkop;
 
-import com.google.common.collect.ImmutableSet;
 import org.junit.Test;
 
 import java.io.IOException;

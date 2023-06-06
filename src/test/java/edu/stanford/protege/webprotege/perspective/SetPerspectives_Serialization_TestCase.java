@@ -4,13 +4,12 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.LanguageMap;
-
 import org.junit.Test;
 
 import java.io.IOException;
 
-
-import static edu.stanford.protege.webprotege.MockingUtils.*;
+import static edu.stanford.protege.webprotege.MockingUtils.mockProjectId;
+import static edu.stanford.protege.webprotege.MockingUtils.mockUserId;
 
 /**
  * Matthew Horridge

@@ -1,10 +1,6 @@
 package edu.stanford.protege.webprotege.crud.supplied;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import edu.stanford.protege.webprotege.crud.EntityCrudKitSuffixSettings;
-import edu.stanford.protege.webprotege.crud.uuid.UuidFormat;
-import edu.stanford.protege.webprotege.crud.uuid.UuidSuffixSettings;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

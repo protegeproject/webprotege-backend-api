@@ -5,8 +5,8 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-
-import static edu.stanford.protege.webprotege.MockingUtils.*;
+import static edu.stanford.protege.webprotege.MockingUtils.mockOWLClassNode;
+import static edu.stanford.protege.webprotege.MockingUtils.mockProjectId;
 
 /**
  * Matthew Horridge

@@ -2,17 +2,15 @@
 package edu.stanford.protege.webprotege.event;
 
 import edu.stanford.protege.webprotege.common.EventId;
-import edu.stanford.protege.webprotege.permissions.PermissionsChangedEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.permissions.PermissionsChangedEvent;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.mockito.Mockito.mock;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PermissionsChangedEvent_TestCase {

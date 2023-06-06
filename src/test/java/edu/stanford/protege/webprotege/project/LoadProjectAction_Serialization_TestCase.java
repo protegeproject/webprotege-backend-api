@@ -1,13 +1,10 @@
 package edu.stanford.protege.webprotege.project;
 
-import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
-
-import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
 import edu.stanford.protege.webprotege.common.DictionaryLanguage;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
+import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
+import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
 import org.junit.Test;
 
 import java.io.IOException;

@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.MockingUtils;
 import edu.stanford.protege.webprotege.entity.EntityNode;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;

@@ -1,9 +1,6 @@
 package edu.stanford.protege.webprotege.dispatch.actions;
 
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-
 import edu.stanford.protege.webprotege.ontology.GetOntologyAnnotationsAction;
 import edu.stanford.protege.webprotege.ontology.GetOntologyAnnotationsResult;
 import org.junit.Test;
@@ -11,8 +8,8 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.Optional;
 
-
-import static edu.stanford.protege.webprotege.MockingUtils.*;
+import static edu.stanford.protege.webprotege.MockingUtils.mockOWLOntologyID;
+import static edu.stanford.protege.webprotege.MockingUtils.mockProjectId;
 
 /**
  * Matthew Horridge

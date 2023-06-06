@@ -5,15 +5,14 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.LangTagFilter;
+import edu.stanford.protege.webprotege.common.PageRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
-import edu.stanford.protege.webprotege.common.PageRequest;
 import edu.stanford.protege.webprotege.project.HasProjectId;
 import org.semanticweb.owlapi.model.EntityType;
 
 import javax.annotation.Nonnull;
 import java.util.Collections;
-import java.util.Objects;
 import java.util.Set;
 
 import static java.util.Objects.requireNonNull;

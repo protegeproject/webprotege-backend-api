@@ -1,8 +1,8 @@
 package edu.stanford.protege.webprotege.issues.mention;
 
 
-import edu.stanford.protege.webprotege.issues.Mention;
 import edu.stanford.protege.webprotege.common.UserId;
+import edu.stanford.protege.webprotege.issues.Mention;
 
 import javax.annotation.Nonnull;
 import java.util.Optional;

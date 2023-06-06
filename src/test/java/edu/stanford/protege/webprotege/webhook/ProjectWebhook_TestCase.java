@@ -13,7 +13,6 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.mockito.Mockito.mock;
 
 @RunWith(value = org.mockito.runners.MockitoJUnitRunner.class)
 public class ProjectWebhook_TestCase {

@@ -1,13 +1,10 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
-import edu.stanford.protege.webprotege.MockingUtils;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.io.IOException;
 import java.io.Serializable;
 
 import static org.hamcrest.MatcherAssert.assertThat;

@@ -2,8 +2,8 @@ package edu.stanford.protege.webprotege.search;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.common.Page;
+import edu.stanford.protege.webprotege.dispatch.Result;
 
 /**
  * Matthew Horridge

@@ -3,15 +3,13 @@ package edu.stanford.protege.webprotege.search;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.LanguageMap;
-
 import edu.stanford.protege.webprotege.criteria.CompositeRootCriteria;
 import edu.stanford.protege.webprotege.criteria.MultiMatchType;
 import org.junit.Test;
 
 import java.io.IOException;
 
-
-import static edu.stanford.protege.webprotege.MockingUtils.*;
+import static edu.stanford.protege.webprotege.MockingUtils.mockProjectId;
 
 /**
  * Matthew Horridge

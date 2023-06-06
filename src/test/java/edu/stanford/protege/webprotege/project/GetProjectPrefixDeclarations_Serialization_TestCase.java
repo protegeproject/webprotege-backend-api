@@ -1,19 +1,16 @@
 package edu.stanford.protege.webprotege.project;
 
 import com.google.common.collect.ImmutableList;
-
 import edu.stanford.protege.webprotege.jackson.WebProtegeJacksonApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.context.annotation.Import;
 
 import java.io.IOException;
 
-
-import static edu.stanford.protege.webprotege.MockingUtils.*;
+import static edu.stanford.protege.webprotege.MockingUtils.mockProjectId;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

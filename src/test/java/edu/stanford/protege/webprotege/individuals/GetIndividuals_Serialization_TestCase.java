@@ -1,11 +1,8 @@
 package edu.stanford.protege.webprotege.individuals;
 
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-
 import edu.stanford.protege.webprotege.common.Page;
-import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.PageRequest;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 
 import java.io.IOException;

@@ -1,6 +1,5 @@
 package edu.stanford.protege.webprotege.app;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.common.base.Objects;
 
 import javax.annotation.Nonnull;

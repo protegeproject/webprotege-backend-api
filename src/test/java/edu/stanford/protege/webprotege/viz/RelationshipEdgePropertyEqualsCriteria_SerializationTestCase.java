@@ -1,7 +1,6 @@
 package edu.stanford.protege.webprotege.viz;
 
 import edu.stanford.protege.webprotege.MockingUtils;
-
 import org.junit.Test;
 import org.semanticweb.owlapi.model.OWLProperty;
 

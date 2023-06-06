@@ -1,9 +1,7 @@
 package edu.stanford.protege.webprotege.user;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import edu.stanford.protege.webprotege.common.Request;
 import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
 
 /**
  * Matthew Horridge

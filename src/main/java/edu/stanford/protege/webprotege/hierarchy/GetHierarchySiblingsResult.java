@@ -1,9 +1,9 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.entity.EntityNode;
-import edu.stanford.protege.webprotege.common.Page;
 
 /**
  * Matthew Horridge

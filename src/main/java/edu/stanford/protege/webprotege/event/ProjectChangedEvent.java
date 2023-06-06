@@ -1,19 +1,14 @@
 package edu.stanford.protege.webprotege.event;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.google.common.base.MoreObjects;
-import edu.stanford.protege.webprotege.common.*;
+import edu.stanford.protege.webprotege.common.EventId;
+import edu.stanford.protege.webprotege.common.ProjectEvent;
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.entity.OWLEntityData;
-import edu.stanford.protege.webprotege.revision.RevisionNumber;
 import edu.stanford.protege.webprotege.revision.RevisionSummary;
-import org.semanticweb.owlapi.model.OWLEntity;
 
-import java.util.HashSet;
 import java.util.Set;
-
-import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Author: Matthew Horridge<br>

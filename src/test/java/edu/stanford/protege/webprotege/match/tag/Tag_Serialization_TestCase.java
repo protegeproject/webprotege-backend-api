@@ -1,28 +1,17 @@
 package edu.stanford.protege.webprotege.match.tag;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.color.Color;
-import edu.stanford.protege.webprotege.common.WebProtegeCommonConfiguration;
-import edu.stanford.protege.webprotege.criteria.EntityIsNotDeprecatedCriteria;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import edu.stanford.protege.webprotege.ipc.WebProtegeIpcApplication;
-import edu.stanford.protege.webprotege.jackson.WebProtegeJacksonApplication;
+import edu.stanford.protege.webprotege.criteria.EntityIsNotDeprecatedCriteria;
 import edu.stanford.protege.webprotege.tag.Tag;
 import edu.stanford.protege.webprotege.tag.TagId;
-import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.json.JacksonTester;
-import org.springframework.context.annotation.Import;
-
-import java.io.StringReader;
-import java.io.StringWriter;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.is;
 
 /**
  * Matthew Horridge

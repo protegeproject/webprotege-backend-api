@@ -2,14 +2,12 @@ package edu.stanford.protege.webprotege.tag;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.color.Color;
-
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import org.junit.Test;
 
 import java.io.IOException;
 
-
-import static edu.stanford.protege.webprotege.MockingUtils.*;
+import static edu.stanford.protege.webprotege.MockingUtils.mockProjectId;
 
 /**
  * Matthew Horridge

@@ -5,7 +5,6 @@ import edu.stanford.protege.webprotege.search.SearchType;
 import org.junit.Test;
 import org.semanticweb.owlapi.model.EntityType;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;

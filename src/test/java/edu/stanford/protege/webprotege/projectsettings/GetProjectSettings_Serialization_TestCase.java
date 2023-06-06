@@ -1,17 +1,13 @@
 package edu.stanford.protege.webprotege.projectsettings;
 
 import com.google.common.collect.ImmutableList;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
-
 import edu.stanford.protege.webprotege.common.DictionaryLanguage;
+import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import org.junit.Test;
 
 import java.io.IOException;
 
-
-import static edu.stanford.protege.webprotege.MockingUtils.*;
+import static edu.stanford.protege.webprotege.MockingUtils.mockProjectId;
 
 /**
  * Matthew Horridge

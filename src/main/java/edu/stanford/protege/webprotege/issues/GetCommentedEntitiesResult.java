@@ -2,10 +2,10 @@ package edu.stanford.protege.webprotege.issues;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.entity.CommentedEntityData;
-import edu.stanford.protege.webprotege.common.Page;
 
 /**
  * Matthew Horridge

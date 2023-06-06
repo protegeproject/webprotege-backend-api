@@ -2,9 +2,9 @@ package edu.stanford.protege.webprotege.perspective;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.common.UserId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import edu.stanford.protege.webprotege.project.HasProjectId;
-import edu.stanford.protege.webprotege.common.UserId;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

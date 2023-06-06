@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.DocumentFormat;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.Request;
-import edu.stanford.protege.webprotege.download.DownloadFormat;
 import edu.stanford.protege.webprotege.revision.RevisionNumber;
 
 /**

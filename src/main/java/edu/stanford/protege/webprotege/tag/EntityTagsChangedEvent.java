@@ -1,9 +1,6 @@
 package edu.stanford.protege.webprotege.tag;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableSet;
-import edu.stanford.protege.webprotege.common.Event;
 import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;

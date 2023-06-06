@@ -1,16 +1,13 @@
 package edu.stanford.protege.webprotege.dispatch.actions;
 
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-
 import edu.stanford.protege.webprotege.ontology.GetRootOntologyIdAction;
 import edu.stanford.protege.webprotege.ontology.GetRootOntologyIdResult;
 import org.junit.Test;
 
 import java.io.IOException;
 
-
-import static edu.stanford.protege.webprotege.MockingUtils.*;
+import static edu.stanford.protege.webprotege.MockingUtils.mockOWLOntologyID;
+import static edu.stanford.protege.webprotege.MockingUtils.mockProjectId;
 
 /**
  * Matthew Horridge

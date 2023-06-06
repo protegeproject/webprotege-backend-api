@@ -1,18 +1,10 @@
 package edu.stanford.protege.webprotege.event;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import edu.stanford.protege.webprotege.common.Event;
 import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectEvent;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.semanticweb.owlapi.model.OWLOntologyID;
-
-import java.io.Serializable;
-import java.util.Objects;
-import java.util.Optional;
-
-import static com.google.common.base.Preconditions.checkNotNull;
-import static java.util.Objects.requireNonNull;
 
 /**
  * Author: Matthew Horridge<br>

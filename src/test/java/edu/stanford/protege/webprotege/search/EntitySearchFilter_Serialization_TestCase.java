@@ -1,9 +1,8 @@
 package edu.stanford.protege.webprotege.search;
 
 import edu.stanford.protege.webprotege.common.LanguageMap;
-
-import edu.stanford.protege.webprotege.criteria.EntityIsDeprecatedCriteria;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.criteria.EntityIsDeprecatedCriteria;
 import org.junit.Test;
 
 import java.io.IOException;

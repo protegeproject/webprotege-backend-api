@@ -1,11 +1,10 @@
 package edu.stanford.protege.webprotege.crud.persistence;
 
+import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.crud.EntityCrudKitPrefixSettings;
 import edu.stanford.protege.webprotege.crud.EntityCrudKitSettings;
 import edu.stanford.protege.webprotege.crud.gen.GeneratedAnnotationsSettings;
 import edu.stanford.protege.webprotege.crud.uuid.UuidSuffixSettings;
-
-import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.jackson.WebProtegeJacksonApplication;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

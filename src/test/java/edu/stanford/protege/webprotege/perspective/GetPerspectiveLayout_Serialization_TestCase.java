@@ -1,14 +1,11 @@
 package edu.stanford.protege.webprotege.perspective;
 
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-
 import org.junit.Test;
 
 import java.io.IOException;
 
-
-import static edu.stanford.protege.webprotege.MockingUtils.*;
+import static edu.stanford.protege.webprotege.MockingUtils.mockProjectId;
+import static edu.stanford.protege.webprotege.MockingUtils.mockUserId;
 
 /**
  * Matthew Horridge

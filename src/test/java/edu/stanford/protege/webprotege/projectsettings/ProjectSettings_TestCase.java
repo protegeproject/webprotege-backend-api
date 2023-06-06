@@ -1,9 +1,9 @@
 
 package edu.stanford.protege.webprotege.projectsettings;
 
-import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
-import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.DictionaryLanguage;
+import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

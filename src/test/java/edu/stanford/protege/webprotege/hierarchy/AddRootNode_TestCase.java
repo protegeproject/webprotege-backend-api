@@ -1,7 +1,5 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
-import edu.stanford.protege.webprotege.MockingUtils;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;

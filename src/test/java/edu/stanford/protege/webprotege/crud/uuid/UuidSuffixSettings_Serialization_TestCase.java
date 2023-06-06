@@ -1,9 +1,6 @@
 package edu.stanford.protege.webprotege.crud.uuid;
 
 import edu.stanford.protege.webprotege.crud.EntityCrudKitSuffixSettings;
-import edu.stanford.protege.webprotege.crud.uuid.UuidFormat;
-import edu.stanford.protege.webprotege.crud.uuid.UuidSuffixSettings;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;

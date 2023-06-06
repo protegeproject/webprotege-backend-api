@@ -1,12 +1,8 @@
 package edu.stanford.protege.webprotege.project;
 
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.Collections;
 
 /**
  * Matthew Horridge

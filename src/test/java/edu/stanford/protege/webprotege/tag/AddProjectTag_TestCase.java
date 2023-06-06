@@ -2,9 +2,6 @@ package edu.stanford.protege.webprotege.tag;
 
 import edu.stanford.protege.webprotege.color.Color;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
-import edu.stanford.protege.webprotege.dispatch.Action;
-import edu.stanford.protege.webprotege.dispatch.Result;
-
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.Test;
 

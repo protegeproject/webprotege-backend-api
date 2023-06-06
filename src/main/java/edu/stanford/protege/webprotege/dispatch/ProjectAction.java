@@ -2,7 +2,6 @@ package edu.stanford.protege.webprotege.dispatch;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.project.HasProjectId;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Matthew Horridge

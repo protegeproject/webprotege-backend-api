@@ -1,14 +1,12 @@
 package edu.stanford.protege.webprotege.usage;
 
 import com.google.common.collect.ImmutableList;
-
 import edu.stanford.protege.webprotege.common.PageRequest;
 import org.junit.Test;
 import org.semanticweb.owlapi.model.AxiomType;
 
 import java.io.IOException;
 import java.util.Optional;
-
 
 import static edu.stanford.protege.webprotege.MockingUtils.*;
 

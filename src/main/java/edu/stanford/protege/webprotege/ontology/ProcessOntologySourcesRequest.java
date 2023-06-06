@@ -1,6 +1,5 @@
 package edu.stanford.protege.webprotege.ontology;
 
-import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.BlobLocation;
 import edu.stanford.protege.webprotege.common.Request;
 
