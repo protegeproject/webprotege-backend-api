@@ -7,7 +7,7 @@ import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import javax.annotation.Nonnull;
 
 /**
  * Matthew Horridge
@@ -15,20 +15,15 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 28/02/16
  */
 @JsonTypeName("webprotege.perspectives.SetPerspectiveLayout")
-public record SetPerspectiveLayoutAction(ChangeRequestId changeRequestId,
-                                         ProjectId projectId, UserId userId, PerspectiveLayout layout) implements ProjectAction<SetPerspectiveLayoutResult>, ChangeRequest {
+public record SetPerspectiveLayoutAction(@Nonnull ChangeRequestId changeRequestId,
+                                         @Nonnull ProjectId projectId,
+                                         @Nonnull UserId userId,
+                                         @Nonnull PerspectiveLayout layout) implements ProjectAction<SetPerspectiveLayoutResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.perspectives.SetPerspectiveLayout";
 
     @Override
     public String getChannel() {
         return CHANNEL;
-    }
-
-    public SetPerspectiveLayoutAction(ChangeRequestId changeRequestId, ProjectId projectId, UserId userId, PerspectiveLayout layout) {
-        this.changeRequestId = checkNotNull(changeRequestId);
-        this.projectId = checkNotNull(projectId);
-        this.userId = checkNotNull(userId);
-        this.layout = checkNotNull(layout);
     }
 }
