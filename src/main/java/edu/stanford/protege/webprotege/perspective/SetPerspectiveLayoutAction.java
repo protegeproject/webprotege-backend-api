@@ -8,6 +8,7 @@ import edu.stanford.protege.webprotege.common.UserId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
 import javax.annotation.Nonnull;
+import java.util.Objects;
 
 /**
  * Matthew Horridge
@@ -25,5 +26,15 @@ public record SetPerspectiveLayoutAction(@Nonnull ChangeRequestId changeRequestI
     @Override
     public String getChannel() {
         return CHANNEL;
+    }
+
+    public SetPerspectiveLayoutAction(@Nonnull ChangeRequestId changeRequestId,
+                                      @Nonnull ProjectId projectId,
+                                      @Nonnull UserId userId,
+                                      @Nonnull PerspectiveLayout layout) {
+        this.changeRequestId = Objects.requireNonNull(changeRequestId);
+        this.projectId = Objects.requireNonNull(projectId);
+        this.userId = Objects.requireNonNull(userId);
+        this.layout = Objects.requireNonNull(layout);
     }
 }

@@ -15,7 +15,7 @@ import java.util.Optional;
  * Stanford Center for Biomedical Informatics Research
  * 12 Oct 2016
  */
-@JsonTypeName("webprotege.events.discussion.DiscussionThreadStatusChanged")
+@JsonTypeName("webprotege.events.discussions.DiscussionThreadStatusChanged")
 public record DiscussionThreadStatusChangedEvent(@Nonnull EventId eventId,
                                                  @Nonnull ProjectId projectId,
                                                  @Nonnull ThreadId threadId,
@@ -23,7 +23,7 @@ public record DiscussionThreadStatusChangedEvent(@Nonnull EventId eventId,
                                                  int openCommentsCountForEntity,
                                                  @Nonnull Status status) implements ProjectEvent {
 
-    public static final String CHANNEL = "webprotege.events.discussion.DiscussionThreadStatusChanged";
+    public static final String CHANNEL = "webprotege.events.discussions.DiscussionThreadStatusChanged";
 
     @Override
     public String getChannel() {

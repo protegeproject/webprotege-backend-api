@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.snapshots;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.Response;
 
@@ -9,6 +10,6 @@ import edu.stanford.protege.webprotege.common.Response;
  * 2021-09-23
  */
 @JsonTypeName("webprotege.snapshots.CreateSnapshot")
-public record CreateSnapshotResponse(SnapshotStorageCoordinates snapshotStorageCoordinates) implements Response {
+public record CreateSnapshotResponse(@JsonProperty("snapshotStorageCoordinates") SnapshotStorageCoordinates snapshotStorageCoordinates) implements Response {
 
 }
