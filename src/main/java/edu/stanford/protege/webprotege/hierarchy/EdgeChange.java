@@ -1,5 +1,8 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+
 import java.util.function.Consumer;
 
 /**
@@ -7,18 +10,29 @@ import java.util.function.Consumer;
  * Stanford Center for Biomedical Informatics Research
  * 2021-04-20
  */
+@JsonSubTypes({
+        @JsonSubTypes.Type(AddEdge.class),
+        @JsonSubTypes.Type(RemoveEdge.class)
+})
 public abstract class EdgeChange<U> extends GraphModelChange<U> {
 
-    private final GraphEdge<U> edge;
+
+    private GraphEdge<U> edge;
+
+    protected EdgeChange() {
+
+    }
 
     protected EdgeChange(GraphEdge<U> edge) {
         this.edge = edge;
     }
 
+    @JsonIgnore
     public GraphNode<U> getPredecessor() {
         return edge.getPredecessor();
     }
 
+    @JsonIgnore
     public GraphNode<U> getSuccessor() {
         return edge.getSuccessor();
     }

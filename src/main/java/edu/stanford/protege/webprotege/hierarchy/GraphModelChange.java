@@ -12,12 +12,12 @@ import java.util.function.Consumer;
  * 2021-04-20
  */
 @JsonSubTypes({
-        @Type(AddEdge.class),
-        @Type(RemoveEdge.class),
+        @Type(EdgeChange.class),
         @Type(AddRootNode.class),
+        @Type(UpdateUserObject.class),
         @Type(RemoveRootNode.class)
 })
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "changeType")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
 public abstract class GraphModelChange<U> {
 
     public GraphModelChange() {
