@@ -106,7 +106,7 @@
         <dependency>
             <groupId>edu.stanford.protege</groupId>
             <artifactId>webprotege-ontology-change</artifactId>
-            <version>0.9.3-SNAPSHOT</version>
+            <version>0.9.3</version>
         </dependency>
 
         <dependency>
