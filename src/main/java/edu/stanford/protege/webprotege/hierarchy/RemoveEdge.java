@@ -2,6 +2,7 @@ package edu.stanford.protege.webprotege.hierarchy;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.base.MoreObjects;
 
 /**
@@ -9,6 +10,7 @@ import com.google.common.base.MoreObjects;
  * Stanford Center for Biomedical Informatics Research
  * 2021-04-20
  */
+@JsonTypeName("webprotege.events.graph.RemoveEdge")
 public class RemoveEdge<U> extends EdgeChange<U> {
 
     @JsonCreator
