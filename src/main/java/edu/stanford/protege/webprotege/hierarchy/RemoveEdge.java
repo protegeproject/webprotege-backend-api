@@ -10,7 +10,6 @@ import com.google.common.base.MoreObjects;
  * Stanford Center for Biomedical Informatics Research
  * 2021-04-20
  */
-@JsonTypeName("webprotege.events.graph.RemoveEdge")
 public class RemoveEdge<U> extends EdgeChange<U> {
 
     @JsonCreator

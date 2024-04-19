@@ -40,14 +40,14 @@ class AddEdge_Serialization_Test {
                                                    false)
                 )
         ));
-        assertThat(written).hasJsonPathStringValue("type", "webprotege.events.graph.AddEdge");
+        assertThat(written).hasJsonPathStringValue("type", "AddEdge");
         assertThat(written).hasJsonPath("edge");
     }
 
     @Test
     void shouldDeserializeFromJson() throws IOException {
         var json = """
-                {"type":"webprotege.events.graph.AddEdge","edge":{"predecessor":{"userObject":{"entity":{"@type":"Class","iri":"http://stuff.com/I0"},"browserText":"<http://stuff.com/I0>","tags":[],"deprecated":false,"watches":[],"openCommentCount":0,"shortForms":[]},"sink":false},"successor":{"userObject":{"entity":{"@type":"Class","iri":"http://stuff.com/I1"},"browserText":"<http://stuff.com/I1>","tags":[],"deprecated":false,"watches":[],"openCommentCount":0,"shortForms":[]},"sink":false}}}
+                {"type":"AddEdge","edge":{"predecessor":{"userObject":{"entity":{"@type":"Class","iri":"http://stuff.com/I0"},"browserText":"<http://stuff.com/I0>","tags":[],"deprecated":false,"watches":[],"openCommentCount":0,"shortForms":[]},"sink":false},"successor":{"userObject":{"entity":{"@type":"Class","iri":"http://stuff.com/I1"},"browserText":"<http://stuff.com/I1>","tags":[],"deprecated":false,"watches":[],"openCommentCount":0,"shortForms":[]},"sink":false}}}
                 """;
         var read = tester.readObject(new StringReader(json));
         assertThat(read).isInstanceOf(AddEdge.class);
