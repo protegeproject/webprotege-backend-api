@@ -3,11 +3,12 @@ package edu.stanford.protege.webprotege.hierarchy;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
-import edu.stanford.protege.webprotege.entity.EntityNode;
+import edu.stanford.protege.webprotege.entity.OWLEntityData;
+import org.semanticweb.owlapi.model.OWLEntity;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.Set;
+import java.util.List;
 
 
 /**
@@ -15,6 +16,6 @@ import java.util.Set;
  */
 
 @JsonTypeName("webprotege.hierarchies.GetHierarchyParents")
-public record GetHierarchyParentsResult(@JsonProperty("parent") @Nullable EntityNode parent,
-                                        @JsonProperty("children") @Nonnull Set<EntityNode> children) implements Result {
+public record GetHierarchyParentsResult(@JsonProperty("entity") @Nullable OWLEntity entity,
+                                        @JsonProperty("parents") @Nonnull List<OWLEntityData> parents) implements Result {
 }
