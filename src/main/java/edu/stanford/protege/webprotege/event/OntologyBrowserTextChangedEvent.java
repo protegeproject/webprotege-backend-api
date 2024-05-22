@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.event;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectEvent;
@@ -19,6 +20,7 @@ import org.semanticweb.owlapi.model.OWLOntologyID;
  */
 
 @JsonTypeName("webprotege.events.ontologies.OntologyBrowserTextChanged")
+@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY, property = "type")
 public record OntologyBrowserTextChangedEvent(EventId eventId,
                                               ProjectId projectId,
                                               OWLOntologyID ontologyID,
