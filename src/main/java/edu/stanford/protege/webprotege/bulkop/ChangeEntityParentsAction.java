@@ -21,8 +21,8 @@ import javax.annotation.Nonnull;
 @JsonTypeName("webprotege.entities.ChangeEntityParents")
 public record ChangeEntityParentsAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
                                         @JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                        @JsonProperty("entity") @Nonnull OWLClass entity,
                                         @JsonProperty("parents") @Nonnull ImmutableSet<OWLClass> parents,
+                                        @JsonProperty("entity") @Nonnull OWLClass entity,
                                         @JsonProperty("commitMessage") @Nonnull String commitMessage) implements ProjectAction<ChangeEntityParentsResult>, HasCommitMessage, ContentChangeRequest {
 
     public static final String CHANNEL = "webprotege.entities.ChangeEntityParents";
