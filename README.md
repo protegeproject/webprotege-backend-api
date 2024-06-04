@@ -14,3 +14,5 @@ We use a GitHub workflow to manage versioning and making releases.  Developers s
 When pull requests are merged into the `main` branch the version will be automatically be bumped.  If the pull requests contains the work "breaking" the version will be bumped by a major number e.g. 1.2.3 to 2.0.0.  If a pull requests contains the word "Feat" or "Feature" then the version will be bumped by a minor number increase e.g. 1.2.3 to 1.3.0.  For all other pull requests the version will be bumped by a patch number increase e.g. 1.2.3 to 1.2.4.
 
 Once the version has been bumped, the library will be built, automatically deployed to Maven Central and a GitHub release will automatically be created.
+
+In general, new Java interfaces, records and classes should not be added to this library.
