@@ -15,9 +15,19 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'temurin'
+          distribution: 'adopt'
+          server-id: ossrh
+          server-username: OSSRH_USERNAME
+          server-password: OSSRH_TOKEN
+          gpg-private-key: ${{secrets.GPG_PRIVATE_KEY}}
+          gpg-passphrase: GPG_PASSPHRASE
       - name: Bump version
         id: bump
         uses: mickem/gh-action-bump-maven-version@v1
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package
+        run: mvn --batch-mode -Prelease deploy
+
+env:
+  GPG_PASSPHRASE: ${{secrets.GPG_PASSPHRASE}}
+  OSSRH_USERNAME: ${{secrets.OSSRH_USERNAME}}
+  OSSRH_TOKEN: ${{secrets.OSSRH_TOKEN}}
