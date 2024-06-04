@@ -26,6 +26,12 @@ jobs:
         uses: mickem/gh-action-bump-maven-version@v1
       - name: Build with Maven
         run: mvn --batch-mode -Prelease deploy
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.bump.outputs.tag }}
 
 env:
   GPG_PASSPHRASE: ${{secrets.GPG_PASSPHRASE}}
