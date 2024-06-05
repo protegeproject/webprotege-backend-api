@@ -1,7 +1,12 @@
 package edu.stanford.protege.webprotege.bulkop;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
+import edu.stanford.protege.webprotege.entity.OWLEntityData;
+
+import javax.annotation.Nonnull;
+import java.util.Set;
 
 /**
  * Matthew Horridge
@@ -11,6 +16,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 
 
 @JsonTypeName("webprotege.entities.ChangeEntityParents")
-public record ChangeEntityParentsResult() implements Result {
+public record ChangeEntityParentsResult(@JsonProperty("classesWithCycle") @Nonnull Set<OWLEntityData> classesWithCycle) implements Result {
 
 }
