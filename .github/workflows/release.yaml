@@ -13,7 +13,7 @@ jobs:
       - uses: actions/create-github-app-token@v1
         id: app-token
         with:
-          app-id: ${{ secrets.PROTEGEPROJECT_BOT_APP_ID }}
+          app-id: ${{ vars.PROTEGEPROJECT_BOT_APP_ID }}
           private-key: ${{ secrets.PROTEGEPROJECT_BOT_APP_TOKEN }}
       - uses: actions/checkout@v4
         with:
