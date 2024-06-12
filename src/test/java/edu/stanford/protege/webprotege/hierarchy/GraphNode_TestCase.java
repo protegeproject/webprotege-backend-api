@@ -7,7 +7,7 @@ import edu.stanford.protege.webprotege.entity.EntityNode;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -71,11 +71,12 @@ public class GraphNode_TestCase<T extends Serializable> {
     @Test
     public void shouldSerializeAsJson() throws IOException {
         var graphNode = new GraphNode<>(EntityNode.get(MockingUtils.mockOWLClass(),
-                                                       "Hello",
-                                                       ImmutableList.of(),
-                                                       true, ImmutableSet.of(),
-                                                       3,
-                                                       ImmutableSet.of()));
-        
+                "Hello",
+                ImmutableList.of(),
+                true, ImmutableSet.of(),
+                3,
+                ImmutableSet.of(),
+                ImmutableSet.of()));
+
     }
 }
