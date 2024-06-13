@@ -9,15 +9,13 @@ import java.io.Serializable;
 @AutoValue
 public abstract class EntityStatus implements Serializable, Comparable<EntityStatus> {
 
-    public static final String STATUS = "_status";
-
     @JsonCreator
-    public static EntityStatus get(@Nonnull @JsonProperty(STATUS) String status) {
+    public static EntityStatus get(@Nonnull @JsonProperty("status") String status) {
         return new AutoValue_EntityStatus(status);
     }
 
 
-    @JsonProperty(STATUS)
+    @JsonProperty("status")
     @Nonnull
     public abstract String getStatus();
 
