@@ -52,7 +52,7 @@ class RemoveEdge_Serialization_Test {
     @Test
     void shouldDeserializeFromJson() throws IOException {
         var json = """
-                {"type":"RemoveEdge","edge":{"predecessor":{"userObject":{"entity":{"@type":"Class","iri":"http://stuff.com/I0"},"browserText":"<http://stuff.com/I0>","tags":[],"deprecated":false,"watches":[],"openCommentCount":0,"shortForms":[]},"sink":false},"successor":{"userObject":{"entity":{"@type":"Class","iri":"http://stuff.com/I1"},"browserText":"<http://stuff.com/I1>","tags":[],"deprecated":false,"watches":[],"openCommentCount":0,"shortForms":[]},"sink":false}}}
+                {"type":"RemoveEdge","edge":{"predecessor":{"userObject":{"entity":{"@type":"Class","iri":"http://stuff.com/I0"},"browserText":"<http://stuff.com/I0>","tags":[],"deprecated":false,"watches":[],"openCommentCount":0,"shortForms":[], "statuses":[]},"sink":false},"successor":{"userObject":{"entity":{"@type":"Class","iri":"http://stuff.com/I1"},"browserText":"<http://stuff.com/I1>","tags":[],"deprecated":false,"watches":[],"openCommentCount":0,"shortForms":[], "statuses":[]},"sink":false}}}
                 """;
         var read = tester.readObject(new StringReader(json));
         assertThat(read).isInstanceOf(RemoveEdge.class);
