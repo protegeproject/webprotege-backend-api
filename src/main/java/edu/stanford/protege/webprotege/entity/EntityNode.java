@@ -1,14 +1,9 @@
 package edu.stanford.protege.webprotege.entity;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
+import com.fasterxml.jackson.annotation.*;
 import com.google.auto.value.AutoValue;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
-import edu.stanford.protege.webprotege.common.DictionaryLanguage;
-import edu.stanford.protege.webprotege.common.DictionaryLanguageData;
-import edu.stanford.protege.webprotege.common.ShortForm;
+import com.google.common.collect.*;
+import edu.stanford.protege.webprotege.common.*;
 import edu.stanford.protege.webprotege.tag.Tag;
 import edu.stanford.protege.webprotege.watches.Watch;
 import org.semanticweb.owlapi.model.OWLEntity;
@@ -24,7 +19,7 @@ import static com.google.common.collect.ImmutableMap.toImmutableMap;
  */
 @AutoValue
 
-public abstract class EntityNode implements  Serializable, Comparable<EntityNode> {
+public abstract class EntityNode implements Serializable, Comparable<EntityNode> {
 
     private static final boolean NOT_DEPRECATED = false;
 
@@ -34,6 +29,9 @@ public abstract class EntityNode implements  Serializable, Comparable<EntityNode
 
     private static final ImmutableSet<Tag> NO_ENTITY_TAGS = ImmutableSet.of();
 
+    private static final ImmutableSet<EntityStatus> NO_STATUSES = ImmutableSet.of();
+
+
     @Nonnull
     public static EntityNode get(@Nonnull OWLEntity entity,
                                  @Nonnull String browserText,
@@ -41,14 +39,16 @@ public abstract class EntityNode implements  Serializable, Comparable<EntityNode
                                  boolean deprecated,
                                  @Nonnull Set<Watch> watches,
                                  int openCommentCount,
-                                 Collection<Tag> tags) {
+                                 Collection<Tag> tags,
+                                 Set<EntityStatus> statuses) {
         return new AutoValue_EntityNode(entity,
-                                        browserText,
-                                        ImmutableSet.copyOf(tags),
-                                        deprecated,
-                                        ImmutableSet.copyOf(watches),
-                                        openCommentCount,
-                                        shortForms);
+                browserText,
+                ImmutableSet.copyOf(tags),
+                deprecated,
+                ImmutableSet.copyOf(watches),
+                openCommentCount,
+                shortForms,
+                ImmutableSet.copyOf(statuses));
     }
 
     @JsonCreator
@@ -59,18 +59,20 @@ public abstract class EntityNode implements  Serializable, Comparable<EntityNode
                                  @JsonProperty("deprecated") boolean deprecated,
                                  @JsonProperty("watches") @Nonnull Set<Watch> watches,
                                  @JsonProperty("openCommentCount") int openCommentCount,
-                                 @JsonProperty("tags") Collection<Tag> tags) {
+                                 @JsonProperty("tags") Collection<Tag> tags,
+                                 @JsonProperty("statuses") Set<EntityStatus> statuses) {
         ImmutableMap<DictionaryLanguage, String> map = shortForms.stream()
-                                                                 .collect(toImmutableMap(ShortForm::getDictionaryLanguage,
-                                                                                         ShortForm::getShortForm));
+                .collect(toImmutableMap(ShortForm::getDictionaryLanguage,
+                        ShortForm::getShortForm));
 
         return get(entity,
-                   browserText,
-                   map,
-                   deprecated,
-                   ImmutableSet.copyOf(watches),
-                   openCommentCount,
-                   ImmutableSet.copyOf(tags));
+                browserText,
+                map,
+                deprecated,
+                ImmutableSet.copyOf(watches),
+                openCommentCount,
+                ImmutableSet.copyOf(tags),
+                ImmutableSet.copyOf(statuses));
     }
 
     /**
@@ -84,12 +86,13 @@ public abstract class EntityNode implements  Serializable, Comparable<EntityNode
     @Nonnull
     public static EntityNode getFromEntityData(@Nonnull OWLEntityData entityData) {
         return get(entityData.getEntity(),
-                   entityData.getBrowserText(),
-                   entityData.getShortForms(),
-                   NOT_DEPRECATED,
-                   NO_WATCHES,
-                   NO_OPEN_COMMENTS,
-                   NO_ENTITY_TAGS);
+                entityData.getBrowserText(),
+                entityData.getShortForms(),
+                NOT_DEPRECATED,
+                NO_WATCHES,
+                NO_OPEN_COMMENTS,
+                NO_ENTITY_TAGS,
+                NO_STATUSES);
     }
 
     @Nonnull
@@ -110,10 +113,10 @@ public abstract class EntityNode implements  Serializable, Comparable<EntityNode
 
     public String getText(@Nonnull List<DictionaryLanguage> prefLang, String defaultText) {
         return prefLang.stream()
-                       .map(language -> getShortForms().get(language))
-                       .filter(Objects::nonNull)
-                       .findFirst()
-                       .orElse(defaultText);
+                .map(language -> getShortForms().get(language))
+                .filter(Objects::nonNull)
+                .findFirst()
+                .orElse(defaultText);
     }
 
     public abstract ImmutableSet<Tag> getTags();
@@ -128,12 +131,15 @@ public abstract class EntityNode implements  Serializable, Comparable<EntityNode
     @Nonnull
     public abstract ImmutableMap<DictionaryLanguage, String> getShortForms();
 
+    @JsonProperty("statuses")
+    public abstract ImmutableSet<EntityStatus> getStatuses();
+
     @JsonProperty("shortForms")
     public ImmutableList<ShortForm> getShortFormsList() {
         return getShortForms().entrySet()
-                              .stream()
-                              .map(entry -> ShortForm.get(entry.getKey(), entry.getValue()))
-                              .collect(ImmutableList.toImmutableList());
+                .stream()
+                .map(entry -> ShortForm.get(entry.getKey(), entry.getValue()))
+                .collect(ImmutableList.toImmutableList());
     }
 
     @Override
