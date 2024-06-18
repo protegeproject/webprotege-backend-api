@@ -36,7 +36,7 @@ public class EntityNode_Serialization_TestCase {
                         "The tag description",
                         Color.getWhite(),
                         Color.getWhite(), ImmutableList.of())),
-                ImmutableSet.of());
+                ImmutableSet.of(EntityStatus.get("status")));
 
     }
 }
