@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - master-who
 
 jobs:
   build:
@@ -29,9 +30,36 @@ jobs:
           server-password: OSSRH_TOKEN
           gpg-private-key: ${{secrets.GPG_PRIVATE_KEY}}
           gpg-passphrase: GPG_PASSPHRASE
+      - name: Get current version
+        id: get-version
+        run: |
+          current_version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo "Current version: $current_version"
+          echo "::set-output name=current_version::$current_version"
       - name: Bump version
         id: bump
-        uses: mickem/gh-action-bump-maven-version@v1
+        run: |
+          current_version=${{ steps.get-version.outputs.current_version }}
+          branch=${GITHUB_REF##*/}
+          echo "Current branch: $branch"
+          
+          # Extract the base version without suffix
+          base_version=$(echo $current_version | sed -E 's/(-.*)?$//')
+          
+          # Increment the base version (assuming semantic versioning)
+          IFS='.' read -r -a version_parts <<< "$base_version"
+          version_parts[2]=$((version_parts[2] + 1))
+          new_base_version="${version_parts[0]}.${version_parts[1]}.${version_parts[2]}"
+          
+          if [[ "$branch" == "master-who" ]]; then
+            new_version="${new_base_version}-WHO"
+          else
+            new_version="$new_base_version"
+          fi
+          
+          echo "New version: $new_version"
+          mvn versions:set -DnewVersion=$new_version -DgenerateBackupPoms=false
+          echo "::set-output name=new_version::$new_version"
       - name: Build with Maven
         run: mvn --batch-mode -Prelease deploy
       - name: Release
@@ -39,7 +67,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.bump.outputs.tag }}
+          tag_name: ${{ steps.bump.outputs.new_version }}
           generate_release_notes: true
 
 env:
