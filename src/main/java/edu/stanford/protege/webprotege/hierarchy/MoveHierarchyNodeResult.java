@@ -1,7 +1,6 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.*;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
 /**
@@ -10,6 +9,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 
 
 @JsonTypeName("webprotege.hierarchies.MoveHierarchyNode")
-public record MoveHierarchyNodeResult(@JsonProperty("moved") boolean moved) implements Result {
+public record MoveHierarchyNodeResult(@JsonProperty("moved") boolean moved,
+                                      @JsonProperty("isDestinationRetiredClass") boolean isDestinationRetiredClass) implements Result {
 
 }
