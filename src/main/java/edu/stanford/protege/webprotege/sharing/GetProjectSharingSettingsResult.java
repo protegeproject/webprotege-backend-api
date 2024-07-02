@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.sharing;
 
-import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.*;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -11,7 +11,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 07/02/15
  */
 @JsonTypeName("webprotege.projects.GetProjectSharingSettings")
-public record GetProjectSharingSettingsResult(ProjectSharingSettings settings) implements Result {
+public record GetProjectSharingSettingsResult(@JsonProperty("settings") ProjectSharingSettings settings) implements Result {
 
     public GetProjectSharingSettingsResult(ProjectSharingSettings settings) {
         this.settings = checkNotNull(settings);
