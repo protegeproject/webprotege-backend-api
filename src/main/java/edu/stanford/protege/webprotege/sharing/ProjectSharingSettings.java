@@ -27,7 +27,7 @@ public class ProjectSharingSettings implements Serializable {
     private final List<SharingSetting> sharingSettings = new ArrayList<>();
 
     @Nullable
-    private SharingPermission linkSharingPermission = null;
+    private final SharingPermission linkSharingPermission;
 
     @JsonCreator
     public ProjectSharingSettings(@JsonProperty("projectId") ProjectId projectId,
@@ -38,14 +38,17 @@ public class ProjectSharingSettings implements Serializable {
         this.linkSharingPermission = checkNotNull(linkSharingPermission).orElse(null);
     }
 
+    @JsonProperty("projectId")
     public ProjectId getProjectId() {
         return projectId;
     }
 
+    @JsonProperty("sharingSettings")
     public List<SharingSetting> getSharingSettings() {
         return new ArrayList<>(sharingSettings);
     }
 
+    @JsonProperty("linkSharingPermission")
     public Optional<SharingPermission> getLinkSharingPermission() {
         return Optional.ofNullable(linkSharingPermission);
     }
