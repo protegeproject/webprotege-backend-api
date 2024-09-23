@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.change;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.google.auto.value.AutoValue;
 import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.common.UserId;
@@ -16,17 +16,22 @@ import java.io.Serializable;
  * 24/02/15
  */
 @AutoValue
-
 public abstract class ProjectChange implements  Serializable {
 
+    @JsonCreator
     @Nonnull
-    public static ProjectChange get(@Nonnull RevisionNumber revisionNumber, UserId author, long timestamp, String summary, int changeCount, Page<DiffElement<String, String>> diff) {
+    public static ProjectChange get(@JsonProperty("revisionNumber") @Nonnull RevisionNumber revisionNumber,
+                                    @JsonProperty("userId") UserId author,
+                                    @JsonProperty("timestamp") long timestamp,
+                                    @JsonProperty("summary") String summary,
+                                    @JsonProperty("changeCount") int changeCount,
+                                    @JsonProperty("diff") Page<DiffElement<String, String>> diff) {
         return new AutoValue_ProjectChange(changeCount,
-                                           revisionNumber,
-                                           author,
-                                           summary,
-                                           timestamp,
-                                           diff);
+                revisionNumber,
+                author,
+                summary,
+                timestamp,
+                diff);
     }
 
     public abstract int getChangeCount();
