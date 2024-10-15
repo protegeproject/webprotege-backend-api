@@ -12,7 +12,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Matthew Horridge Stanford Center for Biomedical Informatics Research 30 Nov 2017
  */
 @JsonTypeName("webprotege.hierarchies.GetHierarchyRoots")
-public record GetHierarchyRootsAction(@Nonnull ProjectId projectId, @Nonnull HierarchyId hierarchyId) implements ProjectAction<GetHierarchyRootsResult> {
+public record GetHierarchyRootsAction(@Nonnull ProjectId projectId, @Nonnull HierarchyDescriptor hierarchyDescriptor) implements ProjectAction<GetHierarchyRootsResult> {
 
     public static final String CHANNEL = "webprotege.hierarchies.GetHierarchyRoots";
 
@@ -21,8 +21,8 @@ public record GetHierarchyRootsAction(@Nonnull ProjectId projectId, @Nonnull Hie
         return CHANNEL;
     }
 
-    public GetHierarchyRootsAction(@Nonnull ProjectId projectId, @Nonnull HierarchyId hierarchyId) {
+    public GetHierarchyRootsAction(@Nonnull ProjectId projectId, @Nonnull HierarchyDescriptor hierarchyDescriptor) {
         this.projectId = checkNotNull(projectId);
-        this.hierarchyId = checkNotNull(hierarchyId);
+        this.hierarchyDescriptor = checkNotNull(hierarchyDescriptor);
     }
 }

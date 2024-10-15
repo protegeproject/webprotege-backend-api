@@ -20,7 +20,8 @@ public class MoveHierarchyNode_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new MoveHierarchyNodeAction(changeRequestId, mockProjectId(),
-                                                 HierarchyId.CLASS_HIERARCHY, Path.asPath(mockOWLClassNode()),
+                                                 ClassHierarchyDescriptor.create(),
+                                                 Path.asPath(mockOWLClassNode()),
                                                  Path.emptyPath(),
                                                  DropType.ADD);
         

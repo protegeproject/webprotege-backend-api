@@ -20,7 +20,7 @@ public abstract class GetHierarchySiblings_Serialization_TestCase {
     public void shouldSerializeAction() throws IOException {
         var action = new GetHierarchySiblingsAction(ProjectId.generate(),
                                                        mockOWLClass(),
-                                                       HierarchyId.CLASS_HIERARCHY,
+                                                       ClassHierarchyDescriptor.create(),
                                                        PageRequest.requestFirstPage());
 
     }

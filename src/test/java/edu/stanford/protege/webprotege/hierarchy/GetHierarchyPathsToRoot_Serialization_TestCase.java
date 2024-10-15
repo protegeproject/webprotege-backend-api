@@ -19,7 +19,7 @@ public abstract class GetHierarchyPathsToRoot_Serialization_TestCase {
     public void shouldSerializeAction() throws IOException {
         var action = new GetHierarchyPathsToRootAction(ProjectId.generate(),
                                                           mockOWLClass(),
-                                                          HierarchyId.CLASS_HIERARCHY);
+                                                          ClassHierarchyDescriptor.create());
 
     }
 
