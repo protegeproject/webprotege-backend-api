@@ -18,7 +18,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @JsonTypeName("webprotege.hierarchies.GetHierarchyPathsToRoot")
 public record GetHierarchyPathsToRootAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                             @JsonProperty("entity") @Nonnull OWLEntity entity,
-                                            @JsonProperty("hierarchyId") @Nonnull HierarchyId hierarchyId) implements ProjectAction<GetHierarchyPathsToRootResult> {
+                                            @JsonProperty("hierarchyDescriptor") @Nonnull HierarchyDescriptor hierarchyDescriptor) implements ProjectAction<GetHierarchyPathsToRootResult> {
 
     public static final String CHANNEL = "webprotege.hierarchies.GetHierarchyPathsToRoot";
 
@@ -29,9 +29,9 @@ public record GetHierarchyPathsToRootAction(@JsonProperty("projectId") @Nonnull 
 
     public GetHierarchyPathsToRootAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                          @JsonProperty("entity") @Nonnull OWLEntity entity,
-                                         @JsonProperty("hierarchyId") @Nonnull HierarchyId hierarchyId) {
+                                         @JsonProperty("hierarchyDescriptor") @Nonnull HierarchyDescriptor hierarchyDescriptor) {
         this.projectId = checkNotNull(projectId);
         this.entity = checkNotNull(entity);
-        this.hierarchyId = checkNotNull(hierarchyId);
+        this.hierarchyDescriptor = checkNotNull(hierarchyDescriptor);
     }
 }

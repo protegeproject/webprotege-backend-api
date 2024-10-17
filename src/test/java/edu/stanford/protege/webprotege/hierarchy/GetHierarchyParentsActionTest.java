@@ -7,7 +7,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLEntity;
+import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
+
+import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -26,12 +30,12 @@ class GetHierarchyParentsActionTest {
     @Mock
     private OWLEntity entity;
 
-    @Mock
-    private HierarchyId hierarchyId;
+    private HierarchyDescriptor hierarchyDescriptor;
 
     @Before
     public void setUp() {
-        action = new GetHierarchyParentsAction(projectId, entity, hierarchyId);
+        hierarchyDescriptor = ClassHierarchyDescriptor.create();
+        action = new GetHierarchyParentsAction(projectId, entity, hierarchyDescriptor);
     }
 
     @AfterEach
@@ -41,7 +45,7 @@ class GetHierarchyParentsActionTest {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new GetHierarchyParentsAction(null, entity, hierarchyId);
+        new GetHierarchyParentsAction(null, entity, hierarchyDescriptor);
     }
 
     @Test
@@ -52,7 +56,7 @@ class GetHierarchyParentsActionTest {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        new GetHierarchyParentsAction(projectId, null, hierarchyId);
+        new GetHierarchyParentsAction(projectId, null, hierarchyDescriptor);
     }
 
 
@@ -70,27 +74,27 @@ class GetHierarchyParentsActionTest {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(action, is(new GetHierarchyParentsAction(projectId, entity, hierarchyId)));
+        assertThat(action, is(new GetHierarchyParentsAction(projectId, entity, hierarchyDescriptor)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(action, is(not(new GetHierarchyParentsAction(ProjectId.generate(), entity, hierarchyId))));
+        assertThat(action, is(not(new GetHierarchyParentsAction(ProjectId.generate(), entity, hierarchyDescriptor))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entity() {
-        assertThat(action, is(not(new GetHierarchyParentsAction(projectId, mock(OWLEntity.class), hierarchyId))));
+        assertThat(action, is(not(new GetHierarchyParentsAction(projectId, mock(OWLEntity.class), hierarchyDescriptor))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_hierarchyId() {
-        assertThat(action, is(not(new GetHierarchyParentsAction(projectId, entity, mock(HierarchyId.class)))));
+        assertThat(action, is(not(new GetHierarchyParentsAction(projectId, entity, ClassHierarchyDescriptor.create(Set.of(new OWLClassImpl(IRI.create("http://example.org/A"))))))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(action.hashCode(), is(new GetHierarchyParentsAction(projectId, entity, hierarchyId).hashCode()));
+        assertThat(action.hashCode(), is(new GetHierarchyParentsAction(projectId, entity, hierarchyDescriptor).hashCode()));
     }
 
     @Test

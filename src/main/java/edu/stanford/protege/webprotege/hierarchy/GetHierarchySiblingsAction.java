@@ -17,7 +17,7 @@ import org.semanticweb.owlapi.model.OWLEntity;
 @JsonTypeName("webprotege.hierarchies.GetHierarchySiblings")
 public record GetHierarchySiblingsAction(@JsonProperty("projectId") ProjectId projectId,
                                          @JsonProperty("entity") OWLEntity entity,
-                                         @JsonProperty("hierarchyId") HierarchyId hierarchyId,
+                                         @JsonProperty("hierarchyDescriptor") HierarchyDescriptor hierarchyDescriptor,
                                          @JsonProperty("pageRequest") PageRequest pageRequest) implements ProjectAction<GetHierarchySiblingsResult> {
 
     public static final String CHANNEL = "webprotege.hierarchies.GetHierarchySiblings";
