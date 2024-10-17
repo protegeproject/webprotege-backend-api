@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(DataPropertyHierarchyDescriptor.class),
         @JsonSubTypes.Type(AnnotationPropertyHierarchyDescriptor.class)
 })
-public sealed interface HierarchyDescriptor permits ClassHierarchyDescriptor, ObjectPropertyHierarchyDescriptor, DataPropertyHierarchyDescriptor, AnnotationPropertyHierarchyDescriptor {
+public interface HierarchyDescriptor {
 
 
 }
