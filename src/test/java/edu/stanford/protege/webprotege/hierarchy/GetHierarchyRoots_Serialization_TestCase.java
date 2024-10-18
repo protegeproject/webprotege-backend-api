@@ -16,7 +16,7 @@ public class GetHierarchyRoots_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetHierarchyRootsAction(ProjectId.generate(),
-                                                    HierarchyId.CLASS_HIERARCHY);
+                                                    ClassHierarchyDescriptor.create());
 
     }
 

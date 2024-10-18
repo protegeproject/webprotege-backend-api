@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 @JsonTypeName("webprotege.hierarchies.MoveHierarchyNode")
 public record MoveHierarchyNodeAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
                                       @JsonProperty("projectId") @Nonnull ProjectId projectId,
-                                      @JsonProperty("hierarchyId") @Nonnull HierarchyId hierarchyId,
+                                      @JsonProperty("hierarchyDescriptor") @Nonnull HierarchyDescriptor hierarchyDescriptor,
                                       @JsonProperty("fromNodePath") @Nonnull Path<EntityNode> fromNodePath,
                                       @JsonProperty("toNodeParentPath") @Nonnull Path<EntityNode> toNodeParentPath,
                                       @JsonProperty("dropType") @Nonnull DropType dropType) implements ProjectAction<MoveHierarchyNodeResult>, ContentChangeRequest {

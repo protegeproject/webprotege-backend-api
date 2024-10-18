@@ -7,7 +7,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLEntity;
+import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
+
+import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -23,18 +27,17 @@ public class GetHierarchyPathsToRootAction_TestCase {
     @Mock
     private OWLEntity entity;
 
-    @Mock
-    private HierarchyId hierarchyId;
+    private HierarchyDescriptor hierarchyDescriptor = ClassHierarchyDescriptor.create();
 
     @Before
     public void setUp() {
-        action = new GetHierarchyPathsToRootAction(projectId, entity, hierarchyId);
+        action = new GetHierarchyPathsToRootAction(projectId, entity, hierarchyDescriptor);
     }
 
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new GetHierarchyPathsToRootAction(null, entity, hierarchyId);
+        new GetHierarchyPathsToRootAction(null, entity, hierarchyDescriptor);
     }
 
     @Test
@@ -45,7 +48,7 @@ public class GetHierarchyPathsToRootAction_TestCase {
     @SuppressWarnings("ConstantConditions")
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        new GetHierarchyPathsToRootAction(projectId, null, hierarchyId);
+        new GetHierarchyPathsToRootAction(projectId, null, hierarchyDescriptor);
     }
 
     @Test
@@ -57,11 +60,6 @@ public class GetHierarchyPathsToRootAction_TestCase {
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_hierarchyId_IsNull() {
         new GetHierarchyPathsToRootAction(projectId, entity, null);
-    }
-
-    @Test
-    public void shouldReturnSupplied_hierarchyId() {
-        assertThat(action.hierarchyId(), is(this.hierarchyId));
     }
 
     @Test
@@ -77,27 +75,27 @@ public class GetHierarchyPathsToRootAction_TestCase {
 
     @Test
     public void shouldBeEqualToOther() {
-        assertThat(action, is(new GetHierarchyPathsToRootAction(projectId, entity, hierarchyId)));
+        assertThat(action, is(new GetHierarchyPathsToRootAction(projectId, entity, hierarchyDescriptor)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
-        assertThat(action, is(not(new GetHierarchyPathsToRootAction(ProjectId.generate(), entity, hierarchyId))));
+        assertThat(action, is(not(new GetHierarchyPathsToRootAction(ProjectId.generate(), entity, hierarchyDescriptor))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entity() {
-        assertThat(action, is(not(new GetHierarchyPathsToRootAction(projectId, mock(OWLEntity.class), hierarchyId))));
+        assertThat(action, is(not(new GetHierarchyPathsToRootAction(projectId, mock(OWLEntity.class), hierarchyDescriptor))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_hierarchyId() {
-        assertThat(action, is(not(new GetHierarchyPathsToRootAction(projectId, entity, mock(HierarchyId.class)))));
+        assertThat(action, is(not(new GetHierarchyPathsToRootAction(projectId, entity, ClassHierarchyDescriptor.create(Set.of(new OWLClassImpl(IRI.create("http://example.org"))))))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
-        assertThat(action.hashCode(), is(new GetHierarchyPathsToRootAction(projectId, entity, hierarchyId).hashCode()));
+        assertThat(action.hashCode(), is(new GetHierarchyPathsToRootAction(projectId, entity, hierarchyDescriptor).hashCode()));
     }
 
     @Test
