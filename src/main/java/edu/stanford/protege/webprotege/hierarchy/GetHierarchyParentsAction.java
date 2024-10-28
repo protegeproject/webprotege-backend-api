@@ -13,12 +13,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Matthew Horridge Stanford Center for Biomedical Informatics Research 28 Nov 2017
  */
-
-
 @JsonTypeName("webprotege.hierarchies.GetHierarchyParents")
 public record GetHierarchyParentsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                         @JsonProperty("entity") @Nonnull OWLEntity entity,
-                                        @JsonProperty("hierarchyId") @Nonnull HierarchyId hierarchyId) implements ProjectAction<GetHierarchyParentsResult> {
+                                        @JsonProperty("hierarchyDescriptor") @Nonnull HierarchyDescriptor hierarchyDescriptor) implements ProjectAction<GetHierarchyParentsResult> {
 
     public static final String CHANNEL = "webprotege.hierarchies.GetHierarchyParents";
 
@@ -29,9 +27,9 @@ public record GetHierarchyParentsAction(@JsonProperty("projectId") @Nonnull Proj
 
     public GetHierarchyParentsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                      @JsonProperty("entity") @Nonnull OWLEntity entity,
-                                     @JsonProperty("hierarchyId") @Nonnull HierarchyId hierarchyId) {
+                                     @JsonProperty("hierarchyDescriptor") @Nonnull HierarchyDescriptor hierarchyDescriptor) {
         this.projectId = checkNotNull(projectId);
         this.entity = checkNotNull(entity);
-        this.hierarchyId = checkNotNull(hierarchyId);
+        this.hierarchyDescriptor = checkNotNull(hierarchyDescriptor);
     }
 }
