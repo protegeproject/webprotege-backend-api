@@ -7,11 +7,14 @@ import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.LangTagFilter;
 import edu.stanford.protege.webprotege.common.PageRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
+import edu.stanford.protege.webprotege.criteria.EntityMatchCriteria;
+import edu.stanford.protege.webprotege.criteria.EntityTypeIsOneOfCriteria;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 import edu.stanford.protege.webprotege.project.HasProjectId;
 import org.semanticweb.owlapi.model.EntityType;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.Collections;
 import java.util.Set;
 
@@ -31,7 +34,8 @@ public record PerformEntitySearchAction(@JsonProperty(value = "projectId", requi
                                         @JsonProperty(value = "entityTypes", defaultValue = "[]") @Nonnull Set<EntityType<?>> entityTypes,
                                         @JsonProperty("langTagFilter") @Nonnull LangTagFilter langTagFilter,
                                         @JsonProperty("searchFilters") @Nonnull ImmutableList<EntitySearchFilter> searchFilters,
-                                        @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest) implements ProjectAction<PerformEntitySearchResult>, HasProjectId {
+                                        @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest,
+                                        @JsonProperty("resultsSetFilter") @Nullable EntityMatchCriteria resultsSetFilter) implements ProjectAction<PerformEntitySearchResult>, HasProjectId {
 
     public static final String CHANNEL = "webprotege.search.PerformEntitySearch";
 
@@ -40,13 +44,15 @@ public record PerformEntitySearchAction(@JsonProperty(value = "projectId", requi
                                      @JsonProperty(value = "entityTypes") @Nonnull Set<EntityType<?>> entityTypes,
                                      @JsonProperty("langTagFilter") @Nonnull LangTagFilter langTagFilter,
                                      @JsonProperty("searchFilters") @Nonnull ImmutableList<EntitySearchFilter> searchFilters,
-                                     @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest) {
+                                     @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest,
+                                     @JsonProperty("resultsSetFilter") @Nullable EntityMatchCriteria resultsSetFilter) {
         this.projectId = requireNonNull(projectId);
         this.searchString = requireNonNull(searchString);
         this.entityTypes = requireNonNullElse(entityTypes, Collections.emptySet());
         this.langTagFilter = requireNonNullElse(langTagFilter, LangTagFilter.get(ImmutableSet.of()));
         this.searchFilters = requireNonNullElse(searchFilters, ImmutableList.of());
         this.pageRequest = requireNonNullElse(pageRequest, PageRequest.requestFirstPage());
+        this.resultsSetFilter = requireNonNullElse(resultsSetFilter, EntityTypeIsOneOfCriteria.get(ImmutableSet.copyOf(entityTypes)));
     }
 
     @Override

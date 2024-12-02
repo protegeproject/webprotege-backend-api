@@ -25,7 +25,8 @@ public class PerformEntitySearch_Serialization_TestCase {
         var action = new PerformEntitySearchAction(mockProjectId(),
                                                    "Test", Collections.emptySet(),
                                                    LangTagFilter.get(ImmutableSet.of()), ImmutableList.of(),
-                                                   PageRequest.requestFirstPage());
+                                                   PageRequest.requestFirstPage(),
+                null);
 
     }
 
