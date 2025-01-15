@@ -21,4 +21,6 @@ public record ChangeEntityParentsResult(@JsonProperty("classesWithCycle") @Nonnu
                                         @JsonProperty("classesWithRetiredParents") @Nonnull Set<OWLEntityData> classesWithRetiredParents,
                                         @JsonProperty("linearizationPathParent") Optional<OWLEntityData> linearizationPathParent) implements Result {
 
+
+
 }
