@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.bulkop;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
 /**
@@ -11,6 +11,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 
 
 @JsonTypeName("webprotege.entities.MoveEntitiesToParent")
-public record MoveEntitiesToParentResult(@JsonProperty("isDestinationRetiredClass") boolean isDestinationRetiredClass) implements Result {
+public record MoveEntitiesToParentResult() implements Result {
 
 }
