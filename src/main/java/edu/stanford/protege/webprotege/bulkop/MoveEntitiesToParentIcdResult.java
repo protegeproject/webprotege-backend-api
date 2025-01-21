@@ -10,10 +10,10 @@ import javax.annotation.Nonnull;
 @JsonTypeName(MoveEntitiesToParentIcdAction.CHANNEL)
 public record MoveEntitiesToParentIcdResult(
         @JsonProperty("isDestinationRetiredClass") boolean isDestinationRetiredClass,
-        @JsonProperty("entitiesForWhichParentIsLinPathParent") @Nonnull ImmutableMap<OWLEntityData, ImmutableSet<OWLEntityData>> entitiesForWhichParentIsLinPathParent) implements Result {
+        @JsonProperty("entitiesForWhichParentIsLinPathParent") @Nonnull ImmutableMap<String, ImmutableSet<OWLEntityData>> entitiesForWhichParentIsLinPathParent) implements Result {
 
     public static MoveEntitiesToParentIcdResult create(boolean isDestinationRetiredClass,
-                                                       ImmutableMap<OWLEntityData, ImmutableSet<OWLEntityData>> entitiesForWhichParentIsLinPathParent) {
+                                                       ImmutableMap<String, ImmutableSet<OWLEntityData>> entitiesForWhichParentIsLinPathParent) {
         return new MoveEntitiesToParentIcdResult(isDestinationRetiredClass, entitiesForWhichParentIsLinPathParent);
     }
 
