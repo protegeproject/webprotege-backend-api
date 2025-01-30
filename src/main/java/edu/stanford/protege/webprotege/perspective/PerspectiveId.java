@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.perspective;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.auto.value.AutoValue;
 import edu.stanford.protege.webprotege.common.UUIDUtil;
@@ -37,4 +38,9 @@ public abstract class PerspectiveId implements  Serializable {
     @JsonValue
     @Nonnull
     public abstract String getId();
+
+    @JsonIgnore
+    public String value() {
+        return getId();
+    }
 }
