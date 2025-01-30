@@ -2,6 +2,7 @@ package edu.stanford.protege.webprotege.perspective;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.ChangeRequest;
@@ -22,10 +23,10 @@ import java.util.Optional;
 
 
 @JsonTypeName("webprotege.perspectives.SetPerspectives")
-public record SetPerspectivesAction(@Nonnull ChangeRequestId changeRequestId,
-                                    @Nonnull ProjectId projectId,
-                                    @Nullable UserId userId,
-                                    @Nonnull ImmutableList<PerspectiveDescriptor> perspectiveIds) implements ProjectAction<SetPerspectivesResult>, ChangeRequest {
+public record SetPerspectivesAction(@Nonnull @JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                    @Nonnull @JsonProperty("projectId") ProjectId projectId,
+                                    @Nullable @JsonProperty("userId") UserId userId,
+                                    @Nonnull @JsonProperty("perspectives") ImmutableList<PerspectiveDescriptor> perspectives) implements ProjectAction<SetPerspectivesResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.perspectives.SetPerspectives";
 

@@ -61,4 +61,8 @@ public class PerspectiveId_TestCase {
         assertThat(perspectiveId.toString(), startsWith("PerspectiveId"));
     }
 
+    @Test
+    public void shouldHaveValueEqualToId() {
+        assertThat(perspectiveId.value(), equalTo(perspectiveId.getId()));
+    }
 }
