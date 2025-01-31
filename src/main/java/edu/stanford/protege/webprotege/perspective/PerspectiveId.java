@@ -28,6 +28,11 @@ public abstract class PerspectiveId implements  Serializable {
         return new AutoValue_PerspectiveId(id);
     }
 
+    /**
+     * Generates a fresh {@link PerspectiveId} using a randomly generated UUID.
+     * @return The newly generated {@link PerspectiveId}.
+     */
+    @Nonnull
     public static PerspectiveId generate() {
         return get(UUID.randomUUID().toString());
     }
