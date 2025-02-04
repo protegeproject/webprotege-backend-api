@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import edu.stanford.protege.webprotege.crud.icatx.IcatxSuffixSettings;
 import edu.stanford.protege.webprotege.crud.oboid.OboIdSuffixSettings;
 import edu.stanford.protege.webprotege.crud.supplied.SuppliedNameSuffixSettings;
 import edu.stanford.protege.webprotege.crud.uuid.UuidSuffixSettings;
@@ -25,6 +26,7 @@ import java.io.Serializable;
 @JsonSubTypes({
         @Type(value = UuidSuffixSettings.class),
         @Type(value = SuppliedNameSuffixSettings.class),
+        @Type(value = IcatxSuffixSettings.class),
         @Type(value = OboIdSuffixSettings.class)
 })
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME)

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import edu.stanford.protege.webprotege.crud.gen.GeneratedAnnotationsSettings;
+import edu.stanford.protege.webprotege.crud.icatx.IcatxGenerationSuffixKit;
 import edu.stanford.protege.webprotege.crud.oboid.OboIdSuffixKit;
 import edu.stanford.protege.webprotege.crud.supplied.SuppliedNameSuffixKit;
 import edu.stanford.protege.webprotege.crud.uuid.UuidSuffixKit;
@@ -32,6 +33,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @JsonSubTypes({
         @JsonSubTypes.Type(OboIdSuffixKit.class),
         @JsonSubTypes.Type(UuidSuffixKit.class),
+        @JsonSubTypes.Type(IcatxGenerationSuffixKit.class),
         @JsonSubTypes.Type(SuppliedNameSuffixKit.class)
 })
 public abstract class EntityCrudKit<S extends EntityCrudKitSuffixSettings> implements Serializable {
