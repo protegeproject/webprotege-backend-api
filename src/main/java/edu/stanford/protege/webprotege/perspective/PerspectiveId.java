@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.perspective;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.auto.value.AutoValue;
 import edu.stanford.protege.webprotege.common.UUIDUtil;
@@ -27,6 +28,11 @@ public abstract class PerspectiveId implements  Serializable {
         return new AutoValue_PerspectiveId(id);
     }
 
+    /**
+     * Generates a fresh {@link PerspectiveId} using a randomly generated UUID.
+     * @return The newly generated {@link PerspectiveId}.
+     */
+    @Nonnull
     public static PerspectiveId generate() {
         return get(UUID.randomUUID().toString());
     }
@@ -37,4 +43,9 @@ public abstract class PerspectiveId implements  Serializable {
     @JsonValue
     @Nonnull
     public abstract String getId();
+
+    @JsonIgnore
+    public String value() {
+        return getId();
+    }
 }
