@@ -29,7 +29,7 @@ public class MoveHierarchyNode_Serialization_TestCase {
 
     @Test
     public void shouldSerializeResult() throws IOException {
-        var result = new MoveHierarchyNodeResult(true, false);
+        var result = new MoveHierarchyNodeResult(true);
         
     }
 }
