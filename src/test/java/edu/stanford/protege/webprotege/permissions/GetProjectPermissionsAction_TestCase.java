@@ -2,50 +2,47 @@ package edu.stanford.protege.webprotege.permissions;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 23/02/15
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetProjectPermissionsAction_TestCase {
 
+
+    private final ProjectId projectId = ProjectId.generate();
+
+    private final UserId userId = new UserId("UserA");
 
     private GetProjectPermissionsAction action;
 
     private GetProjectPermissionsAction otherAction;
 
-    private ProjectId projectId = ProjectId.generate();
-
-    private UserId userId = new UserId("UserA");
-
-
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         action = new GetProjectPermissionsAction(projectId, userId);
         otherAction = new GetProjectPermissionsAction(projectId, userId);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_ProjectId_IsNull() {
-        new GetProjectPermissionsAction(null, userId);
+        assertThrows(NullPointerException.class, () -> {
+            new GetProjectPermissionsAction(null, userId);
+        });
     }
 
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_UserId_IsNull() {
-        new GetProjectPermissionsAction(projectId, null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetProjectPermissionsAction(projectId, null);
+        });
     }
 
     @Test

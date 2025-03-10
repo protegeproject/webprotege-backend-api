@@ -21,8 +21,8 @@ public class PageRequestTestCase {
     @Test
     public void requestSinglePageReturnsRequestWithPageNumberOfOneAndMaxSize() {
         PageRequest request = PageRequest.requestSinglePage();
-        assertTrue(1 == request.getPageNumber());
-        assertTrue(PageRequest.MAX_PAGE_SIZE == request.getPageSize());
+        assertEquals(1, request.getPageNumber());
+        assertEquals(PageRequest.MAX_PAGE_SIZE, request.getPageSize());
     }
 
     @Test
@@ -33,8 +33,8 @@ public class PageRequestTestCase {
     @Test
     public void getFirstPageReturnsRequestWithAPageNumberOfOneAndDefaultPageSize() {
         PageRequest request = PageRequest.requestFirstPage();
-        assertTrue(1 == request.getPageNumber());
-        assertTrue(PageRequest.DEFAULT_PAGE_SIZE == request.getPageSize());
+        assertEquals(1, request.getPageNumber());
+        assertEquals(PageRequest.DEFAULT_PAGE_SIZE, request.getPageSize());
     }
 
     @Test
@@ -50,15 +50,15 @@ public class PageRequestTestCase {
     @Test
     public void requestPageReturnsRequestWithSpecifiedPageNumberAndDefaultSize() {
         PageRequest request = PageRequest.requestPage(2);
-        assertTrue(2 == request.getPageNumber());
-        assertTrue(PageRequest.DEFAULT_PAGE_SIZE == request.getPageSize());
+        assertEquals(2, request.getPageNumber());
+        assertEquals(PageRequest.DEFAULT_PAGE_SIZE, request.getPageSize());
     }
 
     @Test
     public void requestPageWithSizeReturnsRequestWithSpecifiedPageAndSize() {
         PageRequest request = PageRequest.requestPageWithSize(2, 10);
-        assertTrue(2 == request.getPageNumber());
-        assertTrue(10 == request.getPageSize());
+        assertEquals(2, request.getPageNumber());
+        assertEquals(10, request.getPageSize());
     }
 
     @Test

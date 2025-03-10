@@ -1,20 +1,17 @@
-
 package edu.stanford.protege.webprotege.color;
 
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class Color_TestCase {
-
-    private Color color;
 
     private final int red = 255;
 
@@ -22,7 +19,9 @@ public class Color_TestCase {
 
     private final int blue = 120;
 
-    @Before
+    private Color color;
+
+    @BeforeEach
     public void setUp() {
         color = Color.get(red, green, blue);
     }

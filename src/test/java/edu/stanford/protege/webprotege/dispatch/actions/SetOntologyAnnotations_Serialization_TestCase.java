@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.dispatch.actions;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.ontology.SetOntologyAnnotationsAction;
 import edu.stanford.protege.webprotege.ontology.SetOntologyAnnotationsResult;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -21,16 +21,16 @@ public class SetOntologyAnnotations_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new SetOntologyAnnotationsAction(ChangeRequestId.generate(),
-                                                      mockProjectId(),
-                                                      mockOWLOntologyID(),
-                                                      Collections.emptySet(),
-                                                      Collections.emptySet());
-        
+                mockProjectId(),
+                mockOWLOntologyID(),
+                Collections.emptySet(),
+                Collections.emptySet());
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new SetOntologyAnnotationsResult(Collections.emptySet());
-        
+
     }
 }

@@ -2,9 +2,10 @@ package edu.stanford.protege.webprotege.crud.persistence;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.crud.EntityCrudKitSettings;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
 /**
@@ -17,14 +18,16 @@ public class ProjectEntityCrudKitSettingsTestCase {
 
     public static final String PROJECT_ID_FIELD_NAME = "projectId";
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionForNullProjectIdInConstructor() {
-        ProjectEntityCrudKitSettings.get(null, mock(EntityCrudKitSettings.class));
+        assertThrows(NullPointerException.class, () -> {
+            ProjectEntityCrudKitSettings.get(null, mock(EntityCrudKitSettings.class));
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionForNullEntityCrudKitSettings() {
-        ProjectEntityCrudKitSettings.get(ProjectId.generate(), null);
+        assertThrows(NullPointerException.class, () -> {
+            ProjectEntityCrudKitSettings.get(ProjectId.generate(), null);
+        });
     }
 
     @Test

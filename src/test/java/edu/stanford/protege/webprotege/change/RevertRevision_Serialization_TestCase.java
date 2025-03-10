@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.change;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.revision.RevisionNumber;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -23,14 +23,14 @@ public class RevertRevision_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new RevertRevisionAction(changeRequestId, projectId,
-                                              RevisionNumber.getHeadRevisionNumber());
-        
+                RevisionNumber.getHeadRevisionNumber());
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new RevertRevisionResult(mockProjectId(),
-                                                 RevisionNumber.getHeadRevisionNumber());
-        
+                RevisionNumber.getHeadRevisionNumber());
+
     }
 }

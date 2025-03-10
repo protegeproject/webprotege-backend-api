@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.tag;
 
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -19,15 +19,15 @@ public class UpdateEntityTags_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new UpdateEntityTagsAction(ChangeRequestId.generate(), mockProjectId(),
-                                                mockOWLClass(),
-                                                ImmutableSet.of(TagId.createTagId()),
-                                                ImmutableSet.of());
-        
+                mockOWLClass(),
+                ImmutableSet.of(TagId.createTagId()),
+                ImmutableSet.of());
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new UpdateEntityTagsResult();
-        
+
     }
 }

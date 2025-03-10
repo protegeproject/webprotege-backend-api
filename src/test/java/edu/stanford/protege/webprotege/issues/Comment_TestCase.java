@@ -1,43 +1,50 @@
-
 package edu.stanford.protege.webprotege.issues;
 
 import edu.stanford.protege.webprotege.common.UserId;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(org.mockito.runners.MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class Comment_TestCase {
 
-    private Comment comment;
-    @Mock
-    private CommentId id;
-    private UserId createdBy = new UserId("UserA");
     private final long createdAt = 1L;
+
     private final Optional updatedAt = Optional.of(33L);
+
     private final String body = "The body";
+
     private final String renderedBody = "The renderedBody";
 
-    @Before
+    private final UserId createdBy = new UserId("UserA");
+
+    private Comment comment;
+
+    @Mock
+    private CommentId id;
+
+    @BeforeEach
     public void setUp()
-        throws Exception
-    {
+            throws Exception {
         comment = new Comment(id, createdBy, createdAt, updatedAt, body, renderedBody);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_id_IsNull() {
-        new Comment(null, createdBy, createdAt, updatedAt, body, renderedBody);
+        assertThrows(NullPointerException.class, () -> {
+            new Comment(null, createdBy, createdAt, updatedAt, body, renderedBody);
+        });
     }
 
     @Test
@@ -46,9 +53,10 @@ public class Comment_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_createdBy_IsNull() {
-        new Comment(id, null, createdAt, updatedAt, body, renderedBody);
+        assertThrows(NullPointerException.class, () -> {
+            new Comment(id, null, createdAt, updatedAt, body, renderedBody);
+        });
     }
 
     @Test
@@ -62,9 +70,10 @@ public class Comment_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_updatedAt_IsNull() {
-        new Comment(id, createdBy, createdAt, null, body, renderedBody);
+        assertThrows(NullPointerException.class, () -> {
+            new Comment(id, createdBy, createdAt, null, body, renderedBody);
+        });
     }
 
     @Test
@@ -73,9 +82,10 @@ public class Comment_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_body_IsNull() {
-        new Comment(id, createdBy, createdAt, updatedAt, null, renderedBody);
+        assertThrows(NullPointerException.class, () -> {
+            new Comment(id, createdBy, createdAt, updatedAt, null, renderedBody);
+        });
     }
 
     @Test
@@ -84,9 +94,10 @@ public class Comment_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_renderedBody_IsNull() {
-        new Comment(id, createdBy, createdAt, updatedAt, body, null);
+        assertThrows(NullPointerException.class, () -> {
+            new Comment(id, createdBy, createdAt, updatedAt, body, null);
+        });
     }
 
     @Test

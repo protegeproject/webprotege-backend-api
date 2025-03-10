@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.context.annotation.Import;
-import org.springframework.test.context.ContextConfiguration;
 
 import java.io.IOException;
 
@@ -29,10 +28,10 @@ public class AddEntityComment_TestCase {
 
     private final ThreadId threadId = new ThreadId("22222222-2222-2222-2222-222222222222");
 
+    private final ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     @Autowired
     private JacksonTester<AddCommentAction> tester;
-
-    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
 
     @Test
     public void shouldSerializeAction() throws IOException {

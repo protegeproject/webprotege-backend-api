@@ -2,11 +2,11 @@ package edu.stanford.protege.webprotege.change;
 
 import edu.stanford.protege.webprotege.common.PageRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.semanticweb.owlapi.model.OWLEntity;
 
 import java.util.Optional;
@@ -16,44 +16,41 @@ import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 24/02/15
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetProjectChangesAction_TestCase {
 
+
+    private final Optional<OWLEntity> subject = Optional.of(mock(OWLEntity.class));
+
+    private final ProjectId projectId = ProjectId.generate();
 
     private GetProjectChangesAction action;
 
     private GetProjectChangesAction otherAction;
 
-    private ProjectId projectId = ProjectId.generate();
-
     @Mock
     private PageRequest pageRequest;
 
-    private final Optional<OWLEntity> subject = Optional.of(mock(OWLEntity.class));
-
-
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         action = new GetProjectChangesAction(projectId, subject, pageRequest);
         otherAction = new GetProjectChangesAction(projectId, subject, pageRequest);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_ProjectId_IsNull() {
-        new GetProjectChangesAction(null, subject, pageRequest);
+        assertThrows(NullPointerException.class, () -> {
+            new GetProjectChangesAction(null, subject, pageRequest);
+        });
     }
 
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_Subject_IsNull() {
-        new GetProjectChangesAction(projectId, null, pageRequest);
+        assertThrows(NullPointerException.class, () -> {
+            new GetProjectChangesAction(projectId, null, pageRequest);
+        });
     }
 
     @Test

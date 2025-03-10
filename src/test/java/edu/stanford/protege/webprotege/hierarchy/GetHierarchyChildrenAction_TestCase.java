@@ -1,13 +1,12 @@
-
 package edu.stanford.protege.webprotege.hierarchy;
 
 import edu.stanford.protege.webprotege.common.PageRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLEntity;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
@@ -16,29 +15,31 @@ import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetHierarchyChildrenAction_TestCase {
 
-    private GetHierarchyChildrenAction action;
+    private final ProjectId projectId = ProjectId.generate();
 
-    private ProjectId projectId = ProjectId.generate();
+    private final HierarchyDescriptor hierarchyDescriptor = ClassHierarchyDescriptor.create();
+
+    private GetHierarchyChildrenAction action;
 
     @Mock
     private OWLEntity entity;
 
-    private HierarchyDescriptor hierarchyDescriptor = ClassHierarchyDescriptor.create();
-
-    @Before
+    @BeforeEach
     public void setUp() {
         action = new GetHierarchyChildrenAction(projectId, entity, hierarchyDescriptor, PageRequest.requestFirstPage());
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new GetHierarchyChildrenAction(null, entity, hierarchyDescriptor, PageRequest.requestFirstPage());
+        assertThrows(NullPointerException.class, () -> {
+            new GetHierarchyChildrenAction(null, entity, hierarchyDescriptor, PageRequest.requestFirstPage());
+        });
     }
 
     @Test
@@ -47,9 +48,10 @@ public class GetHierarchyChildrenAction_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        new GetHierarchyChildrenAction(projectId, null, hierarchyDescriptor, PageRequest.requestFirstPage());
+        assertThrows(NullPointerException.class, () -> {
+            new GetHierarchyChildrenAction(projectId, null, hierarchyDescriptor, PageRequest.requestFirstPage());
+        });
     }
 
     @Test
@@ -58,9 +60,10 @@ public class GetHierarchyChildrenAction_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_hierarchyId_IsNull() {
-        new GetHierarchyChildrenAction(projectId, entity, null, PageRequest.requestFirstPage());
+        assertThrows(NullPointerException.class, () -> {
+            new GetHierarchyChildrenAction(projectId, entity, null, PageRequest.requestFirstPage());
+        });
     }
 
     @Test

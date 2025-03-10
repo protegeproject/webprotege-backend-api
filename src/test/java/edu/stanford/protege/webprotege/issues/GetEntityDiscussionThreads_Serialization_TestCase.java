@@ -5,7 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import edu.stanford.protege.webprotege.MockingUtils;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.entity.OWLClassData;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 

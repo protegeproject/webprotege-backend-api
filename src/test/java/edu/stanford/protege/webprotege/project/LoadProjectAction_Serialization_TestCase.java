@@ -5,7 +5,7 @@ import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -25,19 +25,19 @@ public class LoadProjectAction_Serialization_TestCase {
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new LoadProjectResult(ProjectId.generate(), UserId.getGuest(),
-                                           ProjectDetails.get(
-                                                   ProjectId.generate(),
-                                                   "The display name",
-                                                   "The description",
-                                                   UserId.getGuest(),
-                                                   false, DictionaryLanguage.localName(),
-                                                   DisplayNameSettings.empty(),
-                                                   1,
-                                                   UserId.getGuest(),
-                                                   2,
-                                                   UserId.getGuest(),
-                                                   EntityDeprecationSettings.empty()
-                                           ));
+                ProjectDetails.get(
+                        ProjectId.generate(),
+                        "The display name",
+                        "The description",
+                        UserId.getGuest(),
+                        false, DictionaryLanguage.localName(),
+                        DisplayNameSettings.empty(),
+                        1,
+                        UserId.getGuest(),
+                        2,
+                        UserId.getGuest(),
+                        EntityDeprecationSettings.empty()
+                ));
 
     }
 }

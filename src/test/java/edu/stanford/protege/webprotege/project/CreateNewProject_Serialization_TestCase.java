@@ -7,7 +7,7 @@ import edu.stanford.protege.webprotege.common.UserId;
 import edu.stanford.protege.webprotege.csv.DocumentId;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -21,12 +21,12 @@ public class CreateNewProject_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new CreateNewProjectAction(ProjectId.generate(),
-                                                NewProjectSettings.get(UserId.getGuest(),
-                                                                       "DisplayName",
-                                                                       "en",
-                                                                       "The description",
-                                                                       new DocumentId("TheDocId")
-        ));
+                NewProjectSettings.get(UserId.getGuest(),
+                        "DisplayName",
+                        "en",
+                        "The description",
+                        new DocumentId("TheDocId")
+                ));
     }
 
     @Test

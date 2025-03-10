@@ -1,13 +1,12 @@
-
 package edu.stanford.protege.webprotege.tag;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.semanticweb.owlapi.model.OWLEntity;
 
 import java.util.Collections;
@@ -16,29 +15,31 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class EntityTags_TestCase {
 
-    private EntityTags entityTags;
+    private final List<TagId> tags = Collections.singletonList(mock(TagId.class));
 
-    private ProjectId projectId = ProjectId.generate();
+    private final ProjectId projectId = ProjectId.generate();
+
+    private EntityTags entityTags;
 
     @Mock
     private OWLEntity entity;
 
-    private final List<TagId> tags = Collections.singletonList(mock(TagId.class));
-
-    @Before
+    @BeforeEach
     public void setUp() {
         entityTags = new EntityTags(projectId, entity, tags);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new EntityTags(null, entity, tags);
+        assertThrows(NullPointerException.class, () -> {
+            new EntityTags(null, entity, tags);
+        });
     }
 
     @Test
@@ -47,9 +48,10 @@ public class EntityTags_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        new EntityTags(projectId, null, tags);
+        assertThrows(NullPointerException.class, () -> {
+            new EntityTags(projectId, null, tags);
+        });
     }
 
     @Test
@@ -58,9 +60,10 @@ public class EntityTags_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_tags_IsNull() {
-        new EntityTags(projectId, entity, null);
+        assertThrows(NullPointerException.class, () -> {
+            new EntityTags(projectId, entity, null);
+        });
     }
 
     @Test

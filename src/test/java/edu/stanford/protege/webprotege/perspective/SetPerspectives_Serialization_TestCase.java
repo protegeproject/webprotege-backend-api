@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.LanguageMap;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -21,17 +21,17 @@ public class SetPerspectives_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new SetPerspectivesAction(ChangeRequestId.generate(), mockProjectId(),
-                                               mockUserId(), ImmutableList.of(
-                        PerspectiveDescriptor.get(PerspectiveId.generate(),
-                                                  LanguageMap.of("en", "Hello"),
-                                                  true)
-                ));
-        
+                mockUserId(), ImmutableList.of(
+                PerspectiveDescriptor.get(PerspectiveId.generate(),
+                        LanguageMap.of("en", "Hello"),
+                        true)
+        ));
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new SetPerspectivesResult(ImmutableList.of(), ImmutableSet.of());
-        
+
     }
 }

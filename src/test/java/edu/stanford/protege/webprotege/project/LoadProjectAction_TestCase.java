@@ -1,29 +1,32 @@
-
 package edu.stanford.protege.webprotege.project;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(org.mockito.runners.MockitoJUnitRunner.class)
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+@ExtendWith(MockitoExtension.class)
 public class LoadProjectAction_TestCase {
 
-    private LoadProjectAction loadProjectAction;
-    private ProjectId projectId = ProjectId.generate();
+    private final ProjectId projectId = ProjectId.generate();
 
-    @Before
+    private LoadProjectAction loadProjectAction;
+
+    @BeforeEach
     public void setUp()
-        throws Exception
-    {
+            throws Exception {
         loadProjectAction = new LoadProjectAction(projectId);
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new LoadProjectAction(null);
+        assertThrows(NullPointerException.class, () -> {
+            new LoadProjectAction(null);
+        });
     }
 
     @Test

@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.permissions;
 
 import com.google.common.collect.ImmutableSet;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -18,13 +18,13 @@ public class GetProjectPermissions_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetProjectPermissionsAction(mockProjectId(),
-                                                        mockUserId());
-        
+                mockUserId());
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new GetProjectPermissionsResult(ImmutableSet.of());
-        
+
     }
 }

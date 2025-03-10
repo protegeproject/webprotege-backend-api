@@ -1,5 +1,8 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+
 import org.junit.jupiter.api.Test;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLDataFactory;
@@ -15,6 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class DataPropertyHierarchyDescriptorJsonTest {
 
     public static final String ROOT_IRI = "http://example.org/prop";
+
     @Autowired
     private JacksonTester<DataPropertyHierarchyDescriptor> jacksonTester;
 
@@ -40,16 +44,16 @@ class DataPropertyHierarchyDescriptorJsonTest {
     @Test
     void testDeserializeClassHierarchyDescriptor() throws Exception {
         var json = """
-        {
-            "@type": "DataPropertyHierarchyDescriptor",
-            "roots": [
                 {
-                    "@type" : "DataProperty",
-                    "iri": "http://example.org/prop"
+                    "@type": "DataPropertyHierarchyDescriptor",
+                    "roots": [
+                        {
+                            "@type" : "DataProperty",
+                            "iri": "http://example.org/prop"
+                        }
+                    ]
                 }
-            ]
-        }
-        """;
+                """;
 
         var objectContent = jacksonTester.parse(json);
         var descriptor = objectContent.getObject();

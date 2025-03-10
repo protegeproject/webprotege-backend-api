@@ -1,10 +1,10 @@
 package edu.stanford.protege.webprotege.merge;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLOntologyID;
@@ -14,23 +14,19 @@ import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 02/03/15
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class OntologyDiff_TestCase {
 
-
-    private OntologyDiff ontologyDiff;
-
-    private OntologyDiff otherOntologyDiff;
 
     private final OWLOntologyID fromOntologyId = new OWLOntologyID();
 
     private final OWLOntologyID toOntologyId = new OWLOntologyID();
+
+    private OntologyDiff ontologyDiff;
+
+    private OntologyDiff otherOntologyDiff;
 
     @Mock
     private Diff<OWLAnnotation> annotationDiff;
@@ -39,30 +35,34 @@ public class OntologyDiff_TestCase {
     private Diff<OWLAxiom> axiomDiff;
 
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         ontologyDiff = new OntologyDiff(fromOntologyId, toOntologyId, annotationDiff, axiomDiff);
         otherOntologyDiff = new OntologyDiff(fromOntologyId, toOntologyId, annotationDiff, axiomDiff);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_FromOntologyId_IsNull() {
-        new OntologyDiff(null, toOntologyId, annotationDiff, axiomDiff);
+        assertThrows(NullPointerException.class, () -> {
+            new OntologyDiff(null, toOntologyId, annotationDiff, axiomDiff);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_ToOntologyId_IsNull() {
-        new OntologyDiff(fromOntologyId, null, annotationDiff, axiomDiff);
+        assertThrows(NullPointerException.class, () -> {
+            new OntologyDiff(fromOntologyId, null, annotationDiff, axiomDiff);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_AnnotationDiff_IsNull() {
-        new OntologyDiff(fromOntologyId, toOntologyId, null, axiomDiff);
+        assertThrows(NullPointerException.class, () -> {
+            new OntologyDiff(fromOntologyId, toOntologyId, null, axiomDiff);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_AxiomDiff_IsNull() {
-        new OntologyDiff(fromOntologyId, toOntologyId, annotationDiff, null);
+        assertThrows(NullPointerException.class, () -> {
+            new OntologyDiff(fromOntologyId, toOntologyId, annotationDiff, null);
+        });
     }
 
     @Test

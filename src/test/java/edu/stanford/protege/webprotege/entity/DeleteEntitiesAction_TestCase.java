@@ -1,38 +1,40 @@
-
 package edu.stanford.protege.webprotege.entity;
 
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.semanticweb.owlapi.model.OWLEntity;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(org.mockito.runners.MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class DeleteEntitiesAction_TestCase {
-
-    private DeleteEntitiesAction deleteEntitiesAction;
-
-    private ProjectId projectId = ProjectId.generate();
-
-    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
 
     private final ImmutableSet<OWLEntity> entities = ImmutableSet.of(mock(OWLEntity.class));
 
-    @Before
+    private final ProjectId projectId = ProjectId.generate();
+
+    private final ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
+    private DeleteEntitiesAction deleteEntitiesAction;
+
+    @BeforeEach
     public void setUp() {
         deleteEntitiesAction = new DeleteEntitiesAction(changeRequestId, projectId, entities);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new DeleteEntitiesAction(changeRequestId, null, entities);
+        assertThrows(NullPointerException.class, () -> {
+            new DeleteEntitiesAction(changeRequestId, null, entities);
+        });
     }
 
     @Test

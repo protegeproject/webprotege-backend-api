@@ -1,11 +1,10 @@
-
 package edu.stanford.protege.webprotege.tag;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
@@ -13,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class AddProjectTagResult_TestCase {
 
     private AddProjectTagResult result;
@@ -21,7 +20,7 @@ public class AddProjectTagResult_TestCase {
     @Mock
     private Tag addedTag;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         result = AddProjectTagResult.create(addedTag);
     }

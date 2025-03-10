@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.match;
 
 import edu.stanford.protege.webprotege.criteria.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -12,6 +12,10 @@ import java.io.IOException;
  */
 public class AnnotationCriteria_Serialization_TestCase {
 
+    private static <V extends AnnotationCriteria> void testSerialization(V value) throws IOException {
+
+    }
+
     @Test
     public void shouldSerialize_AnnotationComponentCriteria() throws IOException {
         testSerialization(
@@ -21,9 +25,5 @@ public class AnnotationCriteria_Serialization_TestCase {
                         AnyAnnotationSetCriteria.get()
                 )
         );
-    }
-
-    private static <V extends AnnotationCriteria> void testSerialization(V value) throws IOException {
-        
     }
 }

@@ -1,41 +1,38 @@
 package edu.stanford.protege.webprotege.sharing;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 07/02/15
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetProjectSharingSettingsAction_TestCase {
 
+
+    private final ProjectId projectId = ProjectId.generate();
 
     private GetProjectSharingSettingsAction action;
 
     private GetProjectSharingSettingsAction otherAction;
 
-    private ProjectId projectId = ProjectId.generate();
-
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         action = new GetProjectSharingSettingsAction(projectId);
         otherAction = new GetProjectSharingSettingsAction(projectId);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        new GetProjectSharingSettingsAction(null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetProjectSharingSettingsAction(null);
+        });
     }
 
     @Test

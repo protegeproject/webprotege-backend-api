@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -15,21 +15,21 @@ import static edu.stanford.protege.webprotege.MockingUtils.mockProjectId;
  */
 public class MoveHierarchyNode_Serialization_TestCase {
 
-    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
+    private final ChangeRequestId changeRequestId = ChangeRequestId.generate();
 
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new MoveHierarchyNodeAction(changeRequestId, mockProjectId(),
-                                                 ClassHierarchyDescriptor.create(),
-                                                 Path.asPath(mockOWLClassNode()),
-                                                 Path.emptyPath(),
-                                                 DropType.ADD);
-        
+                ClassHierarchyDescriptor.create(),
+                Path.asPath(mockOWLClassNode()),
+                Path.emptyPath(),
+                DropType.ADD);
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new MoveHierarchyNodeResult(true);
-        
+
     }
 }

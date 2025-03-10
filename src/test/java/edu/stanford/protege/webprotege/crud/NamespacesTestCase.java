@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.crud;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.semanticweb.owlapi.vocab.Namespaces;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -17,7 +17,7 @@ public class NamespacesTestCase {
      */
     @Test
     public void shouldNotEndWithColon() {
-        for(Namespaces ns : Namespaces.values()) {
+        for (Namespaces ns : Namespaces.values()) {
             assertThat(ns.getPrefixName().endsWith(":"), is(false));
         }
     }

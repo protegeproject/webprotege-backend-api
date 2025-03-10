@@ -1,32 +1,28 @@
 package edu.stanford.protege.webprotege.user;
 
 import edu.stanford.protege.webprotege.common.UserId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 23/02/15
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class UserId_TestCase {
 
 
     public static final String THE_USER_NAME = "The User Name";
+
     private UserId userId;
 
     private UserId otherUserId;
 
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         userId = UserId.valueOf(THE_USER_NAME);
         otherUserId = UserId.valueOf(THE_USER_NAME);

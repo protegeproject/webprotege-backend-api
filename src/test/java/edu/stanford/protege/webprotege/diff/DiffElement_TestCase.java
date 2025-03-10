@@ -1,10 +1,10 @@
 package edu.stanford.protege.webprotege.diff;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.Serializable;
 
@@ -13,15 +13,13 @@ import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 29/01/15
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class DiffElement_TestCase<D extends Serializable, E extends Serializable> {
 
+
+    private final DiffOperation diffOperation = DiffOperation.ADD;
 
     private DiffElement<D, E> diffElement;
 
@@ -33,28 +31,28 @@ public class DiffElement_TestCase<D extends Serializable, E extends Serializable
     @Mock
     private E lineElement;
 
-    private final DiffOperation diffOperation = DiffOperation.ADD;
-
-
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         diffElement = new DiffElement<>(diffOperation, sourceDocument, lineElement);
         otherDiffElement = new DiffElement<>(diffOperation, sourceDocument, lineElement);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_DiffOperation_IsNull() {
-        new DiffElement<>(null, sourceDocument, lineElement);
+        assertThrows(NullPointerException.class, () -> {
+            new DiffElement<>(null, sourceDocument, lineElement);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_SourceDocument_IsNull() {
-        new DiffElement<>(diffOperation, null, lineElement);
+        assertThrows(NullPointerException.class, () -> {
+            new DiffElement<>(diffOperation, null, lineElement);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_LineElement_IsNull() {
-        new DiffElement<>(diffOperation, sourceDocument, null);
+        assertThrows(NullPointerException.class, () -> {
+            new DiffElement<>(diffOperation, sourceDocument, null);
+        });
     }
 
     @Test

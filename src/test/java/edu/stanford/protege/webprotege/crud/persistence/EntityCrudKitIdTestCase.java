@@ -1,10 +1,11 @@
 package edu.stanford.protege.webprotege.crud.persistence;
 
 import edu.stanford.protege.webprotege.crud.EntityCrudKitId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author: Matthew Horridge<br>
@@ -14,9 +15,10 @@ import static org.junit.Assert.assertFalse;
  */
 public class EntityCrudKitIdTestCase {
 
-    @Test(expected = NullPointerException.class)
     public void throwsNullPointerExceptionWithNullLexicalForm() {
-        EntityCrudKitId.get(null);
+        assertThrows(NullPointerException.class, () -> {
+            EntityCrudKitId.get(null);
+        });
     }
 
     @Test
@@ -30,7 +32,7 @@ public class EntityCrudKitIdTestCase {
     public void equalsIsFalseWithDifferentLexicalForms() {
         EntityCrudKitId idA = EntityCrudKitId.get("A");
         EntityCrudKitId idB = EntityCrudKitId.get("B");
-        assertFalse(idA.equals(idB));
+        assertNotEquals(idA, idB);
     }
 
     @Test

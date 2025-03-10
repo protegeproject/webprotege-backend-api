@@ -1,12 +1,6 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 2021-04-21
- */
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 

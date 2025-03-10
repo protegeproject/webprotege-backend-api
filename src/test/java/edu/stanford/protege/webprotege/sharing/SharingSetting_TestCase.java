@@ -1,33 +1,36 @@
-
 package edu.stanford.protege.webprotege.sharing;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(org.mockito.runners.MockitoJUnitRunner.class)
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+@ExtendWith(MockitoExtension.class)
 public class SharingSetting_TestCase {
-
-    private SharingSetting sharingSetting;
-    @Mock
-    private PersonId personId;
 
     private final SharingPermission sharingPermission = SharingPermission.EDIT;
 
-    @Before
+    private SharingSetting sharingSetting;
+
+    @Mock
+    private PersonId personId;
+
+    @BeforeEach
     public void setUp()
-        throws Exception
-    {
+            throws Exception {
         sharingSetting = new SharingSetting(personId, sharingPermission);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_personId_IsNull() {
-        new SharingSetting(null, sharingPermission);
+        assertThrows(NullPointerException.class, () -> {
+            new SharingSetting(null, sharingPermission);
+        });
     }
 
     @Test
@@ -35,9 +38,10 @@ public class SharingSetting_TestCase {
         MatcherAssert.assertThat(sharingSetting.getPersonId(), Matchers.is(this.personId));
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_sharingSetting_IsNull() {
-        new SharingSetting(personId, null);
+        assertThrows(NullPointerException.class, () -> {
+            new SharingSetting(personId, null);
+        });
     }
 
     @Test

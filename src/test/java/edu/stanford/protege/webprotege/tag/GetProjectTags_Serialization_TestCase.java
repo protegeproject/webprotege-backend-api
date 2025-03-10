@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.tag;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -17,13 +17,13 @@ public class GetProjectTags_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetProjectTagsAction(mockProjectId());
-        
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new GetProjectTagsResult(Collections.emptySet(),
-                                                 Collections.emptyMap());
-        
+                Collections.emptyMap());
+
     }
 }

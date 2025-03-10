@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.DictionaryLanguage;
 import edu.stanford.protege.webprotege.search.SearchResultMatch;
 import edu.stanford.protege.webprotege.search.SearchResultMatchPosition;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -21,7 +21,7 @@ public class LookupEntities_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new LookupEntitiesAction(mockProjectId(),
-                                                 new EntityLookupRequest("Search"));
+                new EntityLookupRequest("Search"));
 
     }
 
@@ -29,10 +29,10 @@ public class LookupEntities_Serialization_TestCase {
     public void shouldSerializeResult() throws IOException {
         var result = new LookupEntitiesResult(ImmutableList.of(
                 new EntityLookupResult(SearchResultMatch.get(mockOWLClassNode(),
-                                                             DictionaryLanguage.localName(),
-                                                             "Search",
-                                                             ImmutableList.of(SearchResultMatchPosition.get(2, 4))),
-                                       "link")
+                        DictionaryLanguage.localName(),
+                        "Search",
+                        ImmutableList.of(SearchResultMatchPosition.get(2, 4))),
+                        "link")
         ));
 
     }

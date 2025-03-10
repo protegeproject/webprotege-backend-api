@@ -1,41 +1,43 @@
-
 package edu.stanford.protege.webprotege.perspective;
 
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class ResetPerspectiveLayoutAction_TestCase {
 
+    private final ProjectId projectId = ProjectId.generate();
+
+    private final ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     private ResetPerspectiveLayoutAction resetPerspectiveLayoutAction;
-    private ProjectId projectId = ProjectId.generate();
+
     @Mock
     private PerspectiveId perspectiveId;
 
-    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
-
-    @Before
+    @BeforeEach
     public void setUp()
-        throws Exception
-    {
+            throws Exception {
         resetPerspectiveLayoutAction = new ResetPerspectiveLayoutAction(changeRequestId, projectId, perspectiveId);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new ResetPerspectiveLayoutAction(changeRequestId, null, perspectiveId);
+        assertThrows(NullPointerException.class, () -> {
+            new ResetPerspectiveLayoutAction(changeRequestId, null, perspectiveId);
+        });
     }
 
     @Test
@@ -44,9 +46,10 @@ public class ResetPerspectiveLayoutAction_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_perspectiveId_IsNull() {
-        new ResetPerspectiveLayoutAction(changeRequestId, projectId, null);
+        assertThrows(NullPointerException.class, () -> {
+            new ResetPerspectiveLayoutAction(changeRequestId, projectId, null);
+        });
     }
 
     @Test
@@ -68,26 +71,26 @@ public class ResetPerspectiveLayoutAction_TestCase {
     @Test
     public void shouldBeEqualToOther() {
         assertThat(resetPerspectiveLayoutAction, is(new ResetPerspectiveLayoutAction(changeRequestId,
-                                                                                     projectId, perspectiveId)));
+                projectId, perspectiveId)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
         assertThat(resetPerspectiveLayoutAction, is(not(new ResetPerspectiveLayoutAction(changeRequestId,
-                                                                                         ProjectId.generate(), perspectiveId))));
+                ProjectId.generate(), perspectiveId))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_perspectiveId() {
         assertThat(resetPerspectiveLayoutAction, is(not(new ResetPerspectiveLayoutAction(changeRequestId,
-                                                                                         projectId, mock(PerspectiveId.class)))));
+                projectId, mock(PerspectiveId.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
         assertThat(resetPerspectiveLayoutAction.hashCode(), is(new ResetPerspectiveLayoutAction(changeRequestId,
-                                                                                                projectId, perspectiveId)
-                                                                                           .hashCode()));
+                projectId, perspectiveId)
+                .hashCode()));
     }
 
     @Test

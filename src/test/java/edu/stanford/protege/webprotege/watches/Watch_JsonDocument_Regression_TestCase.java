@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
  * 2021-05-19
- *
+ * <p>
  * Test that the Watch documents stored by Morphia can be read by Jackson
  */
 @JsonTest

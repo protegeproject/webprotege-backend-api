@@ -1,8 +1,7 @@
 package edu.stanford.protege.webprotege.perspective;
 
-
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -15,13 +14,13 @@ public class TerminalNode_Serialization_TestCase {
 
     private TerminalNode terminalNode;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         terminalNode = new TerminalNode(TerminalNodeId.get());
     }
 
     @Test
     public void shouldSerializeTerminalNode() throws IOException {
-        
+
     }
 }

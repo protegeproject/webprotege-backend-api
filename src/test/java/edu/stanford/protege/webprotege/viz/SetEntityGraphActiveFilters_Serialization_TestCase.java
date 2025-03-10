@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.viz;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -20,12 +20,12 @@ public class SetEntityGraphActiveFilters_Serialization_TestCase {
         var action = new SetEntityGraphActiveFiltersAction(ChangeRequestId.generate(), mockProjectId(), ImmutableList.of(
                 FilterName.get("Hello")
         ));
-        
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new SetEntityGraphActiveFiltersResult();
-        
+
     }
 }

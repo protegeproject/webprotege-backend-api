@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.crud;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.semanticweb.owlapi.model.IRI;
 
 import java.util.Optional;
@@ -26,7 +26,7 @@ public class PrefixedNameExpanderTestCase {
     private PrefixedNameExpander expander;
 
 
-    @Before
+    @BeforeEach
     public void setUp() {
         expander = PrefixedNameExpander.builder().withPrefixNamePrefix(PREFIX_NAME, PREFIX).build();
     }

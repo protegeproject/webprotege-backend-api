@@ -1,20 +1,20 @@
 package edu.stanford.protege.webprotege.search;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 
 public class SearchResultMatchPosition_TestCase {
 
-    private SearchResultMatchPosition position;
-
     private final int start = 3;
 
     private final int end = 5;
 
-    @Before
+    private SearchResultMatchPosition position;
+
+    @BeforeEach
     public void setUp() throws Exception {
         position = SearchResultMatchPosition.get(start, end);
     }

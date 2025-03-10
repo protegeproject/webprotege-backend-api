@@ -1,33 +1,34 @@
-
 package edu.stanford.protege.webprotege.project;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetProjectPrefixDeclarationsRequest_TestCase {
-
-    private GetProjectPrefixDeclarationsRequest action;
 
     private final ProjectId projectId = ProjectId.valueOf("12345678-1234-1234-1234-123456789abc");
 
-    @Before
+    private GetProjectPrefixDeclarationsRequest action;
+
+    @BeforeEach
     public void setUp() {
         action = new GetProjectPrefixDeclarationsRequest(projectId);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new GetProjectPrefixDeclarationsRequest(null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetProjectPrefixDeclarationsRequest(null);
+        });
     }
 
     @Test

@@ -1,20 +1,16 @@
 package edu.stanford.protege.webprotege.projectsettings;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 25/11/14
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class SetProjectSettingsResult_TestCase {
 
     @Mock
@@ -22,15 +18,16 @@ public class SetProjectSettingsResult_TestCase {
 
     private SetProjectSettingsResult result;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         result = new SetProjectSettingsResult(settings);
     }
 
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_ProjectSettings_IsNull() {
-        new SetProjectSettingsResult(null);
+        assertThrows(NullPointerException.class, () -> {
+            new SetProjectSettingsResult(null);
+        });
     }
 
     @Test

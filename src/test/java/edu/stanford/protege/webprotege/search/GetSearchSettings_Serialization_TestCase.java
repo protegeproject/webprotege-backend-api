@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.search;
 
 import com.google.common.collect.ImmutableList;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -17,12 +17,12 @@ public class GetSearchSettings_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetSearchSettingsAction(mockProjectId());
-        
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new GetSearchSettingsResult(ImmutableList.of());
-        
+
     }
 }

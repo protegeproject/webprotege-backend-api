@@ -1,13 +1,12 @@
-
 package edu.stanford.protege.webprotege.tag;
 
 import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.semanticweb.owlapi.model.OWLEntity;
 
 import java.util.Collection;
@@ -15,14 +14,17 @@ import java.util.Collections;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class EntityTagsChangedEvent_TestCase {
 
-    private EntityTagsChangedEvent event;
+    private final ProjectId projectId = ProjectId.generate();
 
-    private ProjectId projectId = ProjectId.generate();
+    private final EventId eventId = EventId.generate();
+
+    private EntityTagsChangedEvent event;
 
     @Mock
     private OWLEntity entity;
@@ -30,18 +32,17 @@ public class EntityTagsChangedEvent_TestCase {
     @Mock
     private Collection<Tag> tags;
 
-    private EventId eventId = EventId.generate();
-
-    @Before
+    @BeforeEach
     public void setUp() {
         tags = Collections.singleton(mock(Tag.class));
         event = new EntityTagsChangedEvent(eventId, projectId, entity, tags);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new EntityTagsChangedEvent(eventId, null, entity, tags);
+        assertThrows(NullPointerException.class, () -> {
+            new EntityTagsChangedEvent(eventId, null, entity, tags);
+        });
     }
 
     @Test
@@ -50,9 +51,10 @@ public class EntityTagsChangedEvent_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        new EntityTagsChangedEvent(eventId, projectId, null, tags);
+        assertThrows(NullPointerException.class, () -> {
+            new EntityTagsChangedEvent(eventId, projectId, null, tags);
+        });
     }
 
     @Test
@@ -61,9 +63,10 @@ public class EntityTagsChangedEvent_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_tags_IsNull() {
-        new EntityTagsChangedEvent(eventId, projectId, entity, null);
+        assertThrows(NullPointerException.class, () -> {
+            new EntityTagsChangedEvent(eventId, projectId, entity, null);
+        });
     }
 
     @Test

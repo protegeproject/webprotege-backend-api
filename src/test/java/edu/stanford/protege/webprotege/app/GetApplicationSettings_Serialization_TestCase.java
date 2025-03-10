@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.app;
 
 import edu.stanford.protege.webprotege.user.EmailAddress;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -17,7 +17,7 @@ public class GetApplicationSettings_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetApplicationSettingsAction();
-        
+
     }
 
     @Test
@@ -35,6 +35,6 @@ public class GetApplicationSettings_Serialization_TestCase {
                 NotificationEmailsSetting.SEND_NOTIFICATION_EMAILS,
                 300L
         ));
-        
+
     }
 }

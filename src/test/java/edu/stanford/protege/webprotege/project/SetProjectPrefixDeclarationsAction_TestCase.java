@@ -1,13 +1,12 @@
-
 package edu.stanford.protege.webprotege.project;
 
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +14,12 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class SetProjectPrefixDeclarationsAction_TestCase {
+
+    private final ChangeRequestId changeRequestId = ChangeRequestId.generate();
 
     private SetProjectPrefixDeclarationsAction action;
 
@@ -25,9 +27,7 @@ public class SetProjectPrefixDeclarationsAction_TestCase {
 
     private List<PrefixDeclaration> prefixDeclarations;
 
-    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
-
-    @Before
+    @BeforeEach
     public void setUp() {
         projectId = ProjectId.valueOf("12345678-1234-1234-1234-123456789abc");
         prefixDeclarations = new ArrayList<>();
@@ -36,9 +36,10 @@ public class SetProjectPrefixDeclarationsAction_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new SetProjectPrefixDeclarationsAction(changeRequestId, null, prefixDeclarations);
+        assertThrows(NullPointerException.class, () -> {
+            new SetProjectPrefixDeclarationsAction(changeRequestId, null, prefixDeclarations);
+        });
     }
 
     @Test
@@ -47,9 +48,10 @@ public class SetProjectPrefixDeclarationsAction_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_prefixDeclarations_IsNull() {
-        new SetProjectPrefixDeclarationsAction(changeRequestId, projectId, null);
+        assertThrows(NullPointerException.class, () -> {
+            new SetProjectPrefixDeclarationsAction(changeRequestId, projectId, null);
+        });
     }
 
     @Test
@@ -76,7 +78,7 @@ public class SetProjectPrefixDeclarationsAction_TestCase {
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
         assertThat(action, is(Matchers.not(new SetProjectPrefixDeclarationsAction(changeRequestId,
-                                                                                  ProjectId.generate(), prefixDeclarations))));
+                ProjectId.generate(), prefixDeclarations))));
     }
 
     @Test
@@ -89,7 +91,7 @@ public class SetProjectPrefixDeclarationsAction_TestCase {
     @Test
     public void shouldBeEqualToOtherHashCode() {
         assertThat(action.hashCode(), is(new SetProjectPrefixDeclarationsAction(changeRequestId,
-                                                                                projectId, prefixDeclarations).hashCode()));
+                projectId, prefixDeclarations).hashCode()));
     }
 
     @Test

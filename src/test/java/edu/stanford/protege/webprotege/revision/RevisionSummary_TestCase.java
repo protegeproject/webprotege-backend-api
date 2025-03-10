@@ -1,25 +1,21 @@
-
 package edu.stanford.protege.webprotege.revision;
 
 import edu.stanford.protege.webprotege.common.UserId;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(org.mockito.runners.MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class RevisionSummary_TestCase {
-
-    private RevisionSummary revisionSummary;
-    @Mock
-    private RevisionNumber revisionNumber;
-    private UserId userId = new UserId("UserA");
 
     private final long timestamp = 1L;
 
@@ -27,16 +23,23 @@ public class RevisionSummary_TestCase {
 
     private final String description = "The description";
 
-    @Before
+    private final UserId userId = new UserId("UserA");
+
+    private RevisionSummary revisionSummary;
+
+    @Mock
+    private RevisionNumber revisionNumber;
+
+    @BeforeEach
     public void setUp()
-        throws Exception
-    {
+            throws Exception {
         revisionSummary = new RevisionSummary(revisionNumber, userId, timestamp, changeCount, description);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_revisionNumber_IsNull() {
-        new RevisionSummary(null, userId, timestamp, changeCount, description);
+        assertThrows(NullPointerException.class, () -> {
+            new RevisionSummary(null, userId, timestamp, changeCount, description);
+        });
     }
 
     @Test
@@ -44,9 +47,10 @@ public class RevisionSummary_TestCase {
         assertThat(revisionSummary.getRevisionNumber(), is(this.revisionNumber));
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_usedId_IsNull() {
-        new RevisionSummary(revisionNumber, null, timestamp, changeCount, description);
+        assertThrows(NullPointerException.class, () -> {
+            new RevisionSummary(revisionNumber, null, timestamp, changeCount, description);
+        });
     }
 
     @Test
@@ -59,9 +63,10 @@ public class RevisionSummary_TestCase {
         assertThat(revisionSummary.getChangeCount(), is(this.changeCount));
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_description_IsNull() {
-        new RevisionSummary(revisionNumber, userId, timestamp, changeCount, null);
+        assertThrows(NullPointerException.class, () -> {
+            new RevisionSummary(revisionNumber, userId, timestamp, changeCount, null);
+        });
     }
 
     @Test

@@ -5,7 +5,7 @@ import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.entity.CreateDataPropertiesAction;
 import edu.stanford.protege.webprotege.entity.CreateDataPropertiesResult;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -25,15 +25,15 @@ public class CreateDataProperties_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new CreateDataPropertiesAction(changeRequestId, projectId,
-                                                       "P\nQ",
-                                                       "en", of());
+                "P\nQ",
+                "en", of());
 
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new CreateDataPropertiesResult(ProjectId.generate(),
-                                                       ImmutableSet.of());
+                ImmutableSet.of());
 
     }
 }

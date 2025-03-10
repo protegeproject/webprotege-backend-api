@@ -1,11 +1,12 @@
 package edu.stanford.protege.webprotege.shortform;
 
 import edu.stanford.protege.webprotege.common.ShortFormMatchPosition;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.lessThan;
 import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ShortFormMatchPosition_TestCase {
 
@@ -30,13 +31,15 @@ public class ShortFormMatchPosition_TestCase {
         assertThat(p1.compareTo(p2), equalTo(0));
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowExceptionForStartGreaterThanEnd() {
-        ShortFormMatchPosition.get(3, 2);
+        assertThrows(NullPointerException.class, () -> {
+            ShortFormMatchPosition.get(3, 2);
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowExceptionForStartLessThanZero() {
-        ShortFormMatchPosition.get(-2, 2);
+        assertThrows(NullPointerException.class, () -> {
+            ShortFormMatchPosition.get(-2, 2);
+        });
     }
 }

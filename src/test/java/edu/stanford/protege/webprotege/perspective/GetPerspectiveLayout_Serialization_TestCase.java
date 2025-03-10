@@ -1,6 +1,6 @@
 package edu.stanford.protege.webprotege.perspective;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -17,8 +17,8 @@ public class GetPerspectiveLayout_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetPerspectiveLayoutAction(mockProjectId(),
-                                                       mockUserId(),
-                                                       PerspectiveId.generate());
+                mockUserId(),
+                PerspectiveId.generate());
 
     }
 

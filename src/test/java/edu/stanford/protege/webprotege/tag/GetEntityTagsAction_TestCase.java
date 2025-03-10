@@ -1,37 +1,38 @@
-
 package edu.stanford.protege.webprotege.tag;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.semanticweb.owlapi.model.OWLEntity;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetEntityTagsAction_TestCase {
 
-    private GetEntityTagsAction action;
+    private final ProjectId projectId = ProjectId.generate();
 
-    private ProjectId projectId = ProjectId.generate();
+    private GetEntityTagsAction action;
 
     @Mock
     private OWLEntity entity;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         action = new GetEntityTagsAction(projectId, entity);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new GetEntityTagsAction(null, entity);
+        assertThrows(NullPointerException.class, () -> {
+            new GetEntityTagsAction(null, entity);
+        });
     }
 
     @Test
@@ -40,9 +41,10 @@ public class GetEntityTagsAction_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        new GetEntityTagsAction(projectId, null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetEntityTagsAction(projectId, null);
+        });
     }
 
     @Test

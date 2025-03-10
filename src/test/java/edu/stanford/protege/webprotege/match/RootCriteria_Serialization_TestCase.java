@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.match;
 
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.criteria.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.semanticweb.owlapi.model.EntityType;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
@@ -15,6 +15,10 @@ import java.io.IOException;
  * 18 Jun 2018
  */
 public class RootCriteria_Serialization_TestCase {
+
+    private static <V extends RootCriteria> void testSerialization(V value) throws IOException {
+
+    }
 
     @Test
     public void shouldSerialize_EntityAnnotationCriteria_AtLeastOne() throws IOException {
@@ -111,12 +115,8 @@ public class RootCriteria_Serialization_TestCase {
     public void shouldSerialize_SubClassOfCriteria() throws IOException {
         testSerialization(
                 SubClassOfCriteria.get(new OWLClassImpl(OWLRDFVocabulary.OWL_THING.getIRI()),
-                                       HierarchyFilterType.ALL)
+                        HierarchyFilterType.ALL)
         );
-    }
-
-    private static <V extends RootCriteria> void testSerialization(V value) throws IOException {
-        
     }
 
 }

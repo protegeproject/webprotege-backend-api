@@ -1,37 +1,38 @@
-
 package edu.stanford.protege.webprotege.project;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetProjectPrefixDeclarationsResponse_TestCase {
+
+    private final ProjectId projectId = ProjectId.generate();
 
     private GetProjectPrefixDeclarationsResponse result;
 
-    private ProjectId projectId = ProjectId.generate();
-
     private ImmutableList<PrefixDeclaration> prefixDeclarations;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         prefixDeclarations = ImmutableList.of(PrefixDeclaration.get("a:", "b"));
         result = new GetProjectPrefixDeclarationsResponse(projectId, prefixDeclarations);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new GetProjectPrefixDeclarationsResponse(null, prefixDeclarations);
+        assertThrows(NullPointerException.class, () -> {
+            new GetProjectPrefixDeclarationsResponse(null, prefixDeclarations);
+        });
     }
 
     @Test
@@ -40,9 +41,10 @@ public class GetProjectPrefixDeclarationsResponse_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_prefixDeclarations_IsNull() {
-        new GetProjectPrefixDeclarationsResponse(projectId, null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetProjectPrefixDeclarationsResponse(projectId, null);
+        });
     }
 
     @Test

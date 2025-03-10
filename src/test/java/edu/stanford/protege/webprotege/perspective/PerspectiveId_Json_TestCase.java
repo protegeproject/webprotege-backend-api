@@ -1,8 +1,8 @@
 package edu.stanford.protege.webprotege.perspective;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -18,7 +18,7 @@ public class PerspectiveId_Json_TestCase {
 
     private PerspectiveId perspectiveId;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         perspectiveId = PerspectiveId.get(ID);
     }

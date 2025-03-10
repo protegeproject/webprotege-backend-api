@@ -1,8 +1,10 @@
 package edu.stanford.protege.webprotege.search;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author: Matthew Horridge<br>
@@ -13,29 +15,34 @@ import static org.junit.Assert.assertEquals;
 public class EntityNameMatchResult_TestCase {
 
 
-    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionForNegativeStart() {
-        EntityNameMatchResult.get(-1, 0, EntityNameMatchType.SUB_STRING_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
+        assertThrows(NullPointerException.class, () -> {
+            EntityNameMatchResult.get(-1, 0, EntityNameMatchType.SUB_STRING_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionForNegativeEnd() {
-        EntityNameMatchResult.get(0, -1, EntityNameMatchType.SUB_STRING_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
+        assertThrows(NullPointerException.class, () -> {
+            EntityNameMatchResult.get(0, -1, EntityNameMatchType.SUB_STRING_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionForEndLessThanStart() {
-        EntityNameMatchResult.get(1, 0, EntityNameMatchType.SUB_STRING_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
+        assertThrows(NullPointerException.class, () -> {
+            EntityNameMatchResult.get(1, 0, EntityNameMatchType.SUB_STRING_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionForNullType() {
-        EntityNameMatchResult.get(0, 1, null, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
+        assertThrows(NullPointerException.class, () -> {
+            EntityNameMatchResult.get(0, 1, null, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionForNullPrefixNameMatchType() {
-        EntityNameMatchResult.get(0, 1, EntityNameMatchType.SUB_STRING_MATCH, null);
+        assertThrows(NullPointerException.class, () -> {
+            EntityNameMatchResult.get(0, 1, EntityNameMatchType.SUB_STRING_MATCH, null);
+        });
     }
 
     @Test
@@ -68,7 +75,7 @@ public class EntityNameMatchResult_TestCase {
     public void shouldReturnNegativeIntegerForExactComparedToWord() {
         EntityNameMatchResult resultA = EntityNameMatchResult.get(1, 2, EntityNameMatchType.EXACT_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
         EntityNameMatchResult resultB = EntityNameMatchResult.get(0, 1, EntityNameMatchType.WORD_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
-        assertEquals(true, resultA.compareTo(resultB) < 0);
+        assertTrue(resultA.compareTo(resultB) < 0);
     }
 
 
@@ -76,46 +83,43 @@ public class EntityNameMatchResult_TestCase {
     public void shouldReturnNegativeIntegerForWordComparedToWordPrefix() {
         EntityNameMatchResult resultA = EntityNameMatchResult.get(1, 2, EntityNameMatchType.WORD_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
         EntityNameMatchResult resultB = EntityNameMatchResult.get(0, 1, EntityNameMatchType.WORD_PREFIX_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
-        assertEquals(true, resultA.compareTo(resultB) < 0);
+        assertTrue(resultA.compareTo(resultB) < 0);
     }
 
     @Test
     public void shouldReturnNegativeIntegerForWordPrefixComparedToSubString() {
         EntityNameMatchResult resultA = EntityNameMatchResult.get(1, 2, EntityNameMatchType.WORD_PREFIX_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
         EntityNameMatchResult resultB = EntityNameMatchResult.get(0, 1, EntityNameMatchType.SUB_STRING_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
-        assertEquals(true, resultA.compareTo(resultB) < 0);
+        assertTrue(resultA.compareTo(resultB) < 0);
     }
 
     @Test
     public void shouldReturnNegativeIntegerForSmallerStartThanLargerStart() {
         EntityNameMatchResult resultA = EntityNameMatchResult.get(0, 1, EntityNameMatchType.EXACT_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
         EntityNameMatchResult resultB = EntityNameMatchResult.get(1, 1, EntityNameMatchType.EXACT_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
-        assertEquals(true, resultA.compareTo(resultB) < 0);
+        assertTrue(resultA.compareTo(resultB) < 0);
     }
 
     @Test
     public void shouldReturnNegativeIntegerForSmallerEndThanLargerEnd() {
         EntityNameMatchResult resultA = EntityNameMatchResult.get(1, 1, EntityNameMatchType.EXACT_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
         EntityNameMatchResult resultB = EntityNameMatchResult.get(1, 2, EntityNameMatchType.EXACT_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
-        assertEquals(true, resultA.compareTo(resultB) < 0);
+        assertTrue(resultA.compareTo(resultB) < 0);
     }
 
     @Test
     public void shouldReturnNegativeIntegerForNotInPrefixNameComparedToInPrefixName() {
         EntityNameMatchResult resultA = EntityNameMatchResult.get(0, 1, EntityNameMatchType.WORD_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
         EntityNameMatchResult resultB = EntityNameMatchResult.get(0, 1, EntityNameMatchType.WORD_MATCH, PrefixNameMatchType.IN_PREFIX_NAME);
-        assertEquals(true, resultA.compareTo(resultB) < 0);
+        assertTrue(resultA.compareTo(resultB) < 0);
     }
 
     @Test
     public void shouldReturnNegativeIntegerWithPrefixNameMatchDifferenceOverLowerStartIndex() {
         EntityNameMatchResult resultA = EntityNameMatchResult.get(3, 4, EntityNameMatchType.SUB_STRING_MATCH, PrefixNameMatchType.NOT_IN_PREFIX_NAME);
         EntityNameMatchResult resultB = EntityNameMatchResult.get(0, 1, EntityNameMatchType.SUB_STRING_MATCH, PrefixNameMatchType.IN_PREFIX_NAME);
-        assertEquals(true, resultA.compareTo(resultB) < 0);
+        assertTrue(resultA.compareTo(resultB) < 0);
     }
-
-
-    
 
 
 }

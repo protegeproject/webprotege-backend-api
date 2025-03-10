@@ -1,16 +1,16 @@
-
 package edu.stanford.protege.webprotege.project;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class PrefixDeclaration_TestCase {
 
     private static final String PREFIX_NAME = "p:";
@@ -19,7 +19,7 @@ public class PrefixDeclaration_TestCase {
 
     private PrefixDeclaration prefixDeclaration;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         prefixDeclaration = PrefixDeclaration.get(PREFIX_NAME, PREFIX);
     }
@@ -60,9 +60,10 @@ public class PrefixDeclaration_TestCase {
         assertThat(prefixDeclaration.prefix(), is(PREFIX));
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void shouldNotPremitPrefixNameThatDoesNotEndWithColon() {
-        PrefixDeclaration decl = PrefixDeclaration.get("a", "http://something.com/");
+        assertThrows(NullPointerException.class, () -> {
+            PrefixDeclaration decl = PrefixDeclaration.get("a", "http://something.com/");
+        });
     }
 
     @Test

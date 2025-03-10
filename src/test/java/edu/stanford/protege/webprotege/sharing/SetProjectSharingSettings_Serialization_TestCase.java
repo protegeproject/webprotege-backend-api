@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.sharing;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -22,15 +22,15 @@ public class SetProjectSharingSettings_Serialization_TestCase {
         var action = new SetProjectSharingSettingsAction(ChangeRequestId.generate(), ProjectId.generate(), new ProjectSharingSettings(
                 mockProjectId(),
                 Optional.of(SharingPermission.EDIT), ImmutableList.of(
-                        new SharingSetting(PersonId.get("User"), SharingPermission.EDIT)
+                new SharingSetting(PersonId.get("User"), SharingPermission.EDIT)
         )
         ));
-        
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new SetProjectSharingSettingsResult();
-        
+
     }
 }

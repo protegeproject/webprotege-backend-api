@@ -17,9 +17,13 @@ public class RdfsLabelWithLexicalValueMatcher extends TypeSafeMatcher<OWLAnnotat
         this.expectedValue = expectedValue;
     }
 
+    public static RdfsLabelWithLexicalValueMatcher rdfsLabelWithLexicalValue(String lexicalValue) {
+        return new RdfsLabelWithLexicalValueMatcher(lexicalValue);
+    }
+
     @Override
     protected boolean matchesSafely(OWLAnnotationAssertionAxiom item) {
-        if(!item.getProperty().isLabel()) {
+        if (!item.getProperty().isLabel()) {
             return false;
         }
         OWLAnnotationValue value = item.getValue();
@@ -29,9 +33,5 @@ public class RdfsLabelWithLexicalValueMatcher extends TypeSafeMatcher<OWLAnnotat
     @Override
     public void describeTo(Description description) {
         description.appendText("rdfs:Label annotation assertion with \"" + expectedValue + "\" value");
-    }
-
-    public static RdfsLabelWithLexicalValueMatcher rdfsLabelWithLexicalValue(String lexicalValue) {
-        return new RdfsLabelWithLexicalValueMatcher(lexicalValue);
     }
 }

@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.change;
 
 import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.common.PageRequest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -19,8 +19,8 @@ public class GetProjectChanges_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetProjectChangesAction(mockProjectId(),
-                                                    Optional.empty(),
-                                                    PageRequest.requestFirstPage());
+                Optional.empty(),
+                PageRequest.requestFirstPage());
 
     }
 
