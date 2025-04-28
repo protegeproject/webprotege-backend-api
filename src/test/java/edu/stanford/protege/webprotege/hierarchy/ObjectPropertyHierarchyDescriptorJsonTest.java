@@ -15,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ObjectPropertyHierarchyDescriptorJsonTest {
 
     public static final String ROOT_IRI = "http://example.org/A";
+
     @Autowired
     private JacksonTester<ObjectPropertyHierarchyDescriptor> jacksonTester;
 
@@ -41,16 +42,16 @@ class ObjectPropertyHierarchyDescriptorJsonTest {
     void testDeserializeClassHierarchyDescriptor() throws Exception {
         // Example JSON
         var json = """
-        {
-            "@type": "ObjectPropertyHierarchyDescriptor",
-            "roots": [
                 {
-                    "@type" : "ObjectProperty",
-                    "iri": "http://example.org/A"
+                    "@type": "ObjectPropertyHierarchyDescriptor",
+                    "roots": [
+                        {
+                            "@type" : "ObjectProperty",
+                            "iri": "http://example.org/A"
+                        }
+                    ]
                 }
-            ]
-        }
-        """;
+                """;
 
         var objectContent = jacksonTester.parse(json);
         var descriptor = objectContent.getObject();

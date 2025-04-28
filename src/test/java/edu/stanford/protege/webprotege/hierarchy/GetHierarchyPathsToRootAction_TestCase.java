@@ -1,12 +1,12 @@
-
 package edu.stanford.protege.webprotege.hierarchy;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLEntity;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
@@ -17,27 +17,31 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+@ExtendWith(MockitoExtension.class)
 public class GetHierarchyPathsToRootAction_TestCase {
 
-    private GetHierarchyPathsToRootAction action;
+    private final ProjectId projectId = ProjectId.generate();
 
-    private ProjectId projectId = ProjectId.generate();
+    private final HierarchyDescriptor hierarchyDescriptor = ClassHierarchyDescriptor.create();
+
+    private GetHierarchyPathsToRootAction action;
 
     @Mock
     private OWLEntity entity;
 
-    private HierarchyDescriptor hierarchyDescriptor = ClassHierarchyDescriptor.create();
-
-    @Before
+    @BeforeEach
     public void setUp() {
         action = new GetHierarchyPathsToRootAction(projectId, entity, hierarchyDescriptor);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new GetHierarchyPathsToRootAction(null, entity, hierarchyDescriptor);
+        assertThrows(NullPointerException.class, () -> {
+            new GetHierarchyPathsToRootAction(null, entity, hierarchyDescriptor);
+        });
     }
 
     @Test
@@ -46,9 +50,10 @@ public class GetHierarchyPathsToRootAction_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        new GetHierarchyPathsToRootAction(projectId, null, hierarchyDescriptor);
+        assertThrows(NullPointerException.class, () -> {
+            new GetHierarchyPathsToRootAction(projectId, null, hierarchyDescriptor);
+        });
     }
 
     @Test
@@ -57,9 +62,10 @@ public class GetHierarchyPathsToRootAction_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_hierarchyId_IsNull() {
-        new GetHierarchyPathsToRootAction(projectId, entity, null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetHierarchyPathsToRootAction(projectId, entity, null);
+        });
     }
 
     @Test

@@ -6,7 +6,7 @@ import edu.stanford.protege.webprotege.entity.OWLNamedIndividualData;
 import edu.stanford.protege.webprotege.frame.GetNamedIndividualFrameAction;
 import edu.stanford.protege.webprotege.frame.GetNamedIndividualFrameResult;
 import edu.stanford.protege.webprotege.frame.NamedIndividualFrame;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -23,18 +23,18 @@ public class GetNamedIndividualFrame_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetNamedIndividualFrameAction(mockProjectId(),
-                                                          mockOWLNamedIndividual());
-        
+                mockOWLNamedIndividual());
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new GetNamedIndividualFrameResult(NamedIndividualFrame.get(
                 OWLNamedIndividualData.get(mockOWLNamedIndividual(),
-                                           ImmutableMap.of(), false), ImmutableSet.of(),
+                        ImmutableMap.of(), false), ImmutableSet.of(),
                 ImmutableSet.of(),
                 ImmutableSet.of()
         ));
-        
+
     }
 }

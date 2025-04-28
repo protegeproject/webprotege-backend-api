@@ -1,30 +1,31 @@
-
 package edu.stanford.protege.webprotege.user;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class EmailAddress_TestCase {
-
-    private EmailAddress emailAddress;
 
     private final String address = "x@y.com";
 
-    @Before
+    private EmailAddress emailAddress;
+
+    @BeforeEach
     public void setUp() {
         emailAddress = new EmailAddress(address);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_address_IsNull() {
-        new EmailAddress(null);
+        assertThrows(NullPointerException.class, () -> {
+            new EmailAddress(null);
+        });
     }
 
     @Test

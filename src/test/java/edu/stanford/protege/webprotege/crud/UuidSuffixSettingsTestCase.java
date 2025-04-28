@@ -1,12 +1,11 @@
 package edu.stanford.protege.webprotege.crud;
 
-
 import edu.stanford.protege.webprotege.crud.uuid.UuidSuffixKit;
 import edu.stanford.protege.webprotege.crud.uuid.UuidSuffixSettings;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * Author: Matthew Horridge<br>

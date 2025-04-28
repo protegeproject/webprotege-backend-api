@@ -1,12 +1,12 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLEntity;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
@@ -14,25 +14,24 @@ import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
 import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.startsWith;
+import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 class GetHierarchyParentsActionTest {
 
 
-    private GetHierarchyParentsAction action;
-
     private final ProjectId projectId = ProjectId.generate();
+
+    private GetHierarchyParentsAction action;
 
     @Mock
     private OWLEntity entity;
 
     private HierarchyDescriptor hierarchyDescriptor;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         hierarchyDescriptor = ClassHierarchyDescriptor.create();
         action = new GetHierarchyParentsAction(projectId, entity, hierarchyDescriptor);
@@ -43,9 +42,10 @@ class GetHierarchyParentsActionTest {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new GetHierarchyParentsAction(null, entity, hierarchyDescriptor);
+        assertThrows(NullPointerException.class, () -> {
+            new GetHierarchyParentsAction(null, entity, hierarchyDescriptor);
+        });
     }
 
     @Test
@@ -54,9 +54,10 @@ class GetHierarchyParentsActionTest {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        new GetHierarchyParentsAction(projectId, null, hierarchyDescriptor);
+        assertThrows(NullPointerException.class, () -> {
+            new GetHierarchyParentsAction(projectId, null, hierarchyDescriptor);
+        });
     }
 
 
@@ -67,9 +68,10 @@ class GetHierarchyParentsActionTest {
 
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_hierarchyId_IsNull() {
-        new GetHierarchyParentsAction(projectId, entity, null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetHierarchyParentsAction(projectId, entity, null);
+        });
     }
 
     @Test

@@ -1,29 +1,30 @@
-
 package edu.stanford.protege.webprotege.perspective;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class PerspectiveId_TestCase {
-
-    private PerspectiveId perspectiveId;
 
     private final String id = "12345678-1234-1234-1234-123456789abc";
 
-    @Before
+    private PerspectiveId perspectiveId;
+
+    @BeforeEach
     public void setUp() throws Exception {
         perspectiveId = PerspectiveId.get(id);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_id_IsNull() {
-        PerspectiveId.get(null);
+        assertThrows(NullPointerException.class, () -> {
+            PerspectiveId.get(null);
+        });
     }
 
     @Test

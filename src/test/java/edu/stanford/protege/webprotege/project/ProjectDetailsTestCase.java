@@ -5,36 +5,30 @@ import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
 import edu.stanford.protege.webprotege.projectsettings.EntityDeprecationSettings;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * Author: Matthew Horridge<br>
- * Stanford University<br>
- * Bio-Medical Informatics Research Group<br>
- * Date: 17/10/2013
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class ProjectDetailsTestCase {
 
     public static final boolean IN_TRASH = true;
 
-    private ProjectId projectId = ProjectId.generate();
-
-    private UserId owner = new UserId("UserX");
-
     private final long createdAt = 22L;
-
-    private UserId createdBy = new UserId("UserA");
 
     private final long modifiedAt = 33L;
 
-    private UserId modifiedBy = new UserId("UserY");
+    private final ProjectId projectId = ProjectId.generate();
+
+    private final UserId owner = new UserId("UserX");
+
+    private final UserId createdBy = new UserId("UserA");
+
+    private final UserId modifiedBy = new UserId("UserY");
 
 
     private String displayName;
@@ -46,20 +40,20 @@ public class ProjectDetailsTestCase {
     @Mock
     private EntityDeprecationSettings entityDeprecationSettings;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         displayName = "DisplayName";
         description = "Description";
         projectDetails = ProjectDetails.get(projectId, displayName, description,
-                                            owner,
-                                            IN_TRASH,
-                                            DictionaryLanguage.rdfsLabel(""),
-                                            DisplayNameSettings.empty(),
-                                            createdAt,
-                                            createdBy,
-                                            modifiedAt,
-                                            modifiedBy,
-                                            entityDeprecationSettings);
+                owner,
+                IN_TRASH,
+                DictionaryLanguage.rdfsLabel(""),
+                DisplayNameSettings.empty(),
+                createdAt,
+                createdBy,
+                modifiedAt,
+                modifiedBy,
+                entityDeprecationSettings);
     }
 
     @Test

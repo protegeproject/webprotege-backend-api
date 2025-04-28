@@ -1,35 +1,36 @@
-
 package edu.stanford.protege.webprotege.event;
 
 import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.permissions.PermissionsChangedEvent;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class PermissionsChangedEvent_TestCase {
+
+    private final ProjectId source = ProjectId.generate();
+
+    private final EventId eventId = EventId.generate();
 
     private PermissionsChangedEvent permissionsChangedEvent;
 
-    private ProjectId source = ProjectId.generate();
-
-    private EventId eventId = EventId.generate();
-
-    @Before
+    @BeforeEach
     public void setUp() {
         permissionsChangedEvent = new PermissionsChangedEvent(eventId, source);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_source_IsNull() {
-        new PermissionsChangedEvent(eventId, null);
+        assertThrows(NullPointerException.class, () -> {
+            new PermissionsChangedEvent(eventId, null);
+        });
     }
 
     @Test

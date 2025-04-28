@@ -1,40 +1,41 @@
-
 package edu.stanford.protege.webprotege.watches;
 
 import edu.stanford.protege.webprotege.common.UserId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.semanticweb.owlapi.model.OWLEntity;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class Watch_TestCase {
 
-    private Watch watch;
+    private final WatchType type = WatchType.ENTITY;
 
-    private UserId userId = new UserId("UserA");
+    private final UserId userId = new UserId("UserA");
+
+    private Watch watch;
 
     @Mock
     private OWLEntity entity;
 
-    private final WatchType type = WatchType.ENTITY;
-
-    @Before
+    @BeforeEach
     public void setUp()
             throws Exception {
         watch = Watch.create(userId, entity, type);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        Watch.create(null, entity, type);
+        assertThrows(NullPointerException.class, () -> {
+            Watch.create(null, entity, type);
+        });
     }
 
     @Test
@@ -43,9 +44,10 @@ public class Watch_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entity_IsNull() {
-        Watch.create(userId, null, type);
+        assertThrows(NullPointerException.class, () -> {
+            Watch.create(userId, null, type);
+        });
     }
 
     @Test
@@ -54,9 +56,10 @@ public class Watch_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_type_IsNull() {
-        Watch.create(userId, entity, null);
+        assertThrows(NullPointerException.class, () -> {
+            Watch.create(userId, entity, null);
+        });
     }
 
     @Test
@@ -83,23 +86,23 @@ public class Watch_TestCase {
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_userId() {
         assertThat(watch,
-                   is(not(Watch.create(new UserId("OtherUser"), entity, type))));
+                is(not(Watch.create(new UserId("OtherUser"), entity, type))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_entity() {
         assertThat(watch,
-                   is(not(Watch.create(userId,
-                                    mock(OWLEntity.class),
-                                    type))));
+                is(not(Watch.create(userId,
+                        mock(OWLEntity.class),
+                        type))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_type() {
         assertThat(watch,
-                   is(not(Watch.create(userId,
-                                    entity,
-                                    WatchType.BRANCH))));
+                is(not(Watch.create(userId,
+                        entity,
+                        WatchType.BRANCH))));
     }
 
     @Test

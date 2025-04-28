@@ -1,34 +1,36 @@
-
 package edu.stanford.protege.webprotege.user;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class UserIdProjectIdKey_TestCase {
 
-    private UserIdProjectIdKey userIdProjectIdKey;
-    private UserId userId = new UserId("UserA");
-    private ProjectId projectId = ProjectId.generate();
+    private final UserId userId = new UserId("UserA");
 
-    @Before
+    private final ProjectId projectId = ProjectId.generate();
+
+    private UserIdProjectIdKey userIdProjectIdKey;
+
+    @BeforeEach
     public void setUp()
-        throws Exception
-    {
+            throws Exception {
         userIdProjectIdKey = new UserIdProjectIdKey(userId, projectId);
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        new UserIdProjectIdKey(null, projectId);
+        assertThrows(NullPointerException.class, () -> {
+            new UserIdProjectIdKey(null, projectId);
+        });
     }
 
     @Test
@@ -36,9 +38,10 @@ public class UserIdProjectIdKey_TestCase {
         assertThat(userIdProjectIdKey.getUserId(), is(this.userId));
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new UserIdProjectIdKey(userId, null);
+        assertThrows(NullPointerException.class, () -> {
+            new UserIdProjectIdKey(userId, null);
+        });
     }
 
     @Test

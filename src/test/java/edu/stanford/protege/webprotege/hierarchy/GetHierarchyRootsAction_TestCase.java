@@ -1,33 +1,34 @@
-
 package edu.stanford.protege.webprotege.hierarchy;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.mockito.Mockito.mock;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetHierarchyRootsAction_TestCase {
 
-    private GetHierarchyRootsAction action;
-    private ProjectId projectId = ProjectId.generate();
-    private HierarchyDescriptor hierarchyDescriptor = ClassHierarchyDescriptor.create();
+    private final ProjectId projectId = ProjectId.generate();
 
-    @Before
+    private final HierarchyDescriptor hierarchyDescriptor = ClassHierarchyDescriptor.create();
+
+    private GetHierarchyRootsAction action;
+
+    @BeforeEach
     public void setUp() {
         action = new GetHierarchyRootsAction(projectId, hierarchyDescriptor);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new GetHierarchyRootsAction(null, hierarchyDescriptor);
+        assertThrows(NullPointerException.class, () -> {
+            new GetHierarchyRootsAction(null, hierarchyDescriptor);
+        });
     }
 
     @Test
@@ -36,9 +37,10 @@ public class GetHierarchyRootsAction_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_hierarchyId_IsNull() {
-        new GetHierarchyRootsAction(projectId, null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetHierarchyRootsAction(projectId, null);
+        });
     }
 
     @Test

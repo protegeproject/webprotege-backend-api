@@ -28,12 +28,12 @@ public class Tag_Serialization_TestCase {
     public void shouldSerializeTag() throws Exception {
         var tagId = TagId.createTagId();
         Tag tag = Tag.get(tagId,
-                          ProjectId.valueOf("12345678-1234-1234-1234-123456789abc"),
-                          "The label",
-                          "The description",
-                          Color.getRGB(1, 2, 3),
-                          Color.getRGB(5, 6, 7),
-                          ImmutableList.of(EntityIsNotDeprecatedCriteria.get()));
+                ProjectId.valueOf("12345678-1234-1234-1234-123456789abc"),
+                "The label",
+                "The description",
+                Color.getRGB(1, 2, 3),
+                Color.getRGB(5, 6, 7),
+                ImmutableList.of(EntityIsNotDeprecatedCriteria.get()));
         var json = tester.write(tag);
         assertThat(json).extractingJsonPathStringValue("_id").isEqualTo(tagId.value());
         assertThat(json).extractingJsonPathStringValue("projectId").isEqualTo("12345678-1234-1234-1234-123456789abc");

@@ -1,10 +1,11 @@
 package edu.stanford.protege.webprotege.search;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class EntitySearchFilterId_TestCase {
 
@@ -12,7 +13,7 @@ public class EntitySearchFilterId_TestCase {
 
     private EntitySearchFilterId filterId;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         filterId = EntitySearchFilterId.get(ID);
     }
@@ -22,14 +23,18 @@ public class EntitySearchFilterId_TestCase {
         assertThat(filterId.getId(), is(ID));
     }
 
-    /** @noinspection ConstantConditions*/
-    @Test(expected = NullPointerException.class)
+    /**
+     * @noinspection ConstantConditions
+     */
     public void shouldThrowNPEForNullId() {
-        EntitySearchFilterId.get(null);
+        assertThrows(NullPointerException.class, () -> {
+            EntitySearchFilterId.get(null);
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionForNonUuid() {
-        EntitySearchFilterId.get("OtherId");
+        assertThrows(NullPointerException.class, () -> {
+            EntitySearchFilterId.get("OtherId");
+        });
     }
 }

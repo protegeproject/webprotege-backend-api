@@ -39,11 +39,11 @@ public class ProjectEntityCrudKitSettings_SerializationTestCase {
     @BeforeEach
     public void setUp() {
         settings = ProjectEntityCrudKitSettings.get(projectId,
-                                                    EntityCrudKitSettings.get(
-                                                            EntityCrudKitPrefixSettings.get(),
-                                                            UuidSuffixSettings.get(),
-                                                            GeneratedAnnotationsSettings.empty()
-                                                    ));
+                EntityCrudKitSettings.get(
+                        EntityCrudKitPrefixSettings.get(),
+                        UuidSuffixSettings.get(),
+                        GeneratedAnnotationsSettings.empty()
+                ));
     }
 
     @Test

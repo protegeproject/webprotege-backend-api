@@ -1,8 +1,8 @@
 package edu.stanford.protege.webprotege.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -18,7 +18,7 @@ public class EmailAddress_Json_TestCase {
 
     private EmailAddress emailAddress;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         emailAddress = new EmailAddress(ADDRESS);
     }

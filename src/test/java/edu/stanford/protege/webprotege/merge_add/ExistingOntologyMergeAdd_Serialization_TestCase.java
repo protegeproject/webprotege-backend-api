@@ -4,7 +4,7 @@ import edu.stanford.protege.webprotege.MockingUtils;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.csv.DocumentId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -20,10 +20,10 @@ public class ExistingOntologyMergeAdd_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new ExistingOntologyMergeAddAction(ChangeRequestId.generate(),
-                                                        ProjectId.generate(),
-                                                        new DocumentId("abc"),
-                                                        Collections.emptyList(),
-                                                        MockingUtils.mockOWLOntologyID());
+                ProjectId.generate(),
+                new DocumentId("abc"),
+                Collections.emptyList(),
+                MockingUtils.mockOWLOntologyID());
 
     }
 

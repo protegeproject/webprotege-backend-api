@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.perspective;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -19,13 +19,13 @@ public abstract class GetPerspectives_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetPerspectivesAction(mockProjectId(),
-                                                  mockUserId());
-        
+                mockUserId());
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new GetPerspectivesResult(ImmutableList.of(), ImmutableSet.of());
-        
+
     }
 }

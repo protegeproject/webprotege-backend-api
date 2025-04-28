@@ -3,22 +3,22 @@ package edu.stanford.protege.webprotege.search;
 import edu.stanford.protege.webprotege.common.LanguageMap;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.criteria.EntityMatchCriteria;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class EntitySearchFilter_TestCase {
+
+    private final ProjectId projectId = ProjectId.generate();
 
     @Mock
     private EntitySearchFilterId id;
-
-    private ProjectId projectId = ProjectId.generate();
 
     @Mock
     private LanguageMap label;
@@ -28,12 +28,12 @@ public class EntitySearchFilter_TestCase {
 
     private EntitySearchFilter filter;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         filter = EntitySearchFilter.get(id,
-                                        projectId,
-                                        label,
-                                        matchCriteria);
+                projectId,
+                label,
+                matchCriteria);
     }
 
     @Test

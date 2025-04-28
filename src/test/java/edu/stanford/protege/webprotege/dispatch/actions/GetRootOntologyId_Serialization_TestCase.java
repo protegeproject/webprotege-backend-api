@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.dispatch.actions;
 
 import edu.stanford.protege.webprotege.ontology.GetRootOntologyIdAction;
 import edu.stanford.protege.webprotege.ontology.GetRootOntologyIdResult;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -19,12 +19,12 @@ public class GetRootOntologyId_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetRootOntologyIdAction(mockProjectId());
-        
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new GetRootOntologyIdResult(mockProjectId(), mockOWLOntologyID());
-        
+
     }
 }

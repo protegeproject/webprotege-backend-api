@@ -1,26 +1,26 @@
-
 package edu.stanford.protege.webprotege.change;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.revision.RevisionNumber;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(org.mockito.runners.MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class RevertRevisionResult_TestCase {
 
-    private RevertRevisionResult revertRevisionResult;
+    private final ProjectId projectId = ProjectId.generate();
 
-    private ProjectId projectId = ProjectId.generate();
+    private RevertRevisionResult revertRevisionResult;
 
     @Mock
     private RevisionNumber revisionNumber;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         revertRevisionResult = new RevertRevisionResult(projectId, revisionNumber);
     }

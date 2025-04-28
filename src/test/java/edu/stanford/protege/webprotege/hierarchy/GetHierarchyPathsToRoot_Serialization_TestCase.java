@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -18,8 +18,8 @@ public abstract class GetHierarchyPathsToRoot_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetHierarchyPathsToRootAction(ProjectId.generate(),
-                                                          mockOWLClass(),
-                                                          ClassHierarchyDescriptor.create());
+                mockOWLClass(),
+                ClassHierarchyDescriptor.create());
 
     }
 

@@ -1,55 +1,56 @@
-
 package edu.stanford.protege.webprotege.tag;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.color.Color;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.criteria.RootCriteria;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class Tag_TestCase {
+
+    private final String tagLabel = "The label";
+
+    private final String description = "The description";
+
+    private final ProjectId projectId = ProjectId.generate();
 
     private Tag tag;
 
     @Mock
     private TagId tagId;
 
-    private ProjectId projectId = ProjectId.generate();
-
-    private final String tagLabel = "The label";
-
-    private final String description = "The description";
-
     @Mock
     private Color color;
 
     @Mock
     private Color backgroundColor;
-    
+
     private ImmutableList<RootCriteria> criteria;
 
     @Mock
     private RootCriteria rootCriteria;
-    
-    @Before
+
+    @BeforeEach
     public void setUp() {
         criteria = ImmutableList.of(rootCriteria);
         tag = Tag.get(tagId, projectId, tagLabel, description, color, backgroundColor, criteria);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_tagId_IsNull() {
-        Tag.get(null, projectId, tagLabel, description, color, backgroundColor, criteria);
+        assertThrows(NullPointerException.class, () -> {
+            Tag.get(null, projectId, tagLabel, description, color, backgroundColor, criteria);
+        });
     }
 
     @Test
@@ -58,9 +59,10 @@ public class Tag_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        Tag.get(tagId, null, tagLabel, description, color, backgroundColor, criteria);
+        assertThrows(NullPointerException.class, () -> {
+            Tag.get(tagId, null, tagLabel, description, color, backgroundColor, criteria);
+        });
     }
 
     @Test
@@ -69,24 +71,27 @@ public class Tag_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_tagLabel_IsNull() {
-        Tag.get(tagId, projectId, null, description, color, backgroundColor, criteria);
+        assertThrows(NullPointerException.class, () -> {
+            Tag.get(tagId, projectId, null, description, color, backgroundColor, criteria);
+        });
     }
 
     @Test
     public void shouldReturnSupplied_tagLabel() {
         assertThat(tag.getLabel(), is(this.tagLabel));
     }
+
     @Test
     public void shouldReturnSupplied_description() {
         assertThat(tag.getDescription(), is(this.description));
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_color_IsNull() {
-        Tag.get(tagId, projectId, tagLabel, description, null, backgroundColor, criteria);
+        assertThrows(NullPointerException.class, () -> {
+            Tag.get(tagId, projectId, tagLabel, description, null, backgroundColor, criteria);
+        });
     }
 
     @Test
@@ -95,9 +100,10 @@ public class Tag_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_backgroundColor_IsNull() {
-        Tag.get(tagId, projectId, tagLabel, description, color, null, criteria);
+        assertThrows(NullPointerException.class, () -> {
+            Tag.get(tagId, projectId, tagLabel, description, color, null, criteria);
+        });
     }
 
     @Test

@@ -1,8 +1,7 @@
 package edu.stanford.protege.webprotege.perspective;
 
-
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -15,13 +14,13 @@ public class ParentNode_Serialization_TestCase {
 
     private ParentNode parentNode;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         parentNode = new ParentNode(Direction.ROW);
     }
 
     @Test
     public void shouldSerializeParentNode() throws IOException {
-        
+
     }
 }

@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.bulkop;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -27,8 +27,8 @@ public class EditAnnotations_Serialization_TestCase {
                 false,
                 Optional.empty(),
                 NewAnnotationData.get(Optional.empty(),
-                                      Optional.empty(),
-                                      Optional.empty()),
+                        Optional.empty(),
+                        Optional.empty()),
                 "Msg"
         );
 

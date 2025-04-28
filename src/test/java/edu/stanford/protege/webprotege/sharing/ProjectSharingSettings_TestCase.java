@@ -1,11 +1,10 @@
-
 package edu.stanford.protege.webprotege.sharing;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,27 +12,29 @@ import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class ProjectSharingSettings_TestCase {
-
-    private ProjectSharingSettings projectSharingSettings;
-
-    private ProjectId projectId = ProjectId.generate();
 
     private final Optional<SharingPermission> linkSharingPermission = Optional.of(SharingPermission.EDIT);
 
     private final List<SharingSetting> sharingSettings = new ArrayList<>();
 
-    @Before
+    private final ProjectId projectId = ProjectId.generate();
+
+    private ProjectSharingSettings projectSharingSettings;
+
+    @BeforeEach
     public void setUp() {
         projectSharingSettings = new ProjectSharingSettings(projectId, linkSharingPermission, sharingSettings);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new ProjectSharingSettings(null, linkSharingPermission, sharingSettings);
+        assertThrows(NullPointerException.class, () -> {
+            new ProjectSharingSettings(null, linkSharingPermission, sharingSettings);
+        });
     }
 
     @Test
@@ -41,9 +42,10 @@ public class ProjectSharingSettings_TestCase {
         assertThat(projectSharingSettings.getProjectId(), is(this.projectId));
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_linkSharingPermission_IsNull() {
-        new ProjectSharingSettings(projectId, null, sharingSettings);
+        assertThrows(NullPointerException.class, () -> {
+            new ProjectSharingSettings(projectId, null, sharingSettings);
+        });
     }
 
     @Test
@@ -51,9 +53,10 @@ public class ProjectSharingSettings_TestCase {
         assertThat(projectSharingSettings.getLinkSharingPermission(), is(this.linkSharingPermission));
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_sharingSettings_IsNull() {
-        new ProjectSharingSettings(projectId, linkSharingPermission, null);
+        assertThrows(NullPointerException.class, () -> {
+            new ProjectSharingSettings(projectId, linkSharingPermission, null);
+        });
     }
 
     @Test

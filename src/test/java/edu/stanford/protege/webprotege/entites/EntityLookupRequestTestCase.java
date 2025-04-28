@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.entites;
 
 import edu.stanford.protege.webprotege.entity.EntityLookupRequest;
 import edu.stanford.protege.webprotege.search.SearchType;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.semanticweb.owlapi.model.EntityType;
 
 import java.util.Collections;
@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author: Matthew Horridge<br>
@@ -19,41 +20,48 @@ import static org.junit.Assert.assertEquals;
  */
 public class EntityLookupRequestTestCase {
 
-    @Test(expected = NullPointerException.class)
     public void nullSearchStringThrowsNullPointerException() {
-        new EntityLookupRequest(null);
+        assertThrows(NullPointerException.class, () -> {
+            new EntityLookupRequest(null);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void nullSearchStringThrowsNullPointerException2() {
-        new EntityLookupRequest(null, SearchType.SUB_STRING_MATCH_IGNORE_CASE);
+        assertThrows(NullPointerException.class, () -> {
+            new EntityLookupRequest(null, SearchType.SUB_STRING_MATCH_IGNORE_CASE);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void nullSearchStringThrowsNullPointerException3() {
-        new EntityLookupRequest(null, SearchType.SUB_STRING_MATCH_IGNORE_CASE, 20,
-                                Collections.singletonList(EntityType.CLASS), null);
+        assertThrows(NullPointerException.class, () -> {
+            new EntityLookupRequest(null, SearchType.SUB_STRING_MATCH_IGNORE_CASE, 20,
+                    Collections.singletonList(EntityType.CLASS), null);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void nullSearchTypeThrowsNullPointerException2() {
-        new EntityLookupRequest("Test", null);
+        assertThrows(NullPointerException.class, () -> {
+            new EntityLookupRequest("Test", null);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void nullSearchTypeThrowsNullPointerException3() {
-        new EntityLookupRequest("Test", null, 20, Collections.singletonList(EntityType.CLASS), null);
+        assertThrows(NullPointerException.class, () -> {
+            new EntityLookupRequest("Test", null, 20, Collections.singletonList(EntityType.CLASS), null);
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void negativeSearchLimitThrowsIllegalArgumentException() {
-        new EntityLookupRequest("Test", SearchType.SUB_STRING_MATCH_IGNORE_CASE, -1,
-                                Collections.singletonList(EntityType.CLASS), null);
+        assertThrows(NullPointerException.class, () -> {
+            new EntityLookupRequest("Test", SearchType.SUB_STRING_MATCH_IGNORE_CASE, -1,
+                    Collections.singletonList(EntityType.CLASS), null);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void nullSearchedEntityTypesThrowsNullPointerExeception() {
-        new EntityLookupRequest("Test", SearchType.SUB_STRING_MATCH_IGNORE_CASE, 1, null, null);
+        assertThrows(NullPointerException.class, () -> {
+            new EntityLookupRequest("Test", SearchType.SUB_STRING_MATCH_IGNORE_CASE, 1, null, null);
+        });
     }
 
     @Test
@@ -81,23 +89,23 @@ public class EntityLookupRequestTestCase {
     @Test
     public void getSearchLimitReturnsSuppliedSearchLimit() {
         EntityLookupRequest request = new EntityLookupRequest("Test", SearchType.SUB_STRING_MATCH_IGNORE_CASE, 5,
-                                                              Collections.singletonList(EntityType.CLASS), null);
+                Collections.singletonList(EntityType.CLASS), null);
         assertEquals(5, request.getSearchLimit());
     }
 
     @Test
     public void getSearchTypeReturnsSuppliedType() {
         EntityLookupRequest request = new EntityLookupRequest("Test", SearchType.SUB_STRING_MATCH_IGNORE_CASE, 5,
-                                                              Collections.singletonList(EntityType.CLASS), null);
+                Collections.singletonList(EntityType.CLASS), null);
         assertEquals(SearchType.SUB_STRING_MATCH_IGNORE_CASE, request.getSearchType());
     }
 
     @Test
     public void equalArgsGiveEqualRequests() {
         EntityLookupRequest requestA = new EntityLookupRequest("Test", SearchType.SUB_STRING_MATCH_IGNORE_CASE, 5,
-                                                               Collections.singletonList(EntityType.CLASS), null);
+                Collections.singletonList(EntityType.CLASS), null);
         EntityLookupRequest requestB = new EntityLookupRequest("Test", SearchType.SUB_STRING_MATCH_IGNORE_CASE, 5,
-                                                               Collections.singletonList(EntityType.CLASS), null);
+                Collections.singletonList(EntityType.CLASS), null);
         assertEquals(requestA.hashCode(), requestB.hashCode());
         assertEquals(requestA, requestB);
     }

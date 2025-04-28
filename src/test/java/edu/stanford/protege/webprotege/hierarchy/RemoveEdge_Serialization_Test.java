@@ -26,10 +26,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 class RemoveEdge_Serialization_Test {
 
     @Autowired
-    JacksonTester<GraphModelChange<EntityNode>> tester;
+    ObjectMapper objectMapper;
 
     @Autowired
-    ObjectMapper objectMapper;
+    JacksonTester<GraphModelChange<EntityNode>> tester;
 
     @BeforeEach
     void setUp() throws JsonProcessingException {
@@ -40,9 +40,9 @@ class RemoveEdge_Serialization_Test {
         var written = tester.write(new RemoveEdge<>(
                 new GraphEdge<>(
                         GraphNode.getForEntityNode(MockingUtils.mockOWLClassNode(),
-                                                   false),
+                                false),
                         GraphNode.getForEntityNode(MockingUtils.mockOWLClassNode(),
-                                                   false)
+                                false)
                 )
         ));
         assertThat(written).hasJsonPathStringValue("type", "RemoveEdge");

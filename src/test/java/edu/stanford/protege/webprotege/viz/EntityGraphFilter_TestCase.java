@@ -1,20 +1,15 @@
 package edu.stanford.protege.webprotege.viz;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 2019-12-11
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class EntityGraphFilter_TestCase {
 
 
@@ -32,13 +27,13 @@ public class EntityGraphFilter_TestCase {
     @Mock
     private CompositeEdgeCriteria exclusionCriteria;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         filter = EntityGraphFilter.get(filterName,
-                                       THE_DESCRIPTION,
-                                       inclusionCriteria,
-                                       exclusionCriteria,
-                                       true);
+                THE_DESCRIPTION,
+                inclusionCriteria,
+                exclusionCriteria,
+                true);
     }
 
     @Test

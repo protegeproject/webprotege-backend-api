@@ -1,20 +1,20 @@
-
 package edu.stanford.protege.webprotege.tag;
 
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Collection;
 import java.util.Collections;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetEntityTagsResult_TestCase {
 
     private GetEntityTagsResult result;
@@ -23,7 +23,7 @@ public class GetEntityTagsResult_TestCase {
 
     private Collection<Tag> projectTags;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         entityTags = Collections.singletonList(mock(Tag.class));
         projectTags = Collections.singletonList(mock(Tag.class));
@@ -31,9 +31,10 @@ public class GetEntityTagsResult_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_entityTags_IsNull() {
-        new GetEntityTagsResult(null, projectTags);
+        assertThrows(NullPointerException.class, () -> {
+            new GetEntityTagsResult(null, projectTags);
+        });
     }
 
     @Test
@@ -42,9 +43,10 @@ public class GetEntityTagsResult_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectTags_IsNull() {
-        new GetEntityTagsResult(entityTags, null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetEntityTagsResult(entityTags, null);
+        });
     }
 
     @Test

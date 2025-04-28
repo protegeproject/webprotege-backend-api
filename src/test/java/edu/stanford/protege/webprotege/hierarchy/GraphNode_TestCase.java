@@ -4,22 +4,17 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.MockingUtils;
 import edu.stanford.protege.webprotege.entity.EntityNode;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.IOException;
 import java.io.Serializable;
 
 import static org.junit.Assert.*;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 2021-04-21
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GraphNode_TestCase<T extends Serializable> {
 
     @Mock
@@ -53,13 +48,13 @@ public class GraphNode_TestCase<T extends Serializable> {
     public void shouldReturnNotEqualForNodesWithDifferentUserObjects() {
         GraphNode<T> nodeA = new GraphNode<>(userObject, false);
         GraphNode<T> nodeB = new GraphNode<>(otherUserObject, false);
-        assertFalse(nodeA.equals(nodeB));
+        assertNotEquals(nodeA, nodeB);
     }
 
     @Test
     public void shouldReturnFalseForEqualsCalledWithNullArgument() {
         GraphNode<T> node = new GraphNode<>(userObject);
-        assertFalse(node.equals(null));
+        assertNotEquals(null, node);
     }
 
     @Test

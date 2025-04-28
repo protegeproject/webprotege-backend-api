@@ -1,30 +1,32 @@
-
 package edu.stanford.protege.webprotege.hierarchy;
 
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class HierarchyId_TestCase {
 
     private static final String ID = "TheHierarchy";
+
     private HierarchyId hierarchyId;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         hierarchyId = HierarchyId.get(ID);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        HierarchyId.get(null);
+        assertThrows(NullPointerException.class, () -> {
+            HierarchyId.get(null);
+        });
     }
 
     @Test

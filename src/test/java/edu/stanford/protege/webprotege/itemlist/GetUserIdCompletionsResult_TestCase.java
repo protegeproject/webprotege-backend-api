@@ -1,4 +1,3 @@
-
 package edu.stanford.protege.webprotege.itemlist;
 
 import com.google.common.collect.ImmutableList;
@@ -6,30 +5,33 @@ import edu.stanford.protege.webprotege.common.UserId;
 import edu.stanford.protege.webprotege.user.GetUserIdCompletionsResult;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(org.mockito.runners.MockitoJUnitRunner.class)
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+@ExtendWith(MockitoExtension.class)
 public class GetUserIdCompletionsResult_TestCase {
+
+    private final UserId userId = new UserId("UserA");
 
     private GetUserIdCompletionsResult result;
 
-    private UserId userId = new UserId("UserA");
-
     private ImmutableList<UserId> possibleItemCompletions;
 
-    @Before
+    @BeforeEach
     public void setUp()
-        throws Exception
-    {
+            throws Exception {
         possibleItemCompletions = ImmutableList.of(userId);
         result = new GetUserIdCompletionsResult(possibleItemCompletions);
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_possibleItemCompletions_IsNull() {
-        new GetUserIdCompletionsResult(null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetUserIdCompletionsResult(null);
+        });
     }
 
     @Test
@@ -56,7 +58,7 @@ public class GetUserIdCompletionsResult_TestCase {
     @Test
     public void shouldBeEqualToOtherHashCode() {
         MatcherAssert.assertThat(result.hashCode(), Matchers.is(new GetUserIdCompletionsResult(possibleItemCompletions)
-                                                                                          .hashCode()));
+                .hashCode()));
     }
 
     @Test

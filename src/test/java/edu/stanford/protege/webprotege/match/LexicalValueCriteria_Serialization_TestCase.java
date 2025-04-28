@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.match;
 
 import edu.stanford.protege.webprotege.criteria.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -11,6 +11,10 @@ import java.io.IOException;
  * 18 Jun 2018
  */
 public class LexicalValueCriteria_Serialization_TestCase {
+
+    private static <V extends LexicalValueCriteria> void testSerialization(V value) throws IOException {
+
+    }
 
     @Test
     public void shouldSerialize_StringStartsWithCriteria_IgnoreCaseTrue() throws IOException {
@@ -67,7 +71,6 @@ public class LexicalValueCriteria_Serialization_TestCase {
         );
     }
 
-
     @Test
     public void shouldSerialize_StringContainsRegexMatchCriteria_IgnoreCaseTrue() throws IOException {
         testSerialization(
@@ -75,14 +78,12 @@ public class LexicalValueCriteria_Serialization_TestCase {
         );
     }
 
-
     @Test
     public void shouldSerialize_StringDoesNotContainRegexMatchCriteria_IgnoreCaseFalse() throws IOException {
         testSerialization(
                 StringDoesNotContainRegexMatchCriteria.get("[A-Z]", false)
         );
     }
-
 
     @Test
     public void shouldSerialize_StringDoesNotContainRegexMatchCriteria_IgnoreCaseTrue() throws IOException {
@@ -152,9 +153,5 @@ public class LexicalValueCriteria_Serialization_TestCase {
         testSerialization(
                 StringContainsRepeatedSpacesCriteria.get()
         );
-    }
-
-    private static <V extends LexicalValueCriteria> void testSerialization(V value) throws IOException {
-        
     }
 }

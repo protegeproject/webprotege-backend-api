@@ -1,24 +1,20 @@
 package edu.stanford.protege.webprotege.revision;
 
 import edu.stanford.protege.webprotege.common.Page;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 21/02/15
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetRevisionSummariesResult_TestCase {
 
 
@@ -30,15 +26,16 @@ public class GetRevisionSummariesResult_TestCase {
     private Page<RevisionSummary> summaries;
 
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         result = new GetRevisionSummariesResult(summaries);
         otherResult = new GetRevisionSummariesResult(summaries);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        new GetRevisionSummariesResult(null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetRevisionSummariesResult(null);
+        });
     }
 
     @Test

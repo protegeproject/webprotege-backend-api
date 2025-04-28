@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.perspective;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -17,7 +17,7 @@ public class PerspectiveDescriptorsRecord_Serialization_TestCase {
     @Test
     public void shouldSerialize() throws IOException {
         var record = PerspectiveDescriptorsRecord.get(ProjectId.generate(),
-                                                      UserId.valueOf("Matthew"), ImmutableList.of());
-        
+                UserId.valueOf("Matthew"), ImmutableList.of());
+
     }
 }

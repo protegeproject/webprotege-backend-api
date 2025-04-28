@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.dispatch.actions;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.ontology.GetOntologyAnnotationsAction;
 import edu.stanford.protege.webprotege.ontology.GetOntologyAnnotationsResult;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -21,7 +21,7 @@ public class GetOntologyAnnotations_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetOntologyAnnotationsAction(mockProjectId(),
-                                                         Optional.empty());
+                Optional.empty());
 
     }
 

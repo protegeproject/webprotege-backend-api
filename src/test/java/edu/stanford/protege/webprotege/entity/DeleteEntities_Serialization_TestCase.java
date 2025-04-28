@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.entity;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -19,14 +19,14 @@ public class DeleteEntities_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new DeleteEntitiesAction(ChangeRequestId.generate(),
-                                              ProjectId.generate(),
-                                              ImmutableSet.of());
-        
+                ProjectId.generate(),
+                ImmutableSet.of());
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new DeleteEntitiesResult(ImmutableSet.of());
-        
+
     }
 }

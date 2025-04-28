@@ -1,21 +1,20 @@
-
 package edu.stanford.protege.webprotege.entity;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class MergeEntitiesResult_TestCase {
 
     private MergeEntitiesResult mergeEntitiesResult;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         mergeEntitiesResult = new MergeEntitiesResult();
     }

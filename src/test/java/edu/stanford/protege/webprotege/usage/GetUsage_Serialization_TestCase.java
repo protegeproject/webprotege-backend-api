@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.usage;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.PageRequest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.semanticweb.owlapi.model.AxiomType;
 
 import java.io.IOException;
@@ -20,20 +20,20 @@ public class GetUsage_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetEntityUsageAction(mockOWLClass(), mockProjectId(), new UsageFilter(), PageRequest.requestFirstPage());
-        
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new GetEntityUsageResult(mockProjectId(),
-                                              mockOWLClassNode(),
-                                              ImmutableList.of(
-                                                   new UsageReference(AxiomType.DECLARATION,
-                                                                      "Declaration(Class(http://example.org/A))",
-                                                                      Optional.empty(),
-                                                                      Optional.empty()
-                                                   )
-                                           ), 22);
-        
+                mockOWLClassNode(),
+                ImmutableList.of(
+                        new UsageReference(AxiomType.DECLARATION,
+                                "Declaration(Class(http://example.org/A))",
+                                Optional.empty(),
+                                Optional.empty()
+                        )
+                ), 22);
+
     }
 }

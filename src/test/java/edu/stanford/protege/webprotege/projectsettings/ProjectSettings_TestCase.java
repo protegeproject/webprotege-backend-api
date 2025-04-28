@@ -1,29 +1,29 @@
-
 package edu.stanford.protege.webprotege.projectsettings;
 
 import edu.stanford.protege.webprotege.common.DictionaryLanguage;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.lang.DisplayNameSettings;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(value = MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class ProjectSettings_TestCase {
-
-    private ProjectSettings projectSettings;
-
-    private ProjectId projectId = ProjectId.generate();
 
     private final String projectDisplayName = "The projectDisplayName";
 
     private final String projectDescription = "The projectDescription";
+
+    private final ProjectId projectId = ProjectId.generate();
+
+    private ProjectSettings projectSettings;
 
     @Mock
     private SlackIntegrationSettings slackIntegrationSettings;
@@ -40,15 +40,16 @@ public class ProjectSettings_TestCase {
     @Mock
     private EntityDeprecationSettings entityDeprecationSettings;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         projectSettings = ProjectSettings.get(projectId, projectDisplayName, projectDescription, defaultLanguage, defaultDisplayNameSettings, slackIntegrationSettings, webhookSettings, entityDeprecationSettings);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        ProjectSettings.get(null, projectDisplayName, projectDescription, defaultLanguage, defaultDisplayNameSettings, slackIntegrationSettings, webhookSettings, entityDeprecationSettings);
+        assertThrows(NullPointerException.class, () -> {
+            ProjectSettings.get(null, projectDisplayName, projectDescription, defaultLanguage, defaultDisplayNameSettings, slackIntegrationSettings, webhookSettings, entityDeprecationSettings);
+        });
     }
 
     @Test
@@ -57,9 +58,10 @@ public class ProjectSettings_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectDisplayName_IsNull() {
-        ProjectSettings.get(projectId, null, projectDescription, defaultLanguage, defaultDisplayNameSettings, slackIntegrationSettings, webhookSettings, entityDeprecationSettings);
+        assertThrows(NullPointerException.class, () -> {
+            ProjectSettings.get(projectId, null, projectDescription, defaultLanguage, defaultDisplayNameSettings, slackIntegrationSettings, webhookSettings, entityDeprecationSettings);
+        });
     }
 
     @Test
@@ -68,9 +70,10 @@ public class ProjectSettings_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectDescription_IsNull() {
-        ProjectSettings.get(projectId, projectDisplayName, null, defaultLanguage, defaultDisplayNameSettings, slackIntegrationSettings, webhookSettings, entityDeprecationSettings);
+        assertThrows(NullPointerException.class, () -> {
+            ProjectSettings.get(projectId, projectDisplayName, null, defaultLanguage, defaultDisplayNameSettings, slackIntegrationSettings, webhookSettings, entityDeprecationSettings);
+        });
     }
 
     @Test
@@ -79,9 +82,10 @@ public class ProjectSettings_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_slackIntegrationSettings_IsNull() {
-        ProjectSettings.get(projectId, projectDisplayName, projectDescription, defaultLanguage, defaultDisplayNameSettings, null, webhookSettings, entityDeprecationSettings);
+        assertThrows(NullPointerException.class, () -> {
+            ProjectSettings.get(projectId, projectDisplayName, projectDescription, defaultLanguage, defaultDisplayNameSettings, null, webhookSettings, entityDeprecationSettings);
+        });
     }
 
     @Test
@@ -90,9 +94,10 @@ public class ProjectSettings_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_webhookSettings_IsNull() {
-        ProjectSettings.get(projectId, projectDisplayName, projectDescription, defaultLanguage, defaultDisplayNameSettings, slackIntegrationSettings, null, entityDeprecationSettings);
+        assertThrows(NullPointerException.class, () -> {
+            ProjectSettings.get(projectId, projectDisplayName, projectDescription, defaultLanguage, defaultDisplayNameSettings, slackIntegrationSettings, null, entityDeprecationSettings);
+        });
     }
 
     @Test

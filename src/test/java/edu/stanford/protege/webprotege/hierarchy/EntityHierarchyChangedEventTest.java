@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.io.StringReader;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @JsonTest
 @Import(WebProtegeJacksonApplication.class)

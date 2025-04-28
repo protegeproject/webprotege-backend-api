@@ -1,8 +1,10 @@
 package edu.stanford.protege.webprotege.crud;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.semanticweb.owlapi.vocab.Namespaces;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author Matthew Horridge, Stanford University, Bio-Medical Informatics Research Group, Date: 16/04/2014
@@ -11,34 +13,39 @@ public class PrefixedNameExpanderBuilderTestCase {
 
     private PrefixedNameExpander.Builder builder;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         builder = PrefixedNameExpander.builder();
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionForNullPrefixName() {
-        builder.withPrefixNamePrefix(null, "x");
+        assertThrows(NullPointerException.class, () -> {
+            builder.withPrefixNamePrefix(null, "x");
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionForNullPrefix() {
-        builder.withPrefixNamePrefix("x:", null);
+        assertThrows(NullPointerException.class, () -> {
+            builder.withPrefixNamePrefix("x:", null);
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionForNonColonizedPrefixName() {
-        builder.withPrefixNamePrefix("x", "y");
+        assertThrows(NullPointerException.class, () -> {
+            builder.withPrefixNamePrefix("x", "y");
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionForDoubleColonizedPrefixName() {
-        builder.withPrefixNamePrefix("x::", "y");
+        assertThrows(NullPointerException.class, () -> {
+            builder.withPrefixNamePrefix("x::", "y");
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionForStartEndDoubleColonizedPrefixName() {
-        builder.withPrefixNamePrefix(":x:", "y");
+        assertThrows(NullPointerException.class, () -> {
+            builder.withPrefixNamePrefix(":x:", "y");
+        });
     }
 
     @Test

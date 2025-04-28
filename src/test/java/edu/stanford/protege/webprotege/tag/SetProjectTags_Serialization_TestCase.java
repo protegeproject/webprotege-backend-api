@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.tag;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.color.Color;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -20,12 +20,12 @@ public class SetProjectTags_Serialization_TestCase {
     public void shouldSerializeAction() throws IOException {
         var action = new SetProjectTagsAction(ChangeRequestId.generate(), mockProjectId(), ImmutableList.of(
                 TagData.get(TagId.createTagId(),
-                            "Label",
-                            "Description",
-                            Color.getWhite(),
-                            Color.getWhite(),
-                            ImmutableList.of(),
-                            22)
+                        "Label",
+                        "Description",
+                        Color.getWhite(),
+                        Color.getWhite(),
+                        ImmutableList.of(),
+                        22)
         ));
 
     }

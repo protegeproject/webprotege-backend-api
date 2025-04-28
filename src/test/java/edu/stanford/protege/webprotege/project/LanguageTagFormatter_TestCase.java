@@ -16,6 +16,11 @@ import static org.hamcrest.Matchers.is;
 public class LanguageTagFormatter_TestCase {
 
 
+    private static void formatAndTest(@Nonnull String input, @Nonnull String expected) {
+        String formatted = LanguageTagFormatter.format(input);
+        assertThat(formatted, is(expected));
+    }
+
     @Test
     public void shouldFormatLanguageTagAsLowerCase() {
         formatAndTest("EN", "en");
@@ -39,11 +44,5 @@ public class LanguageTagFormatter_TestCase {
     @Test
     public void shouldHandleMalformedLanguageTag3() {
         formatAndTest("--en-", "--EN-");
-    }
-
-
-    private static void formatAndTest(@Nonnull String input, @Nonnull String expected) {
-        String formatted = LanguageTagFormatter.format(input);
-        assertThat(formatted, is(expected));
     }
 }

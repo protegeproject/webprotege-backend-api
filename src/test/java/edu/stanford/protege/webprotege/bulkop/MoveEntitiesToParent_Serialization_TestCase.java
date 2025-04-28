@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.bulkop;
 
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -19,14 +19,14 @@ public class MoveEntitiesToParent_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new MoveEntitiesToParentAction(ChangeRequestId.generate(), mockProjectId(), ImmutableSet.of(),
-                                                    mockOWLClass(),
-                                                    "Test");
-        
+                mockOWLClass(),
+                "Test");
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new MoveEntitiesToParentResult();
-        
+
     }
 }

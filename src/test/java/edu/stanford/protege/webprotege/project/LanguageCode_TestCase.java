@@ -1,4 +1,3 @@
-
 package edu.stanford.protege.webprotege.project;
 
 import edu.stanford.protege.webprotege.common.LanguageCode;
@@ -12,15 +11,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LanguageCode_TestCase {
 
-    private LanguageCode languageCode;
-
     private final String lang = "The lang";
 
     private final String name = "The name";
 
+    private LanguageCode languageCode;
+
     @BeforeEach
-    public void setUp()
-    {
+    public void setUp() {
         languageCode = new LanguageCode(lang, name);
     }
 

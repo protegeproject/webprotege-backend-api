@@ -1,11 +1,11 @@
-
 package edu.stanford.protege.webprotege.webhook;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,29 +13,31 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(value = org.mockito.runners.MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class ProjectWebhook_TestCase {
 
-    private ProjectWebhook projectWebhook;
-
-    private ProjectId projectId = ProjectId.generate();
-
     private final String payloadUrl = "The payloadUrl";
+
+    private final ProjectId projectId = ProjectId.generate();
+
+    private ProjectWebhook projectWebhook;
 
     @Mock
     private List<ProjectWebhookEventType> subscribedToEvents = new ArrayList<>();
 
-    @Before
+    @BeforeEach
     public void setUp() {
         subscribedToEvents = Collections.singletonList(ProjectWebhookEventType.PROJECT_CHANGED);
         projectWebhook = new ProjectWebhook(projectId, payloadUrl, subscribedToEvents);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new ProjectWebhook(null, payloadUrl, subscribedToEvents);
+        assertThrows(NullPointerException.class, () -> {
+            new ProjectWebhook(null, payloadUrl, subscribedToEvents);
+        });
     }
 
     @Test
@@ -44,9 +46,10 @@ public class ProjectWebhook_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_payloadUrl_IsNull() {
-        new ProjectWebhook(projectId, null, subscribedToEvents);
+        assertThrows(NullPointerException.class, () -> {
+            new ProjectWebhook(projectId, null, subscribedToEvents);
+        });
     }
 
     @Test
@@ -55,9 +58,10 @@ public class ProjectWebhook_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_subscribedToEvents_IsNull() {
-        new ProjectWebhook(projectId, payloadUrl, null);
+        assertThrows(NullPointerException.class, () -> {
+            new ProjectWebhook(projectId, payloadUrl, null);
+        });
     }
 
     @Test

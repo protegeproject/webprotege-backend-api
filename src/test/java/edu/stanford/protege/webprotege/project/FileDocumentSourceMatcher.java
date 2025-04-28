@@ -10,9 +10,9 @@ import java.io.File;
 
 /**
  * @author Matthew Horridge,
- *         Stanford University,
- *         Bio-Medical Informatics Research Group
- *         Date: 19/02/2014
+ * Stanford University,
+ * Bio-Medical Informatics Research Group
+ * Date: 19/02/2014
  */
 public class FileDocumentSourceMatcher<T extends OWLOntologyDocumentSource> extends TypeSafeMatcher<T> {
 
@@ -23,6 +23,10 @@ public class FileDocumentSourceMatcher<T extends OWLOntologyDocumentSource> exte
         this.ontologyDocumentSource = ontologyDocumentSource;
     }
 
+    public static FileDocumentSourceMatcher isFileDocumentSourceForFile(File file) {
+        return new FileDocumentSourceMatcher(file);
+    }
+
     @Override
     protected boolean matchesSafely(T source) {
         IRI expectedIRI = IRI.create(ontologyDocumentSource);
@@ -31,9 +35,5 @@ public class FileDocumentSourceMatcher<T extends OWLOntologyDocumentSource> exte
 
     @Override
     public void describeTo(Description description) {
-    }
-
-    public static FileDocumentSourceMatcher isFileDocumentSourceForFile(File file) {
-        return new FileDocumentSourceMatcher(file);
     }
 }

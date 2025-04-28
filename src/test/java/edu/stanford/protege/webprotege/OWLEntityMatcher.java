@@ -27,16 +27,6 @@ public class OWLEntityMatcher extends TypeSafeMatcher<OWLEntity> {
         this.iriMatcher = iriMatcher;
     }
 
-    @Override
-    protected boolean matchesSafely(OWLEntity item) {
-        return entityType.matches(item.getEntityType()) && iriMatcher.matches(item.getIRI());
-    }
-
-    @Override
-    public void describeTo(Description description) {
-        description.appendText("matched term type and IRI");
-    }
-
     private static OWLEntityMatcher create(EntityType entityType, OWLRDFVocabulary vocabulary) {
         return new OWLEntityMatcher(is(entityType), is(vocabulary.getIRI()));
     }
@@ -52,7 +42,6 @@ public class OWLEntityMatcher extends TypeSafeMatcher<OWLEntity> {
     public static OWLEntityMatcher rdfsComment() {
         return create(EntityType.ANNOTATION_PROPERTY, OWLRDFVocabulary.RDFS_COMMENT);
     }
-
 
     private static OWLEntityMatcher create(EntityType entityType, SKOSVocabulary vocabulary) {
         return new OWLEntityMatcher(is(entityType), is(vocabulary.getIRI()));
@@ -84,5 +73,15 @@ public class OWLEntityMatcher extends TypeSafeMatcher<OWLEntity> {
 
     public static OWLEntityMatcher hasIRI(String iri) {
         return new OWLEntityMatcher(any(EntityType.class), is(IRI.create(iri)));
+    }
+
+    @Override
+    protected boolean matchesSafely(OWLEntity item) {
+        return entityType.matches(item.getEntityType()) && iriMatcher.matches(item.getIRI());
+    }
+
+    @Override
+    public void describeTo(Description description) {
+        description.appendText("matched term type and IRI");
     }
 }

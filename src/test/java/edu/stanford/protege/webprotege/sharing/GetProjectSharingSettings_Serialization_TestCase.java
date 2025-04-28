@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.sharing;
 
 import com.google.common.collect.ImmutableList;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -18,15 +18,15 @@ public class GetProjectSharingSettings_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetProjectSharingSettingsAction(mockProjectId());
-        
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new GetProjectSharingSettingsResult(
                 new ProjectSharingSettings(mockProjectId(),
-                                           Optional.empty(), ImmutableList.of())
+                        Optional.empty(), ImmutableList.of())
         );
-        
+
     }
 }

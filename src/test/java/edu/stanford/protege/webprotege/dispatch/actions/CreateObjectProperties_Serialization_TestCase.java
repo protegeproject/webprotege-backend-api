@@ -44,7 +44,7 @@ public class CreateObjectProperties_Serialization_TestCase {
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new CreateObjectPropertiesResult(ProjectId.generate(),
-                                                      ImmutableSet.of());
+                ImmutableSet.of());
 
     }
 }

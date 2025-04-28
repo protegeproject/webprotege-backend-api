@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.viz;
 
 import com.google.common.collect.ImmutableList;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -18,14 +18,14 @@ public class GetUserProjectEntityGraphCriteria_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetUserProjectEntityGraphCriteriaAction(mockProjectId(), mockUserId());
-        
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new GetUserProjectEntityGraphCriteriaResult(mockProjectId(),
-                                                                    mockUserId(),
-                                                                    EntityGraphSettings.get(ImmutableList.of(), 22));
-        
+                mockUserId(),
+                EntityGraphSettings.get(ImmutableList.of(), 22));
+
     }
 }
