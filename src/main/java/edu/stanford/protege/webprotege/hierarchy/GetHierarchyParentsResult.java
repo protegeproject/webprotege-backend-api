@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * Matthew Horridge Stanford Center for Biomedical Informatics Research 28 Nov 2017
+ *
  */
 
 @JsonTypeName("webprotege.hierarchies.GetHierarchyParents")
