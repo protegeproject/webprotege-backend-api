@@ -2,9 +2,9 @@ package edu.stanford.protege.webprotege.crud.obo;
 
 import edu.stanford.protege.webprotege.crud.oboid.OboIdSuffixKit;
 import edu.stanford.protege.webprotege.crud.oboid.OboIdSuffixSettings;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Author: Matthew Horridge<br>

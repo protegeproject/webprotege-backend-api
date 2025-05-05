@@ -3,15 +3,14 @@ package edu.stanford.protege.webprotege.hierarchy;
 import edu.stanford.protege.webprotege.common.PageRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.jupiter.api.Test;
+import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.semanticweb.owlapi.model.OWLDataFactory;
-
 import java.util.Set;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @JsonTest
 public class GetHierarchyChildrenActionJsonTest {
@@ -42,27 +41,27 @@ public class GetHierarchyChildrenActionJsonTest {
     @Test
     void testDeserializeGetHierarchyChildrenAction() throws Exception {
         var json = """
-        {
-            "projectId": "123e4567-e89b-12d3-a456-426614174000",
-            "entity": {
-                "iri": "http://www.w3.org/2002/07/owl#Thing",
-                "@type": "Class"
-            },
-            "hierarchyDescriptor": {
-                "@type": "ClassHierarchyDescriptor",
-                "roots": [
-                    {
-                        "iri": "http://www.w3.org/2002/07/owl#Thing"
-                    }
-                ]
-            },
-            "pageRequest": {
-                "pageNumber": 1,
-                "pageSize": 10
-            },
-            "@type": "webprotege.hierarchies.GetHierarchyChildren"
-        }
-        """;
+                {
+                    "projectId": "123e4567-e89b-12d3-a456-426614174000",
+                    "entity": {
+                        "iri": "http://www.w3.org/2002/07/owl#Thing",
+                        "@type": "Class"
+                    },
+                    "hierarchyDescriptor": {
+                        "@type": "ClassHierarchyDescriptor",
+                        "roots": [
+                            {
+                                "iri": "http://www.w3.org/2002/07/owl#Thing"
+                            }
+                        ]
+                    },
+                    "pageRequest": {
+                        "pageNumber": 1,
+                        "pageSize": 10
+                    },
+                    "@type": "webprotege.hierarchies.GetHierarchyChildren"
+                }
+                """;
 
         // Deserialize from JSON
         var objectContent = jacksonTester.parse(json);

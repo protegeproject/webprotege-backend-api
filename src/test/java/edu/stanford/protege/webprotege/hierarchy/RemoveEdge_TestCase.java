@@ -1,21 +1,16 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.Serializable;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 2021-04-21
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class RemoveEdge_TestCase<T extends Serializable> {
 
     @Mock

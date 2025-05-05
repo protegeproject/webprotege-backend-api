@@ -1,23 +1,19 @@
 package edu.stanford.protege.webprotege.sharing;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 07/02/15
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetProjectSharingSettingsResult_TestCase {
 
 
@@ -28,15 +24,16 @@ public class GetProjectSharingSettingsResult_TestCase {
     @Mock
     private ProjectSharingSettings projectSharingSettings;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         result = new GetProjectSharingSettingsResult(projectSharingSettings);
         otherResult = new GetProjectSharingSettingsResult(projectSharingSettings);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        new GetProjectSharingSettingsResult(null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetProjectSharingSettingsResult(null);
+        });
     }
 
     @Test

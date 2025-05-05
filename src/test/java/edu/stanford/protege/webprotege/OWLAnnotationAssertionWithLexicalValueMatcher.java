@@ -19,6 +19,10 @@ public class OWLAnnotationAssertionWithLexicalValueMatcher extends TypeSafeMatch
         this.expectedValue = checkNotNull(expectedValue);
     }
 
+    public static OWLAnnotationAssertionWithLexicalValueMatcher annotationAssertionWithLexicalValue(String lexicalValue) {
+        return new OWLAnnotationAssertionWithLexicalValueMatcher(lexicalValue);
+    }
+
     @Override
     protected boolean matchesSafely(OWLAnnotationAssertionAxiom item) {
         OWLAnnotationValue value = item.getValue();
@@ -28,9 +32,5 @@ public class OWLAnnotationAssertionWithLexicalValueMatcher extends TypeSafeMatch
     @Override
     public void describeTo(Description description) {
         description.appendText("annotation assertion with lexical value");
-    }
-
-    public static OWLAnnotationAssertionWithLexicalValueMatcher annotationAssertionWithLexicalValue(String lexicalValue) {
-        return new OWLAnnotationAssertionWithLexicalValueMatcher(lexicalValue);
     }
 }

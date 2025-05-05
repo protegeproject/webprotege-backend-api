@@ -1,31 +1,33 @@
-
 package edu.stanford.protege.webprotege.project;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetProjectDetailsResult_TestCase {
 
     private GetProjectDetailsResult result;
+
     @Mock
     private ProjectDetails projectDetails;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         result = new GetProjectDetailsResult(projectDetails);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectDetails_IsNull() {
-        new GetProjectDetailsResult(null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetProjectDetailsResult(null);
+        });
     }
 
     @Test

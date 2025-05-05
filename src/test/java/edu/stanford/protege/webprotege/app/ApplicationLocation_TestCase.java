@@ -1,20 +1,18 @@
-
 package edu.stanford.protege.webprotege.app;
 
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class ApplicationLocation_TestCase {
-
-    private ApplicationLocation applicationLocation;
 
     private final String scheme = "The scheme";
 
@@ -24,15 +22,18 @@ public class ApplicationLocation_TestCase {
 
     private final int port = 1;
 
-    @Before
+    private ApplicationLocation applicationLocation;
+
+    @BeforeEach
     public void setUp() {
         applicationLocation = new ApplicationLocation(scheme, host, path, port);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_scheme_IsNull() {
-        new ApplicationLocation(null, host, path, port);
+        assertThrows(NullPointerException.class, () -> {
+            new ApplicationLocation(null, host, path, port);
+        });
     }
 
     @Test
@@ -41,9 +42,10 @@ public class ApplicationLocation_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_host_IsNull() {
-        new ApplicationLocation(scheme, null, path, port);
+        assertThrows(NullPointerException.class, () -> {
+            new ApplicationLocation(scheme, null, path, port);
+        });
     }
 
     @Test
@@ -52,9 +54,10 @@ public class ApplicationLocation_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_path_IsNull() {
-        new ApplicationLocation(scheme, host, null, port);
+        assertThrows(NullPointerException.class, () -> {
+            new ApplicationLocation(scheme, host, null, port);
+        });
     }
 
     @Test

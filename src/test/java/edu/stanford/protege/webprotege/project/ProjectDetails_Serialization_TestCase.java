@@ -38,20 +38,20 @@ public class ProjectDetails_Serialization_TestCase {
     @BeforeEach
     public void setUp() {
         projectDetails = ProjectDetails.get(ProjectId.valueOf("12345678-1234-1234-1234-123456789abc"),
-                                            "The display name",
-                                            "The description",
-                                            UserId.valueOf("The Owner"),
-                                            true,
-                                            DictionaryLanguage.rdfsLabel("en-GB"),
-                                            DisplayNameSettings.get(ImmutableList.of(DictionaryLanguage.rdfsLabel("en-GB"),
-                                                                                     DictionaryLanguage.rdfsLabel("en"),
-                                                                                     DictionaryLanguage.rdfsLabel("")),
-                                                                    ImmutableList.of(DictionaryLanguage.rdfsLabel("de"))),
-                                            2L,
-                                            UserId.valueOf("The creator"),
-                                            3L,
-                                            UserId.valueOf("The modifier"),
-                                            EntityDeprecationSettings.empty());
+                "The display name",
+                "The description",
+                UserId.valueOf("The Owner"),
+                true,
+                DictionaryLanguage.rdfsLabel("en-GB"),
+                DisplayNameSettings.get(ImmutableList.of(DictionaryLanguage.rdfsLabel("en-GB"),
+                                DictionaryLanguage.rdfsLabel("en"),
+                                DictionaryLanguage.rdfsLabel("")),
+                        ImmutableList.of(DictionaryLanguage.rdfsLabel("de"))),
+                2L,
+                UserId.valueOf("The creator"),
+                3L,
+                UserId.valueOf("The modifier"),
+                EntityDeprecationSettings.empty());
     }
 
     @Test

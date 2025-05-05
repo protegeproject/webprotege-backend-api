@@ -1,23 +1,19 @@
 package edu.stanford.protege.webprotege.project;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 21/02/15
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class CreateNewProjectResult_TestCase {
 
 
@@ -29,15 +25,16 @@ public class CreateNewProjectResult_TestCase {
     private ProjectDetails projectDetails;
 
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         result = new CreateNewProjectResult(projectDetails);
         otherResult = new CreateNewProjectResult(projectDetails);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerException() {
-        new CreateNewProjectResult(null);
+        assertThrows(NullPointerException.class, () -> {
+            new CreateNewProjectResult(null);
+        });
     }
 
     @Test

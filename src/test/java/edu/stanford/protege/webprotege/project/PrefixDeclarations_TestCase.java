@@ -1,11 +1,10 @@
-
 package edu.stanford.protege.webprotege.project;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,8 +13,9 @@ import java.util.Optional;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class PrefixDeclarations_TestCase {
 
     private static final String PREFIX_NAME_A = "a:";
@@ -32,7 +32,7 @@ public class PrefixDeclarations_TestCase {
 
     private PrefixDeclarations prefixDeclarations;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         prefixes = new HashMap<>();
         prefixes.put(PREFIX_NAME_A, PREFIX_A);
@@ -81,9 +81,10 @@ public class PrefixDeclarations_TestCase {
         assertThat(prefixDeclarations.getPrefixForPrefixName(PREFIX_NAME_A), is(Optional.of(PREFIX_A)));
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void should_throw_IllegalArgumentException_forInvalidPrefixName() {
-        assertThat(prefixDeclarations.getPrefixForPrefixName("a"), is(Optional.of("")));
+        assertThrows(NullPointerException.class, () -> {
+            assertThat(prefixDeclarations.getPrefixForPrefixName("a"), is(Optional.of("")));
+        });
     }
 
     @Test

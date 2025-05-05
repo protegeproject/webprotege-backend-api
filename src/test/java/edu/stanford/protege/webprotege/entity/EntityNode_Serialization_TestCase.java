@@ -9,7 +9,7 @@ import edu.stanford.protege.webprotege.tag.Tag;
 import edu.stanford.protege.webprotege.tag.TagId;
 import edu.stanford.protege.webprotege.watches.Watch;
 import edu.stanford.protege.webprotege.watches.WatchType;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 

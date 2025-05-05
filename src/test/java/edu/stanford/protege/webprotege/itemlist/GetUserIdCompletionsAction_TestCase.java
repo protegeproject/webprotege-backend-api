@@ -1,30 +1,32 @@
-
 package edu.stanford.protege.webprotege.itemlist;
 
 import edu.stanford.protege.webprotege.user.GetUserIdCompletionsAction;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(org.mockito.runners.MockitoJUnitRunner.class)
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+@ExtendWith(MockitoExtension.class)
 public class GetUserIdCompletionsAction_TestCase {
-
-    private GetUserIdCompletionsAction action;
 
     private final String completionText = "The completionText";
 
-    @Before
+    private GetUserIdCompletionsAction action;
+
+    @BeforeEach
     public void setUp()
-        throws Exception
-    {
+            throws Exception {
         action = new GetUserIdCompletionsAction(completionText);
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_completionText_IsNull() {
-        new GetUserIdCompletionsAction(null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetUserIdCompletionsAction(null);
+        });
     }
 
     @Test

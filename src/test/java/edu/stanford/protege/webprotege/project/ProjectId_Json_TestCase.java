@@ -2,8 +2,8 @@ package edu.stanford.protege.webprotege.project;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -20,7 +20,7 @@ public class ProjectId_Json_TestCase {
 
     private ProjectId projectId;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         projectId = ProjectId.valueOf(THE_UUID);
     }

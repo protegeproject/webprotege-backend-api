@@ -1,4 +1,3 @@
-
 package edu.stanford.protege.webprotege.owlapi.change;
 
 import com.google.common.collect.ImmutableList;
@@ -8,20 +7,26 @@ import edu.stanford.protege.webprotege.revision.Revision;
 import edu.stanford.protege.webprotege.revision.RevisionNumber;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@RunWith(org.mockito.junit.MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class Revision_TestCase {
 
-    private Revision revision;
+    private final long timestamp = 1L;
 
-    private UserId userId = new UserId("UserA");
+    private final String highLevelDescription = "The highLevelDescription";
+
+    private final UserId userId = new UserId("UserA");
+
+    private Revision revision;
 
     @Mock
     private RevisionNumber revisionNumber;
@@ -29,18 +34,15 @@ public class Revision_TestCase {
     @Mock
     private ImmutableList<OntologyChange> changes;
 
-    private final long timestamp = 1L;
-
-    private final String highLevelDescription = "The highLevelDescription";
-
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         revision = new Revision(userId, revisionNumber, changes, timestamp, highLevelDescription);
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        new Revision(null, revisionNumber, changes, timestamp, highLevelDescription);
+        assertThrows(NullPointerException.class, () -> {
+            new Revision(null, revisionNumber, changes, timestamp, highLevelDescription);
+        });
     }
 
     @Test
@@ -48,9 +50,10 @@ public class Revision_TestCase {
         MatcherAssert.assertThat(revision.getUserId(), Matchers.is(this.userId));
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_revisionNumber_IsNull() {
-        new Revision(userId, null, changes, timestamp, highLevelDescription);
+        assertThrows(NullPointerException.class, () -> {
+            new Revision(userId, null, changes, timestamp, highLevelDescription);
+        });
     }
 
     @Test
@@ -58,9 +61,10 @@ public class Revision_TestCase {
         MatcherAssert.assertThat(revision.getRevisionNumber(), Matchers.is(this.revisionNumber));
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_changes_IsNull() {
-        new Revision(userId, revisionNumber, null, timestamp, highLevelDescription);
+        assertThrows(NullPointerException.class, () -> {
+            new Revision(userId, revisionNumber, null, timestamp, highLevelDescription);
+        });
     }
 
     @Test
@@ -68,9 +72,10 @@ public class Revision_TestCase {
         MatcherAssert.assertThat(revision.getTimestamp(), Matchers.is(this.timestamp));
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_highLevelDescription_IsNull() {
-        new Revision(userId, revisionNumber, changes, timestamp, null);
+        assertThrows(NullPointerException.class, () -> {
+            new Revision(userId, revisionNumber, changes, timestamp, null);
+        });
     }
 
     @Test

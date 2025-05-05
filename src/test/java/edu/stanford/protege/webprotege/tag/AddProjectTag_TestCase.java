@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.tag;
 import edu.stanford.protege.webprotege.color.Color;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -18,11 +18,11 @@ public class AddProjectTag_TestCase {
     @Test
     public void shouldSerializeAddProjectTagAction() throws IOException {
         var action = AddProjectTagAction.create(ChangeRequestId.generate(),
-                                                ProjectId.generate(),
-                                                "TheLabel",
-                                                "TheDescription",
-                                                Color.getWhite(),
-                                                Color.get(240, 230, 50));
+                ProjectId.generate(),
+                "TheLabel",
+                "TheDescription",
+                Color.getWhite(),
+                Color.get(240, 230, 50));
 
     }
 

@@ -1,10 +1,10 @@
 package edu.stanford.protege.webprotege.user;
 
 import edu.stanford.protege.webprotege.common.UserId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
@@ -13,45 +13,44 @@ import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-/**
- * Matthew Horridge
- * Stanford Center for Biomedical Informatics Research
- * 23/02/15
- */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class UserDetails_TestCase {
 
-
-    private UserDetails userDetails;
-
-    private UserDetails otherUserDetails;
-
-    private UserId userId = new UserId("UserA");
 
     private final String displayName = "Display name";
 
     private final Optional<String> emailAddress = Optional.of("Email Address");
 
-    @Before
+    private final UserId userId = new UserId("UserA");
+
+    private UserDetails userDetails;
+
+    private UserDetails otherUserDetails;
+
+    @BeforeEach
     public void setUp() throws Exception {
         userDetails = new UserDetails(userId, displayName, emailAddress);
         otherUserDetails = new UserDetails(userId, displayName, emailAddress);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_UserId_IsNull() {
-        new UserDetails(null, displayName, emailAddress);
+        assertThrows(NullPointerException.class, () -> {
+            new UserDetails(null, displayName, emailAddress);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_DisplayName_IsNull() {
-        new UserDetails(userId, null, emailAddress);
+        assertThrows(NullPointerException.class, () -> {
+            new UserDetails(userId, null, emailAddress);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_EmailAddress_IsNull() {
-        new UserDetails(userId, displayName, null);
+        assertThrows(NullPointerException.class, () -> {
+            new UserDetails(userId, displayName, null);
+        });
     }
 
     @Test
@@ -102,7 +101,7 @@ public class UserDetails_TestCase {
     @Test
     public void shouldBeEqualToGuestUser() {
         assertThat(UserDetails.getGuestUserDetails(), is(new UserDetails(UserId.getGuest(), "Guest",
-                                                                         Optional.empty())));
+                Optional.empty())));
     }
 
 }

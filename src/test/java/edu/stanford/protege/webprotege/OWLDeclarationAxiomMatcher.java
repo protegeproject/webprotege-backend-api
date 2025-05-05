@@ -17,6 +17,10 @@ public class OWLDeclarationAxiomMatcher extends TypeSafeMatcher<OWLDeclarationAx
         this.entity = entity;
     }
 
+    public static OWLDeclarationAxiomMatcher declarationFor(OWLEntity entity) {
+        return new OWLDeclarationAxiomMatcher(entity);
+    }
+
     @Override
     protected boolean matchesSafely(OWLDeclarationAxiom item) {
         return entity.equals(item.getEntity());
@@ -25,9 +29,5 @@ public class OWLDeclarationAxiomMatcher extends TypeSafeMatcher<OWLDeclarationAx
     @Override
     public void describeTo(Description description) {
         description.appendText("declaration with term");
-    }
-
-    public static OWLDeclarationAxiomMatcher declarationFor(OWLEntity entity) {
-        return new OWLDeclarationAxiomMatcher(entity);
     }
 }

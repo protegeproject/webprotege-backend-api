@@ -1,37 +1,39 @@
-
 package edu.stanford.protege.webprotege.perspective;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(org.mockito.runners.MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetPerspectiveLayoutAction_TestCase {
 
+    private final ProjectId projectId = ProjectId.generate();
+
+    private final UserId userId = new UserId("UserA");
+
     private GetPerspectiveLayoutAction getPerspectiveLayoutAction;
-
-    private ProjectId projectId = ProjectId.generate();
-
-    private UserId userId = new UserId("UserA");
 
     @Mock
     private PerspectiveId perspectiveId;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         getPerspectiveLayoutAction = new GetPerspectiveLayoutAction(projectId, userId, perspectiveId);
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new GetPerspectiveLayoutAction(null, userId, perspectiveId);
+        assertThrows(NullPointerException.class, () -> {
+            new GetPerspectiveLayoutAction(null, userId, perspectiveId);
+        });
     }
 
     @Test
@@ -39,9 +41,10 @@ public class GetPerspectiveLayoutAction_TestCase {
         assertThat(getPerspectiveLayoutAction.projectId(), is(this.projectId));
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_userId_IsNull() {
-        new GetPerspectiveLayoutAction(projectId, null, perspectiveId);
+        assertThrows(NullPointerException.class, () -> {
+            new GetPerspectiveLayoutAction(projectId, null, perspectiveId);
+        });
     }
 
     @Test
@@ -49,9 +52,10 @@ public class GetPerspectiveLayoutAction_TestCase {
         assertThat(getPerspectiveLayoutAction.userId(), is(this.userId));
     }
 
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_perspectiveId_IsNull() {
-        new GetPerspectiveLayoutAction(projectId, userId, null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetPerspectiveLayoutAction(projectId, userId, null);
+        });
     }
 
     @Test
@@ -92,7 +96,7 @@ public class GetPerspectiveLayoutAction_TestCase {
     @Test
     public void shouldBeEqualToOtherHashCode() {
         assertThat(getPerspectiveLayoutAction.hashCode(), is(new GetPerspectiveLayoutAction(projectId, userId, perspectiveId)
-                                                                                       .hashCode()));
+                .hashCode()));
     }
 
     @Test

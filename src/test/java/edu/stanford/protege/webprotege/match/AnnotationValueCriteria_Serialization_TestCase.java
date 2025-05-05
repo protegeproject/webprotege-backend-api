@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.match;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.criteria.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.semanticweb.owlapi.model.IRI;
 
 import java.io.IOException;
@@ -13,6 +13,10 @@ import java.io.IOException;
  * 18 Jun 2018
  */
 public class AnnotationValueCriteria_Serialization_TestCase {
+
+    private static <V extends AnnotationValueCriteria> void testSerialization(V value) throws IOException {
+
+    }
 
     @Test
     public void shouldSerialize_LiteralLexicalValueNotInDatatypeLexicalSpaceCriteria() throws IOException {
@@ -48,11 +52,7 @@ public class AnnotationValueCriteria_Serialization_TestCase {
                                 AnyAnnotationValueCriteria.get(),
                                 StringContainsCriteria.get("A", true)
                         )
-                , MultiMatchType.ALL)
+                        , MultiMatchType.ALL)
         );
-    }
-
-    private static <V extends AnnotationValueCriteria> void testSerialization(V value) throws IOException {
-        
     }
 }

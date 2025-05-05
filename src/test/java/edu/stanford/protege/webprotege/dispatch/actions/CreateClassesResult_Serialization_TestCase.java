@@ -30,12 +30,11 @@ public class CreateClassesResult_Serialization_TestCase {
     private JacksonTester<CreateClassesResult> tester;
 
 
-
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new CreateClassesResult(chgReqId,
-                                             projectId,
-                                             ImmutableSet.of());
+                projectId,
+                ImmutableSet.of());
         var json = tester.write(result);
         assertThat(json).hasJsonPathStringValue("changeRequestId", chgReqId.value());
         assertThat(json).hasJsonPathStringValue("projectId", projectId.value());

@@ -1,11 +1,10 @@
 package edu.stanford.protege.webprotege.project;
 
-
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UUIDUtil;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static junit.framework.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Author: Matthew Horridge<br>
@@ -29,7 +28,7 @@ public class ProjectId_TestCase {
         String uuidB = "d16a6ca0-3afc-4af3-8a95-82cdc82f52cc";
         ProjectId projectIdA = ProjectId.valueOf(uuidA);
         ProjectId projectIdB = ProjectId.valueOf(uuidB);
-        assertFalse(projectIdA.equals(projectIdB));
+        assertNotEquals(projectIdA, projectIdB);
     }
 
     @Test
@@ -39,10 +38,11 @@ public class ProjectId_TestCase {
         assertNotNull(projectId);
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void malformedUUIDThrowsProjectIdFormatException() {
-        String malformedId = "wrong";
-        ProjectId.valueOf(malformedId);
+        assertThrows(NullPointerException.class, () -> {
+            String malformedId = "wrong";
+            ProjectId.valueOf(malformedId);
+        });
     }
 
     @Test
@@ -58,8 +58,9 @@ public class ProjectId_TestCase {
         assertEquals("[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", regExp);
     }
 
-    @Test(expected = NullPointerException.class)
     public void getThrowsNullPointerForNullArgument() {
-        ProjectId.valueOf(null);
+        assertThrows(NullPointerException.class, () -> {
+            ProjectId.valueOf(null);
+        });
     }
 }

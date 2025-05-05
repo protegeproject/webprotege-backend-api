@@ -1,12 +1,11 @@
-
 package edu.stanford.protege.webprotege.tag;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Collections;
 import java.util.Map;
@@ -14,9 +13,10 @@ import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetProjectTagsResult_TestCase {
 
     private GetProjectTagsResult result;
@@ -25,7 +25,7 @@ public class GetProjectTagsResult_TestCase {
 
     private Map<TagId, Integer> tagUsage;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         tags = Collections.singleton(mock(Tag.class));
         tagUsage = ImmutableMap.of(mock(TagId.class), 1);
@@ -33,9 +33,10 @@ public class GetProjectTagsResult_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_tags_IsNull() {
-        new GetProjectTagsResult(null, tagUsage);
+        assertThrows(NullPointerException.class, () -> {
+            new GetProjectTagsResult(null, tagUsage);
+        });
     }
 
     @Test
@@ -44,9 +45,10 @@ public class GetProjectTagsResult_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_tagUsage_IsNull() {
-        new GetProjectTagsResult(tags, null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetProjectTagsResult(tags, null);
+        });
     }
 
     @Test

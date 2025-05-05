@@ -1,4 +1,3 @@
-
 package edu.stanford.protege.webprotege.change;
 
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
@@ -6,28 +5,28 @@ import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.revision.RevisionNumber;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(org.mockito.runners.MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class RevertRevisionAction_TestCase {
 
+    private final ProjectId projectId = ProjectId.generate();
+
+    private final ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
     private RevertRevisionAction revertRevisionAction;
-
-    private ProjectId projectId = ProjectId.generate();
-
-    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
 
     @Mock
     private RevisionNumber revisionNumber;
 
-    @Before
+    @BeforeEach
     public void setUp()
-        throws Exception
-    {
+            throws Exception {
         revertRevisionAction = new RevertRevisionAction(changeRequestId, projectId, revisionNumber);
     }
 
@@ -69,7 +68,7 @@ public class RevertRevisionAction_TestCase {
     @Test
     public void shouldBeEqualToOtherHashCode() {
         MatcherAssert.assertThat(revertRevisionAction.hashCode(), Matchers.is(new RevertRevisionAction(changeRequestId, projectId, revisionNumber)
-                                                                                                  .hashCode()));
+                .hashCode()));
     }
 
     @Test

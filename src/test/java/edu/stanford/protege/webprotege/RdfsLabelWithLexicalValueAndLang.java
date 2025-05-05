@@ -20,9 +20,13 @@ public class RdfsLabelWithLexicalValueAndLang extends TypeSafeMatcher<OWLAnnotat
         this.lang = lang;
     }
 
+    public static RdfsLabelWithLexicalValueAndLang rdfsLabelWithLexicalValueAndLang(String lexicalValue, String lang) {
+        return new RdfsLabelWithLexicalValueAndLang(lexicalValue, lang);
+    }
+
     @Override
     protected boolean matchesSafely(OWLAnnotationAssertionAxiom item) {
-        if(!item.getProperty().isLabel()) {
+        if (!item.getProperty().isLabel()) {
             return false;
         }
         OWLAnnotationValue value = item.getValue();
@@ -33,9 +37,5 @@ public class RdfsLabelWithLexicalValueAndLang extends TypeSafeMatcher<OWLAnnotat
     @Override
     public void describeTo(Description description) {
         description.appendText("rdfs:Label annotation assertion with \"" + expectedValue + "\" value");
-    }
-
-    public static RdfsLabelWithLexicalValueAndLang rdfsLabelWithLexicalValueAndLang(String lexicalValue, String lang) {
-        return new RdfsLabelWithLexicalValueAndLang(lexicalValue, lang);
     }
 }

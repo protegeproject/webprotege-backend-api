@@ -1,7 +1,6 @@
 package edu.stanford.protege.webprotege.viz;
 
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -13,12 +12,12 @@ import java.io.IOException;
 public class NegatedEdgeCriteria_SerializationTestCase {
 
 
+    private static <V extends EdgeCriteria> void testSerialization(V value) throws IOException {
+
+    }
+
     @Test
     public void shouldSerialize_NegatedEdgeCriteria() throws IOException {
         testSerialization(NegatedEdgeCriteria.get(AnyEdgeCriteria.get()));
-    }
-
-    private static <V extends EdgeCriteria> void testSerialization(V value) throws IOException {
-        
     }
 }

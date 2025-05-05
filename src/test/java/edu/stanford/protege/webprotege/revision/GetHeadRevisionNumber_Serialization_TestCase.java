@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.revision;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -15,12 +15,12 @@ public class GetHeadRevisionNumber_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetHeadRevisionNumberAction(ProjectId.generate());
-        
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new GetHeadRevisionNumberResult(ProjectId.generate(), RevisionNumber.getHeadRevisionNumber());
-        
+
     }
 }

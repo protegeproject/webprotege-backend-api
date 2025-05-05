@@ -36,7 +36,7 @@ public class GetProjectPrefixDeclarations_Serialization_TestCase {
         var parsedResult = parsed.getObject();
         assertThat(parsedResult).isEqualTo(request);
 
-        
+
     }
 
     @Test

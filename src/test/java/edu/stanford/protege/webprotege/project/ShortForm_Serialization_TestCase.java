@@ -53,6 +53,6 @@ public class ShortForm_Serialization_TestCase {
         assertThat(json).extractingJsonPathStringValue("dictionaryLanguage.propertyIri").isEqualTo("rdfs:label");
         assertThat(json).extractingJsonPathStringValue("dictionaryLanguage.lang").isEqualTo("en");
         assertThat(json).extractingJsonPathStringValue("shortForm").isEqualTo("Hello");
-        
+
     }
 }

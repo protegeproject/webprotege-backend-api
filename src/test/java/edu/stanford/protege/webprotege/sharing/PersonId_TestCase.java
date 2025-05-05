@@ -1,28 +1,31 @@
-
 package edu.stanford.protege.webprotege.sharing;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(org.mockito.runners.MockitoJUnitRunner.class)
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+@ExtendWith(MockitoExtension.class)
 public class PersonId_TestCase {
 
-    private PersonId personId;
     private final String id = "The id";
 
-    @Before
+    private PersonId personId;
+
+    @BeforeEach
     public void setUp()
-        throws Exception
-    {
+            throws Exception {
         personId = PersonId.get(id);
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_id_IsNull() {
-        PersonId.get(null);
+        assertThrows(NullPointerException.class, () -> {
+            PersonId.get(null);
+        });
     }
 
     @Test

@@ -15,6 +15,10 @@ public class OWLLiteralWithLexicalValueMatcher extends TypeSafeMatcher<OWLLitera
         this.expected = expectedLexicalValue;
     }
 
+    public static OWLLiteralWithLexicalValueMatcher literalWithLexicalValue(String lexicalValue) {
+        return new OWLLiteralWithLexicalValueMatcher(lexicalValue);
+    }
+
     @Override
     protected boolean matchesSafely(OWLLiteral literal) {
         return expected.equals(literal.getLiteral());
@@ -23,10 +27,5 @@ public class OWLLiteralWithLexicalValueMatcher extends TypeSafeMatcher<OWLLitera
     @Override
     public void describeTo(Description description) {
         description.appendText("does not have lexical value");
-    }
-
-
-    public static OWLLiteralWithLexicalValueMatcher literalWithLexicalValue(String lexicalValue) {
-        return new OWLLiteralWithLexicalValueMatcher(lexicalValue);
     }
 }

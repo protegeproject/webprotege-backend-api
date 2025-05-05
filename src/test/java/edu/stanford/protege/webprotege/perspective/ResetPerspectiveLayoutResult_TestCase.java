@@ -1,19 +1,19 @@
-
 package edu.stanford.protege.webprotege.perspective;
 
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class ResetPerspectiveLayoutResult_TestCase {
 
     private ResetPerspectiveLayoutResult resetPerspectiveLayoutResult;
@@ -21,17 +21,17 @@ public class ResetPerspectiveLayoutResult_TestCase {
     @Mock
     private PerspectiveLayout resetLayout;
 
-    @Before
+    @BeforeEach
     public void setUp()
-        throws Exception
-    {
+            throws Exception {
         resetPerspectiveLayoutResult = new ResetPerspectiveLayoutResult(resetLayout);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_resetLayout_IsNull() {
-        new ResetPerspectiveLayoutResult(null);
+        assertThrows(NullPointerException.class, () -> {
+            new ResetPerspectiveLayoutResult(null);
+        });
     }
 
     @Test

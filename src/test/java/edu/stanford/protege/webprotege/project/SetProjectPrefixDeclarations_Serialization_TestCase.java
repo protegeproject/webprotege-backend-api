@@ -2,7 +2,7 @@ package edu.stanford.protege.webprotege.project;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -26,7 +26,7 @@ public class SetProjectPrefixDeclarations_Serialization_TestCase {
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new SetProjectPrefixDeclarationsResult(mockProjectId(),
-                                                               ImmutableList.of());
+                ImmutableList.of());
 
     }
 }

@@ -2,8 +2,8 @@ package edu.stanford.protege.webprotege.shortform;
 
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.DefaultShortFormAnnotationPropertyIRIs;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 import org.semanticweb.owlapi.vocab.SKOSVocabulary;
@@ -20,7 +20,7 @@ public class DefaultShortFormAnnotationPropertyIRIs_TestCase {
 
     private ImmutableList<IRI> defaultLabellingIRIs;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         defaultLabellingIRIs = DefaultShortFormAnnotationPropertyIRIs.asImmutableList();
     }

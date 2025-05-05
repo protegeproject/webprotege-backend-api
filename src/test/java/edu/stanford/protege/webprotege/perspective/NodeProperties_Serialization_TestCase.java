@@ -1,8 +1,7 @@
 package edu.stanford.protege.webprotege.perspective;
 
-
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -15,7 +14,7 @@ public class NodeProperties_Serialization_TestCase {
 
     private NodeProperties nodeProperties;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         nodeProperties = NodeProperties.builder()
                 .setValue("a", "b")
@@ -24,6 +23,6 @@ public class NodeProperties_Serialization_TestCase {
 
     @Test
     public void shouldSerializeNodeProperties() throws IOException {
-        
+
     }
 }

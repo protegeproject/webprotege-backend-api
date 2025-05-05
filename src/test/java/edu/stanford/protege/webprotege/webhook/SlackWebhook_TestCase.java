@@ -1,33 +1,34 @@
-
 package edu.stanford.protege.webprotege.webhook;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class SlackWebhook_TestCase {
-
-    private SlackWebhook slackWebhook;
-
-    private ProjectId projectId = ProjectId.generate();
 
     private final String payloadUrl = "The payloadUrl";
 
-    @Before
+    private final ProjectId projectId = ProjectId.generate();
+
+    private SlackWebhook slackWebhook;
+
+    @BeforeEach
     public void setUp() {
         slackWebhook = new SlackWebhook(projectId, payloadUrl);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new SlackWebhook(null, payloadUrl);
+        assertThrows(NullPointerException.class, () -> {
+            new SlackWebhook(null, payloadUrl);
+        });
     }
 
     @Test
@@ -36,9 +37,10 @@ public class SlackWebhook_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_payloadUrl_IsNull() {
-        new SlackWebhook(projectId, null);
+        assertThrows(NullPointerException.class, () -> {
+            new SlackWebhook(projectId, null);
+        });
     }
 
     @Test

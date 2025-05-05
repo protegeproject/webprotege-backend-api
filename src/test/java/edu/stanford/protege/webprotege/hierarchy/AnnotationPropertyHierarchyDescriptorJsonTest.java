@@ -10,13 +10,13 @@ import org.springframework.boot.test.json.JacksonTester;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @JsonTest
 class AnnotationPropertyHierarchyDescriptorJsonTest {
 
 
     public static final String ROOT_IRI = "http://example.org/prop";
+
     @Autowired
     private JacksonTester<AnnotationPropertyHierarchyDescriptor> jacksonTester;
 
@@ -42,16 +42,16 @@ class AnnotationPropertyHierarchyDescriptorJsonTest {
     @Test
     void testDeserializeClassHierarchyDescriptor() throws Exception {
         var json = """
-        {
-            "@type": "AnnotationPropertyHierarchyDescriptor",
-            "roots": [
                 {
-                    "@type" : "AnnotationProperty",
-                    "iri": "http://example.org/prop"
+                    "@type": "AnnotationPropertyHierarchyDescriptor",
+                    "roots": [
+                        {
+                            "@type" : "AnnotationProperty",
+                            "iri": "http://example.org/prop"
+                        }
+                    ]
                 }
-            ]
-        }
-        """;
+                """;
 
         var objectContent = jacksonTester.parse(json);
         var descriptor = objectContent.getObject();

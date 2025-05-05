@@ -2,8 +2,8 @@ package edu.stanford.protege.webprotege.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.stanford.protege.webprotege.common.UserId;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -19,7 +19,7 @@ public class UserId_Json_TestCase {
 
     private UserId userId;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         userId = UserId.valueOf(THE_USER_NAME);
     }

@@ -88,12 +88,6 @@ public class MockingUtils {
         return OWLLiteralData.get(mockLiteral());
     }
 
-    public HasSignature mockHasSignature(OWLEntity ... entities) {
-        HasSignature hasSignature = mock(HasSignature.class);
-        when(hasSignature.getSignature()).thenReturn(new HashSet<OWLEntity>(Arrays.asList(entities)));
-        return hasSignature;
-    }
-
     public static UserId mockUserId() {
         return UserId.valueOf("User" + nextInt());
     }
@@ -116,6 +110,12 @@ public class MockingUtils {
 
     public static EntityNode mockOWLClassNode() {
         return EntityNode.getFromEntityData(mockOWLClassData());
+    }
+
+    public HasSignature mockHasSignature(OWLEntity... entities) {
+        HasSignature hasSignature = mock(HasSignature.class);
+        when(hasSignature.getSignature()).thenReturn(new HashSet<OWLEntity>(Arrays.asList(entities)));
+        return hasSignature;
     }
 
 }

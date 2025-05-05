@@ -1,9 +1,10 @@
 package edu.stanford.protege.webprotege.crud;
 
 import edu.stanford.protege.webprotege.crud.gen.GeneratedAnnotationsSettings;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
 /**
@@ -14,14 +15,16 @@ import static org.mockito.Mockito.mock;
  */
 public class EntityCrudKitSettingsTestCase {
 
-    @Test(expected = NullPointerException.class)
     public void constructorThrowsNullPointerExceptionIfPrefixSettingsIsNull() {
-        EntityCrudKitSettings.get(null, mock(EntityCrudKitSuffixSettings.class), mock(GeneratedAnnotationsSettings.class));
+        assertThrows(NullPointerException.class, () -> {
+            EntityCrudKitSettings.get(null, mock(EntityCrudKitSuffixSettings.class), mock(GeneratedAnnotationsSettings.class));
+        });
     }
 
-    @Test(expected = NullPointerException.class)
     public void constructorThrowsNullPointerExceptionIfSuffixSettingsIsNull() {
-        EntityCrudKitSettings.get(EntityCrudKitPrefixSettings.get(), null, mock(GeneratedAnnotationsSettings.class));
+        assertThrows(NullPointerException.class, () -> {
+            EntityCrudKitSettings.get(EntityCrudKitPrefixSettings.get(), null, mock(GeneratedAnnotationsSettings.class));
+        });
     }
 
     @Test

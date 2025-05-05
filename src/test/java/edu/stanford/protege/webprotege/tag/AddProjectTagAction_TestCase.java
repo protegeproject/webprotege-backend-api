@@ -1,29 +1,31 @@
-
 package edu.stanford.protege.webprotege.tag;
 
 import edu.stanford.protege.webprotege.color.Color;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class AddProjectTagAction_TestCase {
-
-    private AddProjectTagAction addProjectTagAction;
-
-    private ProjectId projectId = ProjectId.generate();
 
     private final String label = "The label";
 
     private final String description = "The description";
+
+    private final ProjectId projectId = ProjectId.generate();
+
+    private final ChangeRequestId changeRequestId = ChangeRequestId.generate();
+
+    private AddProjectTagAction addProjectTagAction;
 
     @Mock
     private Color color;
@@ -31,17 +33,16 @@ public class AddProjectTagAction_TestCase {
     @Mock
     private Color backgroundColor;
 
-    private ChangeRequestId changeRequestId = ChangeRequestId.generate();
-
-    @Before
+    @BeforeEach
     public void setUp() {
         addProjectTagAction = AddProjectTagAction.create(changeRequestId, projectId, label, description, color, backgroundColor);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        AddProjectTagAction.create(changeRequestId, null, label, description, color, backgroundColor);
+        assertThrows(NullPointerException.class, () -> {
+            AddProjectTagAction.create(changeRequestId, null, label, description, color, backgroundColor);
+        });
     }
 
     @Test
@@ -50,9 +51,10 @@ public class AddProjectTagAction_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_label_IsNull() {
-        AddProjectTagAction.create(changeRequestId, projectId, null, description, color, backgroundColor);
+        assertThrows(NullPointerException.class, () -> {
+            AddProjectTagAction.create(changeRequestId, projectId, null, description, color, backgroundColor);
+        });
     }
 
     @Test
@@ -61,9 +63,10 @@ public class AddProjectTagAction_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_description_IsNull() {
-        AddProjectTagAction.create(changeRequestId, projectId, label, null, color, backgroundColor);
+        assertThrows(NullPointerException.class, () -> {
+            AddProjectTagAction.create(changeRequestId, projectId, label, null, color, backgroundColor);
+        });
     }
 
     @Test
@@ -72,9 +75,10 @@ public class AddProjectTagAction_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_color_IsNull() {
-        AddProjectTagAction.create(changeRequestId, projectId, label, description, null, backgroundColor);
+        assertThrows(NullPointerException.class, () -> {
+            AddProjectTagAction.create(changeRequestId, projectId, label, description, null, backgroundColor);
+        });
     }
 
     @Test
@@ -83,9 +87,10 @@ public class AddProjectTagAction_TestCase {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_backgroundColor_IsNull() {
-        AddProjectTagAction.create(changeRequestId, projectId, label, description, color, null);
+        assertThrows(NullPointerException.class, () -> {
+            AddProjectTagAction.create(changeRequestId, projectId, label, description, color, null);
+        });
     }
 
     @Test

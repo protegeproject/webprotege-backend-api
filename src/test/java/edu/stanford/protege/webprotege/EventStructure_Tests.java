@@ -31,11 +31,11 @@ public class EventStructure_Tests {
         var urls = ClasspathHelper.forJavaClassPath();
 
         Reflections reflections = new Reflections(new ConfigurationBuilder().setUrls(urls)
-                                                                            .setScanners(new SubTypesScanner()));
+                .setScanners(new SubTypesScanner()));
         eventClasses = reflections.getSubTypesOf(Event.class)
-                                  .stream()
-                                  .filter(cls -> !cls.isInterface())
-                                  .collect(Collectors.toList());
+                .stream()
+                .filter(cls -> !cls.isInterface())
+                .collect(Collectors.toList());
     }
 
     @Test
@@ -59,16 +59,15 @@ public class EventStructure_Tests {
     }
 
 
-
     @Test
     void shoulHaveJsonTypeAnnotation() throws NoSuchFieldException {
         for (var eventCls : eventClasses) {
             var eventClsAnnotation = eventCls.getAnnotation(JsonTypeName.class);
-            if(eventClsAnnotation == null) {
+            if (eventClsAnnotation == null) {
                 fail("@JsonTypeName is missing on " + eventCls.getName());
             }
             var eventName = eventCls.getSimpleName();
-            var expectedTypeNameSuffix =  "." + eventName.substring(0, eventName.length() - "Event".length());
+            var expectedTypeNameSuffix = "." + eventName.substring(0, eventName.length() - "Event".length());
             assertThat(eventClsAnnotation.value()).endsWith(expectedTypeNameSuffix);
         }
     }

@@ -5,7 +5,7 @@ import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.entity.CreateNamedIndividualsAction;
 import edu.stanford.protege.webprotege.entity.CreateNamedIndividualsResult;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -25,16 +25,16 @@ public class CreateNamedIndividuals_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new CreateNamedIndividualsAction(changeRequestId,
-                                                      projectId,
-                                                         "i\nj",
-                                                         "en", of());
+                projectId,
+                "i\nj",
+                "en", of());
 
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new CreateNamedIndividualsResult(ProjectId.generate(),
-                                                         ImmutableSet.of());
+                ImmutableSet.of());
 
     }
 }

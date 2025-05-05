@@ -1,23 +1,21 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
-
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.jupiter.api.Test;
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.json.JsonContent;
 import org.springframework.boot.test.json.ObjectContent;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
-import org.semanticweb.owlapi.model.OWLClass;
 
 import java.util.Set;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @JsonTest
 public class EntityHierarchyChangedEventJsonTest {
@@ -25,6 +23,7 @@ public class EntityHierarchyChangedEventJsonTest {
     public static final String PROJECT_ID = "00000000-1111-2222-3333-444444444444";
 
     public static final String EVENT_ID = "event-id";
+
     @Autowired
     private JacksonTester<EntityHierarchyChangedEvent> jacksonTester;
 
@@ -63,24 +62,24 @@ public class EntityHierarchyChangedEventJsonTest {
     void testDeserializeEntityHierarchyChangedEvent() throws Exception {
         // Example JSON
         String json = """
-        {
-        
-            "@type": "webprotege.events.hierarchies.EntityHierarchyChanged",
-            "eventId": "event-id",
-            "projectId": "00000000-1111-2222-3333-444444444444",
-            "hierarchyDescriptor": {
-                "@type": "ClassHierarchyDescriptor",
-                "roots": [
-                    {
-                        "iri": "http://www.w3.org/2002/07/owl#Thing"
+                {
+                        
+                    "@type": "webprotege.events.hierarchies.EntityHierarchyChanged",
+                    "eventId": "event-id",
+                    "projectId": "00000000-1111-2222-3333-444444444444",
+                    "hierarchyDescriptor": {
+                        "@type": "ClassHierarchyDescriptor",
+                        "roots": [
+                            {
+                                "iri": "http://www.w3.org/2002/07/owl#Thing"
+                            }
+                        ]
+                    },
+                    "changeEvent": {
+                        "changes" : []
                     }
-                ]
-            },
-            "changeEvent": {
-                "changes" : []
-            }
-        }
-        """;
+                }
+                """;
 
         // Deserialize from JSON
         ObjectContent<EntityHierarchyChangedEvent> objectContent = jacksonTester.parse(json);

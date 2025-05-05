@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.perspective;
 
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -17,13 +17,13 @@ public class ResetPerspectives_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new ResetPerspectivesAction(ChangeRequestId.generate(),
-                                                 mockProjectId());
-        
+                mockProjectId());
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new ResetPerspectivesResult();
-        
+
     }
 }

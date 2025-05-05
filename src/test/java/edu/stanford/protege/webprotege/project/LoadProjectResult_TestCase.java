@@ -1,37 +1,40 @@
-
 package edu.stanford.protege.webprotege.project;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(org.mockito.runners.MockitoJUnitRunner.class)
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+@ExtendWith(MockitoExtension.class)
 public class LoadProjectResult_TestCase {
 
+    private final ProjectId projectId = ProjectId.generate();
+
+    private final UserId loadedBy = new UserId("UserA");
+
     private LoadProjectResult loadProjectResult;
-
-    private ProjectId projectId = ProjectId.generate();
-
-    private UserId loadedBy = new UserId("UserA");
 
     @Mock
     private ProjectDetails projectDetails;
 
-    @Before
+    @BeforeEach
     public void setUp()
             throws Exception {
         loadProjectResult = new LoadProjectResult(projectId, loadedBy, projectDetails);
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new LoadProjectResult(null, loadedBy, projectDetails);
+        assertThrows(NullPointerException.class, () -> {
+            new LoadProjectResult(null, loadedBy, projectDetails);
+        });
     }
 
     @Test
@@ -39,14 +42,16 @@ public class LoadProjectResult_TestCase {
         MatcherAssert.assertThat(loadProjectResult.projectId(), Matchers.is(this.projectId));
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_loadedBy_IsNull() {
-        new LoadProjectResult(projectId, null, projectDetails);
+        assertThrows(NullPointerException.class, () -> {
+            new LoadProjectResult(projectId, null, projectDetails);
+        });
     }
 
-    @Test(expected = java.lang.NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectDetails_IsNull() {
-        new LoadProjectResult(projectId, loadedBy, null);
+        assertThrows(NullPointerException.class, () -> {
+            new LoadProjectResult(projectId, loadedBy, null);
+        });
     }
 
     @Test
@@ -67,37 +72,37 @@ public class LoadProjectResult_TestCase {
     @Test
     public void shouldBeEqualToOther() {
         MatcherAssert.assertThat(loadProjectResult,
-                                 Matchers.is(new LoadProjectResult(projectId, loadedBy, projectDetails)));
+                Matchers.is(new LoadProjectResult(projectId, loadedBy, projectDetails)));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectId() {
         MatcherAssert.assertThat(loadProjectResult,
-                                 Matchers.is(Matchers.not(new LoadProjectResult(ProjectId.generate(),
-                                                                                loadedBy,
-                                                                                projectDetails))));
+                Matchers.is(Matchers.not(new LoadProjectResult(ProjectId.generate(),
+                        loadedBy,
+                        projectDetails))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_loadedBy() {
         MatcherAssert.assertThat(loadProjectResult,
-                                 Matchers.is(Matchers.not(new LoadProjectResult(projectId,
-                                                                                new UserId("OtherUser"),
-                                                                                projectDetails))));
+                Matchers.is(Matchers.not(new LoadProjectResult(projectId,
+                        new UserId("OtherUser"),
+                        projectDetails))));
     }
 
     @Test
     public void shouldNotBeEqualToOtherThatHasDifferent_projectDetails() {
         MatcherAssert.assertThat(loadProjectResult,
-                                 Matchers.is(Matchers.not(new LoadProjectResult(projectId,
-                                                                                loadedBy,
-                                                                                Mockito.mock(ProjectDetails.class)))));
+                Matchers.is(Matchers.not(new LoadProjectResult(projectId,
+                        loadedBy,
+                        Mockito.mock(ProjectDetails.class)))));
     }
 
     @Test
     public void shouldBeEqualToOtherHashCode() {
         MatcherAssert.assertThat(loadProjectResult.hashCode(),
-                                 Matchers.is(new LoadProjectResult(projectId, loadedBy, projectDetails).hashCode()));
+                Matchers.is(new LoadProjectResult(projectId, loadedBy, projectDetails).hashCode()));
     }
 
     @Test

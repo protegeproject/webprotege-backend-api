@@ -26,9 +26,9 @@ public class LangTagFilter_TestCase {
     @Test
     public void shouldThrowNpeForNullSet() {
         Assertions.assertThrows(NullPointerException.class,
-                                () -> {
-                                    LangTagFilter.get(null);
-                                });
+                () -> {
+                    LangTagFilter.get(null);
+                });
     }
 
     @Test

@@ -31,8 +31,8 @@ public class CreateClasses_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new CreateClassesAction(chgReqId, projectId,
-                                             "A\nB",
-                                             "en", of());
+                "A\nB",
+                "en", of());
         var json = tester.write(action);
         assertThat(json).hasJsonPathStringValue("changeRequestId", chgReqId.value());
         assertThat(json).hasJsonPathStringValue("projectId", projectId.value());

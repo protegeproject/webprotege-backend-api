@@ -7,14 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.util.Set;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @JsonTest
 public class ClassHierarchyDescriptorJsonTest {
 
     public static final String ROOT_IRI = "http://example.org/A";
+
     @Autowired
     private JacksonTester<ClassHierarchyDescriptor> jacksonTester;
 
@@ -41,16 +42,16 @@ public class ClassHierarchyDescriptorJsonTest {
     void testDeserializeClassHierarchyDescriptor() throws Exception {
         // Example JSON
         var json = """
-        {
-            "@type": "ClassHierarchyDescriptor",
-            "roots": [
                 {
-                    "@type" : "Class",
-                    "iri": "http://example.org/A"
+                    "@type": "ClassHierarchyDescriptor",
+                    "roots": [
+                        {
+                            "@type" : "Class",
+                            "iri": "http://example.org/A"
+                        }
+                    ]
                 }
-            ]
-        }
-        """;
+                """;
 
         var objectContent = jacksonTester.parse(json);
         var descriptor = objectContent.getObject();

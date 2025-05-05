@@ -1,7 +1,7 @@
 package edu.stanford.protege.webprotege.renderer;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -19,13 +19,13 @@ public class GetEntityHtmlRendering_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetEntityHtmlRenderingAction(ProjectId.generate(),
-                                                         mockOWLClass()); 
+                mockOWLClass());
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new GetEntityHtmlRenderingResult(mockOWLClassData(),
-                                                         "TheRendering");
-        
+                "TheRendering");
+
     }
 }

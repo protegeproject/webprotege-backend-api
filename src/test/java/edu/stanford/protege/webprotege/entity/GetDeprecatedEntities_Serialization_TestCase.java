@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.entity;
 import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.common.PageRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.semanticweb.owlapi.model.EntityType;
 
 import java.io.IOException;
@@ -20,8 +20,8 @@ public class GetDeprecatedEntities_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetDeprecatedEntitiesAction(ProjectId.generate(),
-                                                        PageRequest.requestFirstPage(),
-                                                        Collections.singleton(EntityType.CLASS));
+                PageRequest.requestFirstPage(),
+                Collections.singleton(EntityType.CLASS));
 
     }
 

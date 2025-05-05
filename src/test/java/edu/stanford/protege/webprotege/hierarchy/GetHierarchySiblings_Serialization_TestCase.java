@@ -3,7 +3,7 @@ package edu.stanford.protege.webprotege.hierarchy;
 import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.common.PageRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -19,9 +19,9 @@ public abstract class GetHierarchySiblings_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new GetHierarchySiblingsAction(ProjectId.generate(),
-                                                       mockOWLClass(),
-                                                       ClassHierarchyDescriptor.create(),
-                                                       PageRequest.requestFirstPage());
+                mockOWLClass(),
+                ClassHierarchyDescriptor.create(),
+                PageRequest.requestFirstPage());
 
     }
 

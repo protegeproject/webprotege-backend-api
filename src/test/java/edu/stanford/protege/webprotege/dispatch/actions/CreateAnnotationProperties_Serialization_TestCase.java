@@ -5,7 +5,7 @@ import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.entity.CreateAnnotationPropertiesAction;
 import edu.stanford.protege.webprotege.entity.CreateAnnotationPropertiesResult;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -25,16 +25,16 @@ public class CreateAnnotationProperties_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new CreateAnnotationPropertiesAction(changeRequestId,
-                                                          projectId,
-                                                          "A\nB",
-                                                          "en", of());
-        
+                projectId,
+                "A\nB",
+                "en", of());
+
     }
 
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new CreateAnnotationPropertiesResult(ProjectId.generate(),
-                                                          ImmutableSet.of());
-        
+                ImmutableSet.of());
+
     }
 }

@@ -5,7 +5,7 @@ import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.LangTagFilter;
 import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.common.PageRequest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -23,9 +23,9 @@ public class PerformEntitySearch_Serialization_TestCase {
     @Test
     public void shouldSerializeAction() throws IOException {
         var action = new PerformEntitySearchAction(mockProjectId(),
-                                                   "Test", Collections.emptySet(),
-                                                   LangTagFilter.get(ImmutableSet.of()), ImmutableList.of(),
-                                                   PageRequest.requestFirstPage(),
+                "Test", Collections.emptySet(),
+                LangTagFilter.get(ImmutableSet.of()), ImmutableList.of(),
+                PageRequest.requestFirstPage(),
                 null);
 
     }

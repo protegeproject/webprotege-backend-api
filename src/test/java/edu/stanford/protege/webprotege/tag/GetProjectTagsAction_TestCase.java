@@ -1,31 +1,32 @@
-
 package edu.stanford.protege.webprotege.tag;
 
 import edu.stanford.protege.webprotege.common.ProjectId;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GetProjectTagsAction_TestCase {
+
+    private final ProjectId projectId = ProjectId.generate();
 
     private GetProjectTagsAction action;
 
-    private ProjectId projectId = ProjectId.generate();
-
-    @Before
+    @BeforeEach
     public void setUp() {
         action = new GetProjectTagsAction(projectId);
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIf_projectId_IsNull() {
-        new GetProjectTagsAction(null);
+        assertThrows(NullPointerException.class, () -> {
+            new GetProjectTagsAction(null);
+        });
     }
 
     @Test
