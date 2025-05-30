@@ -26,7 +26,8 @@ public class PerformEntitySearch_Serialization_TestCase {
                 "Test", Collections.emptySet(),
                 LangTagFilter.get(ImmutableSet.of()), ImmutableList.of(),
                 PageRequest.requestFirstPage(),
-                null);
+                null,
+                DeprecatedEntitiesTreatment.EXCLUDE_DEPRECATED_ENTITIES);
 
     }
 
