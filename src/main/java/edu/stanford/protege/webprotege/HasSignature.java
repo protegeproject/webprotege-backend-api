@@ -11,7 +11,7 @@ import java.util.Set;
  * Bio-Medical Informatics Research Group<br>
  * Date: 02/12/2012
  * <p>
- *     A marker interface for objects that have a signature.
+ *     A marker interface for objects that have a signature
  * </p>
  */
 public interface HasSignature {
