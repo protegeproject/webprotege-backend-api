@@ -12,7 +12,7 @@ import static edu.stanford.protege.webprotege.hierarchy.GetClassHierarchyParents
 
 
 @JsonTypeName(CHANNEL)
-public record GetClassHierarchyParentsByAxiomTypeResult(@JsonProperty("owlClass") @Nullable OWLClass owlClass,
+public record GetClassHierarchyParentsByAxiomTypeResult(@JsonProperty("owlClass") @Nullable OWLEntityData owlClass,
                                                         @JsonProperty("parentsBySubclassOf") @Nonnull Set<OWLEntityData> parentsBySubclassOf,
                                                         @JsonProperty("parentsByEquivalentClass") @Nonnull Set<OWLEntityData> parentsByEquivalentClass) implements Result {
 }
