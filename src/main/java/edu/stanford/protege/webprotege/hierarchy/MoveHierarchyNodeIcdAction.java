@@ -17,7 +17,8 @@ public record MoveHierarchyNodeIcdAction(@JsonProperty("changeRequestId") Change
                                          @JsonProperty("hierarchyDescriptor") @Nonnull HierarchyDescriptor hierarchyDescriptor,
                                          @JsonProperty("fromNodePath") @Nonnull Path<EntityNode> fromNodePath,
                                          @JsonProperty("toNodeParentPath") @Nonnull Path<EntityNode> toNodeParentPath,
-                                         @JsonProperty("dropType") @Nonnull DropType dropType) implements ProjectAction<MoveHierarchyNodeIcdResult>, ContentChangeRequest {
+                                         @JsonProperty("dropType") @Nonnull DropType dropType,
+                                         @JsonProperty("commitMessage") String commitMessage) implements ProjectAction<MoveHierarchyNodeIcdResult>, ContentChangeRequest {
 
     public static final String CHANNEL = "webprotege.hierarchies.MoveHierarchyNodeIcd";
 
