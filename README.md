@@ -15,6 +15,7 @@ We use [GitHub flow](https://docs.github.com/en/get-started/using-github/github-
 
 Changes will be reviewed and merged by one of the maintainers.
 
+
 ## Auto-Versioning and Auto-Release
 
 We use a GitHub workflow to manage versioning and releases. Developers should not set version numbers manually.
