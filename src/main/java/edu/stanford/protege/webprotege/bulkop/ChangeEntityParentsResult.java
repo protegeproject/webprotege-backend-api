@@ -17,6 +17,8 @@ import java.util.Set;
 @JsonTypeName("webprotege.entities.ChangeEntityParents")
 public record ChangeEntityParentsResult(@JsonProperty("classesWithCycle") @Nonnull Set<OWLEntityData> classesWithCycle,
                                         @JsonProperty("classesWithRetiredParents") @Nonnull Set<OWLEntityData> classesWithRetiredParents,
+
+                                        @JsonProperty("releasedChildrenValidationMessage") String releasedChildrenValidationMessage,
                                         @JsonProperty("oldParentsThatArelinearizationPathParents") @Nonnull Set<OWLEntityData> oldParentsThatArelinearizationPathParents) implements Result {
 
 

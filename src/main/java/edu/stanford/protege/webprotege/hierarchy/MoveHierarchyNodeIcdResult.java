@@ -8,6 +8,8 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 @JsonTypeName(MoveHierarchyNodeIcdAction.CHANNEL)
 public record MoveHierarchyNodeIcdResult(@JsonProperty("moved") boolean moved,
                                          @JsonProperty("isDestinationRetiredClass") boolean isDestinationRetiredClass,
-                                         @JsonProperty("isInitialParentLinPathParent") boolean isInitialParentLinPathParent) implements Result {
+                                         @JsonProperty("isInitialParentLinPathParent") boolean isInitialParentLinPathParent,
+
+                                         @JsonProperty("releasedChildrenValidationMessage") String releasedChildrenValidationMessage) implements Result {
 
 }
