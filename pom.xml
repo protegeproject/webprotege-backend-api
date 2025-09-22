@@ -10,6 +10,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <name>WebProtégé Backend API</name>
+    <description>This library defines an API for the webprotege-backend service</description>
     <groupId>edu.stanford.protege</groupId>
     <artifactId>webprotege-backend-api</artifactId>
     <version>3.1.8-WHO</version>
@@ -344,27 +346,14 @@
                     </plugin>
 
                     <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.7</version>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.8.0</version>
                         <extensions>true</extensions>
                         <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            <publishingServerId>central</publishingServerId>
+                            <autoPublish>true</autoPublish>
                         </configuration>
-                        <dependencies>
-                            <!--
-                              TODO:
-                                Remove after OSSRH-66257, NEXUS-26993 are fixed,
-                                possibly via https://github.com/sonatype/nexus-maven-plugins/pull/91
-                            -->
-                            <dependency>
-                                <groupId>com.thoughtworks.xstream</groupId>
-                                <artifactId>xstream</artifactId>
-                                <version>1.4.15</version>
-                            </dependency>
-                        </dependencies>
                     </plugin>
 
                 </plugins>
