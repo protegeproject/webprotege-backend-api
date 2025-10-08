@@ -37,6 +37,12 @@ public record CreateClassesAction(ChangeRequestId changeRequestId,
 
     public static final String CHANNEL = "webprotege.entities.CreateClasses";
 
+    public CreateClassesAction {
+        if(changeRequestId == null) {
+            changeRequestId = ChangeRequestId.generate();
+        }
+    }
+
     @Override
     public String getChannel() {
         return CHANNEL;
