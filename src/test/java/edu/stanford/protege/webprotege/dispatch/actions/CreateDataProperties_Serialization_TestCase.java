@@ -33,7 +33,7 @@ public class CreateDataProperties_Serialization_TestCase {
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new CreateDataPropertiesResult(ProjectId.generate(),
-                ImmutableSet.of());
+                ImmutableSet.of(), ChangeRequestId.generate());
 
     }
 }
