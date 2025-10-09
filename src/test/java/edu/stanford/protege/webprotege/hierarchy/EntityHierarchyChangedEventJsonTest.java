@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
 import com.google.common.collect.ImmutableList;
+import edu.stanford.protege.webprotege.common.ChangeRequestId;
 import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.jupiter.api.Test;
@@ -41,7 +42,7 @@ public class EntityHierarchyChangedEventJsonTest {
         var changeEvent = GraphModelChangedEvent.create(ImmutableList.of(new AddEdge<>(new GraphEdge<>(new GraphNode<>("A"), new GraphNode<>("B")))));
 
         // Create an EntityHierarchyChangedEvent instance
-        EntityHierarchyChangedEvent event = new EntityHierarchyChangedEvent(eventId, projectId, hierarchyDescriptor, changeEvent);
+        EntityHierarchyChangedEvent event = new EntityHierarchyChangedEvent(eventId, projectId, hierarchyDescriptor, changeEvent, ChangeRequestId.generate());
 
         // Serialize to JSON
         JsonContent<EntityHierarchyChangedEvent> json = jacksonTester.write(event);
@@ -67,6 +68,7 @@ public class EntityHierarchyChangedEventJsonTest {
                     "@type": "webprotege.events.hierarchies.EntityHierarchyChanged",
                     "eventId": "event-id",
                     "projectId": "00000000-1111-2222-3333-444444444444",
+                    "changeRequestId" : "ff0a2d71-d93c-41cd-b66e-2db58e9f4c1e",
                     "hierarchyDescriptor": {
                         "@type": "ClassHierarchyDescriptor",
                         "roots": [
@@ -91,6 +93,7 @@ public class EntityHierarchyChangedEventJsonTest {
         assertThat(event).isNotNull();
         assertThat(event.eventId().id()).isEqualTo(EVENT_ID);
         assertThat(event.projectId().id()).isEqualTo(PROJECT_ID);
+        assertThat(event.changeRequestId().id()).isEqualTo("ff0a2d71-d93c-41cd-b66e-2db58e9f4c1e");
 
         // Assert HierarchyDescriptor
         assertThat(event.hierarchyDescriptor()).isInstanceOf(ClassHierarchyDescriptor.class);

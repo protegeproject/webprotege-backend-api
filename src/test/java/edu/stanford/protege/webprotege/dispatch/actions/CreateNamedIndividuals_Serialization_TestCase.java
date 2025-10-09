@@ -34,7 +34,7 @@ public class CreateNamedIndividuals_Serialization_TestCase {
     @Test
     public void shouldSerializeResult() throws IOException {
         var result = new CreateNamedIndividualsResult(ProjectId.generate(),
-                ImmutableSet.of());
+                ImmutableSet.of(), ChangeRequestId.generate());
 
     }
 }
