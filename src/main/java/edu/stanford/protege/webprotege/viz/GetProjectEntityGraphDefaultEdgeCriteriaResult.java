@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.viz;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.dispatch.Result;
@@ -10,6 +11,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * 2019-12-07
  */
 @JsonTypeName("webprotege.graphs.GetProjectEntityGraphDefaultEdgeCriteria")
-public record GetProjectEntityGraphDefaultEdgeCriteriaResult(ImmutableList<EdgeCriteria> edgeCriteria) implements Result {
+public record GetProjectEntityGraphDefaultEdgeCriteriaResult(@JsonProperty("edgeCriteria") ImmutableList<EdgeCriteria> edgeCriteria) implements Result {
 
 }

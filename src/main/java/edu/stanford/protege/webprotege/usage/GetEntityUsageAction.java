@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.usage;
 
 import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.PageRequest;
@@ -22,12 +23,16 @@ import java.util.Optional;
 
 @JsonTypeName("webprotege.entities.GetEntityUsage")
 @JsonClassDescription("Requests the entity usage for the specified entity.  The usage is the set of OWL axioms that mention the entity in their signature.")
-public record GetEntityUsageAction(@JsonPropertyDescription("The entity whose usage will be returned")
+public record GetEntityUsageAction(@JsonProperty("subject")
+                                   @JsonPropertyDescription("The entity whose usage will be returned")
                                    OWLEntity subject,
+                                   @JsonProperty("projectId")
                                    @JsonPropertyDescription("The project id in which the entity is used")
                                    ProjectId projectId,
+                                   @JsonProperty("usageFilter")
                                    @JsonPropertyDescription("The usage filter that specifies they types of axioms to be retrieved etc.")
                                    @Nullable UsageFilter usageFilter,
+                                   @JsonProperty("pageRequest")
                                    @Nonnull
                                    PageRequest pageRequest) implements ProjectAction<GetEntityUsageResult> {
 

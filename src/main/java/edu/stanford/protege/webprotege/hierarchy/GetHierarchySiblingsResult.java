@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.dispatch.Result;
@@ -13,6 +14,6 @@ import edu.stanford.protege.webprotege.entity.EntityNode;
 
 
 @JsonTypeName("webprotege.hierarchies.GetHierarchySiblings")
-public record GetHierarchySiblingsResult(Page<GraphNode<EntityNode>> siblingsPage) implements Result {
+public record GetHierarchySiblingsResult(@JsonProperty("siblingsPage") Page<GraphNode<EntityNode>> siblingsPage) implements Result {
 
 }
