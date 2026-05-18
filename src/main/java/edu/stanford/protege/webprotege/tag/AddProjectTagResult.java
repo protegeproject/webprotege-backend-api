@@ -15,7 +15,7 @@ import java.util.Optional;
  * 18 Mar 2018
  */
 @JsonTypeName("webprotege.tags.AddProjectTag")
-public record AddProjectTagResult(Tag addedTag) implements Result {
+public record AddProjectTagResult(@JsonProperty("addedTag") Tag addedTag) implements Result {
 
     @JsonCreator
     public static AddProjectTagResult create(@JsonProperty("addedTag") @Nullable Tag addedTag) {

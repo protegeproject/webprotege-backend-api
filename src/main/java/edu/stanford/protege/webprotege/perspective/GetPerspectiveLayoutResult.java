@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.perspective;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
@@ -11,6 +12,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 
 
 @JsonTypeName("webprotege.perspectives.GetPerspectiveLayout")
-public record GetPerspectiveLayoutResult(PerspectiveLayout layout) implements Result {
+public record GetPerspectiveLayoutResult(@JsonProperty("layout") PerspectiveLayout layout) implements Result {
 
 }

@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.lang;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.LangTag;
@@ -14,6 +15,7 @@ import javax.annotation.Nonnull;
  * 2020-04-26
  */
 @JsonTypeName("webprotege.projects.GetProjectLangTags")
-public record GetProjectLangTagsResult(@Nonnull ProjectId projectId, @Nonnull ImmutableSet<LangTag> langTags) implements Result {
+public record GetProjectLangTagsResult(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                       @JsonProperty("langTags") @Nonnull ImmutableSet<LangTag> langTags) implements Result {
 
 }

@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.project;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.Action;
@@ -13,7 +14,7 @@ import edu.stanford.protege.webprotege.dispatch.Action;
 
 
 @JsonTypeName("webprotege.projects.MoveProjectToTrash")
-public record MoveProjectsToTrashAction(ProjectId projectId) implements Action<MoveProjectsToTrashResult> {
+public record MoveProjectsToTrashAction(@JsonProperty("projectId") ProjectId projectId) implements Action<MoveProjectsToTrashResult> {
 
     public static final String CHANNEL = "webprotege.projects.MoveProjectToTrash";
 

@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.permissions;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.authorization.Capability;
@@ -11,6 +12,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
  * 23/02/15
  */
 @JsonTypeName("webprotege.auth.GetProjectPermissions")
-public record GetProjectPermissionsResult(ImmutableSet<Capability> allowedActions) implements Result {
+public record GetProjectPermissionsResult(@JsonProperty("allowedActions") ImmutableSet<Capability> allowedActions) implements Result {
 
 }

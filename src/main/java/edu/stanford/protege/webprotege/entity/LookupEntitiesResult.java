@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
@@ -14,6 +15,6 @@ import java.util.List;
 
 
 @JsonTypeName("webprotege.entities.LookupEntities")
-public record LookupEntitiesResult(List<EntityLookupResult> results) implements Result {
+public record LookupEntitiesResult(@JsonProperty("results") List<EntityLookupResult> results) implements Result {
 
 }

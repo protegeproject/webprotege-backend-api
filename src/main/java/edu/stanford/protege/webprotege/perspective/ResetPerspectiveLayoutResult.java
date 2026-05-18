@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.perspective;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
@@ -14,9 +15,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 15 Mar 2017
  */
 @JsonTypeName("webprotege.perspectives.ResetPerspectiveLayout")
-public record ResetPerspectiveLayoutResult(@Nonnull PerspectiveLayout resetLayout) implements Result {
+public record ResetPerspectiveLayoutResult(@JsonProperty("resetLayout") @Nonnull PerspectiveLayout resetLayout) implements Result {
 
-    public ResetPerspectiveLayoutResult(@Nonnull PerspectiveLayout resetLayout) {
+    public ResetPerspectiveLayoutResult(@JsonProperty("resetLayout") @Nonnull PerspectiveLayout resetLayout) {
         this.resetLayout = checkNotNull(resetLayout);
     }
 }

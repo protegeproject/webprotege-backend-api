@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.tag;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
@@ -13,7 +14,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 18 Mar 2018
  */
 @JsonTypeName("webprotege.tags.GetEntityTags")
-public record GetEntityTagsAction(ProjectId projectId, OWLEntity entity) implements ProjectAction<GetEntityTagsResult> {
+public record GetEntityTagsAction(@JsonProperty("projectId") ProjectId projectId,
+                                  @JsonProperty("entity") OWLEntity entity) implements ProjectAction<GetEntityTagsResult> {
 
     public static final String CHANNEL = "webprotege.tags.GetEntityTags";
 
@@ -22,7 +24,8 @@ public record GetEntityTagsAction(ProjectId projectId, OWLEntity entity) impleme
         return CHANNEL;
     }
 
-    public GetEntityTagsAction(ProjectId projectId, OWLEntity entity) {
+    public GetEntityTagsAction(@JsonProperty("projectId") ProjectId projectId,
+                               @JsonProperty("entity") OWLEntity entity) {
         this.projectId = checkNotNull(projectId);
         this.entity = checkNotNull(entity);
     }

@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
@@ -16,9 +17,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 9 May 2017
  */
 @JsonTypeName("webprotege.entities.DeleteEntities")
-public record DeleteEntitiesAction(ChangeRequestId changeRequestId,
-                                   ProjectId projectId,
-                                   ImmutableSet<OWLEntity> entities) implements ProjectAction<DeleteEntitiesResult>, ContentChangeRequest {
+public record DeleteEntitiesAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                   @JsonProperty("projectId") ProjectId projectId,
+                                   @JsonProperty("entities") ImmutableSet<OWLEntity> entities) implements ProjectAction<DeleteEntitiesResult>, ContentChangeRequest {
 
     public static final String CHANNEL = "webprotege.entities.DeleteEntities";
 
@@ -27,7 +28,9 @@ public record DeleteEntitiesAction(ChangeRequestId changeRequestId,
         return CHANNEL;
     }
 
-    public DeleteEntitiesAction(ChangeRequestId changeRequestId, ProjectId projectId, ImmutableSet<OWLEntity> entities) {
+    public DeleteEntitiesAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                @JsonProperty("projectId") ProjectId projectId,
+                                @JsonProperty("entities") ImmutableSet<OWLEntity> entities) {
         this.changeRequestId = checkNotNull(changeRequestId);
         this.projectId = checkNotNull(projectId);
         this.entities = checkNotNull(entities);

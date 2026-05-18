@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
@@ -17,7 +18,8 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
  * @throws  NullPointerException if any parameters are {@code null}.
  */
 @JsonTypeName("webprotege.entities.LookupEntities")
-public record LookupEntitiesAction(ProjectId projectId, EntityLookupRequest entityLookupRequest) implements ProjectAction<LookupEntitiesResult> {
+public record LookupEntitiesAction(@JsonProperty("projectId") ProjectId projectId,
+                                   @JsonProperty("entityLookupRequest") EntityLookupRequest entityLookupRequest) implements ProjectAction<LookupEntitiesResult> {
 
     public static final String CHANNEL = "webprotege.entities.LookupEntities";
 

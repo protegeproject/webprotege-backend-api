@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.project;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.Action;
@@ -13,7 +14,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Date: 05/04/2013
  */
 @JsonTypeName("webprotege.projects.LoadProject")
-public record LoadProjectAction(ProjectId projectId) implements Action<LoadProjectResult>, HasProjectId {
+public record LoadProjectAction(@JsonProperty("projectId") ProjectId projectId) implements Action<LoadProjectResult>, HasProjectId {
 
     public static final String CHANNEL = "webprotege.projects.LoadProject";
 
@@ -22,7 +23,7 @@ public record LoadProjectAction(ProjectId projectId) implements Action<LoadProje
         return CHANNEL;
     }
 
-    public LoadProjectAction(ProjectId projectId) {
+    public LoadProjectAction(@JsonProperty("projectId") ProjectId projectId) {
         this.projectId = checkNotNull(projectId);
     }
 }

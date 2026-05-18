@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.app;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
@@ -11,6 +12,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 
 
 @JsonTypeName("webprotege.application.GetApplicationSettings")
-public record GetApplicationSettingsResult(ApplicationSettings settings) implements Result {
+public record GetApplicationSettingsResult(@JsonProperty("settings") ApplicationSettings settings) implements Result {
 
 }

@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.entity;
 
 import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
@@ -19,16 +20,20 @@ import org.semanticweb.owlapi.model.OWLClass;
  */
 @JsonTypeName("webprotege.entities.CreateClasses")
 @JsonClassDescription("Represents a request to create OWL classes in a specified project")
-public record CreateClassesAction(ChangeRequestId changeRequestId,
+public record CreateClassesAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                  @JsonProperty("projectId")
                                   @JsonPropertyDescription("The id of the project where the classes will be created")
                                   ProjectId projectId,
+                                  @JsonProperty("sourceText")
                                   @JsonPropertyDescription("""
                                           The source text that contains the user supplied names for the classes.
 
                                           Multiple user-supplied class names should be separated with a new line.""")
                                   String sourceText,
+                                  @JsonProperty("langTag")
                                   @JsonPropertyDescription("The language tag that should be used for the labels of the created classes")
                                   String langTag,
+                                  @JsonProperty("parents")
                                   @JsonPropertyDescription("""
                                           A set of classes that the created classes will be subclasses of.
 

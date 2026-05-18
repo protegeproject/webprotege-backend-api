@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.ontology;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
@@ -14,7 +15,7 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
 
 @JsonTypeName("webprotege.ontologies.GetRootOntologyId")
-public record GetRootOntologyIdAction(ProjectId projectId) implements ProjectAction<GetRootOntologyIdResult> {
+public record GetRootOntologyIdAction(@JsonProperty("projectId") ProjectId projectId) implements ProjectAction<GetRootOntologyIdResult> {
 
     public static final String CHANNEL = "webprotege.ontologies.GetRootOntologyId";
 

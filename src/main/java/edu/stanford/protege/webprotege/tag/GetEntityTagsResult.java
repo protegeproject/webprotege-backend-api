@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.tag;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
@@ -13,10 +14,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 18 Mar 2018
  */
 @JsonTypeName("webprotege.tags.GetEntityTags")
-public record GetEntityTagsResult(Collection<Tag> entityTags,
-                                 Collection<Tag> projectTags) implements Result {
+public record GetEntityTagsResult(@JsonProperty("entityTags") Collection<Tag> entityTags,
+                                 @JsonProperty("projectTags") Collection<Tag> projectTags) implements Result {
 
-    public GetEntityTagsResult(Collection<Tag> entityTags, Collection<Tag> projectTags) {
+    public GetEntityTagsResult(@JsonProperty("entityTags") Collection<Tag> entityTags,
+                               @JsonProperty("projectTags") Collection<Tag> projectTags) {
         this.entityTags = checkNotNull(entityTags);
         this.projectTags = checkNotNull(projectTags);
     }

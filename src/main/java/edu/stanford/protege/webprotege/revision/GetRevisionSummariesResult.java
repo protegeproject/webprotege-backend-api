@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.revision;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.dispatch.Result;
@@ -12,9 +13,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 21/02/15
  */
 @JsonTypeName("webprotege.history.GetRevisionSummaries")
-public record GetRevisionSummariesResult(Page<RevisionSummary> revisionSummaries) implements Result {
+public record GetRevisionSummariesResult(@JsonProperty("revisionSummaries") Page<RevisionSummary> revisionSummaries) implements Result {
 
-    public GetRevisionSummariesResult(Page<RevisionSummary> revisionSummaries) {
+    public GetRevisionSummariesResult(@JsonProperty("revisionSummaries") Page<RevisionSummary> revisionSummaries) {
         this.revisionSummaries = checkNotNull(revisionSummaries);
     }
 }

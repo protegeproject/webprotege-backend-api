@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.change;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.PageRequest;
 import edu.stanford.protege.webprotege.common.ProjectId;
@@ -16,9 +17,9 @@ import java.util.Optional;
  * 24/02/15
  */
 @JsonTypeName("webprotege.history.GetProjectChanges")
-public record GetProjectChangesAction(@Nonnull ProjectId projectId,
-                                     @Nonnull Optional<OWLEntity> subject,
-                                     @Nonnull PageRequest pageRequest) implements ProjectAction<GetProjectChangesResult> {
+public record GetProjectChangesAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                     @JsonProperty("subject") @Nonnull Optional<OWLEntity> subject,
+                                     @JsonProperty("pageRequest") @Nonnull PageRequest pageRequest) implements ProjectAction<GetProjectChangesResult> {
 
     public static final String CHANNEL = "webprotege.history.GetProjectChanges";
 

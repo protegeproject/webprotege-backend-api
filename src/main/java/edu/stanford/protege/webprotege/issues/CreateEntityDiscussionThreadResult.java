@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.issues;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableList;
 import edu.stanford.protege.webprotege.dispatch.Result;
@@ -12,5 +13,5 @@ import javax.annotation.Nonnull;
  * 6 Oct 2016
  */
 @JsonTypeName("webprotege.discussions.CreateEntityDiscussionThread")
-public record CreateEntityDiscussionThreadResult(@Nonnull ImmutableList<EntityDiscussionThread> threads) implements Result {
+public record CreateEntityDiscussionThreadResult(@JsonProperty("threads") @Nonnull ImmutableList<EntityDiscussionThread> threads) implements Result {
 }

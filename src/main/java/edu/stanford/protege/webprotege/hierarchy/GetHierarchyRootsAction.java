@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
@@ -12,7 +13,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Matthew Horridge Stanford Center for Biomedical Informatics Research 30 Nov 2017
  */
 @JsonTypeName("webprotege.hierarchies.GetHierarchyRoots")
-public record GetHierarchyRootsAction(@Nonnull ProjectId projectId, @Nonnull HierarchyDescriptor hierarchyDescriptor) implements ProjectAction<GetHierarchyRootsResult> {
+public record GetHierarchyRootsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                      @JsonProperty("hierarchyDescriptor") @Nonnull HierarchyDescriptor hierarchyDescriptor) implements ProjectAction<GetHierarchyRootsResult> {
 
     public static final String CHANNEL = "webprotege.hierarchies.GetHierarchyRoots";
 
@@ -21,7 +23,8 @@ public record GetHierarchyRootsAction(@Nonnull ProjectId projectId, @Nonnull Hie
         return CHANNEL;
     }
 
-    public GetHierarchyRootsAction(@Nonnull ProjectId projectId, @Nonnull HierarchyDescriptor hierarchyDescriptor) {
+    public GetHierarchyRootsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                   @JsonProperty("hierarchyDescriptor") @Nonnull HierarchyDescriptor hierarchyDescriptor) {
         this.projectId = checkNotNull(projectId);
         this.hierarchyDescriptor = checkNotNull(hierarchyDescriptor);
     }

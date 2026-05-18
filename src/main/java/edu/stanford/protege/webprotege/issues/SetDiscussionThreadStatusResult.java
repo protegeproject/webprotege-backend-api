@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.issues;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
@@ -12,7 +13,7 @@ import javax.annotation.Nonnull;
  * 12 Oct 2016
  */
 @JsonTypeName("webprotege.discussions.SetDiscussionThreadStatus")
-public record SetDiscussionThreadStatusResult(@Nonnull ThreadId threadId,
-                                             @Nonnull Status result) implements Result {
+public record SetDiscussionThreadStatusResult(@JsonProperty("threadId") @Nonnull ThreadId threadId,
+                                             @JsonProperty("result") @Nonnull Status result) implements Result {
 
 }

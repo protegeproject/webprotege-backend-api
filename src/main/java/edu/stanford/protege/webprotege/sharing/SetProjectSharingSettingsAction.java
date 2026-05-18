@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.sharing;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ChangeRequest;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
@@ -14,8 +15,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 07/02/15
  */
 @JsonTypeName("webprotege.sharing.SetProjectSharingSettings")
-public record SetProjectSharingSettingsAction(ChangeRequestId changeRequestId,
-                                              ProjectId projectId, ProjectSharingSettings settings) implements ProjectAction<SetProjectSharingSettingsResult>, ChangeRequest {
+public record SetProjectSharingSettingsAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                              @JsonProperty("projectId") ProjectId projectId,
+                                              @JsonProperty("settings") ProjectSharingSettings settings) implements ProjectAction<SetProjectSharingSettingsResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.sharing.SetProjectSharingSettings";
 
@@ -24,7 +26,9 @@ public record SetProjectSharingSettingsAction(ChangeRequestId changeRequestId,
         return CHANNEL;
     }
 
-    public SetProjectSharingSettingsAction(ChangeRequestId changeRequestId, ProjectId projectId, ProjectSharingSettings settings) {
+    public SetProjectSharingSettingsAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                           @JsonProperty("projectId") ProjectId projectId,
+                                           @JsonProperty("settings") ProjectSharingSettings settings) {
         this.changeRequestId = checkNotNull(changeRequestId);
         this.projectId = checkNotNull(projectId);
         this.settings = checkNotNull(settings);
