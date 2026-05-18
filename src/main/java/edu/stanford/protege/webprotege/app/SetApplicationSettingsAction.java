@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.app;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ChangeRequest;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
@@ -15,8 +16,8 @@ import javax.annotation.Nonnull;
 
 
 @JsonTypeName("webprotege.application.SetApplicationSettings")
-public record SetApplicationSettingsAction(ChangeRequestId changeRequestId,
-                                           @Nonnull ApplicationSettings applicationSettings) implements Action<SetApplicationSettingsResult>, ChangeRequest {
+public record SetApplicationSettingsAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                           @JsonProperty("applicationSettings") @Nonnull ApplicationSettings applicationSettings) implements Action<SetApplicationSettingsResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.application.SetApplicationSettings";
 

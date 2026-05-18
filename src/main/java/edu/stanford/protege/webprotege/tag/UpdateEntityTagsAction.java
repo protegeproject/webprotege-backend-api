@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.tag;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ChangeRequest;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
@@ -18,11 +19,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 21 Mar 2018
  */
 @JsonTypeName("webprotege.tags.UpdateEntityTags")
-public record UpdateEntityTagsAction(@Nonnull ChangeRequestId changeRequestId,
-                                     @Nonnull ProjectId projectId,
-                                     @Nonnull OWLEntity entity,
-                                     @Nonnull Set<TagId> fromTagIds,
-                                     @Nonnull Set<TagId> toTagIds) implements ProjectAction<UpdateEntityTagsResult>, ChangeRequest {
+public record UpdateEntityTagsAction(@JsonProperty("changeRequestId") @Nonnull ChangeRequestId changeRequestId,
+                                     @JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                     @JsonProperty("entity") @Nonnull OWLEntity entity,
+                                     @JsonProperty("fromTagIds") @Nonnull Set<TagId> fromTagIds,
+                                     @JsonProperty("toTagIds") @Nonnull Set<TagId> toTagIds) implements ProjectAction<UpdateEntityTagsResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.tags.UpdateEntityTags";
 
