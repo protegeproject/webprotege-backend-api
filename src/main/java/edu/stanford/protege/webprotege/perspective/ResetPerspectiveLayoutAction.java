@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.perspective;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ChangeRequest;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
@@ -21,9 +22,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @param perspectiveId The perspective id.
  */
 @JsonTypeName("webprotege.perspectives.ResetPerspectiveLayout")
-public record ResetPerspectiveLayoutAction(ChangeRequestId changeRequestId,
-                                           ProjectId projectId,
-                                           PerspectiveId perspectiveId) implements ProjectAction<ResetPerspectiveLayoutResult>, ChangeRequest {
+public record ResetPerspectiveLayoutAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                           @JsonProperty("projectId") ProjectId projectId,
+                                           @JsonProperty("perspectiveId") PerspectiveId perspectiveId) implements ProjectAction<ResetPerspectiveLayoutResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.perspectives.ResetPerspectiveLayout";
 
@@ -32,7 +33,9 @@ public record ResetPerspectiveLayoutAction(ChangeRequestId changeRequestId,
         return CHANNEL;
     }
 
-    public ResetPerspectiveLayoutAction(ChangeRequestId changeRequestId, ProjectId projectId, PerspectiveId perspectiveId) {
+    public ResetPerspectiveLayoutAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                        @JsonProperty("projectId") ProjectId projectId,
+                                        @JsonProperty("perspectiveId") PerspectiveId perspectiveId) {
         this.changeRequestId = checkNotNull(changeRequestId);
         this.projectId = checkNotNull(projectId);
         this.perspectiveId = checkNotNull(perspectiveId);

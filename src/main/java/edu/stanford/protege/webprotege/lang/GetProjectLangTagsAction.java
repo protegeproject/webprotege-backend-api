@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.lang;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
@@ -12,7 +13,7 @@ import javax.annotation.Nonnull;
  * 2020-04-26
  */
 @JsonTypeName("webprotege.projects.GetProjectLangTags")
-public record GetProjectLangTagsAction(ProjectId projectId) implements ProjectAction<GetProjectLangTagsResult> {
+public record GetProjectLangTagsAction(@JsonProperty("projectId") ProjectId projectId) implements ProjectAction<GetProjectLangTagsResult> {
 
     public static final String CHANNEL = "webprotege.projects.GetProjectLangTags";
 

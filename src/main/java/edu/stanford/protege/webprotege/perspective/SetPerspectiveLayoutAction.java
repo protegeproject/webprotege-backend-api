@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.perspective;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ChangeRequest;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
@@ -16,10 +17,10 @@ import java.util.Objects;
  * 28/02/16
  */
 @JsonTypeName("webprotege.perspectives.SetPerspectiveLayout")
-public record SetPerspectiveLayoutAction(@Nonnull ChangeRequestId changeRequestId,
-                                         @Nonnull ProjectId projectId,
-                                         @Nonnull UserId userId,
-                                         @Nonnull PerspectiveLayout layout) implements ProjectAction<SetPerspectiveLayoutResult>, ChangeRequest {
+public record SetPerspectiveLayoutAction(@JsonProperty("changeRequestId") @Nonnull ChangeRequestId changeRequestId,
+                                         @JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                         @JsonProperty("userId") @Nonnull UserId userId,
+                                         @JsonProperty("layout") @Nonnull PerspectiveLayout layout) implements ProjectAction<SetPerspectiveLayoutResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.perspectives.SetPerspectiveLayout";
 
@@ -28,10 +29,10 @@ public record SetPerspectiveLayoutAction(@Nonnull ChangeRequestId changeRequestI
         return CHANNEL;
     }
 
-    public SetPerspectiveLayoutAction(@Nonnull ChangeRequestId changeRequestId,
-                                      @Nonnull ProjectId projectId,
-                                      @Nonnull UserId userId,
-                                      @Nonnull PerspectiveLayout layout) {
+    public SetPerspectiveLayoutAction(@JsonProperty("changeRequestId") @Nonnull ChangeRequestId changeRequestId,
+                                      @JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                      @JsonProperty("userId") @Nonnull UserId userId,
+                                      @JsonProperty("layout") @Nonnull PerspectiveLayout layout) {
         this.changeRequestId = Objects.requireNonNull(changeRequestId);
         this.projectId = Objects.requireNonNull(projectId);
         this.userId = Objects.requireNonNull(userId);

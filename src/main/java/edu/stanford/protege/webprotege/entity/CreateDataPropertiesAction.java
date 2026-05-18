@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
@@ -17,11 +18,11 @@ import javax.annotation.Nonnull;
  * Date: 25/03/2013
  */
 @JsonTypeName("webprotege.entities.CreateDataProperties")
-public record CreateDataPropertiesAction(@Nonnull ChangeRequestId changeRequestId,
-                                         @Nonnull ProjectId projectId,
-                                         @Nonnull String sourceText,
-                                         @Nonnull String langTag,
-                                         ImmutableSet<OWLDataProperty> parents) implements ProjectAction<CreateDataPropertiesResult>, ContentChangeRequest {
+public record CreateDataPropertiesAction(@JsonProperty("changeRequestId") @Nonnull ChangeRequestId changeRequestId,
+                                         @JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                         @JsonProperty("sourceText") @Nonnull String sourceText,
+                                         @JsonProperty("langTag") @Nonnull String langTag,
+                                         @JsonProperty("parents") ImmutableSet<OWLDataProperty> parents) implements ProjectAction<CreateDataPropertiesResult>, ContentChangeRequest {
 
     public static final String CHANNEL = "webprotege.entities.CreateDataProperties";
 

@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.hierarchy;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.entity.EntityNode;
@@ -12,6 +13,6 @@ import java.util.Collection;
 
 
 @JsonTypeName("webprotege.hierarchies.GetHierarchyPathsToRoot")
-public record GetHierarchyPathsToRootResult(Collection<Path<GraphNode<EntityNode>>> paths) implements Result {
+public record GetHierarchyPathsToRootResult(@JsonProperty("paths") Collection<Path<GraphNode<EntityNode>>> paths) implements Result {
 
 }

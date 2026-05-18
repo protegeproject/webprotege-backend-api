@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.renderer;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 import edu.stanford.protege.webprotege.entity.OWLEntityData;
@@ -12,6 +13,6 @@ import javax.annotation.Nonnull;
 
 
 @JsonTypeName("webprotege.entities.GetEntityRendering")
-public record GetEntityRenderingResult(@Nonnull OWLEntityData entityData) implements Result {
+public record GetEntityRenderingResult(@JsonProperty("entityData") @Nonnull OWLEntityData entityData) implements Result {
 
 }

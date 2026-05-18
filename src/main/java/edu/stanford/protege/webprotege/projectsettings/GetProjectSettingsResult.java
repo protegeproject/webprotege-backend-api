@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.projectsettings;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.dispatch.Result;
 
@@ -11,9 +12,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 25/11/14
  */
 @JsonTypeName("webprotege.projects.GetProjectSettings")
-public record GetProjectSettingsResult(ProjectSettings settings) implements Result {
+public record GetProjectSettingsResult(@JsonProperty("settings") ProjectSettings settings) implements Result {
 
-    public GetProjectSettingsResult(ProjectSettings settings) {
+    public GetProjectSettingsResult(@JsonProperty("settings") ProjectSettings settings) {
         this.settings = checkNotNull(settings);
     }
 }

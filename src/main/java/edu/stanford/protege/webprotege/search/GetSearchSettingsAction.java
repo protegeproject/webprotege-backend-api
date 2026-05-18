@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.search;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.ProjectAction;
@@ -12,7 +13,7 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
 
 @JsonTypeName("webprotege.search.GetSearchSettings")
-public record GetSearchSettingsAction(ProjectId projectId) implements ProjectAction<GetSearchSettingsResult> {
+public record GetSearchSettingsAction(@JsonProperty("projectId") ProjectId projectId) implements ProjectAction<GetSearchSettingsResult> {
 
     public static final String CHANNEL = "webprotege.search.GetSearchSettings";
 

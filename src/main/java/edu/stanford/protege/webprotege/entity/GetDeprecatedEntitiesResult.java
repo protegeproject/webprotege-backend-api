@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.Page;
 import edu.stanford.protege.webprotege.dispatch.Result;
@@ -12,6 +13,6 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 
 
 @JsonTypeName("webprotege.entities.GetDeprecatedEntities")
-public record GetDeprecatedEntitiesResult(Page<OWLEntityData> entities) implements Result {
+public record GetDeprecatedEntitiesResult(@JsonProperty("entities") Page<OWLEntityData> entities) implements Result {
 
 }

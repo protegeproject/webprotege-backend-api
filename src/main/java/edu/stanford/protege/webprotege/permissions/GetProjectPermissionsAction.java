@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.permissions;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.UserId;
@@ -15,7 +16,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 23/02/15
  */
 @JsonTypeName("webprotege.auth.GetProjectPermissions")
-public record GetProjectPermissionsAction(@Nonnull ProjectId projectId, @Nonnull UserId userId) implements Action<GetProjectPermissionsResult> {
+public record GetProjectPermissionsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                          @JsonProperty("userId") @Nonnull UserId userId) implements Action<GetProjectPermissionsResult> {
 
     public static final String CHANNEL = "webprotege.auth.GetProjectPermissions";
 
@@ -24,7 +26,8 @@ public record GetProjectPermissionsAction(@Nonnull ProjectId projectId, @Nonnull
         return CHANNEL;
     }
 
-    public GetProjectPermissionsAction(@Nonnull ProjectId projectId, @Nonnull UserId userId) {
+    public GetProjectPermissionsAction(@JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                       @JsonProperty("userId") @Nonnull UserId userId) {
         this.projectId = checkNotNull(projectId);
         this.userId = checkNotNull(userId);
     }

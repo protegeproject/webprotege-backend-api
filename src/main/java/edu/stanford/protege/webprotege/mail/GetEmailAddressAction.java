@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.mail;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.UserId;
 import edu.stanford.protege.webprotege.dispatch.Action;
@@ -11,7 +12,7 @@ import edu.stanford.protege.webprotege.dispatch.Action;
  * Date: 06/11/2013
  */
 @JsonTypeName("webprotege.users.GetEmailAddress")
-public record GetEmailAddressAction(UserId userId) implements Action<GetEmailAddressResult> {
+public record GetEmailAddressAction(@JsonProperty("userId") UserId userId) implements Action<GetEmailAddressResult> {
 
     public static final String CHANNEL = "webprotege.users.GetEmailAddress";
 
