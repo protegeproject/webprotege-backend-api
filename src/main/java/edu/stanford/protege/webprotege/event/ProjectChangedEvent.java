@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.event;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectEvent;
@@ -23,8 +24,10 @@ import java.util.Set;
  * @throws NullPointerException if any parameters are {@code null}.
  */
 @JsonTypeName("webprotege.events.project.ProjectChanged")
-public record ProjectChangedEvent(EventId eventId,
-                                  ProjectId projectId, RevisionSummary revisionSummary, Set<OWLEntityData> subjects) implements ProjectEvent {
+public record ProjectChangedEvent(@JsonProperty("eventId") EventId eventId,
+                                  @JsonProperty("projectId") ProjectId projectId,
+                                  @JsonProperty("revisionSummary") RevisionSummary revisionSummary,
+                                  @JsonProperty("subjects") Set<OWLEntityData> subjects) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.events.project.ProjectChanged";
 

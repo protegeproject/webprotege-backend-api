@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.revision;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.Result;
@@ -12,8 +13,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 21/02/15
  */
 @JsonTypeName("webprotege.history.GetHeadRevisionNumber")
-public record GetHeadRevisionNumberResult(ProjectId projectId,
-                                         RevisionNumber revisionNumber) implements Result {
+public record GetHeadRevisionNumberResult(@JsonProperty("projectId") ProjectId projectId,
+                                          @JsonProperty("revisionNumber") RevisionNumber revisionNumber) implements Result {
 
     public GetHeadRevisionNumberResult(ProjectId projectId, RevisionNumber revisionNumber) {
         this.projectId = checkNotNull(projectId);

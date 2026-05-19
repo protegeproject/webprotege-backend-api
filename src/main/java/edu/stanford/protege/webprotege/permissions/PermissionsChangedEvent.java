@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.permissions;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectEvent;
@@ -16,8 +17,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * An event that is fired when the permissions for a project change.
  */
 @JsonTypeName("webprotege.events.projects.PermissionsChanged")
-public record PermissionsChangedEvent(EventId eventId,
-                                      ProjectId projectId) implements ProjectEvent {
+public record PermissionsChangedEvent(@JsonProperty("eventId") EventId eventId,
+                                      @JsonProperty("projectId") ProjectId projectId) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.events.projects.PermissionsChanged";
 

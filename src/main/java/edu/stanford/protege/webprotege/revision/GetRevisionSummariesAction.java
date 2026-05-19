@@ -16,8 +16,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 21/02/15
  */
 @JsonTypeName("webprotege.history.GetRevisionSummaries")
-public record GetRevisionSummariesAction(@JsonProperty(required = true) ProjectId projectId,
-                                         PageRequest pageRequest) implements ProjectAction<GetRevisionSummariesResult> {
+public record GetRevisionSummariesAction(@JsonProperty(value = "projectId", required = true) ProjectId projectId,
+                                         @JsonProperty("pageRequest") PageRequest pageRequest) implements ProjectAction<GetRevisionSummariesResult> {
 
     public static final String CHANNEL = "webprotege.history.GetRevisionSummaries";
 

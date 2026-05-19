@@ -1,6 +1,7 @@
 package edu.stanford.protege.webprotege.event;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectEvent;
@@ -14,10 +15,10 @@ import org.semanticweb.owlapi.model.OWLEntity;
  * Date: 21/03/2013
  */
 @JsonTypeName("webprotege.events.entities.EntityDeprecationStatusChanged")
-public record EntityDeprecationStatusChangedEvent(EventId eventId,
-                                                  ProjectId projectId,
-                                                  OWLEntity entity,
-                                                  boolean deprecated) implements ProjectEvent {
+public record EntityDeprecationStatusChangedEvent(@JsonProperty("eventId") EventId eventId,
+                                                  @JsonProperty("projectId") ProjectId projectId,
+                                                  @JsonProperty("entity") OWLEntity entity,
+                                                  @JsonProperty("deprecated") boolean deprecated) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.events.entities.EntityDeprecationStatusChanged";
 
