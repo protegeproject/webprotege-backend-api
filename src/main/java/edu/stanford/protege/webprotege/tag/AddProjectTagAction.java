@@ -19,12 +19,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 18 Mar 2018
  */
 @JsonTypeName("webprotege.tags.AddProjectTag")
-public record AddProjectTagAction(ChangeRequestId changeRequestId,
-                                  ProjectId projectId,
-                                  String label,
-                                  String description,
-                                  Color color,
-                                  Color backgroundColor) implements ProjectAction<AddProjectTagResult>, ChangeRequest {
+public record AddProjectTagAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
+                                  @JsonProperty("projectId") ProjectId projectId,
+                                  @JsonProperty("label") String label,
+                                  @JsonProperty("description") String description,
+                                  @JsonProperty("color") Color color,
+                                  @JsonProperty("backgroundColor") Color backgroundColor) implements ProjectAction<AddProjectTagResult>, ChangeRequest {
 
     public static final String CHANNEL = "webprotege.tags.AddProjectTag";
 
