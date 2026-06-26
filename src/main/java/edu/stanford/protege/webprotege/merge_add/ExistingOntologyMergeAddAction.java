@@ -13,14 +13,14 @@ import java.util.List;
 
 
 
-@JsonTypeName("webprotege.ontologies.MergeOntologies")
+@JsonTypeName("webprotege.ontologies.ExistingOntologyMergeAdd")
 public record ExistingOntologyMergeAddAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
                                              @JsonProperty("projectId") ProjectId projectId,
                                              @JsonProperty("documentId") DocumentId documentId,
                                              @JsonProperty("selectedOntologies") List<OWLOntologyID> selectedOntologies,
                                              @JsonProperty("targetOntology") OWLOntologyID targetOntology) implements ProjectAction<ExistingOntologyMergeAddResult>, ContentChangeRequest {
 
-    public static final String CHANNEL = "webprotege.ontologies.MergeOntologies";
+    public static final String CHANNEL = "webprotege.ontologies.ExistingOntologyMergeAdd";
 
     @Override
     public String getChannel() {

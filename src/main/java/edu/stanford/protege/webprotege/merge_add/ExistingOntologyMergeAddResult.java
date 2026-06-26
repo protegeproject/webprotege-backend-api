@@ -5,7 +5,7 @@ import edu.stanford.protege.webprotege.dispatch.Result;
 
 
 
-@JsonTypeName("webprotege.ontologies.MergeOntologies")
+@JsonTypeName("webprotege.ontologies.ExistingOntologyMergeAdd")
 public record ExistingOntologyMergeAddResult() implements Result {
 
 }
