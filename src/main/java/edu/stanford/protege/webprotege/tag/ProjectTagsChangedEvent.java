@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.tag;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectEvent;
@@ -14,9 +15,9 @@ import java.util.Collection;
  * 26 Mar 2018
  */
 @JsonTypeName("webprotege.events.tags.ProjectTagsChanged")
-public record ProjectTagsChangedEvent(@Nonnull EventId eventId,
-                                      @Nonnull ProjectId projectId,
-                                      @Nonnull Collection<Tag> projectTags) implements ProjectEvent {
+public record ProjectTagsChangedEvent(@JsonProperty("eventId") @Nonnull EventId eventId,
+                                      @JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                      @JsonProperty("projectTags") @Nonnull Collection<Tag> projectTags) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.events.tags.ProjectTagsChanged";
 

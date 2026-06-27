@@ -21,7 +21,7 @@ import java.util.Optional;
 
 
 @JsonTypeName("webprotege.bulkop.EditAnnotations")
-public record EditAnnotationsAction(@JsonProperty("contentChangeRequest") ChangeRequestId changeRequestId,
+public record EditAnnotationsAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
                                     @JsonProperty("projectId") @Nonnull ProjectId projectId,
                                     @JsonProperty("entities") @Nonnull ImmutableSet<OWLEntity> entities,
                                     @JsonProperty("operation") Operation operation,

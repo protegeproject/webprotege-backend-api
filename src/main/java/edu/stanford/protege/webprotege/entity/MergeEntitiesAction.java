@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.google.common.collect.ImmutableSet;
 import edu.stanford.protege.webprotege.common.ChangeRequestId;
@@ -26,12 +27,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @param treatment The treatment for the merged term that specifies whether the merged term
  */
 @JsonTypeName("webprotege.entities.MergeEntities")
-public record MergeEntitiesAction(@Nonnull ChangeRequestId changeRequestId,
-                                  @Nonnull ProjectId projectId,
-                                  @Nonnull ImmutableSet<OWLEntity> sourceEntities,
-                                  @Nonnull OWLEntity targetEntity,
-                                  @Nonnull MergedEntityTreatment treatment,
-                                  @Nonnull String commitMessage) implements ProjectAction<MergeEntitiesResult>, ContentChangeRequest {
+public record MergeEntitiesAction(@JsonProperty("changeRequestId") @Nonnull ChangeRequestId changeRequestId,
+                                  @JsonProperty("projectId") @Nonnull ProjectId projectId,
+                                  @JsonProperty("sourceEntities") @Nonnull ImmutableSet<OWLEntity> sourceEntities,
+                                  @JsonProperty("targetEntity") @Nonnull OWLEntity targetEntity,
+                                  @JsonProperty("treatment") @Nonnull MergedEntityTreatment treatment,
+                                  @JsonProperty("commitMessage") @Nonnull String commitMessage) implements ProjectAction<MergeEntitiesResult>, ContentChangeRequest {
 
     public static final String CHANNEL = "webprotege.entities.MergeEntities";
 

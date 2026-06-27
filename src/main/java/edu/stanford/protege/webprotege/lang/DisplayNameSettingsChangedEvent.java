@@ -15,9 +15,9 @@ import javax.annotation.Nonnull;
  * 29 Jul 2018
  */
 @JsonTypeName("webprotege.events.projects.DisplayNameSettingsChanged")
-public record DisplayNameSettingsChangedEvent(EventId eventId,
-                                              ProjectId projectId,
-                                              DisplayNameSettings displayNameSettings) implements ProjectEvent {
+public record DisplayNameSettingsChangedEvent(@JsonProperty("eventId") EventId eventId,
+                                              @JsonProperty("projectId") ProjectId projectId,
+                                              @JsonProperty("displayNameSettings") DisplayNameSettings displayNameSettings) implements ProjectEvent {
 
     public static final String CHANNEL = "webprotege.events.projects.DisplayNameSettingsChanged";
 

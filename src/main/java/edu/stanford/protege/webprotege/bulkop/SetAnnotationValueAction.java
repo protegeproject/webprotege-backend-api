@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
 
 
 @JsonTypeName("webprotege.bulkop.SetAnnotationValue")
-public record SetAnnotationValueAction(ChangeRequestId changeRequestId,
+public record SetAnnotationValueAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
                                        @JsonProperty("projectId") @Nonnull ProjectId projectId,
                                        @JsonProperty("entities") @Nonnull ImmutableSet<OWLEntity> entities,
                                        @JsonProperty("property") @Nonnull OWLAnnotationProperty property,

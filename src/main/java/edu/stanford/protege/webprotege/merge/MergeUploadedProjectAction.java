@@ -16,7 +16,7 @@ import edu.stanford.protege.webprotege.dispatch.ProjectAction;
 
 
 @JsonTypeName("webprotege.projects.MergeUploadedProject")
-public record MergeUploadedProjectAction(@JsonProperty("changeRequesId") ChangeRequestId changeRequestId,
+public record MergeUploadedProjectAction(@JsonProperty("changeRequestId") ChangeRequestId changeRequestId,
                                          @JsonProperty("projectId") ProjectId projectId,
                                          @JsonProperty("documentId") DocumentId uploadedDocumentId,
                                          @JsonProperty("commitMessage") String commitMessage) implements ProjectAction<MergeUploadedProjectResult>, ContentChangeRequest {

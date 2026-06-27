@@ -1,5 +1,6 @@
 package edu.stanford.protege.webprotege.ontology;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.dispatch.Result;
@@ -14,7 +15,7 @@ import org.semanticweb.owlapi.model.OWLOntologyID;
 
 
 @JsonTypeName("webprotege.ontologies.GetRootOntologyId")
-public record GetRootOntologyIdResult(ProjectId projectId,
-                                      OWLOntologyID rootOntologyId) implements Result {
+public record GetRootOntologyIdResult(@JsonProperty("projectId") ProjectId projectId,
+                                      @JsonProperty("rootOntologyId") OWLOntologyID rootOntologyId) implements Result {
 
 }
